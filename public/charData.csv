@@ -1,0 +1,184 @@
+ID,Name,Ability,Team,Image
+acrobat,Acrobat,"Each night*, choose a player: if they are or become drunk or poisoned tonight, you die.",townsfolk,https://wiki.bloodontheclocktower.com/images/b/b5/Icon_acrobat.png
+alchemist,Alchemist,"You have a Minion ability. When using this, the Storyteller may prompt you to choose differently.",townsfolk,https://wiki.bloodontheclocktower.com/images/5/54/Icon_alchemist.png
+alsaahir,Alsaahir,"Each day, if you publicly guess which players are Minion(s) and which are Demon(s), good wins.",townsfolk,https://wiki.bloodontheclocktower.com/images/8/8e/Icon_alsaahir.png
+amnesiac,Amnesiac,"You do not know what your ability is. Each day, privately guess what it is: you learn how accurate you are.",townsfolk,https://wiki.bloodontheclocktower.com/images/2/26/Icon_amnesiac.png
+artist,Artist,"Once per game, during the day, privately ask the Storyteller any yes/no question.",townsfolk,https://wiki.bloodontheclocktower.com/images/1/1a/Icon_artist.png
+atheist,Atheist,"The Storyteller can break the game rules & if executed, good wins, even if you are dead. [No evil characters]",townsfolk,https://wiki.bloodontheclocktower.com/images/4/43/Icon_atheist.png
+balloonist,Balloonist,"Each night, you learn a player of a different character type than last night. [+0 or +1 Outsider]",townsfolk,https://wiki.bloodontheclocktower.com/images/c/cb/Icon_balloonist.png
+banshee,Banshee,"If the Demon kills you, all players learn this. From now on, you may nominate twice per day and vote twice per nomination.",townsfolk,https://wiki.bloodontheclocktower.com/images/6/63/Icon_banshee.png
+bountyhunter,Bounty Hunter,"You start knowing 1 evil player. If the player you know dies, you learn another evil player tonight. [1 Townsfolk is evil]",townsfolk,https://wiki.bloodontheclocktower.com/images/5/5b/Icon_bountyhunter.png
+cannibal,Cannibal,"You have the ability of the recently killed executee. If they are evil, you are poisoned until a good player dies by execution.",townsfolk,https://wiki.bloodontheclocktower.com/images/8/8e/Icon_cannibal.png
+chambermaid,Chambermaid,"Each night, choose 2 alive players (not yourself): you learn how many woke tonight due to their ability.",townsfolk,https://wiki.bloodontheclocktower.com/images/8/87/Icon_chambermaid.png
+chef,Chef,You start knowing how many pairs of evil players there are.,townsfolk,https://wiki.bloodontheclocktower.com/images/d/d5/Icon_chef.png
+choirboy,Choirboy,"If the Demon kills the King, you learn which player is the Demon. [+the King]",townsfolk,https://wiki.bloodontheclocktower.com/images/d/d9/Icon_choirboy.png
+clockmaker,Clockmaker,You start knowing how many steps from the Demon to its nearest Minion.,townsfolk,https://wiki.bloodontheclocktower.com/images/3/3d/Icon_clockmaker.png
+courtier,Courtier,"Once per game, at night, choose a character: they are drunk for 3 nights & 3 days.",townsfolk,https://wiki.bloodontheclocktower.com/images/e/e0/Icon_courtier.png
+cultleader,Cult Leader,"Each night, you become the alignment of an alive neighbor. If all good players choose to join your cult, your team wins.",townsfolk,https://wiki.bloodontheclocktower.com/images/6/6c/Icon_cultleader.png
+dreamer,Dreamer,"Each night, choose a player (not yourself or Travellers): you learn 1 good and 1 evil character, 1 of which is correct.",townsfolk,https://wiki.bloodontheclocktower.com/images/f/f2/Icon_dreamer.png
+empath,Empath,"Each night, you learn how many of your 2 alive neighbors are evil.",townsfolk,https://wiki.bloodontheclocktower.com/images/1/13/Icon_empath.png
+engineer,Engineer,"Once per game, at night, choose which Minions or which Demon is in play.",townsfolk,https://wiki.bloodontheclocktower.com/images/b/b9/Icon_engineer.png
+exorcist,Exorcist,"Each night*, choose a player (different to last night): the Demon, if chosen, learns who you are then doesn't wake tonight.",townsfolk,https://wiki.bloodontheclocktower.com/images/c/c2/Icon_exorcist.png
+farmer,Farmer,"When you die at night, an alive good player becomes a Farmer.",townsfolk,https://wiki.bloodontheclocktower.com/images/f/fe/Icon_farmer.png
+fisherman,Fisherman,"Once per game, during the day, visit the Storyteller for some advice to help your team win.",townsfolk,https://wiki.bloodontheclocktower.com/images/1/19/Icon_fisherman.png
+flowergirl,Flowergirl,"Each night*, you learn if a Demon voted today.",townsfolk,https://wiki.bloodontheclocktower.com/images/a/ac/Icon_flowergirl.png
+fool,Fool,"The first time you die, you don't.",townsfolk,https://wiki.bloodontheclocktower.com/images/d/d9/Icon_fool.png
+fortuneteller,Fortune Teller,"Each night, choose 2 players: you learn if either is a Demon. There is a good player that registers as a Demon to you.",townsfolk,https://wiki.bloodontheclocktower.com/images/9/97/Icon_fortuneteller.png
+gambler,Gambler,"Each night*, choose a player & guess their character: if you guess wrong, you die.",townsfolk,https://wiki.bloodontheclocktower.com/images/f/fd/Icon_gambler.png
+general,General,"Each night, you learn which alignment the Storyteller believes is winning: good, evil, or neither.",townsfolk,https://wiki.bloodontheclocktower.com/images/9/99/Icon_general.png
+gossip,Gossip,"Each day, you may make a public statement. Tonight, if it was true, a player dies.",townsfolk,https://wiki.bloodontheclocktower.com/images/c/c7/Icon_gossip.png
+grandmother,Grandmother,"You start knowing a good player & their character. If the Demon kills them, you die too.",townsfolk,https://wiki.bloodontheclocktower.com/images/2/26/Icon_grandmother.png
+highpriestess,High Priestess,"Each night, learn which player the Storyteller believes you should talk to most.",townsfolk,https://wiki.bloodontheclocktower.com/images/6/63/Icon_highpriestess.png
+huntsman,Huntsman,"Once per game, at night, choose a living player: the Damsel, if chosen, becomes a not-in-play Townsfolk. [+the Damsel]",townsfolk,https://wiki.bloodontheclocktower.com/images/a/a1/Icon_huntsman.png
+innkeeper,Innkeeper,"Each night*, choose 2 players: they can't die tonight, but 1 is drunk until dusk.",townsfolk,https://wiki.bloodontheclocktower.com/images/0/0c/Icon_innkeeper.png
+investigator,Investigator,You start knowing that 1 of 2 players is a particular Minion.,townsfolk,https://wiki.bloodontheclocktower.com/images/a/ad/Icon_investigator.png
+juggler,Juggler,"On your 1st day, publicly guess up to 5 players' characters. That night, you learn how many you got correct.",townsfolk,https://wiki.bloodontheclocktower.com/images/4/42/Icon_juggler.png
+king,King,"Each night, if the dead equal or outnumber the living, you learn 1 alive character. The Demon knows you are the King.",townsfolk,https://wiki.bloodontheclocktower.com/images/d/dc/Icon_king.png
+knight,Knight,You start knowing 2 players that are not the Demon.,townsfolk,https://wiki.bloodontheclocktower.com/images/8/8e/Icon_knight.png
+librarian,Librarian,You start knowing that 1 of 2 players is a particular Outsider. (Or that zero are in play.),townsfolk,https://wiki.bloodontheclocktower.com/images/e/e0/Icon_librarian.png
+lycanthrope,Lycanthrope,"Each night*, choose an alive player. If good, they die & the Demon doesn’t kill tonight. One good player registers as evil.",townsfolk,https://wiki.bloodontheclocktower.com/images/9/92/Icon_lycanthrope.png
+magician,Magician,The Demon thinks you are a Minion. Minions think you are a Demon.,townsfolk,https://wiki.bloodontheclocktower.com/images/9/93/Icon_magician.png
+mathematician,Mathematician,"Each night, you learn how many players’ abilities worked abnormally (since dawn) due to another character's ability.",townsfolk,https://wiki.bloodontheclocktower.com/images/f/f1/Icon_mathematician.png
+mayor,Mayor,"If only 3 players live & no execution occurs, your team wins. If you die at night, another player might die instead.",townsfolk,https://wiki.bloodontheclocktower.com/images/a/a1/Icon_mayor.png
+minstrel,Minstrel,"When a Minion dies by execution, all other players (except Travellers) are drunk until dusk tomorrow.",townsfolk,https://wiki.bloodontheclocktower.com/images/2/24/Icon_minstrel.png
+monk,Monk,"Each night*, choose a player (not yourself): they are safe from the Demon tonight.",townsfolk,https://wiki.bloodontheclocktower.com/images/7/7c/Icon_monk.png
+nightwatchman,Nightwatchman,"Once per game, at night, choose a player: they learn you are the Nightwatchman.",townsfolk,https://wiki.bloodontheclocktower.com/images/f/f0/Icon_nightwatchman.png
+noble,Noble,"You start knowing 3 players, 1 and only 1 of which is evil.",townsfolk,https://wiki.bloodontheclocktower.com/images/c/cc/Icon_noble.png
+oracle,Oracle,"Each night*, you learn how many dead players are evil.",townsfolk,https://wiki.bloodontheclocktower.com/images/b/bb/Icon_oracle.png
+pacifist,Pacifist,Executed good players might not die.,townsfolk,https://wiki.bloodontheclocktower.com/images/5/5d/Icon_pacifist.png
+philosopher,Philosopher,"Once per game, at night, choose a good character: gain that ability. If this character is in play, they are drunk.",townsfolk,https://wiki.bloodontheclocktower.com/images/5/5d/Icon_philosopher.png
+pixie,Pixie,"You start knowing 1 in-play Townsfolk. If you were mad that you were this character, you gain their ability when they die.",townsfolk,https://wiki.bloodontheclocktower.com/images/d/d5/Icon_pixie.png
+poppygrower,Poppy Grower,"Minions & Demons do not know each other. If you die, they learn who each other are that night.",townsfolk,https://wiki.bloodontheclocktower.com/images/9/91/Icon_poppygrower.png
+preacher,Preacher,"Each night, choose a player: a Minion, if chosen, learns this. All chosen Minions have no ability.",townsfolk,https://wiki.bloodontheclocktower.com/images/8/82/Icon_preacher.png
+princess,Princess,"On your 1st day, if you nominated & executed a player, the Demon doesn’t kill tonight.",townsfolk,https://wiki.bloodontheclocktower.com/images/3/36/Icon_princess.png
+professor,Professor,"Once per game, at night*, choose a dead player: if they are a Townsfolk, they are resurrected.",townsfolk,https://wiki.bloodontheclocktower.com/images/6/65/Icon_professor.png
+ravenkeeper,Ravenkeeper,"If you die at night, you are woken to choose a player: you learn their character.",townsfolk,https://wiki.bloodontheclocktower.com/images/e/ef/Icon_ravenkeeper.png
+sage,Sage,"If the Demon kills you, you learn that it is 1 of 2 players.",townsfolk,https://wiki.bloodontheclocktower.com/images/a/a0/Icon_sage.png
+sailor,Sailor,"Each night, choose an alive player: either you or they are drunk until dusk. You can't die.",townsfolk,https://wiki.bloodontheclocktower.com/images/1/16/Icon_sailor.png
+savant,Savant,"Each day, you may visit the Storyteller to learn 2 things in private: 1 is true & 1 is false.",townsfolk,https://wiki.bloodontheclocktower.com/images/d/d5/Icon_savant.png
+seamstress,Seamstress,"Once per game, at night, choose 2 players (not yourself): you learn if they are the same alignment.",townsfolk,https://wiki.bloodontheclocktower.com/images/5/53/Icon_seamstress.png
+shugenja,Shugenja,"You start knowing if your closest evil player is clockwise or anti-clockwise. If equidistant, this info is arbitrary.",townsfolk,https://wiki.bloodontheclocktower.com/images/1/11/Icon_shugenja.png
+slayer,Slayer,"Once per game, during the day, publicly choose a player: if they are the Demon, they die.",townsfolk,https://wiki.bloodontheclocktower.com/images/d/d3/Icon_slayer.png
+snakecharmer,Snake Charmer,"Each night, choose an alive player: a chosen Demon swaps characters & alignments with you & is then poisoned.",townsfolk,https://wiki.bloodontheclocktower.com/images/0/08/Icon_snakecharmer.png
+soldier,Soldier,You are safe from the Demon.,townsfolk,https://wiki.bloodontheclocktower.com/images/c/c3/Icon_soldier.png
+steward,Steward,You start knowing 1 good player.,townsfolk,https://wiki.bloodontheclocktower.com/images/f/fe/Icon_steward.png
+tealady,Tea Lady,"If both your alive neighbors are good, they can't die.",townsfolk,https://wiki.bloodontheclocktower.com/images/1/16/Icon_tealady.png
+towncrier,Town Crier,"Each night*, you learn if a Minion nominated today.",townsfolk,https://wiki.bloodontheclocktower.com/images/e/ef/Icon_towncrier.png
+undertaker,Undertaker,"Each night*, you learn which character died by execution today.",townsfolk,https://wiki.bloodontheclocktower.com/images/0/05/Icon_undertaker.png
+villageidiot,Village Idiot,"Each night, choose a player: you learn their alignment. [+0 to +2 Village Idiots. 1 of the extras is drunk]",townsfolk,https://wiki.bloodontheclocktower.com/images/d/da/Icon_villageidiot.png
+virgin,Virgin,"The 1st time you are nominated, if the nominator is a Townsfolk, they are executed immediately.",townsfolk,https://wiki.bloodontheclocktower.com/images/d/d3/Icon_virgin.png
+washerwoman,Washerwoman,You start knowing that 1 of 2 players is a particular Townsfolk.,townsfolk,https://wiki.bloodontheclocktower.com/images/8/85/Icon_washerwoman.png
+barber,Barber,"If you died today or tonight, the Demon may choose 2 players (not another Demon) to swap characters.",outsider,https://wiki.bloodontheclocktower.com/images/1/16/Icon_barber.png
+butler,Butler,"Each night, choose a player (not yourself): tomorrow, you may only vote if they are voting too.",outsider,https://wiki.bloodontheclocktower.com/images/1/19/Icon_butler.png
+damsel,Damsel,"All Minions know a Damsel is in play. If a Minion publicly guesses you (once), your team loses.",outsider,https://wiki.bloodontheclocktower.com/images/d/dc/Icon_damsel.png
+drunk,Drunk,"You do not know you are the Drunk. You think you are a Townsfolk character, but you are not.",outsider,https://wiki.bloodontheclocktower.com/images/4/4a/Icon_drunk.png
+golem,Golem,"You may only nominate once per game. When you do, if the nominee is not the Demon, they die.",outsider,https://wiki.bloodontheclocktower.com/images/2/2b/Icon_golem.png
+goon,Goon,"Each night, the 1st player to choose you with their ability is drunk until dusk. You become their alignment.",outsider,https://wiki.bloodontheclocktower.com/images/archive/6/6f/20240719153317%21Icon_goon.png
+hatter,Hatter,"If you died today or tonight, the Minion & Demon players may choose new Minion & Demon characters to be.",outsider,https://wiki.bloodontheclocktower.com/images/4/44/Icon_hatter.png
+heretic,Heretic,"Whoever wins, loses & whoever loses, wins, even if you are dead.",outsider,https://wiki.bloodontheclocktower.com/images/4/4a/Icon_heretic.png
+hermit,Hermit,You have all Outsider abilities. [-0 or -1 Outsiders],outsider,https://wiki.bloodontheclocktower.com/images/b/b4/Icon_hermit.png
+klutz,Klutz,"When you learn that you died, publicly choose 1 alive player: if they are evil, your team loses.",outsider,https://wiki.bloodontheclocktower.com/images/b/bc/Icon_klutz.png
+lunatic,Lunatic,"You think you are a Demon, but you are not. The Demon knows who you are & who you choose at night.",outsider,https://wiki.bloodontheclocktower.com/images/6/64/Icon_lunatic.png
+moonchild,Moonchild,"When you learn that you died, publicly choose 1 alive player. Tonight, if it was a good player, they die.",outsider,https://wiki.bloodontheclocktower.com/images/d/dc/Icon_moonchild.png
+mutant,Mutant,"If you are ''mad'' about being an Outsider, you might be executed.",outsider,https://wiki.bloodontheclocktower.com/images/2/2e/Icon_mutant.png
+ogre,Ogre,"On your 1st night, choose a player (not yourself): you become their alignment (you don't know which) even if drunk or poisoned.",outsider,https://wiki.bloodontheclocktower.com/images/2/25/Icon_ogre.png
+plaguedoctor,Plague Doctor,"When you die, the Storyteller gains a Minion ability.",outsider,https://wiki.bloodontheclocktower.com/images/e/e2/Icon_plaguedoctor.png
+politician,Politician,"If you were the player most responsible for your team losing, you change alignment & win, even if dead.",outsider,https://wiki.bloodontheclocktower.com/images/a/a3/Icon_politician.png
+puzzlemaster,Puzzlemaster,"1 player is drunk, even if you die. If you guess (once) who it is, learn the Demon player, but guess wrong & get false info.",outsider,https://wiki.bloodontheclocktower.com/images/7/7a/Icon_puzzlemaster.png
+recluse,Recluse,"You might register as evil & as a Minion or Demon, even if dead.",outsider,https://wiki.bloodontheclocktower.com/images/6/60/Icon_recluse.png
+saint,Saint,"If you die by execution, your team loses.",outsider,https://wiki.bloodontheclocktower.com/images/c/c9/Icon_saint.png
+snitch,Snitch,Each Minion gets 3 bluffs.,outsider,https://wiki.bloodontheclocktower.com/images/c/c1/Icon_snitch.png
+sweetheart,Sweetheart,"When you die, 1 player is drunk from now on.",outsider,https://wiki.bloodontheclocktower.com/images/6/6a/Icon_sweetheart.png
+tinker,Tinker,You might die at any time.,outsider,https://wiki.bloodontheclocktower.com/images/9/98/Icon_tinker.png
+zealot,Zealot,"If there are 5 or more players alive, you must vote for every nomination.",outsider,https://wiki.bloodontheclocktower.com/images/1/16/Icon_zealot.png
+assassin,Assassin,"Once per game, at night*, choose a player: they die, even if for some reason they could not.",minion,https://wiki.bloodontheclocktower.com/images/4/49/Icon_assassin.png
+boffin,Boffin,The Demon (even if drunk or poisoned) has a not-in-play good character’s ability. You both know which.,minion,https://wiki.bloodontheclocktower.com/images/e/e0/Icon_boffin.png
+baron,Baron,There are extra Outsiders in play. [+2 Outsiders],minion,https://wiki.bloodontheclocktower.com/images/6/6d/Icon_baron.png
+boomdandy,Boomdandy,"If you are executed, all but 3 players die. After a 10 to 1 countdown, the player with the most players pointing at them, dies.",minion,https://wiki.bloodontheclocktower.com/images/2/20/Icon_boomdandy.png
+cerenovus,Cerenovus,"Each night, choose a player & a good character: they are ''mad'' they are this character tomorrow, or might be executed.",minion,https://wiki.bloodontheclocktower.com/images/4/45/Icon_cerenovus.png
+devilsadvocate,Devil's Advocate,"Each night, choose a living player (different to last night): if executed tomorrow, they don't die.",minion,https://wiki.bloodontheclocktower.com/images/0/09/Icon_devilsadvocate.png
+eviltwin,Evil Twin,"You & an opposing player know each other. If the good player is executed, evil wins. Good can't win if you both live.",minion,https://wiki.bloodontheclocktower.com/images/f/f4/Icon_eviltwin.png
+fearmonger,Fearmonger,"Each night, choose a player. If you nominate & execute them, their team loses. All players know if you choose a new player.",minion,https://wiki.bloodontheclocktower.com/images/1/11/Icon_fearmonger.png
+goblin,Goblin,"If you publicly claim to be the Goblin when nominated & are executed that day, your team wins.",minion,https://wiki.bloodontheclocktower.com/images/e/e2/Icon_goblin.png
+godfather,Godfather,"You start knowing which Outsiders are in play. If 1 died today, choose a player tonight: they die. [-1 or +1 Outsider]",minion,https://wiki.bloodontheclocktower.com/images/d/d0/Icon_godfather.png
+harpy,Harpy,"Each night, choose 2 players: tomorrow, the 1st player is mad that the 2nd is evil, or one or both might die.",minion,https://wiki.bloodontheclocktower.com/images/d/d3/Icon_harpy.png
+marionette,Marionette,"You think you are a good character, but you are not. The Demon knows who you are. [You neighbor the Demon]",minion,https://wiki.bloodontheclocktower.com/images/c/cf/Icon_marionette.png
+mastermind,Mastermind,"If the Demon dies by execution (ending the game), play for 1 more day. If a player is then executed, their team loses.",minion,https://wiki.bloodontheclocktower.com/images/d/d5/Icon_mastermind.png
+mezepheles,Mezepheles,You start knowing a secret word. The 1st good player to say this word becomes evil that night.,minion,https://wiki.bloodontheclocktower.com/images/f/f2/Icon_mezepheles.png
+organgrinder,Organ Grinder,"All players keep their eyes closed when voting and the vote tally is secret. Each night, choose if you are drunk until dusk.",minion,https://wiki.bloodontheclocktower.com/images/6/61/Icon_organgrinder.png
+pithag,Pit-Hag,"Each night*, choose a player & a character they become (if not-in-play). If a Demon is made, deaths tonight are arbitrary.",minion,https://wiki.bloodontheclocktower.com/images/6/6b/Icon_pithag.png
+poisoner,Poisoner,"Each night, choose a player: they are poisoned tonight and tomorrow day.",minion,https://wiki.bloodontheclocktower.com/images/b/b1/Icon_poisoner.png
+psychopath,Psychopath,"Each day, before nominations, you may publicly choose a player: they die. If executed, you only die if you lose roshambo.",minion,https://wiki.bloodontheclocktower.com/images/a/a3/Icon_psychopath.png
+scarletwoman,Scarlet Woman,"If there are 5 or more players alive & the Demon dies, you become the Demon. (Travellers don't count.)",minion,https://wiki.bloodontheclocktower.com/images/1/13/Icon_scarletwoman.png
+spy,Spy,"Each night, you see the Grimoire. You might register as good & as a Townsfolk or Outsider, even if dead.",minion,https://wiki.bloodontheclocktower.com/images/5/54/Icon_spy.png
+summoner,Summoner,"You get 3 bluffs. On the 3rd night, choose a player: they become an evil Demon of your choice. [No Demon]",minion,https://wiki.bloodontheclocktower.com/images/1/1a/Icon_summoner.png
+vizier,Vizier,"All players know you are the Vizier. You cannot die during the day. If good voted, you may choose to execute immediately.",minion,https://wiki.bloodontheclocktower.com/images/a/a4/Icon_vizier.png
+widow,Widow,"On your 1st night, look at the Grimoire and choose a player: they are poisoned. 1 good player knows a Widow is in play.",minion,https://wiki.bloodontheclocktower.com/images/9/99/Icon_widow.png
+witch,Witch,"Each night, choose a player: if they nominate tomorrow, they die. If just 3 players live, you lose this ability.",minion,https://wiki.bloodontheclocktower.com/images/7/7b/Icon_witch.png
+wizard,Wizard,"Once per game, choose to make a wish. If granted, it might have a price & leave a clue as to its nature.",minion,https://wiki.bloodontheclocktower.com/images/b/b5/Icon_wizard.png
+wraith,Wraith,You may choose to open your eyes at night. You wake when other evil players do.,minion,https://wiki.bloodontheclocktower.com/images/8/8f/Icon_wraith.png
+xaan,Xaan,"On night X, all Townsfolk are poisoned until dusk. [X Outsiders]",minion,https://wiki.bloodontheclocktower.com/images/0/0c/Icon_xaan.png
+alhadikhia,Al-Hadikhia,"Each night*, you may choose 3 players (all players learn who): each silently chooses to live or die, but if all live, all die.",demon,https://wiki.bloodontheclocktower.com/images/1/18/Icon_alhadikhia.png
+fanggu,Fang Gu,"Each night*, choose a player: they die. The 1st Outsider this kills becomes an evil Fang Gu & you die instead. [+1 Outsider]",demon,https://wiki.bloodontheclocktower.com/images/0/0e/Icon_fanggu.png
+imp,Imp,"Each night*, choose a player: they die. If you kill yourself this way, a Minion becomes the Imp.",demon,https://wiki.bloodontheclocktower.com/images/5/5c/Icon_imp.png
+kazali,Kazali,"Each night*, choose a player: they die. [You choose which players are which Minions. -? to +? Outsiders]",demon,https://wiki.bloodontheclocktower.com/images/3/3c/Icon_kazali.png
+legion,Legion,"Each night*, a player might die. Executions fail if only evil voted. You register as a Minion too. [Most players are Legion]",demon,https://wiki.bloodontheclocktower.com/images/c/cb/Icon_legion.png
+leviathan,Leviathan,"If more than 1 good player is executed, evil wins. All players know you are in play. After day 5, evil wins.",demon,https://wiki.bloodontheclocktower.com/images/a/a7/Icon_leviathan.png
+lilmonsta,Lil Monsta,"Each night, Minions choose who babysits Lil' Monsta & ""is the Demon"". Each night*, a player might die. [+1 Minion]",demon,https://wiki.bloodontheclocktower.com/images/c/c3/Icon_lilmonsta.png
+lleech,Lleech,"Each night*, choose a player: they die. You start by choosing a player: they are poisoned. You die if & only if they are dead.",demon,https://wiki.bloodontheclocktower.com/images/7/70/Icon_lleech.png
+lordoftyphon,Lord of Typhon,"Each night*, choose a player: they die. [Evil characters are in a line. You are in the middle. +1 Minion. -? to +? Outsiders]",demon,https://wiki.bloodontheclocktower.com/images/c/cf/Icon_lordoftyphon.png
+nodashii,No Dashii,"Each night*, choose a player: they die. Your 2 Townsfolk neighbors are poisoned.",demon,https://wiki.bloodontheclocktower.com/images/e/eb/Icon_nodashii.png
+ojo,Ojo,"Each night*, choose a character: they die. If they are not in play, the Storyteller chooses who dies.",demon,https://wiki.bloodontheclocktower.com/images/6/6f/Icon_ojo.png
+po,Po,"Each night*, you may choose a player: they die. If your last choice was no-one, choose 3 players tonight.",demon,https://wiki.bloodontheclocktower.com/images/b/b2/Icon_po.png
+pukka,Pukka,"Each night, choose a player: they are poisoned. The previously poisoned player dies then becomes healthy.",demon,https://wiki.bloodontheclocktower.com/images/f/f4/Icon_pukka.png
+riot,Riot,"On day 3, Minions become Riot & nominees die but nominate an alive player immediately. This must happen.",demon,https://wiki.bloodontheclocktower.com/images/2/2d/Icon_riot.png
+shabaloth,Shabaloth,"Each night*, choose 2 players: they die. A dead player you chose last night might be regurgitated.",demon,https://wiki.bloodontheclocktower.com/images/1/1f/Icon_shabaloth.png
+vigormortis,Vigormortis,"Each night*, choose a player: they die. Minions you kill keep their ability & poison 1 Townsfolk neighbor. [-1 Outsider]",demon,https://wiki.bloodontheclocktower.com/images/1/1a/Icon_vigormortis.png
+vortox,Vortox,"Each night*, choose a player: they die. Townsfolk abilities yield false info. Each day, if no-one is executed, evil wins.",demon,https://wiki.bloodontheclocktower.com/images/8/89/Icon_vortox.png
+yaggababble,Yaggababble,"You start knowing a secret phrase. For each time you said it publicly today, a player might die.",demon,https://wiki.bloodontheclocktower.com/images/0/08/Icon_yaggababble.png
+zombuul,Zombuul,"Each night*, if no-one died today, choose a player: they die. The 1st time you die, you live but register as dead.",demon,https://wiki.bloodontheclocktower.com/images/1/15/Icon_zombuul.png
+apprentice,Apprentice,"On your 1st night, you gain a Townsfolk ability (if good) or a Minion ability (if evil).",traveller,https://wiki.bloodontheclocktower.com/images/0/03/Icon_apprentice.png
+barista,Barista,"Each night, until dusk, 1) a player becomes sober, healthy & gets true info, or 2) their ability works twice. They learn which.",traveller,https://wiki.bloodontheclocktower.com/images/2/24/Icon_barista.png
+beggar,Beggar,"You must use a vote token to vote. If a dead player gives you theirs, you learn their alignment. You are sober and healthy.",traveller,https://wiki.bloodontheclocktower.com/images/e/e3/Icon_beggar.png
+bishop,Bishop,Only the Storyteller can nominate. At least 1 opposing player must be nominated each day.,traveller,https://wiki.bloodontheclocktower.com/images/7/71/Icon_bishop.png
+bonecollector,Bone Collector,"Once per game, at night*, choose a dead player: they regain their ability until dusk.",traveller,https://wiki.bloodontheclocktower.com/images/9/9e/Icon_bonecollector.png
+bureaucrat,Bureaucrat,"Each night, choose a player (not yourself): their vote counts as 3 votes tomorrow.",traveller,https://wiki.bloodontheclocktower.com/images/b/b1/Icon_bureaucrat.png
+butcher,Butcher,"Each day, after the 1st execution, you may nominate again.",traveller,https://wiki.bloodontheclocktower.com/images/e/e3/Icon_butcher.png
+cacklejack,Cacklejack,"Each day, choose a player: a different player changes character tonight.",traveller,https://i.imgur.com/NDqe0uC.png
+deviant,Deviant,"If you were funny today, you cannot die by exile.",traveller,https://wiki.bloodontheclocktower.com/images/a/a5/Icon_deviant.png
+gangster,Gangster,"Once per day, you may choose to kill an alive neighbor, if your other alive neighbor agrees.",traveller,https://wiki.bloodontheclocktower.com/images/a/a5/Icon_gangster.png
+gnome,Gnome,All players start knowing a player of your alignment. You may choose to kill anyone who nominates them.,traveller,https://wiki.bloodontheclocktower.com/images/e/e0/Icon_gnome.png
+gunslinger,Gunslinger,"Each day, after the 1st vote has been tallied, you may choose a player that voted: they die.",traveller,https://wiki.bloodontheclocktower.com/images/1/1c/Icon_gunslinger.png
+harlot,Harlot,"Each night*, choose a living player: if they agree, you learn their character, but you both might die.",traveller,https://wiki.bloodontheclocktower.com/images/6/60/Icon_harlot.png
+judge,Judge,"Once per game, if another player nominated, you may choose to force the current execution to pass or fail.",traveller,https://wiki.bloodontheclocktower.com/images/5/59/Icon_judge.png
+matron,Matron,"Each day, you may choose up to 3 sets of 2 players to swap seats. Players may not leave their seats to talk in private.",traveller,https://wiki.bloodontheclocktower.com/images/2/21/Icon_matron.png
+scapegoat,Scapegoat,"If a player of your alignment is executed, you might be executed instead.",traveller,https://wiki.bloodontheclocktower.com/images/3/3a/Icon_scapegoat.png
+thief,Thief,"Each night, choose a player (not yourself): their vote counts negatively tomorrow.",traveller,https://wiki.bloodontheclocktower.com/images/7/77/Icon_thief.png
+voudon,Voudon,Only you & the dead can vote. They don't need a vote token to do so. A 50% majority isn't required.,traveller,https://wiki.bloodontheclocktower.com/images/6/6d/Icon_voudon.png
+angel,Angel,,fabled,https://wiki.bloodontheclocktower.com/images/c/ca/Icon_angel.png
+buddhist,Buddhist,,fabled,https://wiki.bloodontheclocktower.com/images/2/25/Icon_buddhist.png
+djinn,Djinn,,fabled,https://wiki.bloodontheclocktower.com/images/8/86/Icon_djinn.png
+doomsayer,Doomsayer,,fabled,https://wiki.bloodontheclocktower.com/images/8/8f/Icon_doomsayer.png
+duchess,Duchess,,fabled,https://wiki.bloodontheclocktower.com/images/8/87/Icon_duchess.png
+deusexfiasco,Deus ex Fiasco,,fabled,https://wiki.bloodontheclocktower.com/images/7/71/Icon_deusexfiasco.png
+ferryman,Ferryman,,fabled,https://wiki.bloodontheclocktower.com/images/8/8f/Icon_ferryman.png
+fibbin,Fibbin,,fabled,https://wiki.bloodontheclocktower.com/images/2/2e/Icon_fibbin.png
+fiddler,Fiddler,,fabled,https://wiki.bloodontheclocktower.com/images/e/e5/Icon_fiddler.png
+hellslibrarian,Hell's Librarian,,fabled,https://wiki.bloodontheclocktower.com/images/6/65/Icon_hellslibrarian.png
+revolutionary,Revolutionary,,fabled,https://wiki.bloodontheclocktower.com/images/9/94/Icon_revolutionary.png
+sentinel,Sentinel,,fabled,https://wiki.bloodontheclocktower.com/images/d/d4/Icon_sentinel.png
+spiritofivory,Spirit of Ivory,,fabled,https://wiki.bloodontheclocktower.com/images/9/96/Icon_spiritofivory.png
+toymaker,Toymaker,,fabled,https://wiki.bloodontheclocktower.com/images/2/27/Icon_toymaker.png
+bigwig,Big Wig,,loric,https://wiki.bloodontheclocktower.com/images/8/8f/Icon_big_wig.png
+bootlegger,Bootlegger,,loric,https://wiki.bloodontheclocktower.com/images/0/08/Icon_bootlegger.png
+gardener,Gardener,,loric,https://wiki.bloodontheclocktower.com/images/5/5c/Icon_gardener.png
+hindu,Hindu,,loric,https://wiki.bloodontheclocktower.com/images/6/69/Icon_hindu.png 
+pope,Pope,,loric,https://wiki.bloodontheclocktower.com/images/1/14/Icon_pope.png 
+stormcatcher,Storm Catcher,,loric,https://wiki.bloodontheclocktower.com/images/0/08/Icon_stormcatcher.png
+tor,Tor,,loric,https://wiki.bloodontheclocktower.com/images/6/61/Icon_tor.png
+ventriloquist,Ventriloquist ,,loric,https://wiki.bloodontheclocktower.com/images/0/09/Icon_ventriloquist.png 
+zenomancer,Zenomancer,,loric,https://wiki.bloodontheclocktower.com/images/4/44/Icon_zenomancer.png
+dusk,,,,https://imgur.com/XvmmtgI.png
+minion info,,,,https://imgur.com/XpifQjj.png
+demon info,,,,https://imgur.com/D6iWNsY.png
+dawn,,,,https://imgur.com/I3FicHd.png

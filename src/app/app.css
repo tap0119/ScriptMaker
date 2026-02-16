@@ -1,0 +1,288 @@
+
+@font-face {
+  font-family: 'Assi';
+  src: url('../fonts/Assistant-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'AssiBold';
+  src: url('../fonts/Assistant-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Philo';
+  src: url('../fonts/Philosopher-Regular.ttf');
+}
+
+.ScriptName {
+    font-family: 'Philo';
+    float:left;
+    font-size: 30px;
+    padding-top: .05in;
+    padding-left: .1in;
+    color:maroon;
+      position: relative;
+  bottom:10px;
+}
+
+.Author {
+    font-family: 'Philo';
+    float:left;
+    padding-left: .2in;
+    padding-top: .18in;
+    font-size: 15px;
+    color:maroon;
+      position: relative;
+  bottom:8px;
+}
+
+.HeaderRow {
+  width: 100%;
+  height: 5px;
+  padding-bottom: 50px;
+  clear:both;
+}
+
+.divRow {
+  width: 100%;
+  clear:both;
+  padding-top: 0.0in;
+  padding-bottom: 0.2in;
+  position: relative;
+  bottom:10px;
+       border:0px solid red;
+}
+
+.divider {
+  position: relative; 
+  top:14px;
+  clear: both;
+}
+
+.TypeHeader {
+  font-family: 'Philo';
+  float:right;
+  padding-right: 0.2in;
+  position: relative; 
+  top:5px;
+    font-size: 3.5mm;
+    color:black;
+}
+
+.print-page {
+  width: 8.5in;
+  min-height: 11in;
+  padding: 0.1in;
+  margin: 0 auto;
+  background: white;
+  box-sizing: border-box;
+  clear:both;
+
+  /* Force new page when printing */
+  page-break-before: always; /* For older browsers */
+  break-before: page;        /* Modern standard */
+}
+
+/* Screen preview styling */
+.body {
+  background: #c2c2c2;
+}
+
+.column {
+  width: 48%;
+  float:left;
+  padding-right: .01in;
+  padding-left: .01in;
+}
+
+
+.row {
+  height: 67px;
+  padding-top: 2px;
+}
+
+.charname {
+  font-family:'AssiBold';
+  float:left;
+  font-size: 3.5mm;
+  font-weight: 900;
+  align-items: center;
+  gap: 1mm;
+  padding-top: 0px;
+  padding-left: 37px;
+  padding-right:3px;
+}
+
+.charability {
+  font-family:'Assi';
+  float:right;
+  width:82%;
+  font-size: 3.4mm;
+  line-height: 1.2;
+  margin: 0;
+  padding-left: 37px;
+  align-items: right;
+}
+
+.charnamerow{
+  display:flex; 
+  flex-direction: row; 
+  align-items: center;
+}
+
+.chartextrow{
+  display: flex;
+  flex-direction: column;   /* stack vertically */
+  justify-content: center;  /* vertical centering */
+  height: 60px;            /* required for vertical centering */
+}
+
+.imageDiv {
+  float: left;
+  align-items: left;
+  width:8%;
+}
+.charImage {
+  height:75px;
+  margin: -10px 0px -10px 0px;
+}
+
+.imagenpc {
+  float: right;
+  align-items: center;
+  position: relative; 
+  bottom: 0px;
+  height:40px; 
+}
+
+.textnpc{
+  font-family:'Assi';
+  font-size:0mm;
+  float: right;
+  align-items: center;
+  position: relative; 
+  bottom:1px
+}
+
+.textnpc2{
+  font-family:'Assi';
+  font-size:4mm;
+  float: right;
+  align-items: center;
+  position: relative; 
+  bottom:7px
+}
+
+.jinxIcon{
+  float: left;
+  height:35px; 
+  position: relative; 
+  bottom:0px;
+         border:0px solid red;
+         margin: -10px 0px -10px 0px;
+}
+
+.jinxIcon2{
+  float: left;
+  height:50px; 
+  position: relative; 
+  bottom:-10px;
+         border:0px solid red;
+         margin: 0px -10px 0px 0px;
+}
+
+.nightOrder{
+  width: 75px;
+  padding-top:15px;
+  display: flex;
+  flex-direction: column;   /* stack vertically */
+}
+
+.nightIcon{
+  height:60px;
+  margin: -8px 0px -8px 0px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.nightText{
+  font-family:'Philo';
+  font-size:6.5mm;
+  width: 190px;
+  display: inline-block;   /* required so transform works properly */
+  transform: rotate(90deg);
+
+    position: relative; 
+  bottom:-62px;
+  right:58px;
+}
+
+.npcRow{
+  display: flex;
+  flex-direction: row;
+    position: relative; 
+  bottom:-10px;
+  margin: -10px 0px -5px 0px;
+}
+
+.jinxTitle {
+  font-family:'Philo';
+  float:left;
+  font-size: 4mm;
+  position: relative; 
+  bottom:-20px;
+}
+
+.npcName {
+  font-family:'Philo';
+  float:left;
+  font-size:4mm;
+  position: relative; 
+  bottom:-15px;
+}
+
+.npcAbility {
+    font-family:'Assi';
+  float:right;
+  font-size: 3.4mm;
+  line-height: 1.2;
+  align-items: right;
+      position: relative; 
+  bottom:-3px;
+}
+
+.jinxRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;   /* vertical alignment */
+  min-height: 50px;
+      position: relative; 
+  bottom:10px;
+}
+
+.jinxReason {
+  font-family:'Assi';
+  font-size: 3.4mm;
+  padding-left: 15px;
+    position: relative; 
+  bottom:-10px;
+
+}
+
+.bootleggerRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;   /* vertical alignment */
+  border:0px solid red;
+  margin: -20px 0px -10px 0px;
+}
+
+.bootleggerRule {
+  font-family:'Assi';
+  font-size: 3.4mm;
+  padding-left: 15px;
+
+}
+
+
+

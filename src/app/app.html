@@ -5,13 +5,14 @@
       <textarea type="text" [(ngModel)]="jsonInput" (ngModelChange)="create()" rows="6" cols="80"></textarea>
 
       <button (click)="paste()">Paste</button>
+      <button (click)="create()">Update</button>
 
-      <button [useExistingCss]="true" printSectionId="print-section" ngxPrint>Print</button> 
+      <button [useExistingCss]="true"  printSectionId="print-section"  ngxPrint>Print</button> 
 
       <select [(ngModel)]="stormcaught" (ngModelChange)="create()">
         @for(char of characters; track char){
         <option>
-          {{ char }}
+          {{ char }}  
         </option>
       }
       </select>
@@ -21,7 +22,7 @@
 
       <!---- Page 1 --->
       <div id="print-section">
-        <div class="print-page">
+        <div class="print-page" style="position:relative;">
             
           <div class="HeaderRow">
             <!----NPCs-->
@@ -310,6 +311,14 @@
                 </div>
               }
               </div>
+
+              <footer class="footer">
+                <i>
+                <div class ="footerText">
+                  * Not the first night
+                </div>
+                </i>
+              </footer>
         </div>
 
 
@@ -326,7 +335,7 @@
               <img src={{getImageForID(char)}} class="nightIcon">
             }
           }
-          <p class="nightText">First Night</p>
+          <p class="nightText">FIRST NIGHT</p>
           </div>
           
           <!---- Other Nights -->
@@ -336,8 +345,41 @@
               <img src={{getImageForID(char)}} class="nightIcon">
             }
           }
-          <p class="nightText">Other Nights</p>
+          <p class="nightText">OTHER NIGHTS</p>
           </div>
+
+          <!------------------>
+
+          <div class="ScriptNameBottom">{{scriptName}}</div>
+              
+          <div class="divRowPage2" style="padding-bottom:4px; padding-top:8px">
+                  <img src="/divider.png" class="divPngPage2">
+          </div>
+
+          <div class="charImageContainerBottom">
+            @for(char of townsfolk; track char){
+                    <img src={{char.Image}} class="charImageBottom">
+            }
+
+            <img src=divider.png style="opacity: 0;"class="charImageBottom">
+            
+            @for(char of outsiders; track char){
+
+                    <img src={{char.Image}} class="charImageBottom">
+            }
+
+            <img src=divider.png style="opacity: 0;"class="charImageBottom">
+
+            @for(char of minions; track char){
+                    <img src={{char.Image}} class="charImageBottom">
+            }
+            
+            <img src=divider.png style="opacity: 0;"class="charImageBottom">
+
+            @for(char of demons; track char){
+                    <img src={{char.Image}} class="charImageBottom">
+            }
+            </div>
 
           <div class="header" #header (ngModelChange)="updateHeaderHeight">
             <!----- NPCs Header -->
@@ -448,7 +490,10 @@
                 }
               }
           </div>
+
+
           <div class="playerCountContainer" #playerCountContainer>
+
             <img class="playerCountImage" src=playercount.png>
           </div>
 

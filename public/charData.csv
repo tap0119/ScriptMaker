@@ -155,30 +155,30 @@ matron,Matron,"Each day, you may choose up to 3 sets of 2 players to swap seats.
 scapegoat,Scapegoat,"If a player of your alignment is executed, you might be executed instead.",traveller,https://wiki.bloodontheclocktower.com/images/3/3a/Icon_scapegoat.png
 thief,Thief,"Each night, choose a player (not yourself): their vote counts negatively tomorrow.",traveller,https://wiki.bloodontheclocktower.com/images/7/77/Icon_thief.png
 voudon,Voudon,Only you & the dead can vote. They don't need a vote token to do so. A 50% majority isn't required.,traveller,https://wiki.bloodontheclocktower.com/images/6/6d/Icon_voudon.png
-angel,Angel,,fabled,https://wiki.bloodontheclocktower.com/images/c/ca/Icon_angel.png
-buddhist,Buddhist,,fabled,https://wiki.bloodontheclocktower.com/images/2/25/Icon_buddhist.png
-djinn,Djinn,,fabled,https://wiki.bloodontheclocktower.com/images/8/86/Icon_djinn.png
-doomsayer,Doomsayer,,fabled,https://wiki.bloodontheclocktower.com/images/8/8f/Icon_doomsayer.png
-duchess,Duchess,,fabled,https://wiki.bloodontheclocktower.com/images/8/87/Icon_duchess.png
-deusexfiasco,Deus ex Fiasco,,fabled,https://wiki.bloodontheclocktower.com/images/7/71/Icon_deusexfiasco.png
-ferryman,Ferryman,,fabled,https://wiki.bloodontheclocktower.com/images/8/8f/Icon_ferryman.png
-fibbin,Fibbin,,fabled,https://wiki.bloodontheclocktower.com/images/2/2e/Icon_fibbin.png
-fiddler,Fiddler,,fabled,https://wiki.bloodontheclocktower.com/images/e/e5/Icon_fiddler.png
-hellslibrarian,Hell's Librarian,,fabled,https://wiki.bloodontheclocktower.com/images/6/65/Icon_hellslibrarian.png
-revolutionary,Revolutionary,,fabled,https://wiki.bloodontheclocktower.com/images/9/94/Icon_revolutionary.png
-sentinel,Sentinel,,fabled,https://wiki.bloodontheclocktower.com/images/d/d4/Icon_sentinel.png
-spiritofivory,Spirit of Ivory,,fabled,https://wiki.bloodontheclocktower.com/images/9/96/Icon_spiritofivory.png
-toymaker,Toymaker,,fabled,https://wiki.bloodontheclocktower.com/images/2/27/Icon_toymaker.png
-bigwig,Big Wig,,loric,https://wiki.bloodontheclocktower.com/images/8/8f/Icon_big_wig.png
-bootlegger,Bootlegger,,loric,https://wiki.bloodontheclocktower.com/images/0/08/Icon_bootlegger.png
-gardener,Gardener,,loric,https://wiki.bloodontheclocktower.com/images/5/5c/Icon_gardener.png
-hindu,Hindu,,loric,https://wiki.bloodontheclocktower.com/images/6/69/Icon_hindu.png 
-pope,Pope,,loric,https://wiki.bloodontheclocktower.com/images/1/14/Icon_pope.png 
-stormcatcher,Storm Catcher,,loric,https://wiki.bloodontheclocktower.com/images/0/08/Icon_stormcatcher.png
-tor,Tor,,loric,https://wiki.bloodontheclocktower.com/images/6/61/Icon_tor.png
-ventriloquist,Ventriloquist ,,loric,https://wiki.bloodontheclocktower.com/images/0/09/Icon_ventriloquist.png 
-zenomancer,Zenomancer,,loric,https://wiki.bloodontheclocktower.com/images/4/44/Icon_zenomancer.png
-dusk,,,,https://imgur.com/XvmmtgI.png
-minion info,,,,https://imgur.com/XpifQjj.png
-demon info,,,,https://imgur.com/D6iWNsY.png
-dawn,,,,https://imgur.com/I3FicHd.png
+angel,Angel,Something bad might happen to whoever is most responsible for the death of a new player.,fabled,https://wiki.bloodontheclocktower.com/images/c/ca/Icon_angel.png
+buddhist,Buddhist,"For the first 2 minutes of each day, veteran players may not talk.",fabled,https://wiki.bloodontheclocktower.com/images/2/25/Icon_buddhist.png
+djinn,Djinn,Use the Djinn's special rule. All players know what it is.,fabled,https://wiki.bloodontheclocktower.com/images/8/86/Icon_djinn.png
+doomsayer,Doomsayer,"If 4 or more players live, each living player may publicly choose (once per game) that a player of their own alignment dies.",fabled,https://wiki.bloodontheclocktower.com/images/8/8f/Icon_doomsayer.png
+duchess,Duchess,"Each day, 3 players may choose to visit you. At night*, each visitor learns how many visitors are evil, but 1 gets false info.",fabled,https://wiki.bloodontheclocktower.com/images/8/87/Icon_duchess.png
+deusexfiasco,Deus ex Fiasco,"At least once per game, the Storyteller will make a mistake, correct it, and publicly admit to it. ",fabled,https://wiki.bloodontheclocktower.com/images/7/71/Icon_deusexfiasco.png
+ferryman,Ferryman,"On the final day, all dead players regain their vote token.",fabled,https://wiki.bloodontheclocktower.com/images/8/8f/Icon_ferryman.png
+fibbin,Fibbin,"Once per game, 1 good player might get incorrect information.",fabled,https://wiki.bloodontheclocktower.com/images/2/2e/Icon_fibbin.png
+fiddler,Fiddler,"Once per game, the Demon secretly chooses an opposing player: all players choose which of these 2 players win.",fabled,https://wiki.bloodontheclocktower.com/images/e/e5/Icon_fiddler.png
+hellslibrarian,Hell's Librarian,Something bad might happen to whoever talks when the Storyteller has asked for silence.,fabled,https://wiki.bloodontheclocktower.com/images/6/65/Icon_hellslibrarian.png
+revolutionary,Revolutionary,"2 neighboring players are known to be the same alignment. Once per game, 1 of them registers falsely.",fabled,https://wiki.bloodontheclocktower.com/images/9/94/Icon_revolutionary.png
+sentinel,Sentinel,There might be 1 extra or 1 fewer Outsider in play.,fabled,https://wiki.bloodontheclocktower.com/images/d/d4/Icon_sentinel.png
+spiritofivory,Spirit of Ivory,There can't be more than 1 extra evil player.,fabled,https://wiki.bloodontheclocktower.com/images/9/96/Icon_spiritofivory.png
+toymaker,Toymaker,The Demon may choose not to attack & must do this at least once per game. Evil players get normal starting info.,fabled,https://wiki.bloodontheclocktower.com/images/2/27/Icon_toymaker.png
+bigwig,Big Wig,"Each nominee chooses a player: until voting, only they may speak & they are mad the nominee is good or they might die.",loric,https://wiki.bloodontheclocktower.com/images/8/8f/Icon_big_wig.png
+bootlegger,Bootlegger,This script has homebrew characters or rules.,loric,https://wiki.bloodontheclocktower.com/images/0/08/Icon_bootlegger.png
+gardener,Gardener,The Storyteller assigns 1 or more players' characters.,loric,https://wiki.bloodontheclocktower.com/images/5/5c/Icon_gardener.png
+hindu,Hindu,The first 4 players to die are immediately reincarnated as Travellers of the same alignment.,loric,https://wiki.bloodontheclocktower.com/images/6/69/Icon_hindu.png 
+pope,Pope,There are duplicate good characters in play. They might also be bluffs.,loric,https://wiki.bloodontheclocktower.com/images/1/14/Icon_pope.png 
+stormcatcher,Storm Catcher,"Name a good character. If in play, they can only die by execution, but evil players learn which player it is.",loric,https://wiki.bloodontheclocktower.com/images/0/08/Icon_stormcatcher.png
+tor,Tor,Players don't know their character or alignment. They learn them when they die.,loric,https://wiki.bloodontheclocktower.com/images/6/61/Icon_tor.png
+ventriloquist,Ventriloquist ,"If a player is mad as a fresh character during their nomination, they might not die if executed today.",loric,https://wiki.bloodontheclocktower.com/images/0/09/Icon_ventriloquist.png 
+zenomancer,Zenomancer,"One or more players each have a goal. When achieved, that player learns a piece of true info.",loric,https://wiki.bloodontheclocktower.com/images/4/44/Icon_zenomancer.png
+dusk,,,,dusk.png
+minioninfo,,,,minioninfo.png
+demoninfo,,,,demoninfo.png
+dawn,,,,dawn.png

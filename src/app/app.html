@@ -58,7 +58,7 @@
               <!-- Townsfolk -->
               <div class="divRow">
                 <div class="divider">
-                  <img src="/divider.png" height="1" width="85%">
+                  <img src="/divider.png" class="divPng">
                 </div>
                 <div class="TypeHeader">TOWNSFOLK</div>
               </div>
@@ -66,14 +66,14 @@
               <div class="column">
               @for (item of townsfolk.slice(0,((townsfolk.length + 1) / 2)); track item) {
                 <div class="row">
-                  <div class="imageDiv">
+                  <div class="charImageContainer">
                     <img src={{item.Image}} class="charImage">
                   </div>
                   <div class="chartextrow">
                     <div class="charnamerow">
                       <b class="charname" style="color: #0b6aaf;">{{ item.Name }}</b>
                         @for (jinx of filteredJinxes; track jinx){
-                          @if (jinx.char1 === item.Name){
+                          @if (jinx.char1 === item.ID){
                             @if (getImageForName(jinx.char2)) {
                             <img src={{getImageForName(jinx.char2)}} class="jinxIcon">
                             }
@@ -89,14 +89,14 @@
               <div class="column">
               @for (item of townsfolk.slice(((townsfolk.length + 1) / 2)); track item) {
                 <div class="row">
-                  <div class="imageDiv">
+                  <div class="charImageContainer">
                     <img src={{item.Image}} class="charImage">
                   </div>
 <div class="chartextrow">
                     <div class="charnamerow">
                       <b class="charname" style="color: #0b6aaf;">{{ item.Name }}</b>
                         @for (jinx of filteredJinxes; track jinx){
-                          @if (jinx.char1 === item.Name){
+                          @if (jinx.char1 === item.ID){
                             @if (getImageForName(jinx.char2)) {
                             <img src={{getImageForName(jinx.char2)}} class="jinxIcon">
                             }
@@ -113,7 +113,7 @@
               <!-- Outsiders -->
               <div class="divRow">
                 <div class="divider">
-                  <img src="/divider.png" height="1" width="85%">
+                  <img src="/divider.png" class="divPng">
                 </div>
                 <div class="TypeHeader">OUTSIDERS</div>
               </div>
@@ -121,14 +121,14 @@
               <div class="column">
               @for (item of outsiders.slice(0,((outsiders.length + 1) / 2)); track item) {
                 <div class="row">
-                  <div class="imageDiv">
+                  <div class="charImageContainer">
                     <img src={{item.Image}} class="charImage">
                   </div>
                   <div class="chartextrow">
                     <div class="charnamerow">
                       <b class="charname" style="color: #0b6aaf;">{{ item.Name }}</b>
                         @for (jinx of filteredJinxes; track jinx){
-                          @if (jinx.char1 === item.Name){
+                          @if (jinx.char1 === item.ID){
                             @if (getImageForName(jinx.char2)) {
                             <img src={{getImageForName(jinx.char2)}} class="jinxIcon">
                             }
@@ -145,14 +145,14 @@
               <div class="column">
               @for (item of outsiders.slice(((outsiders.length + 1) / 2)); track item) {
                 <div class="row">
-                  <div class="imageDiv">
+                  <div class="charImageContainer">
                     <img src={{item.Image}} class="charImage">
                   </div>
                   <div class="chartextrow">
                     <div class="charnamerow">
                       <b class="charname" style="color: #0b6aaf;">{{ item.Name }}</b>
                         @for (jinx of filteredJinxes; track jinx){
-                          @if (jinx.char1 === item.Name){
+                          @if (jinx.char1 === item.ID){
                             @if (getImageForName(jinx.char2)) {
                             <img src={{getImageForName(jinx.char2)}} class="jinxIcon">
                             }
@@ -169,7 +169,7 @@
               <!-- Minions -->
               <div class="divRow">
                 <div class="divider">
-                  <img src="/divider.png" height="1" width="85%">
+                  <img src="/divider.png" class="divPng">
                 </div>
                 <div class="TypeHeader">MINIONS</div>
               </div>
@@ -177,14 +177,14 @@
               <div class="column">
               @for (item of minions.slice(0,((minions.length + 1) / 2)); track item) {
                 <div class="row">
-                  <div class="imageDiv">
+                  <div class="charImageContainer">
                     <img src={{item.Image}} class="charImage">
                   </div>
                   <div class="chartextrow">
                     <div class="charnamerow">
                       <b class="charname" style="color: #760A0D;">{{ item.Name }}</b>
                         @for (jinx of filteredJinxes; track jinx){
-                          @if (jinx.char1 === item.Name){
+                          @if (jinx.char1 === item.ID){
                             @if (getImageForName(jinx.char2)) {
                             <img src={{getImageForName(jinx.char2)}} class="jinxIcon">
                             }
@@ -201,14 +201,14 @@
               <div class="column">
               @for (item of minions.slice(((minions.length + 1) / 2)); track item) {
                 <div class="row">
-                  <div class="imageDiv">
+                  <div class="charImageContainer">
                     <img src={{item.Image}} class="charImage">
                   </div>
                   <div class="chartextrow">
                     <div class="charnamerow">
                       <b class="charname" style="color: #760A0D;">{{ item.Name }}</b>
                         @for (jinx of filteredJinxes; track jinx){
-                          @if (jinx.char1 === item.Name){
+                          @if (jinx.char1 === item.ID){
                             @if (getImageForName(jinx.char2)) {
                             <img src={{getImageForName(jinx.char2)}} class="jinxIcon">
                             }
@@ -225,7 +225,7 @@
               <!-- Demons -->
               <div class="divRow">
                 <div class="divider">
-                  <img src="/divider.png" height="1" width="85%">
+                  <img src="/divider.png" class="divPng">
                 </div>
                 <div class="TypeHeader">DEMONS</div>
               </div>
@@ -233,14 +233,14 @@
               <div class="column">
               @for (item of demons.slice(0,((demons.length + 1) / 2)); track item) {
                 <div class="row">
-                  <div class="imageDiv">
+                  <div class="charImageContainer">
                     <img src={{item.Image}} class="charImage">
                   </div>
                   <div class="chartextrow">
                     <div class="charnamerow">
                       <b class="charname" style="color: #760A0D;">{{ item.Name }}</b>
                         @for (jinx of filteredJinxes; track jinx){
-                          @if (jinx.char1 === item.Name){
+                          @if (jinx.char1 === item.ID){
                             @if (getImageForName(jinx.char2)) {
                             <img src={{getImageForName(jinx.char2)}} class="jinxIcon">
                             }
@@ -257,7 +257,7 @@
               <div class="column">
               @for (item of demons.slice(((demons.length + 1) / 2)); track item) {
                 <div class="row">
-                  <div class="imageDiv">
+                  <div class="charImageContainer">
                     <img src={{item.Image}} class="charImage">
                   </div>
                   
@@ -265,7 +265,7 @@
                     <div class="charnamerow">
                       <b class="charname" style="color: #760A0D;">{{ item.Name }}</b>
                         @for (jinx of filteredJinxes; track jinx){
-                          @if (jinx.char1 === item.Name){
+                          @if (jinx.char1 === item.ID){
                             @if (getImageForName(jinx.char2)) {
                             <img src={{getImageForName(jinx.char2)}} class="jinxIcon">
                             }
@@ -307,79 +307,95 @@
           <p class="nightText">Other Nights</p>
           </div>
 
-          <!----- Jinxes  -->
-          @if (filteredJinxes){
-                <div class="npcRow">
-                    <img src="https://wiki.bloodontheclocktower.com/images/8/86/Icon_djinn.png" height="60">
-                        <b class="jinxTitle">Djinn</b>
-                </div>
+          <div class="header" #header (ngModelChange)="updateHeaderHeight">
+            <!----- NPCs Header -->
+            @if(filteredJinxes.length > 0 || bootlegger || npcs.length > 0){
+              <div class="divRowPage2" style="padding-top:20px">
+                  <img src="/divider.png" class="divPngPage2">
+                  <div class="HeaderPage2">Fabled & Loric</div>
+              </div>
+            }
 
-                 @for (jinx of filteredJinxes; track jinx){
-                    <div class ="jinxRow">
-                      <b style="padding-right: 30px;"></b>
-                      <img src={{getImageForName(jinx.char1)}} class="jinxIcon2">
-                      <img src={{getImageForName(jinx.char2)}} class="jinxIcon2">
-                      <p class="jinxReason">{{jinx.reason}}</p>
-                    </div>
+            <!----- Jinxes  -->
+            @if (filteredJinxes.length > 0){
+                  <div class="npcRow">
+                      <img src="https://wiki.bloodontheclocktower.com/images/8/86/Icon_djinn.png" height="60">
+                          <b class="jinxTitle">Djinn</b>
+                  </div>
+
+                  @for (jinx of filteredJinxes; track jinx){
+                      <div class ="jinxRow">
+                        <b style="padding-right: 30px;"></b>
+                        <img src={{getImageForName(jinx.char1)}} class="jinxIcon2">
+                        <img src={{getImageForName(jinx.char2)}} class="jinxIcon2">
+                        <p class="jinxReason">{{jinx.reason}}</p>
+                      </div>
+                    }
                   }
-                }
 
-                <!----Bootlegger -->
-                @if (bootlegger){
-                <div class="npcRow">
-                    <img src="https://wiki.bloodontheclocktower.com/images/0/08/Icon_bootlegger.png" height="60">
-                        <b class="jinxTitle">Bootlegger</b>
-                </div>
-              
-
-                 @for (rule of bootlegger; track rule){
-                    <div class ="bootleggerRow">
-                      <b style="padding-right: 50px;"></b>
-                      <p>⦁</p>
-                      <p class="bootleggerRule">{{ rule }}</p>
-                    </div>
-                  }
-                }
+                  <!----Bootlegger -->
+                  @if (bootlegger){
+                  <div class="npcRow">
+                      <img src="https://wiki.bloodontheclocktower.com/images/0/08/Icon_bootlegger.png" height="60">
+                          <b class="jinxTitle">Bootlegger</b>
+                  </div>
                 
 
+                  @for (rule of bootlegger; track rule){
+                      <div class ="bootleggerRow">
+                        <b style="padding-right: 50px;"></b>
+                        <p>⦁</p>
+                        <p class="bootleggerRule">{{ rule }}</p>
+                      </div>
+                    }
+                  }
+                  
 
-              <!---- Other Npcs -->
-              @for (item of npcs; track item) {
-                @if(item.ID != "bootlegger"){
-                <div class="npcRow">
-                  <div class="image">
-                    <img src={{item.Image}} height="60">
+
+                <!---- Other Npcs -->
+                @for (item of npcs; track item) {
+                  @if(item.ID != "bootlegger"){
+                  <div class="npcRow">
+                    <div class="image">
+                      <img src={{item.Image}} height="60">
+                    </div>
+                    <div class="chartextrow">
+                      <b class="npcName">{{ item.Name }}</b>
+                      <p class="npcAbility">{{item.Ability}}</p>
                   </div>
-                  <div class="chartextrow">
-                    <b class="npcName">{{ item.Name }}</b>
-                    <p class="npcAbility">{{item.Ability}}</p>
-                </div>
-                </div>
+                  </div>
+                }
               }
-            }
 
-            <!----- Travellers -->
-            @if (trav){
-
-
-            @for (item of trav; track item) {
-                <div class="npcRow">
-                  <div class="image">
-                    <img src={{item.Image}} height="60">
-                  </div>
-                  <div class="chartextrow">
-                    <b class="npcName">{{ item.Name }}</b>
-                    <p class="npcAbility">{{item.Ability}}</p>
+              <!----- Travellers -->
+              @if (trav.length > 0){
+                
+                <!----- Travellers Header -->
+                <div class="divRowPage2" style="padding-top:40px">
+                    <img src="/divider.png" class="divPngPage2">
+                    <div class="HeaderPage2">Travellers</div>
                 </div>
-                </div>
-            }
 
-          }
+                @for (item of trav; track item) {
+                    <div class="npcRow">
+                      <div class="image">
+                        <img src={{item.Image}} height="60">
+                      </div>
+                      <div class="chartextrow">
+                        <b class="npcName">{{ item.Name }}</b>
+                        <p class="npcAbility">{{item.Ability}}</p>
+                    </div>
+                    </div>
+                }
+              }
+          </div>
+          <div class="playerCountContainer" #playerCountContainer>
+            <img class="playerCountImage" src=playercount.png>
+          </div>
 
 
-
-        </div>
       </div>
+    </div>
 
 
     </div>

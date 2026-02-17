@@ -43,6 +43,34 @@
   clear:both;
 }
 
+.bootleggerPage1Image{
+  display: flex;
+  align-items: left; 
+  position: relative;
+  top:10px;
+  width:80px;
+  border:1px solid clear;
+}
+
+.bootleggerPage1Div{
+    position: relative;
+  bottom:30px;
+  clear:both;
+  border:1px solid clear;
+    margin: -50px 0px -80px 0px;
+}
+
+.bootleggerPage1Row{
+  display: flex;
+  flex-direction: row;
+  align-items: center;   /* vertical alignment */
+  border:1px solid clear;
+  position: relative;
+  bottom:30px;
+  width:90%;
+  margin: -20px 0px -25px 0px;
+}
+
 .divRow {
   width: 100%;
   clear:both;
@@ -162,11 +190,12 @@
 
 .textnpc{
   font-family:'Assi';
-  font-size:0mm;
+  font-size:3mm;
+  font-weight: 500;
   float: right;
   align-items: center;
   position: relative; 
-  bottom:1px
+  top:0px
 }
 
 .textnpc2{
@@ -176,6 +205,15 @@
   align-items: center;
   position: relative; 
   bottom:7px
+}
+
+.textbootlegger{
+  font-family:'Assi';
+  font-size:3.4mm;
+  float: right;
+  align-items: center;
+  position: relative; 
+  left:10px;
 }
 
 .jinxIcon{
@@ -205,7 +243,7 @@
 
 .nightIcon{
   height:60px;
-  margin: -8px 0px -9px 0px;
+  margin: -9px 0px -9px 0px;
   padding-left: 5px;
   padding-right: 5px; 
 }
@@ -220,7 +258,7 @@
     position: relative; 
   bottom:-62px;
   right:58px;
-  color:maroon;
+  color:black;
 }
 
 .npcRow{
@@ -318,7 +356,7 @@
   top: -10px;
   right: 10px;
   font-size: 5mm;
-  color:maroon;
+  color:black;
   background-color: white;
   margin: 0 auto;
   display: flex;
@@ -329,7 +367,7 @@
 
 
 .playerCountContainer{
-    border:1px solid white;
+    border:0px solid white;
     position: relative;
     width:620px;
     height:calc(1000px - var(--headerHeight));

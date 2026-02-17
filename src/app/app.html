@@ -2,10 +2,24 @@
     <div>
      
       <h1>Hello, {{ title() }}</h1>
-      <textarea type="text" [(ngModel)]="jsonInput" (ngModelChange)="create()"></textarea>
+      <textarea type="text" [(ngModel)]="jsonInput" (ngModelChange)="create()" rows="6" cols="80"></textarea>
 
-      <button [useExistingCss]="true" printSectionId="print-section" ngxPrint>print</button> 
-      
+      <button (click)="paste()">Paste</button>
+
+      <button [useExistingCss]="true" printSectionId="print-section" ngxPrint>Print</button> 
+
+      <select [(ngModel)]="stormcaught" (ngModelChange)="create()">
+        @for(char of characters; track char){
+        <option>
+          {{ char }}
+        </option>
+      }
+      </select>
+      <input type="checkbox" [(ngModel)]="showBoot" (ngModelChange)="create()">
+
+
+
+      <!---- Page 1 --->
       <div id="print-section">
         <div class="print-page">
             
@@ -13,24 +27,25 @@
             <!----NPCs-->
               <div style="padding-right:15px; padding-bottom:10px; position: relative; 
       top: 6px;">
+
                     @if(npcs.length > 3) {
                       <p class="textnpc2" style="padding-left:7px; padding-right:7px;"><b>+ {{npcs.length - 3}}</b></p>
                     }
 
                     @if (npcs[2]) {
                       @if (npcs[2].Team === 'loric') {
-                        <p class="textnpc" style="color: green">{{npcs[2].Name}}</p>
+                        <p class="textnpc" style="color:#6f854d">{{npcs[2].Name}}</p>
                       }@else{
-                        <p class="textnpc" style="color: brown">{{npcs[2].Name}}</p>
+                        <p class="textnpc" style="color: #7a6550">{{npcs[2].Name}}</p>
                       }
                       <img src={{npcs[2].Image}} class="imagenpc" >
                     } 
 
                     @if (npcs[1]) {
                       @if (npcs[1].Team === 'loric') {
-                        <p class="textnpc" style="color: green;">{{npcs[1].Name}}</p>
+                        <p class="textnpc" style="color: #6f854d;">{{npcs[1].Name}}</p>
                       }@else{
-                        <p class="textnpc" style="color: brown;">{{npcs[1].Name}}</p>
+                        <p class="textnpc" style="color: #7a6550;">{{npcs[1].Name}}</p>
                       }
                       <img src={{npcs[1].Image}} class="imagenpc">
                     }
@@ -38,9 +53,9 @@
                     
                     @if (npcs[0]) {
                       @if (npcs[0].Team === 'loric') {
-                        <p class="textnpc" style="color: green;">{{npcs[0].Name}}</p>
+                        <p class="textnpc" style="color: #6f854d;">{{npcs[0].Name}}</p>
                       }@else{
-                        <p class="textnpc" style="color: brown;">{{npcs[0].Name}}</p>
+                        <p class="textnpc" style="color: #7a6550;">{{npcs[0].Name}}</p>
                       }
                       <img src={{npcs[0].Image}} class="imagenpc">
                     }
@@ -54,6 +69,23 @@
                 <div class="Author"><i>by {{author}}</i></div>
               }
             </div>
+
+                  @if (bootlegger.length > 0 && showBoot){
+                  <div class="bootleggerPage1Div">
+                    <div class="bootleggerPage1Image">
+                        <img src="https://wiki.bloodontheclocktower.com/images/0/08/Icon_bootlegger.png" height="60">
+                    </div>
+            
+
+                      @for (rule of bootlegger; track rule){
+                          <div class ="bootleggerPage1Row">
+                            <b style="padding-right: 60px;"></b>
+                            <p>⦁</p>
+                            <p class="bootleggerRule">{{ rule }}</p>
+                          </div>
+                        }
+                      </div>
+                  }
 
               <!-- Townsfolk -->
               <div class="divRow">
@@ -74,8 +106,8 @@
                       <b class="charname" style="color: #0b6aaf;">{{ item.Name }}</b>
                         @for (jinx of filteredJinxes; track jinx){
                           @if (jinx.char1 === item.ID){
-                            @if (getImageForName(jinx.char2)) {
-                            <img src={{getImageForName(jinx.char2)}} class="jinxIcon">
+                            @if (getImageForID(jinx.char2)) {
+                            <img src={{getImageForID(jinx.char2)}} class="jinxIcon">
                             }
                           }
                         }
@@ -97,8 +129,8 @@
                       <b class="charname" style="color: #0b6aaf;">{{ item.Name }}</b>
                         @for (jinx of filteredJinxes; track jinx){
                           @if (jinx.char1 === item.ID){
-                            @if (getImageForName(jinx.char2)) {
-                            <img src={{getImageForName(jinx.char2)}} class="jinxIcon">
+                            @if (getImageForID(jinx.char2)) {
+                            <img src={{getImageForID(jinx.char2)}} class="jinxIcon">
                             }
                           }
                         }
@@ -129,8 +161,8 @@
                       <b class="charname" style="color: #0b6aaf;">{{ item.Name }}</b>
                         @for (jinx of filteredJinxes; track jinx){
                           @if (jinx.char1 === item.ID){
-                            @if (getImageForName(jinx.char2)) {
-                            <img src={{getImageForName(jinx.char2)}} class="jinxIcon">
+                            @if (getImageForID(jinx.char2)) {
+                            <img src={{getImageForID(jinx.char2)}} class="jinxIcon">
                             }
                           }
                         }
@@ -153,8 +185,8 @@
                       <b class="charname" style="color: #0b6aaf;">{{ item.Name }}</b>
                         @for (jinx of filteredJinxes; track jinx){
                           @if (jinx.char1 === item.ID){
-                            @if (getImageForName(jinx.char2)) {
-                            <img src={{getImageForName(jinx.char2)}} class="jinxIcon">
+                            @if (getImageForID(jinx.char2)) {
+                            <img src={{getImageForID(jinx.char2)}} class="jinxIcon">
                             }
                           }
                         }
@@ -185,8 +217,8 @@
                       <b class="charname" style="color: #760A0D;">{{ item.Name }}</b>
                         @for (jinx of filteredJinxes; track jinx){
                           @if (jinx.char1 === item.ID){
-                            @if (getImageForName(jinx.char2)) {
-                            <img src={{getImageForName(jinx.char2)}} class="jinxIcon">
+                            @if (getImageForID(jinx.char2)) {
+                            <img src={{getImageForID(jinx.char2)}} class="jinxIcon">
                             }
                           }
                         }
@@ -209,8 +241,8 @@
                       <b class="charname" style="color: #760A0D;">{{ item.Name }}</b>
                         @for (jinx of filteredJinxes; track jinx){
                           @if (jinx.char1 === item.ID){
-                            @if (getImageForName(jinx.char2)) {
-                            <img src={{getImageForName(jinx.char2)}} class="jinxIcon">
+                            @if (getImageForID(jinx.char2)) {
+                            <img src={{getImageForID(jinx.char2)}} class="jinxIcon">
                             }
                           }
                         }
@@ -241,8 +273,8 @@
                       <b class="charname" style="color: #760A0D;">{{ item.Name }}</b>
                         @for (jinx of filteredJinxes; track jinx){
                           @if (jinx.char1 === item.ID){
-                            @if (getImageForName(jinx.char2)) {
-                            <img src={{getImageForName(jinx.char2)}} class="jinxIcon">
+                            @if (getImageForID(jinx.char2)) {
+                            <img src={{getImageForID(jinx.char2)}} class="jinxIcon">
                             }
                           }
                         }
@@ -266,8 +298,8 @@
                       <b class="charname" style="color: #760A0D;">{{ item.Name }}</b>
                         @for (jinx of filteredJinxes; track jinx){
                           @if (jinx.char1 === item.ID){
-                            @if (getImageForName(jinx.char2)) {
-                            <img src={{getImageForName(jinx.char2)}} class="jinxIcon">
+                            @if (getImageForID(jinx.char2)) {
+                            <img src={{getImageForID(jinx.char2)}} class="jinxIcon">
                             }
                           }
                         }
@@ -291,7 +323,7 @@
           <div class="nightOrder" style="float:left">
           @for (char of firstOrder;track char){
             @if( char){
-              <img src={{getImageForName(char)}} class="nightIcon">
+              <img src={{getImageForID(char)}} class="nightIcon">
             }
           }
           <p class="nightText">First Night</p>
@@ -301,7 +333,7 @@
           <div class="nightOrder" style="float:right">
           @for (char of otherOrder;track char){
             @if( char){
-              <img src={{getImageForName(char)}} class="nightIcon">
+              <img src={{getImageForID(char)}} class="nightIcon">
             }
           }
           <p class="nightText">Other Nights</p>
@@ -309,7 +341,7 @@
 
           <div class="header" #header (ngModelChange)="updateHeaderHeight">
             <!----- NPCs Header -->
-            @if(filteredJinxes.length > 0 || bootlegger || npcs.length > 0){
+            @if(filteredJinxes.length > 0  || bootlegger.length > 0 || npcs.length > 0){
               <div class="divRowPage2" style="padding-top:20px">
                   <img src="/divider.png" class="divPngPage2">
                   <div class="HeaderPage2">Fabled & Loric</div>
@@ -317,27 +349,27 @@
             }
 
             <!----- Jinxes  -->
-            @if (filteredJinxes.length > 0){
+            @if (filteredJinxes2.length > 0){
                   <div class="npcRow">
                       <img src="https://wiki.bloodontheclocktower.com/images/8/86/Icon_djinn.png" height="60">
-                          <b class="jinxTitle">Djinn</b>
+                          <b class="jinxTitle" style="color: #7a6550;">Djinn</b>
                   </div>
 
-                  @for (jinx of filteredJinxes; track jinx){
+                  @for (jinx of filteredJinxes2; track jinx){
                       <div class ="jinxRow">
                         <b style="padding-right: 30px;"></b>
-                        <img src={{getImageForName(jinx.char1)}} class="jinxIcon2">
-                        <img src={{getImageForName(jinx.char2)}} class="jinxIcon2">
+                        <img src={{getImageForID(jinx.char1)}} class="jinxIcon2">
+                        <img src={{getImageForID(jinx.char2)}} class="jinxIcon2">
                         <p class="jinxReason">{{jinx.reason}}</p>
                       </div>
                     }
                   }
 
                   <!----Bootlegger -->
-                  @if (bootlegger){
+                  @if (bootlegger.length > 0){
                   <div class="npcRow">
                       <img src="https://wiki.bloodontheclocktower.com/images/0/08/Icon_bootlegger.png" height="60">
-                          <b class="jinxTitle">Bootlegger</b>
+                          <b class="jinxTitle" style="color: #6f854d;">Bootlegger</b>
                   </div>
                 
 
@@ -349,18 +381,45 @@
                       </div>
                     }
                   }
+
+                  <!----Stormcatcher -->
+                  @if (stormcaught && stormcaught != "none"){
+                  <div class="npcRow">
+                      <img src="https://wiki.bloodontheclocktower.com/images/0/08/Icon_stormcatcher.png" height="60">
+                      <div class="chartextrow">
+                        <b class="npcName" style="color: #6f854d;">Storm Catcher</b>
+                        <p class="npcAbility">Name a good character. If in play, they can only die by execution, but evil players learn which player it is.</p>
+                      </div>
+                  </div>
+              
+                      <div class ="bootleggerRow">
+                        <b style="padding-right: 50px;"></b>
+                        <p style="padding-top:10px">⦁</p>
+                        <p class="bootleggerRule" style="padding-top:10px">The {{getNameForID(stormcaught)}} is stormcaught</p>
+                      </div>
+                    }
+                  
                   
 
 
                 <!---- Other Npcs -->
                 @for (item of npcs; track item) {
-                  @if(item.ID != "bootlegger"){
-                  <div class="npcRow">
+                  @if (
+                    item.ID !== 'bootlegger' &&
+                  (item.ID !== 'stormcatcher' || 
+                    (!stormcaught || stormcaught === 'none')
+                  )
+                   ) {
+                  <div class="npcRow"> 
                     <div class="image">
                       <img src={{item.Image}} height="60">
                     </div>
                     <div class="chartextrow">
-                      <b class="npcName">{{ item.Name }}</b>
+                      @if(item.Team === 'loric') {
+                        <b class="npcName" style="color: #6f854d;">{{item.Name}}</b>
+                      }@else{
+                        <b class="npcName" style="color: #7a6550;">{{item.Name}}</b>
+                      }
                       <p class="npcAbility">{{item.Ability}}</p>
                   </div>
                   </div>

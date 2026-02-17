@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, NgModule, OnInit, signal, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, NgModule, OnInit, signal, ViewChild,ChangeDetectorRef  } from '@angular/core';
 import { RouterOutlet } from '@angular/router'
 import { FormsModule } from '@angular/forms';
 import { NgxPrintDirective } from 'ngx-print';
@@ -24,11 +24,23 @@ export class App implements OnInit, AfterViewInit {
   author:string = '';
   characters: string[] = [];
   fullJsonSplit:any;
-  filteredJinxes: any;
+  filteredJinxes:{
+    char1:string,
+    char2:string,
+    reason:string,
+  }[] = [];
+  filteredJinxes2:{
+    char1:string,
+    char2:string,
+    reason:string,
+  }[] = [];
+  bootlegger:string[] = [];
   firstOrder: any;
   otherOrder: any;
-  bootlegger:any;
+  stormcaught:any;
+  stormcaughtOld:any;
   hbchar: any;
+  showBoot: boolean = false;
 
   townsfolk: {
     ID:string,
@@ -73,13 +85,15 @@ export class App implements OnInit, AfterViewInit {
     Image:string
   }[] = []
 
-  test:string = "0"
+  test:string = ''
+
+  constructor(private cd: ChangeDetectorRef) {}
 
   ngOnInit(): void {
-    console.log("loading!") 
+    this.updateHeaderHeight()
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit() { 
     // The header ElementRef is now available
       const observer = new ResizeObserver(() => {
     this.updateHeaderHeight();
@@ -92,14 +106,54 @@ export class App implements OnInit, AfterViewInit {
     if (this.header && this.header.nativeElement) {
       this.headerHeight = this.header.nativeElement.offsetHeight;
 
-      console.log(this.headerHeight)
+     //console.log(this.headerHeight)
     }
 
     if(this.headerHeight > 0){
     this.playerCountContainer.nativeElement.style.setProperty('--headerHeight', this.headerHeight + 'px');
     }
+    this.cd.detectChanges();
   }
 
+  async paste() {
+    try {
+      const clipboard = await navigator.clipboard.readText();
+      this.jsonInput = clipboard;
+      this.create()
+      this.cd.detectChanges();
+
+    } catch (err) {
+      console.error('Failed to read clipboard:', err);
+    }
+  }
+
+  stormcaughtUpdate(){
+    if(this.stormcaughtOld != this.stormcaught){
+      this.jinxData.unshift(
+        {
+          char1:this.stormcaught,
+          char2:"stormcatcher",
+          reason:this.stormcaught
+        }
+      )
+
+      this.jinxData = this.jinxData.filter
+      (jinx => jinx.reason != this.stormcaughtOld)
+    }
+
+    this.characters = this.characters.filter
+      (char => char != "stormcatcher");
+    
+      if(this.stormcaught != 'none' && this.stormcaught){
+      this.characters.push("stormcatcher")
+    }
+
+    this.updateJinxes();
+    this.cd.detectChanges();
+    this.stormcaughtOld = this.stormcaught;
+
+
+  }
 
   create() {
     this.fullJsonSplit = JSON.parse(this.jsonInput)
@@ -111,11 +165,13 @@ export class App implements OnInit, AfterViewInit {
     this.author = this.fullJsonSplit[0].author;
 
     //set bootlegger
-    this.bootlegger = this.fullJsonSplit[0].bootlegger
-
+    if(this.fullJsonSplit[0].bootlegger){
+      this.bootlegger = this.fullJsonSplit[0].bootlegger
+    }
     //-----------------------------
     //Characters
     this.characters = []
+
      for (let i = 1; i < this.fullJsonSplit.length; i++) {
       
       
@@ -156,7 +212,6 @@ export class App implements OnInit, AfterViewInit {
               }
             }
             //add to night order
-            console.log(this.hbchar)
 
             if(this.hbchar.firstNight > 0){
               this.nightOrderData.push({
@@ -182,6 +237,13 @@ export class App implements OnInit, AfterViewInit {
         this.characters.push(this.fullJsonSplit[i])
        }
      }
+            
+     if(!this.characters.includes("none")){
+        this.characters.unshift("none");
+     }
+     this.stormcaughtUpdate()
+     console.log(this.characters)
+
 
     //-------------------------------------------
     //set character lists
@@ -202,23 +264,33 @@ export class App implements OnInit, AfterViewInit {
     this.trav = this.setcharacters(this.trav,"traveller")
 
     //get list of npcs, not including djinn
+
     this.npcs = this.charData
       .filter(item => 
         this.characters.includes(item.ID) 
         && (item.Team === "loric" || item.Team === 'fabled') 
-        && item.ID != 'djinn'
+        && item.ID != 'djinn' 
+        && item.ID != 'bootlegger'
     ).sort((a, b) =>
       this.characters.indexOf(a.ID) - 
       this.characters.indexOf(b.ID)
-    );
+    )
+    if(!this.showBoot && this.bootlegger.length > 0){
+    this.npcs.push({
+    "ID": "bootlegger",
+    "Name": "Bootlegger",
+    "Ability": "This script has homebrew characters or rules.",
+    "Team": "loric",
+    "Image": "https://wiki.bloodontheclocktower.com/images/0/08/Icon_bootlegger.png"
+  })
+    }
 
 
     //---------------------------------------------
     //Jinxes - get array of jinxes
-    this.filteredJinxes = 
-      this.jinxData.filter(jinx => 
-        this.characters.includes(jinx.char1) &&
-        this.characters.includes(jinx.char2));
+    this.updateJinxes()
+
+
 
     //----------------------------------------------------
     //Night Order
@@ -257,13 +329,37 @@ export class App implements OnInit, AfterViewInit {
 
     this.updateHeaderHeight()
 
+    console.log(this.filteredJinxes)
+    console.log(this.bootlegger)
+    console.log(this.npcs)
+
   }
 
-  // Get image from charData by name
-  getImageForName(inputID: string): string | null {
+  // Get image from charData by id
+  getImageForID(inputID: string): string | null {
     const match = this.charData.find(item => item.ID === inputID);
     return match ? match.Image : null;
   }
+
+    // Get name from charData by id
+  getNameForID(inputID: string): string | null {
+    const match = this.charData.find(item => item.ID === inputID);
+    return match ? match.Name : null;
+  }
+
+  updateJinxes(){
+    this.filteredJinxes = 
+      this.jinxData.filter(jinx => 
+        this.characters.includes(jinx.char1) &&
+        this.characters.includes(jinx.char2));
+
+    this.filteredJinxes2 = 
+      this.jinxData.filter(jinx => 
+        this.characters.includes(jinx.char1) &&
+        this.characters.includes(jinx.char2) &&
+      jinx.char2 != 'stormcatcher');
+  }
+
 
   //[{"id":"_meta","author":"Yume","name":"Hime Nightmare"},"knight","chef","pixie","balloonist","general","fortuneteller","towncrier","monk","gossip","alsaahir","princess","cannibal","amnesiac","drunk","sweetheart","klutz","hatter","mutant","poisoner","xaan","wraith","scarletwoman","organgrinder","nodashii","kazali","cacklejack","matron","apprentice","voudon","gardener","djinn"]
 
@@ -2707,7 +2803,4 @@ setcharacters(set:any, setname:string){
   
 }
 
-function setStyle() {
-  throw new Error('Function not implemented.');
-}
 

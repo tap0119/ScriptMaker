@@ -110,6 +110,12 @@
   width:86%
 }
 
+.page2main{
+ height:11in;
+  border:0px solid red;
+  position:relative;
+}
+
 .TypeHeader {
   font-family: 'Philo';
   float:right;
@@ -203,16 +209,21 @@
 .charImageContainerBottom {
   display: flex;
   flex-direction: row;
-  width:8%;
+  width:100%;
+  position: relative; 
+  bottom: -20px;
+  left: 11px;
+  border:0px solid red;
+
+  justify-content: center; /* horizontal */
+  align-items: center;     /* vertical */
 }
 
 .charImageBottom {
-  padding-top: 8px;
-  height:39px;
-  width:39px;
-  position: relative; 
-  bottom: 3px;
-  margin: 0px -17px -20px 0px;
+  height:36px;
+  width:36px;
+  margin: 0px -14px -20px 0px;
+  filter: grayscale(100%);
 }
 
 .imagenpc {
@@ -294,6 +305,7 @@
   bottom:-62px;
   right:58px;
   color:black;
+  border:0px solid red;
 }
 
 .npcRow{
@@ -402,13 +414,11 @@
 
 
 .playerCountContainer{
-    border:0px solid white;
-    position: relative;
-    width:620px;
-    height:calc(940px - var(--headerHeight));
-    display: flex;
-    flex:1;
-    justify-content: center;  /* horizontal */
+  position: absolute;
+  bottom:90px;
+  left:80px;
+
+    
 }
 .playerCountImage{
   width:620px;
@@ -434,6 +444,17 @@
   align-items: left;
   color:rgb(99, 98, 98);
 
+}
+
+.footer2 {
+  text-align: center;
+  display: table;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+    position: absolute;
+  bottom: 0;
+  width:100%;
 }
 
 

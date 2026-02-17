@@ -2,10 +2,9 @@
     <div>
      
       <h1>Hello, {{ title() }}</h1>
-      <textarea type="text" [(ngModel)]="jsonInput" (ngModelChange)="create()" rows="6" cols="80"></textarea>
+      <textarea type="text" [(ngModel)]="jsonInput" (ngModelChange)="create()" rows="15" cols="90"></textarea>
 
       <button (click)="paste()">Paste</button>
-      <button (click)="create()">Update</button>
 
       <button [useExistingCss]="true"  printSectionId="print-section"  ngxPrint>Print</button> 
 
@@ -326,7 +325,9 @@
 
         
         <!----Page 2 -->
-        <div class="print-page">
+        <div class="print-page" style="position:relative;">
+
+
 
           <!---- First Night -->
           <div class="nightOrder" style="float:left">
@@ -348,40 +349,9 @@
           <p class="nightText">OTHER NIGHTS</p>
           </div>
 
-          <!------------------>
-
           <div class="ScriptNameBottom">{{scriptName}}</div>
-              
-          <div class="divRowPage2" style="padding-bottom:4px; padding-top:8px">
-                  <img src="/divider.png" class="divPngPage2">
-          </div>
 
-          <div class="charImageContainerBottom">
-            @for(char of townsfolk; track char){
-                    <img src={{char.Image}} class="charImageBottom">
-            }
-
-            <img src=divider.png style="opacity: 0;"class="charImageBottom">
-            
-            @for(char of outsiders; track char){
-
-                    <img src={{char.Image}} class="charImageBottom">
-            }
-
-            <img src=divider.png style="opacity: 0;"class="charImageBottom">
-
-            @for(char of minions; track char){
-                    <img src={{char.Image}} class="charImageBottom">
-            }
-            
-            <img src=divider.png style="opacity: 0;"class="charImageBottom">
-
-            @for(char of demons; track char){
-                    <img src={{char.Image}} class="charImageBottom">
-            }
-            </div>
-
-          <div class="header" #header (ngModelChange)="updateHeaderHeight">
+          <div class="page2main">
             <!----- NPCs Header -->
             @if(filteredJinxes.length > 0  || bootlegger.length > 0 || npcs.length > 0){
               <div class="divRowPage2" style="padding-top:20px">
@@ -437,7 +407,7 @@
                       <div class ="bootleggerRow">
                         <b style="padding-right: 50px;"></b>
                         <p style="padding-top:10px">⦁</p>
-                        <p class="bootleggerRule" style="padding-top:10px">The {{getNameForID(stormcaught)}} is stormcaught</p>
+                        <p class="bootleggerRule" style="padding-top:10px">The {{getNameForID(stormcaught)}} is stormcaught.</p>
                       </div>
                     }
                   
@@ -489,17 +459,46 @@
                     </div>
                 }
               }
-          </div>
+          
 
 
           <div class="playerCountContainer" #playerCountContainer>
 
             <img class="playerCountImage" src=playercount.png>
+          
+
+            <div class="footer2">
+              <div class="charImageContainerBottom">
+              @for(char of townsfolk; track char){
+                      <img src={{char.Image}} class="charImageBottom">
+              }
+
+              <img src=divider.png style="opacity: 0;"class="charImageBottom">
+              
+              @for(char of outsiders; track char){
+
+                      <img src={{char.Image}} class="charImageBottom">
+              }
+
+              <img src=divider.png style="opacity: 0;"class="charImageBottom">
+
+              @for(char of minions; track char){
+                      <img src={{char.Image}} class="charImageBottom">
+              }
+              
+              <img src=divider.png style="opacity: 0;"class="charImageBottom">
+
+              @for(char of demons; track char){
+                      <img src={{char.Image}} class="charImageBottom">
+              }
+              </div>
+            </div>
+          </div>
           </div>
 
 
       </div>
-    </div>
+    </div> 
 
 
     </div>

@@ -14,8 +14,6 @@ import { NgxPrintDirective } from 'ngx-print';
 
 export class App implements OnInit, AfterViewInit {
   protected readonly title = signal('ScriptMaker');
-  @ViewChild('header') header!: ElementRef<HTMLDivElement>;
-  @ViewChild('playerCountContainer') playerCountContainer!: ElementRef<HTMLDivElement>;
 
   headerHeight: number = 0;
 
@@ -93,31 +91,6 @@ export class App implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() { 
-    // The header ElementRef is now available
-      const observer = new ResizeObserver((entries) => {
-    for (const entry of entries) {
-      if (entry.contentRect.height) {
-        this.updateHeaderHeight();
-      }
-    }
-  });
-
-  observer.observe(this.header.nativeElement);
-
-  this.updateHeaderHeight();
-  }
-
-  updateHeaderHeight() {
-    if (this.header && this.header.nativeElement) {
-      this.headerHeight = this.header.nativeElement.offsetHeight;
-
-     //console.log(this.headerHeight)
-    }
-
-    if(this.headerHeight > 0){
-    this.playerCountContainer.nativeElement.style.setProperty('--headerHeight', this.headerHeight + 'px');
-    }
-    this.cd.detectChanges();
   }
 
   async paste() {
@@ -146,10 +119,9 @@ export class App implements OnInit, AfterViewInit {
       (jinx => jinx.reason != this.stormcaughtOld)
     }
 
-    this.characters = this.characters.filter
-      (char => char != "stormcatcher");
-    
-      if(this.stormcaught != 'none' && this.stormcaught){
+    if(this.characters.includes("stormcatcher") || !(this.stormcaught == "none" || !this.stormcaught)){
+      //this.characters = this.characters.filter(char => char != "stormcatcher");
+
       this.characters.push("stormcatcher")
     }
 
@@ -297,8 +269,14 @@ export class App implements OnInit, AfterViewInit {
     //----------------------------------------------------
     //Night Order
 
+    //filter out travellers from characters
+    const nightOrderInput = this.characters.filter(id =>
+        this.charData.find(d => d.ID === id)?.Team !== 'traveller'
+    );
+
     //add meta info to first night
-    const firstNightInput =this.characters
+    let firstNightInput = nightOrderInput
+
     firstNightInput.push("dawn","dusk","minioninfo","demoninfo")
 
     //filter night order
@@ -314,8 +292,9 @@ export class App implements OnInit, AfterViewInit {
 
 
     //add meta info to other night
-    const otherNightInput =this.characters
-    firstNightInput.push("dawn","dusk")
+    let otherNightInput = nightOrderInput
+
+    otherNightInput.push("dawn","dusk")
 
     //filter night order
     const otherFiltered = this.nightOrderData
@@ -326,15 +305,6 @@ export class App implements OnInit, AfterViewInit {
 
     //set first order
     this.otherOrder = otherFiltered.map(item => item.otherNights);
-
-
-
-    this.updateHeaderHeight()
-
-    console.log(this.filteredJinxes)
-    console.log(this.bootlegger)
-    console.log(this.npcs)
-
   }
 
   // Get image from charData by id

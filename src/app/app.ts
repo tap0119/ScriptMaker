@@ -99,7 +99,7 @@ export class App implements OnInit, AfterViewInit {
       this.jsonInput = clipboard;
       this.cd.detectChanges();
       this.create();
-      this.cd.detectChanges();
+      
 
     } catch (err) {
       console.error('Failed to read clipboard:', err);
@@ -213,7 +213,7 @@ export class App implements OnInit, AfterViewInit {
           }
 
       //if split does not have id add to characters
-       }else{
+       }else if(this.fullJsonSplit[i]){
 
         this.characters.push(this.fullJsonSplit[i])
        }
@@ -273,7 +273,7 @@ export class App implements OnInit, AfterViewInit {
       if(rows >= 13){
         this.page1height = "94.5"
       }else{
-        this.page1height = rows*8.2 + ""
+        this.page1height = rows*7.5 + ""
       }
 
       //console.log(this.page1height)
@@ -328,7 +328,32 @@ export class App implements OnInit, AfterViewInit {
 
     //set first order
     this.otherOrder = otherFiltered.map(item => item.otherNights);
+
+
+    this.cd.detectChanges();
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  //--------------Other functions
+
+
+
+
+
+
+
+
 
   // Get image from charData by id
   getImageForID(inputID: string): string  {
@@ -354,13 +379,6 @@ export class App implements OnInit, AfterViewInit {
         this.characters.includes(jinx.char2) &&
       jinx.char2 != 'stormcatcher');
   }
-
-
-  //[{"id":"_meta","author":"Yume","name":"Hime Nightmare"},"knight","chef","pixie","balloonist","general","fortuneteller","towncrier","monk","gossip","alsaahir","princess","cannibal","amnesiac","drunk","sweetheart","klutz","hatter","mutant","poisoner","xaan","wraith","scarletwoman","organgrinder","nodashii","kazali","cacklejack","matron","apprentice","voudon","gardener","djinn"]
-
-  //[{"id":"_meta","author":"Thomas04","name":"Madness of the Anti-Popes","bootlegger":["Amnesiac guesses always give correct info about their ability. Information from their ability may be false.","bootlegg2"]},"steward","shugenja","empath","balloonist","snakecharmer","savant","seamstress","philosopher","fisherman",{"id":"juggler"},"amnesiac","farmer","sweetheart","plaguedoctor","hatter","mutant","harpy","cerenovus","pithag","eviltwin","nodashii","vigormortis","vortox","fanggu","pope","bootlegger"]
-
-  //[ { "id": "_meta", "author": "Thomas", "name": "Rotten to the Core", "firstNight": [ "dusk", "minioninfo", "demoninfo", "cobbler_hblreleased","chef","butler","seamstress", "steward", "spy", "dawn" ], "otherNight": [ "dusk", "seamstress", "butler", "spy", "dawn" ], "bootlegger": [ "This script features homebrew characters by Luis S (✦) " ] },"steward","chef", { "id": "cobbler_hblreleased", "name": "Cobbler ✦", "image": [ "https://i.imgur.com/CqZgOjo.png", "https://i.imgur.com/0eeMtVq.png" ], "team": "townsfolk", "ability": "You start knowing 1 good & 1 evil character: they are either both in-play or not at all.", "flavor": "That’s odd. I could’ve sworn that I left this pair here.", "firstNight": 49.1, "otherNight": 0, "firstNightReminder": "Show the Cobbler 1 in-play good character token &amp; 1 in-play evil character token, or 1 not-in-play good character token &amp; 1 not-in-play evil character token." ,"jinxes":[{"id":"banshee","reason":"If the Matsuraid is in play and the Banshee is ‘About to Die’, all players learn this and the Banshee gains their ability."},{"id":"drunk","reason":"DRKtnSHEOa About to Die’, all players learn this and the Banshee gains their ability."}]}, "seamstress","banshee", "butler", "drunk", "spy", "bootlegger" ]
 
 setcharacters(set:any, setname:string){
   set = this.charData

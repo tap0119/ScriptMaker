@@ -1,6 +1,4 @@
 <main class="body">
-    <div>
-     
       <h1>Hello, {{ title() }}</h1>
       <textarea type="text" [(ngModel)]="jsonInput" (ngModelChange)="create()" rows="15" cols="90"></textarea>
 
@@ -21,6 +19,7 @@
 
       <!---- Page 1 --->
       <div id="print-section">
+        @if(jsonInput){
         <div class="print-page" style="position:relative;">
             
           <div class="HeaderRow">
@@ -87,6 +86,7 @@
                       </div>
                   }
 
+              <div class="page1main">
               <!-- Townsfolk -->
               <div class="divRow">
                 <div class="divider">
@@ -95,7 +95,7 @@
                 <div class="TypeHeader">TOWNSFOLK</div>
               </div>
 
-              <div class="column">
+              
               @for (item of townsfolk.slice(0,((townsfolk.length + 1) / 2)); track item) {
                 <div class="row">
                   <div class="charImageContainer">
@@ -116,9 +116,9 @@
                   </div>
                 </div>
               }
-              </div>
+              
 
-              <div class="column">
+              
               @for (item of townsfolk.slice(((townsfolk.length + 1) / 2)); track item) {
                 <div class="row">
                   <div class="charImageContainer">
@@ -140,7 +140,7 @@
                   </div>
                 </div>
               }
-              </div>
+              
 
               <!-- Outsiders -->
               <div class="divRow">
@@ -150,7 +150,6 @@
                 <div class="TypeHeader">OUTSIDERS</div>
               </div>
 
-              <div class="column">
               @for (item of outsiders.slice(0,((outsiders.length + 1) / 2)); track item) {
                 <div class="row">
                   <div class="charImageContainer">
@@ -172,9 +171,7 @@
                   </div>
                 </div>
               }
-              </div>
 
-              <div class="column">
               @for (item of outsiders.slice(((outsiders.length + 1) / 2)); track item) {
                 <div class="row">
                   <div class="charImageContainer">
@@ -196,7 +193,6 @@
                   </div>
                 </div>
               }
-              </div>
 
               <!-- Minions -->
               <div class="divRow">
@@ -206,7 +202,6 @@
                 <div class="TypeHeader">MINIONS</div>
               </div>
 
-              <div class="column">
               @for (item of minions.slice(0,((minions.length + 1) / 2)); track item) {
                 <div class="row">
                   <div class="charImageContainer">
@@ -228,9 +223,7 @@
                   </div>
                 </div>
               }
-              </div>
 
-              <div class="column">
               @for (item of minions.slice(((minions.length + 1) / 2)); track item) {
                 <div class="row">
                   <div class="charImageContainer">
@@ -252,7 +245,7 @@
                   </div>
                 </div>
               }
-              </div>
+
 
               <!-- Demons -->
               <div class="divRow">
@@ -262,7 +255,6 @@
                 <div class="TypeHeader">DEMONS</div>
               </div>
 
-              <div class="column">
               @for (item of demons.slice(0,((demons.length + 1) / 2)); track item) {
                 <div class="row">
                   <div class="charImageContainer">
@@ -284,9 +276,7 @@
                   </div>
                 </div>
               }
-              </div>
 
-              <div class="column">
               @for (item of demons.slice(((demons.length + 1) / 2)); track item) {
                 <div class="row">
                   <div class="charImageContainer">
@@ -309,7 +299,9 @@
                   </div>
                 </div>
               }
-              </div>
+            
+            
+            </div>
 
               <footer class="footer">
                 <i>
@@ -497,11 +489,8 @@
           </div>
 
 
-      </div>
+        </div>
+    }
     </div> 
 
-
-    </div>
 </main>
-
-<router-outlet />

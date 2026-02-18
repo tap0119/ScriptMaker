@@ -210,7 +210,7 @@ export class App implements OnInit, AfterViewInit {
     try {
       const clipboard = await navigator.clipboard.readText();
       this.jsonInput = clipboard;
-      this.cd.detectChanges();
+      this.create();
       this.create();
 
 
@@ -454,7 +454,6 @@ export class App implements OnInit, AfterViewInit {
     }
 
     //----
-    console.log(this.charData)
 
 
     this.cd.detectChanges();

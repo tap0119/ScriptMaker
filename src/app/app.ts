@@ -87,7 +87,6 @@ export class App implements OnInit, AfterViewInit {
   constructor(private cd: ChangeDetectorRef) {}
 
   ngOnInit(): void {
-    this.create() 
   }
 
   ngAfterViewInit() { 
@@ -122,7 +121,7 @@ export class App implements OnInit, AfterViewInit {
     }
 
     if(this.characters.includes("stormcatcher") || !(this.stormcaught == "none" || !this.stormcaught)){
-      //this.characters = this.characters.filter(char => char != "stormcatcher");
+      //this.characters = this.characters.filter(char => char != "stormcatcher"); 
 
       this.characters.push("stormcatcher")
     }
@@ -146,6 +145,8 @@ export class App implements OnInit, AfterViewInit {
     //set bootlegger
     if(this.fullJsonSplit[0].bootlegger){
       this.bootlegger = this.fullJsonSplit[0].bootlegger
+    }else{
+      this.bootlegger = []
     }
     //-----------------------------
     //Characters
@@ -174,8 +175,9 @@ export class App implements OnInit, AfterViewInit {
               Name:this.hbchar.name,
               Ability:this.hbchar.ability,
               Team:this.hbchar.team,
-              Image:this.hbchar.image[0]
+              Image:this.hbchar.image
             });
+
             this.characters.push(this.hbchar.id)
 
             //add hb jinxes to jinxData
@@ -203,7 +205,7 @@ export class App implements OnInit, AfterViewInit {
             
             if(this.hbchar.otherNight > 0){
               this.nightOrderData.push({
-                order:this.hbchar.firstNight,
+                order:this.hbchar.otherNight,
                 firstNight:"",
                 otherNights:this.hbchar.id
               })
@@ -221,7 +223,6 @@ export class App implements OnInit, AfterViewInit {
         this.characters.unshift("none");
      }
      this.stormcaughtUpdate()
-     console.log(this.characters)
 
 
     //-------------------------------------------
@@ -252,7 +253,7 @@ export class App implements OnInit, AfterViewInit {
         && item.ID != 'bootlegger'
     )
 
-    if(!this.showBoot && this.bootlegger.length > 0){
+    if((!this.showBoot && this.bootlegger.length > 0) || this.characters.includes("bootlegger")){
       this.npcs.push({
         "ID": "bootlegger",
         "Name": "Bootlegger",
@@ -275,7 +276,7 @@ export class App implements OnInit, AfterViewInit {
         this.page1height = rows*8.2 + ""
       }
 
-      console.log(this.page1height)
+      //console.log(this.page1height)
 
       this.page1main.nativeElement.style.setProperty(
         '--page1height', this.page1height + '%'

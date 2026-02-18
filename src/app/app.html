@@ -1,5 +1,5 @@
 <main class="body">
-      <h1>Hello, ScriptMaker</h1>
+      <h1>Madness Script Maker</h1>
       <textarea type="text" [(ngModel)]="jsonInput" (ngModelChange)="create()" rows="15" cols="90"></textarea>
 
       <button (click)="paste()">Paste</button>
@@ -8,9 +8,9 @@
 
       <select [(ngModel)]="stormcaught" (ngModelChange)="create()">
         @for(char of characters; track char){
-        <option>
+        <option> 
           {{ char }}  
-        </option>
+        </option> 
       }
       </select>
       <input type="checkbox" [(ngModel)]="showBoot" (ngModelChange)="create()">
@@ -18,7 +18,7 @@
 
 
       <!---- Page 1 --->
-      <div id="print-section">
+      <div id="print-section"> 
         @if(jsonInput){
         <div class="print-page" style="position:relative;">
           <div class="page1">
@@ -377,7 +377,7 @@
                   }
 
                   <!----Bootlegger -->
-                  @if (bootlegger.length > 0){
+                  @if (bootlegger.length > 0 || characters.includes("bootlegger")){
                   <div class="npcRow">
                       <img src="{{getImageForID('bootlegger')}}" height="60">
                           <b class="jinxTitle" style="color: #6f854d;">Bootlegger</b>
@@ -441,7 +441,7 @@
               @if (trav.length > 0){
                 
                 <!----- Travellers Header -->
-                <div class="divRowPage2" style="padding-top:40px">
+                <div class="divRowPage2" style="padding-top:20px">
                     <img src="/divider.png" class="divPngPage2">
                     <div class="HeaderPage2">Travellers</div>
                 </div>

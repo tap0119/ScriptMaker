@@ -74,6 +74,7 @@
   clear:both;
   border:1px solid clear;
     margin: -50px 0px -80px 0px;
+    
 }
 
 .bootleggerPage1Row{
@@ -83,7 +84,7 @@
   border:1px solid clear;
   position: relative;
   bottom:44px;
-  width:90%;
+  width:98%;
   margin: -20px 0px -25px 0px;
 }
 
@@ -96,7 +97,8 @@
   bottom:15px;
   height:25px;
        border:0px solid green;
-       grid-column: span 2
+       grid-column: span 2;
+           margin: -10px 0px -10px 0px;
        
 }
 
@@ -126,7 +128,9 @@ padding-bottom: 15px;
 }
 
 .page2main{
- height:10.5in;
+ height:11in;
+ width:6.1in;
+ padding-left:90px;
   border:0px solid red;
   position:relative;
 }
@@ -148,8 +152,8 @@ border:0px solid red;
 }
 
 .print-page {
-  width: 8.5in;
-  min-height: 11in;
+  width: 8.27in;
+  min-height: 11.69in;
   padding: 0.1in;
   margin: 0 auto;
   background: white;
@@ -162,10 +166,11 @@ border:0px solid red;
 
 }
 
+
 .page1{
   display: flex;
   flex-direction: column;
-  height: 10.8in;
+  height: 11.5in;
   position: relative;
   align-items: stretch;
 }
@@ -344,7 +349,7 @@ border:0px solid red;
   flex-direction: row;
     position: relative; 
   bottom:-10px;
-  margin: -10px 0px -5px 0px;
+  margin: -14px 0px -5px 0px;
 }
 
 .jinxTitle {
@@ -377,7 +382,7 @@ border:0px solid red;
   display: flex;
   flex-direction: row;
   align-items: center;   /* vertical alignment */
-  min-height: 50px;
+  height: 50px;
       position: relative; 
   bottom:10px;
 }
@@ -404,20 +409,19 @@ border:0px solid red;
   font-size: 3.4mm;
   padding-left: 15px;
 
-
 }
 
 
 .divRowPage2 {
    margin: 0 auto;
-  width: 75%;
+  width: 98%;
   height: 20px;
   
   border:0px solid red;
   
   position: relative; 
-  bottom:-10px;
-
+  bottom:-15px;
+  left:15px;
 
 }
 
@@ -455,7 +459,7 @@ border:0px solid red;
   width:620px;
   position: absolute; 
   bottom: 0;
-  left:10px;
+  left:0px;
 }
 
 .footer {
@@ -475,7 +479,7 @@ border:0px solid red;
   color:rgb(99, 98, 98);
 
   position: relative; 
-  bottom:-10px;
+  bottom:-16px;
   padding-left: 15px;
   padding-right: 15px;
 
@@ -490,7 +494,7 @@ border:0px solid red;
   margin-right: auto;
     position: absolute;
   bottom: -32px;
-  left: 11px;
+  left: 1px;
   height:30px;
   width:616px;
     border:1px solid rgb(167, 146, 119);

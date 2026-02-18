@@ -1,4 +1,3 @@
-
 @font-face {
   font-family: 'Assi';
   src: url('../fonts/Assistant-Regular.ttf');
@@ -15,140 +14,142 @@
 }
 
 .ScriptName {
-    font-family: 'Philo';
-    float:left;
-    font-size: 32px;
-    padding-top: .05in;
-    padding-left: .1in;
-    color:maroon;
-      position: relative;
-  bottom:5px;
-  
+  font-family: 'Philo';
+  float: left;
+  font-size: 32px;
+  padding-top: .05in;
+  padding-left: .1in;
+  color: maroon;
+  position: relative;
+  bottom: 5px;
+
 }
 
 .ScriptNameBottom {
-    font-family: 'Philo';
-    font-size: 30px;
-    float: center;
-    color:maroon;
-    text-align: center;
-          position: relative;
-  bottom:-15px;
+  font-family: 'Philo';
+  font-size: 35px;
+  float: center;
+  color: maroon;
+  text-align: center;
+  position: relative;
+  bottom: -5px;
+  margin: 0px 0px -10px 0px;
+  border: 0px solid red;
 
-         border:0px solid red;
-  
 }
 
 .Author {
-    font-family: 'Philo';
-    float:left;
-    padding-left: .2in;
-    padding-top: .18in;
-    font-size: 15px;
-    color:maroon;
-    position: relative;
-    bottom:2px;
-  
+  font-family: 'Philo';
+  float: left;
+  padding-left: .2in;
+  padding-top: .18in;
+  font-size: 15px;
+  color: maroon;
+  position: relative;
+  bottom: 2px;
+
 }
 
 .HeaderRow {
   width: 100%;
   padding-bottom: 0px;
-  clear:both;
-  
+  clear: both;
+
 }
 
-.bootleggerPage1Image{
+.bootleggerPage1Image {
   display: flex;
-  align-items: left; 
+  align-items: left;
   position: relative;
-  top:14px;
-  width:80px;
-  height:80px;
-  border:1px solid clear;
+  top: 14px;
+  width: 80px;
+  height: 80px;
+  border: 1px solid clear;
 }
 
-.bootleggerPage1Div{
-    position: relative;
-  bottom:30px;
-  clear:both;
-  border:1px solid clear;
-    margin: -50px 0px -80px 0px;
-    
+.bootleggerPage1Div {
+  position: relative;
+  bottom: 30px;
+  clear: both;
+  border: 1px solid clear;
+  margin: -50px 0px -80px 0px;
+
 }
 
-.bootleggerPage1Row{
+.bootleggerPage1Row {
   display: flex;
   flex-direction: row;
-  align-items: center;   /* vertical alignment */
-  border:1px solid clear;
+  align-items: center;
+  /* vertical alignment */
+  border: 1px solid clear;
   position: relative;
-  bottom:44px;
-  width:98%;
+  bottom: 44px;
+  width: 98%;
   margin: -20px 0px -25px 0px;
 }
 
 .divRow {
   width: 100%;
-  clear:both;
+  clear: both;
   padding-top: 0in;
   padding-bottom: 0in;
   position: relative;
-  bottom:15px;
-  height:25px;
-       border:0px solid green;
-       grid-column: span 2;
-           margin: -10px 0px -10px 0px;
-       
+  bottom: 15px;
+  height: 25px;
+  border: 0px solid green;
+  grid-column: span 2;
+  margin: -10px 0px -10px 0px;
+
 }
 
 .divider {
-  position: relative; 
-  top:20px;
+  position: relative;
+  top: 20px;
   clear: both;
 }
 
 .divPng {
   height: 1px;
-  width:84%;
-  padding-left:13px;
+  width: 84%;
+  padding-left: 13px;
 }
 
-.page1main{
-  width:100%;
-  border:0px solid red;
+.page1main {
+  width: 100%;
+  border: 0px solid red;
   align-items: stretch;
-  height:var(--page1height);
+  height: var(--page1height);
 
-padding-bottom: 15px;
+  padding-bottom: 15px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(1fr);
 
 }
 
-.page2main{
- height:11in;
- width:6.1in;
- padding-left:90px;
-  border:0px solid red;
-  position:relative;
+.page2main {
+  height: 11.2in;
+  width: 6.2in;
+  padding-left: 90px;
+  border: 0px solid red;
+  position: relative;
+
 }
 
-.page1header{
-border:0px solid red;
+.page1header {
+  border: 0px solid red;
 }
 
 .TypeHeader {
   font-family: 'Philo';
-  float:right;
+  float: right;
   padding-right: 0.2in;
-  position: relative; 
-  top: 14px; 
-  height:1px;
-    font-size: 3.5mm;
-    color:black;
-           border:0px solid red;
+  position: relative;
+  top: 14px;
+  height: 1px;
+  font-size: 3.5mm;
+  color: black;
+  border: 0px solid red;
 }
 
 .print-page {
@@ -158,16 +159,18 @@ border:0px solid red;
   margin: 0 auto;
   background: white;
   box-sizing: border-box;
-  clear:both;
+  clear: both;
 
   /* Force new page when printing */
-  page-break-before: always; /* For older browsers */
-  break-before: page;        /* Modern standard */
+  page-break-before: always;
+  /* For older browsers */
+  break-before: page;
+  /* Modern standard */
 
 }
 
 
-.page1{
+.page1 {
   display: flex;
   flex-direction: column;
   height: 11.5in;
@@ -178,35 +181,39 @@ border:0px solid red;
 /* Screen preview styling */
 .body {
   background: #c2c2c2;
+  min-height: 100vh;
+  height: 100%;
+  width: 100vh;
+  padding: 2vh;
 }
 
 
 
 .row {
   padding-top: 2px;
-  border:0px solid blue;  
+  border: 0px solid blue;
   max-height: 80px;
   min-height: 40px;
-    margin: -10px 0px -10px 0px;
+  margin: -10px 0px -10px 0px;
 
 }
 
 .charname {
-  font-family:'AssiBold';
-  float:left;
+  font-family: 'AssiBold';
+  float: left;
   font-size: 3.5mm;
   font-weight: 900;
   align-items: center;
   gap: 1mm;
   padding-top: 0px;
   padding-left: 37px;
-  padding-right:3px;
+  padding-right: 3px;
 }
 
 .charability {
-  font-family:'Assi';
-  float:right;
-  width:82%;
+  font-family: 'Assi';
+  float: right;
+  width: 82%;
   font-size: 3.4mm;
   line-height: 1.2;
   margin: 0;
@@ -214,198 +221,224 @@ border:0px solid red;
   align-items: right;
 }
 
-.charnamerow{
-  display:flex; 
-  flex-direction: row; 
+.charnamerow {
+  display: flex;
+  flex-direction: row;
   align-items: center;
 }
 
-.chartextrow{
+.chartextrow {
   display: flex;
-  flex-direction: column;   /* stack vertically */
-  justify-content: center;  /* vertical centering */
-  min-height: 60px;            /* required for vertical centering */
+  flex-direction: column;
+  /* stack vertically */
+  justify-content: center;
+  /* vertical centering */
+  min-height: 60px;
+  /* required for vertical centering */
 
-  
+
 }
 
 .charImageContainer {
   float: left;
   align-items: left;
-  width:8%;
-  position: relative; 
+  width: 8%;
+  position: relative;
   left: -3px;
 
 }
+
 .charImage {
-  max-height:76px;
+  max-height: 76px;
   margin: -10px 0px -10px 0px;
 }
 
 .charImageContainerBottom {
   display: flex;
   flex-direction: row;
-  width:100%;
-  position: relative; 
+  width: 100%;
+  position: relative;
   bottom: 0px;
   left: 0px;
-  border:0px solid red;
+  border: 0px solid red;
 
-  justify-content: center; /* horizontal */
-  align-items: center;     /* vertical */
+  justify-content: center;
+  /* horizontal */
+  align-items: center;
+  /* vertical */
 }
 
 .charImageBottom {
-  height:30px;
-  width:30px;
+  height: 30px;
+  width: 30px;
   margin: 0px -8.5px -20px 0px;
-  filter: grayscale(100%);
+  filter: grayscale(0%);
 }
 
 .imagenpc {
   float: right;
   align-items: center;
-  position: relative; 
+  position: relative;
   bottom: 0px;
-  height:40px;  
+  height: 40px;
 }
 
-.textnpc{
-  font-family:'Assi';
-  font-size:3mm;
+.textnpc {
+  font-family: 'Assi';
+  font-size: 3mm;
   font-weight: 500;
   float: right;
   align-items: center;
-  position: relative; 
-  top:0px
+  position: relative;
+  top: 0px
 }
 
-.textnpc2{
-  font-family:'Philo';
-  font-size:4mm;
+.textnpc2 {
+  font-family: 'Philo';
+  font-size: 4mm;
   float: right;
   align-items: center;
-  position: relative; 
-  bottom:5px
+  position: relative;
+  bottom: 5px
 }
 
-.textbootlegger{
-  font-family:'Assi';
-  font-size:3.4mm;
+.textbootlegger {
+  font-family: 'Assi';
+  font-size: 3.4mm;
   float: right;
   align-items: center;
-  position: relative; 
-  left:10px;
+  position: relative;
+  left: 10px;
 }
 
-.jinxIcon{
+.jinxIcon {
   float: left;
-  height:35px; 
-  position: relative; 
-  bottom:0px;
-         border:0px solid red;
-         margin: -10px 0px -10px 0px;
+  height: 35px;
+  position: relative;
+  bottom: 0px;
+  border: 0px solid red;
+  margin: -10px 0px -10px 0px;
 }
 
-.jinxIcon2{
+.jinxIcon2 {
   float: left;
-  height:50px; 
-  position: relative; 
-  bottom:-10px;
-         border:0px solid red;
-         margin: 0px -10px 0px 0px;
+  height: 40px;
+  position: relative;
+  bottom: -10px;
+  border: 0px solid red;
+  margin: 0px -5px 0px 0px;
 }
 
-.nightOrder{
+.nightOrder {
   width: 75px;
-  padding-top:15px;
+  padding-top: 15px;
   display: flex;
-  flex-direction: column;   /* stack vertically */
+  flex-direction: column;
+  /* stack vertically */
 }
 
-.nightIcon{
-  height:60px;
+.nightIcon {
+  height: 60px;
   margin: -9px 0px -9px 0px;
   padding-left: 5px;
-  padding-right: 5px; 
+  padding-right: 5px;
 }
 
-.nightText{
-  font-family:'Philo';
-  font-size:6mm;
+.firstnightText {
+  font-size: var(--firstnight);
+  font-family: 'Philo';
   width: 190px;
-  display: inline-block;   /* required so transform works properly */
+  display: inline-block;
+  /* required so transform works properly */
   transform: rotate(90deg);
 
-    position: relative; 
-  bottom:-62px;
-  right:58px;
-  color:black;
-  border:0px solid red;
+  position: relative;
+  bottom: -62px;
+  right: 58px;
+  color: black;
+  border: 0px solid red;
 }
 
-.npcRow{
+.othernightText {
+  font-size: var(--othernight);
+  font-family: 'Philo';
+  width: 190px;
+  display: inline-block;
+  /* required so transform works properly */
+  transform: rotate(90deg);
+
+  position: relative;
+  bottom: -62px;
+  right: 58px;
+  color: black;
+  border: 0px solid red;
+}
+
+.npcRow {
   display: flex;
   flex-direction: row;
-    position: relative; 
-  bottom:-10px;
-  margin: -14px 0px -5px 0px;
+  position: relative;
+  bottom: -10px;
+  margin: -15px 0px -10px 0px;
 }
 
 .jinxTitle {
-  font-family:'Philo';
-  float:left;
+  font-family: 'Philo';
+  float: left;
   font-size: 4mm;
-  position: relative; 
-  bottom:-20px;
+  position: relative;
+  bottom: -20px;
 }
 
 .npcName {
-  font-family:'Philo';
-  float:left;
-  font-size:4mm;
-  position: relative; 
-  bottom:-15px;
+  font-family: 'Philo';
+  float: left;
+  font-size: 4mm;
+  position: relative;
+  bottom: -15px;
 }
 
 .npcAbility {
-    font-family:'Assi';
-  float:right;
+  font-family: 'Assi';
+  float: right;
   font-size: 3.4mm;
   line-height: 1.2;
   align-items: right;
-      position: relative; 
-  bottom:-3px;
+  position: relative;
+  bottom: -3px;
 }
 
 .jinxRow {
   display: flex;
   flex-direction: row;
-  align-items: center;   /* vertical alignment */
+  align-items: center;
+  /* vertical alignment */
   height: 50px;
-      position: relative; 
-  bottom:10px;
+  position: relative;
+  bottom: 4px;
+    margin: -11px 0px -11px 0px;
 }
 
 .jinxReason {
-  font-family:'Assi';
+  font-family: 'Assi';
   font-size: 3.4mm;
-  padding-left: 15px;
-    position: relative; 
-  bottom:-10px;
+  padding-left: 10px;
+  position: relative;
+  bottom: -10px;
 
 }
 
 .bootleggerRow {
   display: flex;
   flex-direction: row;
-  align-items: center;   /* vertical alignment */
-  border:0px solid red;
+  align-items: center;
+  /* vertical alignment */
+  border: 0px solid red;
   margin: -20px 0px -25px 0px;
 }
 
 .bootleggerRule {
-  font-family:'Assi';
+  font-family: 'Assi';
   font-size: 3.4mm;
   padding-left: 15px;
 
@@ -413,53 +446,55 @@ border:0px solid red;
 
 
 .divRowPage2 {
-   margin: 0 auto;
+  margin: 0 auto;
   width: 98%;
   height: 20px;
-  
-  border:0px solid red;
-  
-  position: relative; 
-  bottom:-15px;
-  left:15px;
+
+  border: 0px solid red;
+
+  position: relative;
+  bottom: -15px;
+  left: 15px;
 
 }
 
 
 .divPngPage2 {
-  width:100%;
-  height:1px;
+  width: 100%;
+  height: 1px;
 }
 
 .HeaderPage2 {
   font-family: 'Philo';
-  width:140px;
-  position: relative; 
+  width: 140px;
+  position: relative;
   top: -10px;
   right: 10px;
   font-size: 5mm;
-  color:black;
+  color: black;
   background-color: white;
   margin: 0 auto;
   display: flex;
-  justify-content: center;  /* horizontal */
-  border:0px solid red;
+  justify-content: center;
+  /* horizontal */
+  border: 0px solid red;
 
 }
 
 
-.playerCountContainer{
+.playerCountContainer {
   position: absolute;
-  bottom:60px;
-  left:80px;
+  bottom: 60px;
+  left: 80px;
 
-    
+
 }
-.playerCountImage{
-  width:620px;
-  position: absolute; 
+
+.playerCountImage {
+  width: 620px;
+  position: absolute;
   bottom: 0;
-  left:0px;
+  left: 0px;
 }
 
 .footer {
@@ -467,23 +502,23 @@ border:0px solid red;
   left: 0;
   bottom: 0;
   width: 100%;
-    border:0px solid red;
-  
+  border: 0px solid red;
+
 }
 
-.footerText{
-  font-family:'Assi';
+.footerText {
+  font-family: 'Assi';
   font-size: 3.4mm;
-  padding-bottom:10px;
-  
-  color:rgb(99, 98, 98);
+  padding-bottom: 10px;
 
-  position: relative; 
-  bottom:-16px;
+  color: rgb(99, 98, 98);
+
+  position: relative;
+  bottom: -16px;
   padding-left: 15px;
   padding-right: 15px;
 
-      border:0px solid red;
+  border: 0px solid red;
 
 }
 
@@ -492,13 +527,10 @@ border:0px solid red;
   display: table;
   margin-left: auto;
   margin-right: auto;
-    position: absolute;
+  position: absolute;
   bottom: -32px;
   left: 1px;
-  height:30px;
-  width:613px;
-    border:3px solid rgba(201, 192, 184);
+  height: 30px;
+  width: 613px;
+  border: 3px solid rgba(201, 192, 184);
 }
-
-
-

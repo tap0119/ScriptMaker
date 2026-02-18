@@ -13,9 +13,7 @@ import { NgxPrintDirective } from 'ngx-print';
 
 
 export class App implements OnInit, AfterViewInit {
-  protected readonly title = signal('ScriptMaker');
-
-  headerHeight: number = 0;
+  @ViewChild('page1main') page1main!: ElementRef;
 
   jsonInput:string = '';
   scriptName:string = '';
@@ -39,6 +37,7 @@ export class App implements OnInit, AfterViewInit {
   stormcaughtOld:any;
   hbchar: any;
   showBoot: boolean = false;
+  page1height: string = '';
 
   townsfolk: {
     ID:string,
@@ -88,16 +87,19 @@ export class App implements OnInit, AfterViewInit {
   constructor(private cd: ChangeDetectorRef) {}
 
   ngOnInit(): void {
+    this.create() 
   }
 
   ngAfterViewInit() { 
+    
   }
 
   async paste() {
     try {
       const clipboard = await navigator.clipboard.readText();
       this.jsonInput = clipboard;
-      this.create()
+      this.cd.detectChanges();
+      this.create();
       this.cd.detectChanges();
 
     } catch (err) {
@@ -249,15 +251,35 @@ export class App implements OnInit, AfterViewInit {
         && item.ID != 'djinn' 
         && item.ID != 'bootlegger'
     )
+
     if(!this.showBoot && this.bootlegger.length > 0){
-    this.npcs.push({
-    "ID": "bootlegger",
-    "Name": "Bootlegger",
-    "Ability": "This script has homebrew characters or rules.",
-    "Team": "loric",
-    "Image": "https://wiki.bloodontheclocktower.com/images/0/08/Icon_bootlegger.png"
-  })
+      this.npcs.push({
+        "ID": "bootlegger",
+        "Name": "Bootlegger",
+        "Ability": "This script has homebrew characters or rules.",
+        "Team": "loric",
+        "Image": this.getImageForID("bootlegger")
+      })
     }
+
+    //Set Row Height-----------------
+      const rows = Math.ceil(this.townsfolk.length/2) +
+                Math.ceil(this.outsiders.length/2) +
+                Math.ceil(this.minions.length/2)   +
+                Math.ceil(this.demons.length/2)
+
+      this.page1height = ""
+      if(rows >= 13){
+        this.page1height = "94.5"
+      }else{
+        this.page1height = rows*8.2 + ""
+      }
+
+      console.log(this.page1height)
+
+      this.page1main.nativeElement.style.setProperty(
+        '--page1height', this.page1height + '%'
+      )
 
 
     //---------------------------------------------
@@ -308,15 +330,15 @@ export class App implements OnInit, AfterViewInit {
   }
 
   // Get image from charData by id
-  getImageForID(inputID: string): string | null {
+  getImageForID(inputID: string): string  {
     const match = this.charData.find(item => item.ID === inputID);
-    return match ? match.Image : null;
+    return match ? match.Image : "not found";
   }
 
     // Get name from charData by id
-  getNameForID(inputID: string): string | null {
+  getNameForID(inputID: string): string {
     const match = this.charData.find(item => item.ID === inputID);
-    return match ? match.Name : null;
+    return match ? match.Name : "not found";
   }
 
   updateJinxes(){

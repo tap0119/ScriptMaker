@@ -1,5 +1,5 @@
 <main class="body">
-      <h1>Hello, {{ title() }}</h1>
+      <h1>Hello, ScriptMaker</h1>
       <textarea type="text" [(ngModel)]="jsonInput" (ngModelChange)="create()" rows="15" cols="90"></textarea>
 
       <button (click)="paste()">Paste</button>
@@ -21,72 +21,74 @@
       <div id="print-section">
         @if(jsonInput){
         <div class="print-page" style="position:relative;">
-            
-          <div class="HeaderRow">
-            <!----NPCs-->
-              <div style="padding-right:15px; padding-bottom:10px; position: relative; 
-      top: 6px;">
+          <div class="page1">
+          <div class="page1header">
+            <div class="HeaderRow">
+              <!----NPCs-->
+                <div style="padding-right:15px; padding-bottom:10px; position: relative; 
+        top: 6px;">
 
-                    @if(npcs.length > 3) {
-                      <p class="textnpc2" style="padding-left:7px; padding-right:7px;"><b>+ {{npcs.length - 3}}</b></p>
-                    }
-
-                    @if (npcs[2]) {
-                      @if (npcs[2].Team === 'loric') {
-                        <p class="textnpc" style="color:#6f854d">{{npcs[2].Name}}</p>
-                      }@else{
-                        <p class="textnpc" style="color: #7a6550">{{npcs[2].Name}}</p>
+                      @if(npcs.length > 3) {
+                        <p class="textnpc2" style="padding-left:7px; padding-right:7px;"><b>+ {{npcs.length - 3}}</b></p>
                       }
-                      <img src={{npcs[2].Image}} class="imagenpc" >
-                    } 
 
-                    @if (npcs[1]) {
-                      @if (npcs[1].Team === 'loric') {
-                        <p class="textnpc" style="color: #6f854d;">{{npcs[1].Name}}</p>
-                      }@else{
-                        <p class="textnpc" style="color: #7a6550;">{{npcs[1].Name}}</p>
-                      }
-                      <img src={{npcs[1].Image}} class="imagenpc">
-                    }
+                      @if (npcs[2]) {
+                        @if (npcs[2].Team === 'loric') {
+                          <p class="textnpc" style="color:#6f854d">{{npcs[2].Name}}</p>
+                        }@else{
+                          <p class="textnpc" style="color: #7a6550">{{npcs[2].Name}}</p>
+                        }
+                        <img src={{npcs[2].Image}} class="imagenpc" >
+                      } 
 
-                    
-                    @if (npcs[0]) {
-                      @if (npcs[0].Team === 'loric') {
-                        <p class="textnpc" style="color: #6f854d;">{{npcs[0].Name}}</p>
-                      }@else{
-                        <p class="textnpc" style="color: #7a6550;">{{npcs[0].Name}}</p>
+                      @if (npcs[1]) {
+                        @if (npcs[1].Team === 'loric') {
+                          <p class="textnpc" style="color: #6f854d;">{{npcs[1].Name}}</p>
+                        }@else{
+                          <p class="textnpc" style="color: #7a6550;">{{npcs[1].Name}}</p>
+                        }
+                        <img src={{npcs[1].Image}} class="imagenpc">
                       }
-                      <img src={{npcs[0].Image}} class="imagenpc">
-                    }
+
+                      
+                      @if (npcs[0]) {
+                        @if (npcs[0].Team === 'loric') {
+                          <p class="textnpc" style="color: #6f854d;">{{npcs[0].Name}}</p>
+                        }@else{
+                          <p class="textnpc" style="color: #7a6550;">{{npcs[0].Name}}</p>
+                        }
+                        <img src={{npcs[0].Image}} class="imagenpc">
+                      }
+                </div>
+
+
+                <!----Name and Author-->
+                <div class="ScriptName">{{scriptName}}</div>
+                
+                @if (author){
+                  <div class="Author"><i>by {{author}}</i></div>
+                }
               </div>
 
-
-              <!----Name and Author-->
-              <div class="ScriptName">{{scriptName}}</div>
-              
-              @if (author){
-                <div class="Author"><i>by {{author}}</i></div>
-              }
-            </div>
-
-                  @if (bootlegger.length > 0 && showBoot){
-                  <div class="bootleggerPage1Div">
-                    <div class="bootleggerPage1Image">
-                        <img src="https://wiki.bloodontheclocktower.com/images/0/08/Icon_bootlegger.png" height="60">
-                    </div>
-            
-
-                      @for (rule of bootlegger; track rule){
-                          <div class ="bootleggerPage1Row">
-                            <b style="padding-right: 60px;"></b>
-                            <p>⦁</p>
-                            <p class="bootleggerRule">{{ rule }}</p>
-                          </div>
-                        }
+                    @if (bootlegger.length > 0 && showBoot){
+                    <div class="bootleggerPage1Div">
+                      <div class="bootleggerPage1Image">
+                          <img src="{{getImageForID('bootlegger')}}" height="60">
                       </div>
-                  }
+              
 
-              <div class="page1main">
+                        @for (rule of bootlegger; track rule){
+                            <div class ="bootleggerPage1Row">
+                              <b style="padding-right: 60px;"></b>
+                              <p>⦁</p>
+                              <p class="bootleggerRule">{{ rule }}</p>
+                            </div>
+                          }
+                        </div>
+                    }
+                    </div> 
+
+              <div class="page1main" #page1main>
               <!-- Townsfolk -->
               <div class="divRow">
                 <div class="divider">
@@ -301,16 +303,21 @@
               }
             
             
-            </div>
+            
 
               <footer class="footer">
                 <i>
-                <div class ="footerText">
+                <div class ="footerText" style="float: left;">
+                  ©Steven Medway
+                </div>
+                <div class ="footerText" style ="float:right">
                   * Not the first night
                 </div>
                 </i>
               </footer>
+              </div>
         </div>
+            </div>
 
 
 
@@ -355,7 +362,7 @@
             <!----- Jinxes  -->
             @if (filteredJinxes2.length > 0){
                   <div class="npcRow">
-                      <img src="https://wiki.bloodontheclocktower.com/images/8/86/Icon_djinn.png" height="60">
+                      <img src="{{getImageForID('djinn')}}" height="60">
                           <b class="jinxTitle" style="color: #7a6550;">Djinn</b>
                   </div>
 
@@ -372,7 +379,7 @@
                   <!----Bootlegger -->
                   @if (bootlegger.length > 0){
                   <div class="npcRow">
-                      <img src="https://wiki.bloodontheclocktower.com/images/0/08/Icon_bootlegger.png" height="60">
+                      <img src="{{getImageForID('bootlegger')}}" height="60">
                           <b class="jinxTitle" style="color: #6f854d;">Bootlegger</b>
                   </div>
                 
@@ -389,7 +396,7 @@
                   <!----Stormcatcher -->
                   @if (stormcaught && stormcaught != "none"){
                   <div class="npcRow">
-                      <img src="https://wiki.bloodontheclocktower.com/images/0/08/Icon_stormcatcher.png" height="60">
+                      <img src="{{getImageForID('stormcatcher')}}" height="60">
                       <div class="chartextrow">
                         <b class="npcName" style="color: #6f854d;">Storm Catcher</b>
                         <p class="npcAbility">Name a good character. If in play, they can only die by execution, but evil players learn which player it is.</p>

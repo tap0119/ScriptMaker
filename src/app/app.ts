@@ -215,7 +215,8 @@ export class App implements OnInit, AfterViewInit {
     try {
       const clipboard = await navigator.clipboard.readText();
       this.jsonInput = clipboard;
-      this.create();
+      await this.create();
+      await this.create();
 
 
     } catch (err) {

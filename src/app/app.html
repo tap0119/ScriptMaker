@@ -1,21 +1,35 @@
 <main class="body">
 
   <div class="container">
-    <div class="charRow">
+    <div class="row">
       <h1 class="ScriptName">Madness Script Maker</h1>
     </div>
 
-    <div class="charRow">
-      <textarea type="text" [(ngModel)]="jsonInput" (ngModelChange)="create()" rows="15" cols="50"></textarea>
+    <div class="row">
+      <div class="col-8">
+        <textarea type="text" class="form-control form-control" [(ngModel)]="jsonInput" (ngModelChange)="create()"
+          rows="4" cols="50" placeholder="Input script JSON here"></textarea>
+      </div>
+      <div class="col-4">
+        <div class="row">
+          <button class="btn btn-light mb-3 btn-lg" (click)="paste()">Paste</button>
+        </div>
 
-      <textarea type="text" [(ngModel)]="imageOverwriteText" (ngModelChange)="imageOverwrite()"></textarea>
+        <div class="row">
+          <button class="btn btn-primary btn-lg" [useExistingCss]="true" printSectionId="print-section"
+            ngxPrint>Print</button>
+        </div>
+      </div>
 
-      <button (click)="paste()">Paste</button>
+
+      <div class="col-sm">
+        <textarea type="text" [(ngModel)]="imageOverwriteText" (ngModelChange)="imageOverwrite()"></textarea>
+      </div>
+
 
       <button (click)="resetImages()">Reset</button>
     </div>
-    <div class="charRow">
-      <button [useExistingCss]="true" printSectionId="print-section" ngxPrint>Print</button>
+    <div class="row">
 
       <select [(ngModel)]="stormcaught" (ngModelChange)="create()">
         @for(char of characters; track char){
@@ -24,6 +38,8 @@
         </option>
         }
       </select>
+
+      <p>Show bootlegger rule on script</p>
       <input type="checkbox" [(ngModel)]="showBoot" (ngModelChange)="create()">
     </div>
   </div>
@@ -44,23 +60,23 @@
         top: 6px;">
 
               @if(npcs.length > 3) {
-              <p class="textnpc2" style="padding-left:7px; padding-right:7px;"><b>+ {{npcs.length - 3}}</b></p>
+              <p class="npcNamePage12" style="padding-left:7px; padding-right:7px;"><b>+ {{npcs.length - 3}}</b></p>
               }
 
               @if (npcs[2]) {
               @if (npcs[2].Team === 'loric') {
-              <p class="textnpc" style="color:#6f854d">{{npcs[2].Name}}</p>
+              <p class="npcNamePage1" style="color:#6f854d">{{npcs[2].Name}}</p>
               }@else{
-              <p class="textnpc" style="color: #7a6550">{{npcs[2].Name}}</p>
+              <p class="npcNamePage1" style="color: #7a6550">{{npcs[2].Name}}</p>
               }
               <img src={{npcs[2].Image}} class="imagenpc" (error)="onImageError($event,npcs[2].ID)">
               }
 
               @if (npcs[1]) {
               @if (npcs[1].Team === 'loric') {
-              <p class="textnpc" style="color: #6f854d;">{{npcs[1].Name}}</p>
+              <p class="npcNamePage1" style="color: #6f854d;">{{npcs[1].Name}}</p>
               }@else{
-              <p class="textnpc" style="color: #7a6550;">{{npcs[1].Name}}</p>
+              <p class="npcNamePage1" style="color: #7a6550;">{{npcs[1].Name}}</p>
               }
               <img src={{npcs[1].Image}} class="imagenpc" (error)="onImageError($event,npcs[1].ID)">
               }
@@ -68,9 +84,9 @@
 
               @if (npcs[0]) {
               @if (npcs[0].Team === 'loric') {
-              <p class="textnpc" style="color: #6f854d;">{{npcs[0].Name}}</p>
+              <p class="npcNamePage1" style="color: #6f854d;">{{npcs[0].Name}}</p>
               }@else{
-              <p class="textnpc" style="color: #7a6550;">{{npcs[0].Name}}</p>
+              <p class="npcNamePage1" style="color: #7a6550;">{{npcs[0].Name}}</p>
               }
               <img src={{npcs[0].Image}} class="imagenpc" (error)="onImageError($event,npcs[0].ID)">
               }

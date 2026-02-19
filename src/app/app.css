@@ -38,7 +38,7 @@
   text-align: center;
   position: relative;
   bottom: -5px;
-  left: -45px;
+  left: -5px;
   margin: 0px 0px -10px 0px;
   border: 0px solid red;
 
@@ -67,7 +67,7 @@
   display: flex;
   align-items: left;
   position: relative;
-  top: 14px;
+  top: 5px;
   width: 80px;
   height: 80px;
   border: 1px solid clear;
@@ -139,11 +139,11 @@
   width: 6.2in;
   */
   height:10.8in;
-  width:6.2in;
+  width:7in;
   padding-left: 90px;
   border: 0px solid red;
   position: relative;
-
+  left:20px;
 }
 
 .page1header {
@@ -198,7 +198,7 @@
 
 /* Screen preview styling */
 .body {
-  background: #c2c2c2;
+  background: rgb(198, 198, 198);
   min-height: 100vh;
   height: 100%;
   min-width: 100vh;
@@ -212,8 +212,9 @@
   padding-top: 2px;
   border: 0px solid blue;
   max-height: 80px;
-  min-height: 40px;
-  margin: -10px 0px -10px 0px;
+  min-height: 75px;
+  margin: -5px 0px -5px 0px;
+  
 
 }
 
@@ -305,14 +306,14 @@
   height: 40px;
 }
 
-.textnpc {
+.npcNamePage1 {
   font-family: 'Assi';
-  font-size: 3mm;
+  font-size: 3.2mm;
   font-weight: 500;
   float: right;
   align-items: center;
   position: relative;
-  top: 0px
+  top: 10px
 }
 
 .textnpc2 {
@@ -508,7 +509,7 @@
 .playerCountContainer {
   position: absolute;
   bottom: 60px;
-  left: 80px;
+  left: 70px;
 
 
 }

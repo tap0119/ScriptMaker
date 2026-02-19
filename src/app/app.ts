@@ -1,7 +1,7 @@
-import { AfterViewInit, Component, ElementRef, NgModule, OnInit, signal, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { waitForAsync } from '@angular/core/testing';
+import { AfterViewInit, Component, ElementRef, NgModule, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgxPrintDirective } from 'ngx-print';
+
 
 
 @Component({

@@ -19,9 +19,9 @@
 }
 
 .ScriptName {
-  font-family: 'Unlovable';
+  font-family: 'Philo';
   float: left;
-  font-size: 40px;
+  font-size: 34px;
   padding-top: .05in;
   padding-left: .2in;
   color: maroon;
@@ -31,13 +31,14 @@
 }
 
 .ScriptNameBottom {
-  font-family: 'Unlovable';
-  font-size: 40px;
+  font-family: 'Philo';
+  font-size: 34px;
   float: center;
   color: maroon;
   text-align: center;
   position: relative;
   bottom: -5px;
+  left: -45px;
   margin: 0px 0px -10px 0px;
   border: 0px solid red;
 
@@ -207,7 +208,7 @@
 
 
 
-.row {
+.charRow {
   padding-top: 2px;
   border: 0px solid blue;
   max-height: 80px;
@@ -279,7 +280,7 @@
   flex-direction: row;
   width:610px;
   position: relative;
-  bottom: 0px;
+  bottom: 3px;
   left: 0px;
   border: 0px solid red;
 
@@ -374,7 +375,7 @@
   transform: rotate(90deg);
 
   position: relative;
-  bottom: -62px;
+  bottom: -80px;
   right: 58px;
   color: black;
   border: 0px solid red;
@@ -389,7 +390,7 @@
   transform: rotate(90deg);
 
   position: relative;
-  bottom: -62px;
+  bottom: -80px;
   right: 58px;
   color: black;
   border: 0px solid red;
@@ -416,7 +417,7 @@
   float: left;
   font-size: 4mm;
   position: relative;
-  bottom: -15px;
+  bottom: -5px;
 }
 
 .npcAbility {
@@ -469,12 +470,12 @@
 .divRowPage2 {
   margin: 0 auto;
   width: 98%;
-  height: 20px;
+  height: 40px;
 
   border: 0px solid red;
 
   position: relative;
-  bottom: -15px;
+  bottom: 0px;
   left: 15px;
 
 }
@@ -483,13 +484,14 @@
 .divPngPage2 {
   width: 100%;
   height: 1px;
+  
 }
 
 .HeaderPage2 {
   font-family: 'Philo';
   width: 140px;
   position: relative;
-  top: -10px;
+  top: -17px;
   right: 10px;
   font-size: 5mm;
   color: black;
@@ -549,9 +551,9 @@
   margin-left: auto;
   margin-right: auto;
   position: absolute;
-  bottom: -32px;
+  bottom: -28px;
   left: 1px;
   height: 30px;
-  width: 613px;
-  border: 3px solid rgba(201, 192, 184);
+  width: 617px;
+  border: 4px solid rgba(201, 192, 184);
 }

@@ -13,12 +13,17 @@
   src: url('../fonts/Philosopher-Regular.ttf');
 }
 
+@font-face {
+  font-family: 'Unlovable';
+  src: url('../fonts/LHF\ Unlovable.ttf');
+}
+
 .ScriptName {
-  font-family: 'Philo';
+  font-family: 'Unlovable';
   float: left;
-  font-size: 32px;
+  font-size: 40px;
   padding-top: .05in;
-  padding-left: .1in;
+  padding-left: .2in;
   color: maroon;
   position: relative;
   bottom: 5px;
@@ -26,8 +31,8 @@
 }
 
 .ScriptNameBottom {
-  font-family: 'Philo';
-  font-size: 35px;
+  font-family: 'Unlovable';
+  font-size: 40px;
   float: center;
   color: maroon;
   text-align: center;
@@ -128,8 +133,12 @@
 }
 
 .page2main {
+  /* letter
   height: 11.2in;
   width: 6.2in;
+  */
+  height:10.8in;
+  width:6.2in;
   padding-left: 90px;
   border: 0px solid red;
   position: relative;
@@ -153,8 +162,12 @@
 }
 
 .print-page {
+  /* letter
   width: 8.27in;
   min-height: 11.69in;
+  */
+  width:8.5in;
+  min-height: 11in;
   padding: 0.1in;
   margin: 0 auto;
   background: white;
@@ -173,7 +186,11 @@
 .page1 {
   display: flex;
   flex-direction: column;
+
+  /* letter
   height: 11.5in;
+  */
+  height: 11.7in;
   position: relative;
   align-items: stretch;
 }
@@ -202,7 +219,7 @@
 .charname {
   font-family: 'AssiBold';
   float: left;
-  font-size: 3.5mm;
+  font-size: 3.7mm;
   font-weight: 900;
   align-items: center;
   gap: 1mm;
@@ -214,12 +231,14 @@
 .charability {
   font-family: 'Assi';
   float: right;
-  width: 82%;
-  font-size: 3.4mm;
+  width: 83%;
+  font-size: 3.7mm;
   line-height: 1.2;
   margin: 0;
   padding-left: 37px;
   align-items: right;
+
+    border:0px solid green;
 }
 
 .charnamerow {
@@ -250,8 +269,9 @@
 }
 
 .charImage {
-  max-height: 76px;
+  max-height: 74px;
   margin: -10px 0px -10px 0px;
+
 }
 
 .charImageContainerBottom {
@@ -270,8 +290,8 @@
 }
 
 .charImageBottom {
-  height: 30px;
-  width: 30px;
+  height: 28px;
+  width: 28px;
   margin: 0px -8.5px -20px 0px;
   filter: grayscale(0%);
 }

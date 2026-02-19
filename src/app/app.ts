@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, NgModule, OnInit, signal, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { waitForAsync } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { NgxPrintDirective } from 'ngx-print';
 
@@ -38,6 +39,7 @@ export class App implements OnInit, AfterViewInit {
   stormcaughtOld: any;
   hbchar: any;
   showBoot: boolean = false;
+  rows: any;
   page1height: string = '';
 
   imageOverwriteText: string = ''
@@ -162,6 +164,9 @@ export class App implements OnInit, AfterViewInit {
     if (this.imageOverwriteText === "pass") {
       baseUrl = 'https://gitfront.io/r/tap0119/jw5G16yaZRPa/Botc-icons/raw/Icon_'
       ext = '.png'
+    } else if (this.imageOverwriteText === "png") {
+      baseUrl = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/PNG/'
+      ext = '.png'
     } else {
       baseUrl = this.imageOverwriteText.split("{")[0]
       ext = this.imageOverwriteText.split("}")[1]
@@ -210,7 +215,6 @@ export class App implements OnInit, AfterViewInit {
     try {
       const clipboard = await navigator.clipboard.readText();
       this.jsonInput = clipboard;
-      this.create();
       this.create();
 
 
@@ -345,8 +349,9 @@ export class App implements OnInit, AfterViewInit {
     //get list of trav
     this.trav = this.setcharacters(this.trav, "traveller")
 
-    //get list of npcs, not including djinn
 
+
+    //get list of npcs, not including djinn
     this.npcs = this.charData
       .filter(item =>
         this.characters.includes(item.ID)
@@ -364,25 +369,6 @@ export class App implements OnInit, AfterViewInit {
         "Image": this.getImageForID("bootlegger")
       })
     }
-
-    //Set Row Height-----------------
-    const rows = Math.ceil(this.townsfolk.length / 2) +
-      Math.ceil(this.outsiders.length / 2) +
-      Math.ceil(this.minions.length / 2) +
-      Math.ceil(this.demons.length / 2)
-
-    this.page1height = ""
-    if (rows >= 13) {
-      this.page1height = "94.5"
-    } else {
-      this.page1height = rows * 7.5 + ""
-    }
-
-    //console.log(this.page1height)
-
-    this.page1main.nativeElement.style.setProperty(
-      '--page1height', this.page1height + '%'
-    )
 
 
     //---------------------------------------------
@@ -453,7 +439,26 @@ export class App implements OnInit, AfterViewInit {
       )
     }
 
+    //Set Row Height-----------------
+    this.rows = 
+      Math.ceil(this.townsfolk.length / 2) +
+      Math.ceil(this.outsiders.length / 2) +
+      Math.ceil(this.minions.length / 2)   +
+      Math.ceil(this.demons.length / 2)
+
+    this.page1height = ""
+    if (this.rows >= 13) {
+      this.page1height = "105"
+    } else {
+      this.page1height = this.rows * 7.5 + ""
+    }
+
+    this.page1main.nativeElement.style.setProperty(
+      '--page1height', this.page1height + '%'
+    )
+
     //----
+    
 
 
     this.cd.detectChanges();

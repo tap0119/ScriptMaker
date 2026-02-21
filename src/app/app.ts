@@ -241,6 +241,7 @@ onFileSelected(event: Event): void {
     try {
       const clipboard = await navigator.clipboard.readText();
       this.jsonInput = clipboard;
+      this.cd.detectChanges();
           try{
     this.create()}
     catch(error){
@@ -464,21 +465,22 @@ onFileSelected(event: Event): void {
         this.page1height = this.rows * 9 + ""
       }
 
-    this.cd.detectChanges();
-    this.updateCSS();
+    try{
+      this.updateCSS()
+    }catch(error){
+      this.updateCSS()
+    }
     this.cd.detectChanges();
   }
 
   updateCSS(){
-  const observer = new ResizeObserver(entries => {
-    for (const entry of entries) {
+
       this.page1main.nativeElement.style.setProperty(
         '--page1height', this.page1height + '%'
       )
-    }})
-    observer.observe(this.page1main.nativeElement);
 
-            //if firstnight text goes too long, remove it
+
+      //if firstnight text goes too long, remove it
       if (this.firstOrder.length >= 23) {
         this.firstnight.nativeElement.style.setProperty(
           '--firstnight', 0 + 'mm'

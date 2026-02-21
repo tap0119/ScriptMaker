@@ -18,6 +18,11 @@
   src: url('../fonts/LHF\ Unlovable.ttf');
 }
 
+.container {
+  margin-left: 0!important;
+  margin-right: 0!important;
+}
+
 .ScriptName {
   font-family: 'Philo';
   float: left;
@@ -61,6 +66,7 @@
   padding-bottom: 0px;
   clear: both;
 
+
 }
 
 .bootleggerPage1Image {
@@ -78,7 +84,7 @@
   bottom: 30px;
   clear: both;
   border: 1px solid clear;
-  margin: -50px 0px -80px 0px;
+  margin: 0px 0px -60px 0px;
 
 }
 
@@ -101,10 +107,10 @@
   padding-bottom: 0in;
   position: relative;
   bottom: 5px;
-  height: 25px;
+  height: 30px;
   border: 0px solid green;
   grid-column: span 2;
-  margin: -10px 0px -10px 0px;
+  margin: -5px 0px -5px 0px;
 
 }
 
@@ -148,6 +154,7 @@
 
 .page1header {
   border: 0px solid red;
+  margin: 0px 0px -20px 0px;
 }
 
 .TypeHeader {
@@ -212,8 +219,8 @@
   padding-top: 2px;
   border: 0px solid blue;
   max-height: 80px;
-  min-height: 75px;
-  margin: -5px 0px -5px 0px;
+  min-height: 70px;
+  margin: -3px 0px -3px 0px;
   
 
 }
@@ -224,10 +231,20 @@
   font-size: 3.7mm;
   font-weight: 900;
   align-items: center;
-  gap: 1mm;
+  gap: 0mm;
   padding-top: 0px;
   padding-left: 37px;
   padding-right: 3px;
+    position: relative;
+  bottom:-4px;
+}
+
+.goodChar{
+  color: #0b6aaf;
+}
+
+.evilChar{
+  color: #760A0D;
 }
 
 .charability {
@@ -267,7 +284,7 @@
   width: 8%;
   position: relative;
   left: -3px;
-
+  top: 15px;
 }
 
 .charImage {

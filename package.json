@@ -32,6 +32,7 @@
     "@angular/router": "^21.1.0",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.8",
+    "bootstrap-colorpicker": "^3.4.0",
     "ngx-print": "^21.1.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"

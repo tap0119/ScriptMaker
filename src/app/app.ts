@@ -14,12 +14,6 @@ import { ColorPickerModule } from 'ngx-color-picker';
 
 
 export class App implements OnInit, AfterViewInit {
-  @ViewChild('page1main') page1main!: ElementRef;
-  @ViewChild('firstnight') firstnight!: ElementRef;
-  @ViewChild('othernight') othernight!: ElementRef;
-  @ViewChild('otherNightOrder') otherNightOrder!: ElementRef;
-  @ViewChild('goodChar') goodChar!: ElementRef;
-
   jsonInput: string = '';
   scriptName: string = '';
   author: string = '';

@@ -13,10 +13,6 @@
   src: url('../fonts/Philosopher-Regular.ttf');
 }
 
-@font-face {
-  font-family: 'Unlovable';
-  src: url('../fonts/LHF\ Unlovable.ttf');
-}
 
 .container {
   margin-left: 0!important;

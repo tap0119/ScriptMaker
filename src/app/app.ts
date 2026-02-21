@@ -16,6 +16,7 @@ export class App implements OnInit, AfterViewInit {
   @ViewChild('page1main') page1main!: ElementRef;
   @ViewChild('firstnight') firstnight!: ElementRef;
   @ViewChild('othernight') othernight!: ElementRef;
+  @ViewChild('otherNightOrder') otherNightOrder!: ElementRef;
 
   jsonInput: string = '';
   scriptName: string = '';
@@ -35,14 +36,20 @@ export class App implements OnInit, AfterViewInit {
   bootlegger: string[] = [];
   firstOrder: any;
   otherOrder: any;
-  stormcaught: any;
+  stormcaught: string = 'none';
   stormcaughtOld: any;
   hbchar: any;
   showBoot: boolean = false;
   rows: any;
   page1height: string = '';
 
+  imageSelection: string = 'SVG'
   imageOverwriteText: string = ''
+  invertOther: boolean = false;
+  showPlayerCount: boolean = true;
+  showCharBottom: boolean = true;
+  showNpcNames: boolean = true;
+  jsonError:boolean = false;
 
   townsfolk: {
     ID: string,
@@ -142,29 +149,51 @@ export class App implements OnInit, AfterViewInit {
       Image2: char.Image
     }));
 
-    
+
 
   }
 
   ngAfterViewInit() {
-    
+
   }
+
+onFileSelected(event: Event): void {
+  const input = event.target as HTMLInputElement;
+
+  if (!input.files || input.files.length === 0) {
+    return;
+  }
+
+  const file = input.files[0];
+
+  const reader = new FileReader();
+
+  reader.onload = () => {
+    this.jsonInput = ''
+    this.jsonInput = reader.result as string;
+    try{
+    this.create()}
+    catch(error){
+      this.create()
+    }
+  };
+
+  reader.readAsText(file);
+
+
+}
 
 
   //Images---------------
   imageOverwrite() {
 
-    //https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/SVG/{id}.svg
-
-    //https://gitfront.io/r/tap0119/jw5G16yaZRPa/Botc-icons/raw/Icon_{id}.png
-
     let baseUrl
     let ext
 
-    if (this.imageOverwriteText === "pass") {
-      baseUrl = 'https://gitfront.io/r/tap0119/jw5G16yaZRPa/Botc-icons/raw/Icon_'
-      ext = '.png'
-    } else if (this.imageOverwriteText === "png") {
+    if (this.imageSelection === "SVG") {
+      baseUrl = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/SVG/'
+      ext = '.svg'
+    } else if (this.imageSelection === "PNG") {
       baseUrl = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/PNG/'
       ext = '.png'
     } else {
@@ -202,9 +231,6 @@ export class App implements OnInit, AfterViewInit {
   onImageError(event: Event, ID: string) {
     const img = event.target as HTMLImageElement;
     img.src = this.getImage2ForID(ID)
-
-    console.log(ID)
-    console.log(this.getImage2ForID(ID))
   }
 
 
@@ -215,8 +241,11 @@ export class App implements OnInit, AfterViewInit {
     try {
       const clipboard = await navigator.clipboard.readText();
       this.jsonInput = clipboard;
-      await this.create();
-      await this.create();
+          try{
+    this.create()}
+    catch(error){
+      this.create()
+    }
 
 
     } catch (err) {
@@ -227,244 +256,268 @@ export class App implements OnInit, AfterViewInit {
 
 
   create() {
-    this.fullJsonSplit = JSON.parse(this.jsonInput)
-
-    //set script name
-    this.scriptName = this.fullJsonSplit[0].name;
-
-    //set author name
-    this.author = this.fullJsonSplit[0].author;
-
-    //set bootlegger
-    if (this.fullJsonSplit[0].bootlegger) {
-      this.bootlegger = this.fullJsonSplit[0].bootlegger
-    } else {
-      this.bootlegger = []
+    try {
+      this.fullJsonSplit = JSON.parse(this.jsonInput)
+            this.jsonError = false
+    } catch (error) {
+      this.jsonError = true
     }
-    //-----------------------------
-    //Characters
-    this.characters = []
 
-    for (let i = 1; i < this.fullJsonSplit.length; i++) {
+    this.jsonInput = JSON.stringify(this.fullJsonSplit,null,2)
+
+      //set script name
+      this.scriptName = this.fullJsonSplit[0].name;
+
+      //set author name
+      this.author = this.fullJsonSplit[0].author;
+
+      //set bootlegger
+      if (this.fullJsonSplit[0].bootlegger) {
+        this.bootlegger = this.fullJsonSplit[0].bootlegger
+      } else {
+        this.bootlegger = []
+      }
+      //-----------------------------
+      //Characters
+      this.characters = []
+
+      for (let i = 1; i < this.fullJsonSplit.length; i++) {
 
 
-      //if json item has id 
-      if (this.fullJsonSplit[i].id) {
+        //if json item has id 
+        if (this.fullJsonSplit[i].id) {
 
-        //if id is an official character
-        if (this.charData.find(innerArray =>
-          innerArray.ID === this.fullJsonSplit[i].id)) {
+          //if id is an official character
+          if (this.charData.find(innerArray =>
+            innerArray.ID === this.fullJsonSplit[i].id)) {
 
-          this.characters.push(this.fullJsonSplit[i].id)
+            this.characters.push(this.fullJsonSplit[i].id)
 
-          //if hb character
-        } else {
+            //if hb character
+          } else {
 
-          this.hbchar = this.fullJsonSplit[i];
+            this.hbchar = this.fullJsonSplit[i];
 
-          //add hb char to charData and characters array
-          this.charData.push({
-            ID: this.hbchar.id,
-            Name: this.hbchar.name,
-            Ability: this.hbchar.ability,
-            Team: this.hbchar.team,
-            Image: this.hbchar.image,
-            Image2: '',
-          });
+            //add hb char to charData and characters array
+            this.charData.push({
+              ID: this.hbchar.id,
+              Name: this.hbchar.name,
+              Ability: this.hbchar.ability,
+              Team: this.hbchar.team,
+              Image: this.hbchar.image,
+              Image2: '',
+            });
 
-          this.characters.push(this.hbchar.id)
+            this.characters.push(this.hbchar.id)
 
-          //add hb jinxes to jinxData
-          if (this.hbchar.jinxes) {
-            for (let i = 0; i < this.hbchar.jinxes.length; i++) {
-              this.jinxData.push(
-                {
-                  char1: this.hbchar.id,
-                  char2: this.hbchar.jinxes[i].id,
-                  reason: this.hbchar.jinxes[i].reason
-                }
-              )
+            //add hb jinxes to jinxData
+            if (this.hbchar.jinxes) {
+              for (let i = 0; i < this.hbchar.jinxes.length; i++) {
+                this.jinxData.push(
+                  {
+                    char1: this.hbchar.id,
+                    char2: this.hbchar.jinxes[i].id,
+                    reason: this.hbchar.jinxes[i].reason
+                  }
+                )
+              }
+            }
+            //add to night order
+
+            if (this.hbchar.firstNight > 0) {
+              this.nightOrderData.push({
+                order: this.hbchar.firstNight,
+                firstNight: this.hbchar.id,
+                otherNights: ""
+              })
+            }
+
+
+            if (this.hbchar.otherNight > 0) {
+              this.nightOrderData.push({
+                order: this.hbchar.otherNight,
+                firstNight: "",
+                otherNights: this.hbchar.id
+              })
             }
           }
-          //add to night order
 
-          if (this.hbchar.firstNight > 0) {
-            this.nightOrderData.push({
-              order: this.hbchar.firstNight,
-              firstNight: this.hbchar.id,
-              otherNights: ""
-            })
-          }
+          //if split does not have id add to characters
+        } else if (this.fullJsonSplit[i]) {
 
-
-          if (this.hbchar.otherNight > 0) {
-            this.nightOrderData.push({
-              order: this.hbchar.otherNight,
-              firstNight: "",
-              otherNights: this.hbchar.id
-            })
-          }
+          this.characters.push(this.fullJsonSplit[i])
         }
-
-        //if split does not have id add to characters
-      } else if (this.fullJsonSplit[i]) {
-
-        this.characters.push(this.fullJsonSplit[i])
       }
-    }
-
-    if (!this.characters.includes("none")) {
-      this.characters.unshift("none");
-    }
-    this.stormcaughtUpdate()
+      this.stormcaughtUpdate()
 
 
-    //-------------------------------------------
-    //set character lists
+      //-------------------------------------------
+      //set character lists
 
-    //get list of townsfolk
-    this.townsfolk = this.setcharacters(this.townsfolk, "townsfolk")
+      //get list of townsfolk
+      this.townsfolk = this.setcharacters(this.townsfolk, "townsfolk")
 
-    this.townsfolkPage1 = this.reorderForColumns(this.townsfolk)
-
-
-    //get list of outsiders
-    this.outsiders = this.setcharacters(this.outsiders, "outsider")
-
-    this.outsidersPage1 = this.reorderForColumns(this.outsiders)
+      this.townsfolkPage1 = this.reorderForColumns(this.townsfolk)
 
 
-    //get list of minions
-    this.minions = this.setcharacters(this.minions, "minion")
+      //get list of outsiders
+      this.outsiders = this.setcharacters(this.outsiders, "outsider")
 
-    this.minionsPage1 = this.reorderForColumns(this.minions)
+      this.outsidersPage1 = this.reorderForColumns(this.outsiders)
 
 
-    //get list of demons
-    this.demons = this.setcharacters(this.demons, "demon")
+      //get list of minions
+      this.minions = this.setcharacters(this.minions, "minion")
 
-    this.demonsPage1 = this.reorderForColumns(this.demons)
+      this.minionsPage1 = this.reorderForColumns(this.minions)
+
+
+      //get list of demons
+      this.demons = this.setcharacters(this.demons, "demon")
+
+      this.demonsPage1 = this.reorderForColumns(this.demons)
 
 
 
-    //get list of trav
-    this.trav = this.setcharacters(this.trav, "traveller")
+      //get list of trav
+      this.trav = this.setcharacters(this.trav, "traveller")
 
 
 
-    //get list of npcs, not including djinn
-    this.npcs = this.charData
-      .filter(item =>
-        this.characters.includes(item.ID)
-        && (item.Team === "loric" || item.Team === 'fabled')
-        && item.ID != 'djinn'
-        && item.ID != 'bootlegger'
-      )
+      //get list of npcs, not including djinn
+      this.npcs = this.charData
+        .filter(item =>
+          this.characters.includes(item.ID)
+          && (item.Team === "loric" || item.Team === 'fabled')
+          && item.ID != 'djinn'
+          && item.ID != 'bootlegger'
+        )
 
-    if ((!this.showBoot && this.bootlegger.length > 0) || (this.characters.includes("bootlegger") && !this.showBoot)) {
-      this.npcs.push({
-        "ID": "bootlegger",
-        "Name": "Bootlegger",
-        "Ability": "This script has homebrew characters or rules.",
-        "Team": "loric",
-        "Image": this.getImageForID("bootlegger")
-      })
-    }
-
-
-    //---------------------------------------------
-    //Jinxes - get array of jinxes
-    this.updateJinxes()
+      if ((!this.showBoot && this.bootlegger.length > 0) || (this.characters.includes("bootlegger") && !this.showBoot)) {
+        this.npcs.push({
+          "ID": "bootlegger",
+          "Name": "Bootlegger",
+          "Ability": "This script has homebrew characters or rules.",
+          "Team": "loric",
+          "Image": this.getImageForID("bootlegger")
+        })
+      }
 
 
-
-    //----------------------------------------------------
-    //Night Order
-
-    //filter out travellers from characters
-    const nightOrderInput = this.characters.filter(id =>
-      this.charData.find(d => d.ID === id)?.Team !== 'traveller'
-    );
-
-    //add meta info to first night
-    let firstNightInput = nightOrderInput
-
-    firstNightInput.push("dawn", "dusk", "minioninfo", "demoninfo")
-
-    //filter night order
-    const firstFiltered = this.nightOrderData
-      .filter(item => firstNightInput.includes(item.firstNight))
-
-    //sort night order
-    firstFiltered.sort((a, b) => a.order - b.order);
-
-    //set first order
-    this.firstOrder = firstFiltered.map(item => item.firstNight);
+      //---------------------------------------------
+      //Jinxes - get array of jinxes
+      this.updateJinxes()
 
 
 
-    //add meta info to other night
-    let otherNightInput = nightOrderInput
+      //----------------------------------------------------
+      //Night Order
 
-    otherNightInput.push("dawn", "dusk")
+      //filter out travellers from characters
+      const nightOrderInput = this.characters.filter(id =>
+        this.charData.find(d => d.ID === id)?.Team !== 'traveller'
+      );
 
-    //filter night order
-    const otherFiltered = this.nightOrderData
-      .filter(item => otherNightInput.includes(item.otherNights))
+      //add meta info to first night
+      let firstNightInput = nightOrderInput
 
-    //sort night order
-    otherFiltered.sort((a, b) => a.order - b.order);
+      firstNightInput.push("dawn", "dusk", "minioninfo", "demoninfo")
 
-    //set first order
-    this.otherOrder = otherFiltered.map(item => item.otherNights);
+      //filter night order
+      const firstFiltered = this.nightOrderData
+        .filter(item => firstNightInput.includes(item.firstNight))
 
-    //if firstnight text goes too long, remove it
-    if (this.firstOrder.length >= 23) {
-      this.firstnight.nativeElement.style.setProperty(
-        '--firstnight', 0 + 'mm'
-      )
-    } else {
-      this.firstnight.nativeElement.style.setProperty(
-        '--firstnight', 6 + 'mm'
-      )
-    }
+      //sort night order
+      firstFiltered.sort((a, b) => a.order - b.order);
 
-    //if othernight text goes too long, remove it
-    if (this.otherOrder.length >= 23) {
-      this.othernight.nativeElement.style.setProperty(
-        '--othernight', 0 + 'mm'
-      )
-    } else {
-      this.othernight.nativeElement.style.setProperty(
-        '--othernight', 6 + 'mm'
-      )
-    }
-
-    //Set Row Height-----------------
-    this.rows = 
-      Math.ceil(this.townsfolk.length / 2) +
-      Math.ceil(this.outsiders.length / 2) +
-      Math.ceil(this.minions.length / 2)   +
-      Math.ceil(this.demons.length / 2)
-
-    this.page1height = ""
-    if (this.rows >= 13) {
-      this.page1height = "105"
-    } else {
-      this.page1height = this.rows * 7.5 + ""
-    }
-
-    this.page1main.nativeElement.style.setProperty(
-      '--page1height', this.page1height + '%'
-    )
-
-    //----
-    
+      //set first order
+      this.firstOrder = firstFiltered.map(item => item.firstNight);
 
 
+
+      //add meta info to other night
+      let otherNightInput = nightOrderInput
+
+      otherNightInput.push("dawn", "dusk")
+
+      //filter night order
+      const otherFiltered = this.nightOrderData
+        .filter(item => otherNightInput.includes(item.otherNights))
+
+      //sort night order
+      otherFiltered.sort((a, b) => a.order - b.order);
+
+      //set first order
+      this.otherOrder = otherFiltered.map(item => item.otherNights);
+
+      //Set Row Height-----------------
+      this.rows =
+        Math.ceil(this.townsfolk.length / 2) +
+        Math.ceil(this.outsiders.length / 2) +
+        Math.ceil(this.minions.length / 2) +
+        Math.ceil(this.demons.length / 2)
+
+      this.page1height = ""
+      if (this.rows >= 13) {
+        this.page1height = "105"
+      } else {
+        this.page1height = this.rows * 9 + ""
+      }
+
+    this.cd.detectChanges();
+    this.updateCSS();
     this.cd.detectChanges();
   }
 
+  updateCSS(){
+  const observer = new ResizeObserver(entries => {
+    for (const entry of entries) {
+      this.page1main.nativeElement.style.setProperty(
+        '--page1height', this.page1height + '%'
+      )
+    }})
+    observer.observe(this.page1main.nativeElement);
+
+            //if firstnight text goes too long, remove it
+      if (this.firstOrder.length >= 23) {
+        this.firstnight.nativeElement.style.setProperty(
+          '--firstnight', 0 + 'mm'
+        )
+      } else {
+        this.firstnight.nativeElement.style.setProperty(
+          '--firstnight', 6 + 'mm'
+        )
+      }
+
+      //if othernight text goes too long, remove it
+      if (this.otherOrder.length >= 23) {
+        this.othernight.nativeElement.style.setProperty(
+          '--othernight', 0 + 'mm'
+        )
+      } else {
+        this.othernight.nativeElement.style.setProperty(
+          '--othernight', 6 + 'mm'
+        )
+      }
+
+      //----Invert other night
+      if (!this.invertOther) {
+        this.otherNightOrder.nativeElement.style.setProperty(
+          '--degrees', "0deg"
+        )
+        this.otherNightOrder.nativeElement.style.setProperty(
+          '--bottom', ""
+        )
+      } else {
+        this.otherNightOrder.nativeElement.style.setProperty(
+          '--degrees', "180deg"
+        )
+        console.log("else")
+        this.otherNightOrder.nativeElement.style.setProperty(
+          '--bottom', "0px"
+        )
+      }
+    }
 
 
 
@@ -507,7 +560,7 @@ export class App implements OnInit, AfterViewInit {
         (jinx => jinx.reason != this.stormcaughtOld)
     }
 
-    if (!(this.stormcaught == "none" || !this.stormcaught)) {
+    if (!(this.stormcaught == "none" || this.stormcaught == 'Set Stormcaught Character' || !this.stormcaught)) {
       //this.characters = this.characters.filter(char => char != "stormcatcher"); 
 
       this.characters.push("stormcatcher")

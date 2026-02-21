@@ -26,7 +26,7 @@
   padding-left: .2in;
   color: maroon;
   position: relative;
-  bottom: 5px;
+  bottom: 12px;
 
 }
 
@@ -39,7 +39,7 @@
   position: relative;
   bottom: -5px;
   left: -5px;
-  margin: 0px 0px -10px 0px;
+  margin: 0px 0px 0px 0px;
   border: 0px solid red;
 
 }
@@ -352,12 +352,24 @@
   margin: 0px -5px 0px 0px;
 }
 
-.nightOrder {
+.nightOrderFirst {
   width: 75px;
   padding-top: 15px;
   display: flex;
   flex-direction: column;
   /* stack vertically */
+}
+
+.nightOrderOther {
+  width: 75px;
+  height:11in;
+  padding-top: 15px;
+  display: flex;
+  flex-direction: column;
+  /* stack vertically */
+
+  transform: rotate(var(--degrees));
+
 }
 
 .nightIcon {
@@ -463,7 +475,7 @@
 .bootleggerRule {
   font-family: 'Assi';
   font-size: 3.4mm;
-  padding-left: 15px;
+  padding-left: 10px;
 
 }
 

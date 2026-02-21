@@ -84,7 +84,7 @@
   bottom: 30px;
   clear: both;
   border: 1px solid clear;
-  margin: 0px 0px -60px 0px;
+  margin: 0px 0px -70px 0px;
 
 }
 
@@ -97,7 +97,7 @@
   position: relative;
   bottom: 44px;
   width: 98%;
-  margin: -20px 0px -25px 0px;
+  margin: -20px 0px -10px 0px;
 }
 
 .divRow {
@@ -130,7 +130,6 @@
   width: 100%;
   border: 0px solid red;
   align-items: stretch;
-  height: var(--page1height);
 
   padding-bottom: 15px;
   display: grid;
@@ -239,13 +238,6 @@
   bottom:-4px;
 }
 
-.goodChar{
-  color: #0b6aaf;
-}
-
-.evilChar{
-  color: #760A0D;
-}
 
 .charability {
   font-family: 'Assi';
@@ -355,7 +347,7 @@
   float: left;
   height: 35px;
   position: relative;
-  bottom: 0px;
+  bottom: -5px;
   border: 0px solid red;
   margin: -10px 0px -10px 0px;
 }
@@ -383,9 +375,7 @@
   padding-top: 15px;
   display: flex;
   flex-direction: column;
-  /* stack vertically */
-
-  transform: rotate(var(--degrees));
+  
 
 }
 
@@ -397,7 +387,6 @@
 }
 
 .firstnightText {
-  font-size: var(--firstnight);
   font-family: 'Philo';
   width: 190px;
   display: inline-block;
@@ -412,7 +401,6 @@
 }
 
 .othernightText {
-  font-size: var(--othernight);
   font-family: 'Philo';
   width: 190px;
   display: inline-block;
@@ -486,7 +474,7 @@
   align-items: center;
   /* vertical alignment */
   border: 0px solid red;
-  margin: -20px 0px -25px 0px;
+  margin: -20px 0px -15px 0px;
 }
 
 .bootleggerRule {

@@ -1,12 +1,13 @@
 import { AfterViewInit, Component, ElementRef, NgModule, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgxPrintDirective } from 'ngx-print';
+import { ColorPickerModule } from 'ngx-color-picker';
 
 
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, NgxPrintDirective],
+  imports: [FormsModule, NgxPrintDirective, ColorPickerModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -17,6 +18,7 @@ export class App implements OnInit, AfterViewInit {
   @ViewChild('firstnight') firstnight!: ElementRef;
   @ViewChild('othernight') othernight!: ElementRef;
   @ViewChild('otherNightOrder') otherNightOrder!: ElementRef;
+  @ViewChild('goodChar') goodChar!: ElementRef;
 
   jsonInput: string = '';
   scriptName: string = '';
@@ -50,6 +52,13 @@ export class App implements OnInit, AfterViewInit {
   showCharBottom: boolean = true;
   showNpcNames: boolean = true;
   jsonError:boolean = false;
+
+  invertOtherDeg: string = '0deg'
+  showFirstNightText: string = ''
+  showOtherNightText: string = ''
+
+  goodCharColor: string = '#0b6aaf'
+  evilCharColor: string = '#760A0D'
 
   townsfolk: {
     ID: string,
@@ -233,6 +242,23 @@ onFileSelected(event: Event): void {
     img.src = this.getImage2ForID(ID)
   }
 
+  resetColors(){
+      this.goodCharColor = '#0b6aaf'
+      this.evilCharColor = '#760A0D'
+  }
+
+  
+  lightColors(){
+      this.goodCharColor = '#0000ff'
+      this.evilCharColor = '#ff0000'
+  }
+
+   
+  blackColors(){
+      this.goodCharColor = 'black'
+      this.evilCharColor = 'black'
+  }
+
 
 
   //-------------------------
@@ -247,6 +273,7 @@ onFileSelected(event: Event): void {
     catch(error){
       this.create()
     }
+    this.cd.detectChanges();
 
 
     } catch (err) {
@@ -460,64 +487,42 @@ onFileSelected(event: Event): void {
 
       this.page1height = ""
       if (this.rows >= 13) {
-        this.page1height = "105"
+        this.page1height = "105%"
       } else {
-        this.page1height = this.rows * 9 + ""
+        this.page1height = this.rows * 9 + "%"
       }
 
-    try{
       this.updateCSS()
-    }catch(error){
-      this.updateCSS()
-    }
+
     this.cd.detectChanges();
   }
 
   updateCSS(){
 
-      this.page1main.nativeElement.style.setProperty(
-        '--page1height', this.page1height + '%'
-      )
-
-
       //if firstnight text goes too long, remove it
       if (this.firstOrder.length >= 23) {
-        this.firstnight.nativeElement.style.setProperty(
-          '--firstnight', 0 + 'mm'
-        )
+        this.showFirstNightText = 0 + 'mm'
+        
       } else {
-        this.firstnight.nativeElement.style.setProperty(
-          '--firstnight', 6 + 'mm'
-        )
+        this.showFirstNightText = 6 + 'mm'
+        
       }
 
       //if othernight text goes too long, remove it
       if (this.otherOrder.length >= 23) {
-        this.othernight.nativeElement.style.setProperty(
-          '--othernight', 0 + 'mm'
-        )
+        this.showOtherNightText = 0 + 'mm'
+        
       } else {
-        this.othernight.nativeElement.style.setProperty(
-          '--othernight', 6 + 'mm'
-        )
+        this.showOtherNightText = 6 + 'mm'
+        
       }
 
       //----Invert other night
       if (!this.invertOther) {
-        this.otherNightOrder.nativeElement.style.setProperty(
-          '--degrees', "0deg"
-        )
-        this.otherNightOrder.nativeElement.style.setProperty(
-          '--bottom', ""
-        )
+        this.invertOtherDeg = "rotate(0deg)"
+        
       } else {
-        this.otherNightOrder.nativeElement.style.setProperty(
-          '--degrees', "180deg"
-        )
-        console.log("else")
-        this.otherNightOrder.nativeElement.style.setProperty(
-          '--bottom', "0px"
-        )
+        this.invertOtherDeg = "rotate(180deg)"
       }
     }
 

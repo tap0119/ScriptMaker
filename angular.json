@@ -16,6 +16,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "outputPath": "dist/ScriptMaker",
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
@@ -58,18 +59,21 @@
           },
           "defaultConfiguration": "production"
         },
-        "serve": {
-          "builder": "@angular/build:dev-server",
-          "configurations": {
-            "production": {
-              "buildTarget": "ScriptMaker:build:production"
-            },
-            "development": {
-              "buildTarget": "ScriptMaker:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
+"serve": {
+  "builder": "@angular/build:dev-server",
+  "options": {
+    "buildTarget": "ScriptMaker:build:development"
+  },
+  "configurations": {
+    "production": {
+      "buildTarget": "ScriptMaker:build:production"
+    },
+    "development": {
+      "buildTarget": "ScriptMaker:build:development"
+    }
+  },
+  "defaultConfiguration": "development"
+},
         "test": {
           "builder": "@angular/build:unit-test"
         }

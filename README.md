@@ -1,9 +1,9 @@
 # Madness Script Maker
-A Blood on the Clocktower script pdf creator, with additional options.
-
-https://tap0119.github.io/ScriptMaker/
+A Blood on the Clocktower script pdf creator, with added customization options.
 
 For any feedback or questions, contact @Thomas04 on the Unoffical BOTC discord. 
+
+#### https://tap0119.github.io/ScriptMaker/
 
 ## Features
 * Full homebrew support

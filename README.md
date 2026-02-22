@@ -1,9 +1,9 @@
 # Madness Script Maker
-A Blood on the Clocktower script pdf creator, with additional options.
-
-https://tap0119.github.io/ScriptMaker/
+A Blood on the Clocktower script pdf creator, with added customization options.
 
 For any feedback or questions, contact @Thomas04 on the Unoffical BOTC discord. 
+
+#### https://tap0119.github.io/ScriptMaker/
 
 ## Features
 * Full homebrew support
@@ -44,7 +44,7 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 To run locally, have npm and angular installed.
 
-In scr/index.html, change "base href='/ScriptMaker/'" to "base href='/'"
+In scr/index.html, change base href='/ScriptMaker/' to base href='/'
 
 Run the command 'ng serve' in the ScriptMaker folder.
 

@@ -1,7 +1,7 @@
 # ScriptMaker
 A Blood on the Clocktower script pdf creator, with additional options.
 
-[https://tap0119.github.io/ScriptMaker/]
+https://tap0119.github.io/ScriptMaker/
 
 Features:
 * Choose between UnofficialPNG, SVG or your external character images
@@ -16,7 +16,7 @@ Features:
 * Adjust colors for the names of characters.
 * Dynamically adjust for teensyville or 25+ character scripts
 
-Screenshots: 
+# Screenshots 
 ![1|300](./public/1.png)
 ![2|3!0](./public/2.png)
 
@@ -26,7 +26,7 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 To run locally, have npm and angular installed.
 
-Change scr/index.html <base href='/ScriptMaker/'> to <base href='/'>
+Change scr/index.html base "href='/ScriptMaker/'" to "base href='/'"
 
 Run the command 'ng serve' in the ScriptMaker folder.
 

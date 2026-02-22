@@ -343,6 +343,10 @@ onFileSelected(event: Event): void {
 
             this.hbchar = this.fullJsonSplit[i];
 
+            if (this.hbchar.team = 'traveler'){
+              this.hbchar.team = 'traveller'
+            }
+
             //add hb char to charData and characters array
             this.charData.push({
               ID: this.hbchar.id,
@@ -389,8 +393,10 @@ onFileSelected(event: Event): void {
 
           //if split does not have id add to characters
         } else if (this.fullJsonSplit[i]) {
-
-          this.characters.push(this.fullJsonSplit[i])
+          
+          let char = this.fullJsonSplit[i].replace('_','').replace('-','')
+          
+          this.characters.push(char)
         }
       }
       this.stormcaughtUpdate()

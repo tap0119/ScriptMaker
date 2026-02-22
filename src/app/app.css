@@ -234,7 +234,7 @@
 .charname {
   font-family: 'AssiBold';
   float: left;
-  font-size: 3.7mm;
+  font-size: 3.2mm;
   font-weight: 900;
   align-items: center;
   gap: 0mm;
@@ -242,7 +242,7 @@
   padding-left: 37px;
   padding-right: 3px;
     position: relative;
-  bottom:-4px;
+  bottom:-1px;
 }
 
 
@@ -250,7 +250,7 @@
   font-family: 'Assi';
   float: right;
   width: 83%;
-  font-size: 3.7mm;
+  font-size: 3.2mm;
   line-height: 1.2;
   margin: 0;
   padding-left: 37px;
@@ -283,7 +283,7 @@
   width: 8%;
   position: relative;
   left: -3px;
-  top: 15px;
+  top: 5px;
 }
 
 .charImage {

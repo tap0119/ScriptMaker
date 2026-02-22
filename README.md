@@ -3,6 +3,8 @@ A Blood on the Clocktower script pdf creator, with additional options.
 
 https://tap0119.github.io/ScriptMaker/
 
+For any feedback or questions, contact @Thomas04 on the Unoffical BOTC discord. 
+
 ## Features
 * Full homebrew support
 

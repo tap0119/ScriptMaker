@@ -95,20 +95,20 @@
             </div>
           </div>
           <div class="row mt-2 mb-3">
-            <div class="col-5">
-              <label class="form-check-label fs-4 " for="showBoot">Title Font Size:<br> default 34px</label>
+            <div class="col-8">
+              <label class="form-check-label fs-4 mt-1" for="showBoot">Title Font Size (default 34px):</label>
             </div>
-            <div class="col-7">
+            <div class="col-4">
               <textarea type="text" [(ngModel)]="scriptFontSize" (ngModelChange)="imageOverwrite()"
                 placeholder="Custom image URL" rows="1" class="form-control fs-4"></textarea>
             </div>
 
           </div>
           <div class="row">
-            <div class="col-5">
-              <label class="form-check-label fs-4 " for="showBoot">Stormcaught Character:</label>
-            </div>
             <div class="col-7">
+              <label class="form-check-label fs-4 mt-1" for="showBoot">Stormcaught Character:</label>
+            </div>
+            <div class="col-5">
 
               <select [(ngModel)]="stormcaught" (ngModelChange)="create()" class="form-select fs-4"
                 title="Stormcaught Character">
@@ -134,14 +134,6 @@
 
           <div class="col">
             <div class="form-check form-switch ps-5 mt-3">
-              <input class="form-check-input fs-5" type="checkbox" id="invertOtherNight" [(ngModel)]="invertOther"
-                (ngModelChange)="create()">
-              <label class="form-check-label fs-4" for="invertOtherNight">Invert other night order</label>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="form-check form-switch ps-5 mt-3">
               <input class="form-check-input fs-5" type="checkbox" id="showDjinn" [(ngModel)]="showDjinn"
                 (ngModelChange)="create()">
               <label class="form-check-label fs-4" for="showDjinn">Show Djinn on script page</label>
@@ -152,7 +144,15 @@
             <div class="form-check form-switch ps-5 mt-3">
               <input class="form-check-input fs-5" type="checkbox" id="npcNames" [(ngModel)]="showNpcNames"
                 (ngModelChange)="create()">
-              <label class="form-check-label fs-4" for="npcNames">Show NPC names on top of script</label>
+              <label class="form-check-label fs-4" for="npcNames">Show NPC names on script page</label>
+            </div>
+          </div>
+
+                    <div class="col">
+            <div class="form-check form-switch ps-5 mt-3">
+              <input class="form-check-input fs-5" type="checkbox" id="invertOtherNight" [(ngModel)]="invertOther"
+                (ngModelChange)="create()">
+              <label class="form-check-label fs-4" for="invertOtherNight">Invert other night order</label>
             </div>
           </div>
 
@@ -168,8 +168,7 @@
             <div class="form-check form-switch ps-5 mt-3">
               <input class="form-check-input fs-5" type="checkbox" id="invertOtherNight" [(ngModel)]="showCharBottom"
                 (ngModelChange)="create()">
-              <label class="form-check-label fs-4" for="showPlayerCount">Show character icons under player count
-                page</label>
+              <label class="form-check-label fs-4" for="showPlayerCount">Show character icons on bottom of 2nd page</label>
             </div>
           </div>
 

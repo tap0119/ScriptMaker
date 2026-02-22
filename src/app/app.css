@@ -357,7 +357,7 @@
   float: left;
   height: 35px;
   position: relative;
-  bottom: -5px;
+  bottom: -2px;
   border: 0px solid red;
   margin: -10px 0px -10px 0px;
 }
@@ -466,7 +466,7 @@
   height: 50px;
   position: relative;
   bottom: 4px;
-    margin: -11px 0px -11px 0px;
+    margin: -5px 0px 0px 0px;
 }
 
 .jinxReason {
@@ -474,7 +474,7 @@
   font-size: 3.4mm;
   padding-left: 10px;
   position: relative;
-  bottom: -16px;
+  bottom: -20px;
 
 }
 

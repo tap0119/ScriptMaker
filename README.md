@@ -1,10 +1,10 @@
-# ScriptMaker
+# Madness Script Maker
 A Blood on the Clocktower script pdf creator, with additional options.
 
 https://tap0119.github.io/ScriptMaker/
 
 Features:
-* Choose between UnofficialPNG, SVG or your external character images
+* Choose between Unofficial PNG, SVG or your external character images
 * Change script title font size
 * Show Stormcaught character on the script like a jinx. Stormcaught character will also be indicated on the back page under Storm Catcher.
 * Show Bootlegger rules at the top of the script
@@ -13,7 +13,7 @@ Features:
 * Toggle inverting the other night order on back page
 * Toggle player count image on back page
 * Toggle showing all character images on back page footer (useful for pulling tokens with just the back page)
-* Adjust colors for the names of characters.
+* Adjust colors for the Script name, author and names of characters.
 * Dynamically adjust for teensyville or 25+ character scripts
 
 # Screenshots 

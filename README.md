@@ -29,8 +29,12 @@ https://tap0119.github.io/ScriptMaker/
 * Dynamically adjust for teensyville or 25+ character scripts
 
 ## Screenshots 
-![1|300](./public/1.png)
-![2|3!0](./public/2.png)
+![1|300](./public/screenshots/1.png)
+![2|300](./public/screenshots/2.png)
+![3|300](./public/screenshots/3.png)
+![4|300](./public/screenshots/4.png)
+![5|300](./public/screenshots/5.png)
+![6|300](./public/screenshots/6.png)
 
 
 ## Running Locally

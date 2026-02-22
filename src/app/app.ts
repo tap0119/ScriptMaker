@@ -46,7 +46,7 @@ export class App implements OnInit, AfterViewInit {
   showPlayerCount: boolean = true;
   showCharBottom: boolean = true;
   showNpcNames: boolean = true;
-  jsonError:boolean = false;
+  jsonError: boolean = false;
 
   invertOtherDeg: string = '0deg'
   showFirstNightText: string = ''
@@ -56,9 +56,9 @@ export class App implements OnInit, AfterViewInit {
   evilCharColor: string = '#760A0D'
   scriptNameColor: string = 'maroon'
 
-  loricColor:string = '#6f854d'
-  fabledColor:string = '#7a6550'
-  travColor:string = '#500050'
+  loricColor: string = '#6f854d'
+  fabledColor: string = '#7a6550'
+  travColor: string = '#500050'
 
   scriptFontSize: string = '34px'
   abilityLineHeight: string = '1.2';
@@ -169,30 +169,31 @@ export class App implements OnInit, AfterViewInit {
 
   }
 
-onFileSelected(event: Event): void {
-  const input = event.target as HTMLInputElement;
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
 
-  if (!input.files || input.files.length === 0) {
-    return;
-  }
-
-  const file = input.files[0];
-
-  const reader = new FileReader();
-
-  reader.onload = () => {
-    this.jsonInput = ''
-    this.jsonInput = reader.result as string;
-    try{
-    this.create()}
-    catch(error){
-      this.create()
+    if (!input.files || input.files.length === 0) {
+      return;
     }
-  };
 
-  reader.readAsText(file);
+    const file = input.files[0];
 
-}
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      this.jsonInput = ''
+      this.jsonInput = reader.result as string;
+      try {
+        this.create()
+      }
+      catch (error) {
+        this.create()
+      }
+    };
+
+    reader.readAsText(file);
+
+  }
 
 
 
@@ -247,33 +248,33 @@ onFileSelected(event: Event): void {
     img.src = this.getImage2ForID(ID)
   }
 
-  resetColors(){
+  resetColors() {
     this.scriptNameColor = 'maroon'
-      this.goodCharColor = '#0b6aaf'
-      this.evilCharColor = '#760A0D'
-      this.fabledColor = '#7a6550'
-      this.loricColor = '#6f854d'
-      this.travColor = '#500050'
-    }
-
-  
-  lightColors(){
-      this.scriptNameColor = 'brown'
-      this.goodCharColor = '#0000ff'
-      this.evilCharColor = '#ff0000'
-      this.fabledColor = '#aa9e00ff'
-      this.loricColor = '#8ac729ff'
-      this.travColor = '#bd00bdff'
+    this.goodCharColor = '#0b6aaf'
+    this.evilCharColor = '#760A0D'
+    this.fabledColor = '#7a6550'
+    this.loricColor = '#6f854d'
+    this.travColor = '#500050'
   }
 
-   
-  blackColors(){
-      this.scriptNameColor = 'black'
-      this.goodCharColor = 'black'
-      this.evilCharColor = 'black'
-      this.fabledColor = 'black'
-      this.loricColor = 'black'
-      this.travColor = 'black'
+
+  lightColors() {
+    this.scriptNameColor = 'brown'
+    this.goodCharColor = '#0000ff'
+    this.evilCharColor = '#ff0000'
+    this.fabledColor = '#aa9e00ff'
+    this.loricColor = '#8ac729ff'
+    this.travColor = '#bd00bdff'
+  }
+
+
+  blackColors() {
+    this.scriptNameColor = 'black'
+    this.goodCharColor = 'black'
+    this.evilCharColor = 'black'
+    this.fabledColor = 'black'
+    this.loricColor = 'black'
+    this.travColor = 'black'
   }
 
 
@@ -285,12 +286,8 @@ onFileSelected(event: Event): void {
       const clipboard = await navigator.clipboard.readText();
       this.jsonInput = clipboard;
       this.cd.detectChanges();
-          try{
-    this.create()}
-    catch(error){
-      this.create()
-    }
-    this.cd.detectChanges();
+      this.create();
+      
 
 
     } catch (err) {
@@ -303,269 +300,270 @@ onFileSelected(event: Event): void {
   create() {
     try {
       this.fullJsonSplit = JSON.parse(this.jsonInput)
-            this.jsonError = false
+      this.jsonError = false
+      this.jsonInput = JSON.stringify(this.fullJsonSplit, null, 2)
+
     } catch (error) {
       this.jsonError = true
     }
 
-    this.jsonInput = JSON.stringify(this.fullJsonSplit,null,2)
+    
+    //set script name
+    this.scriptName = this.fullJsonSplit[0].name;
 
-      //set script name
-      this.scriptName = this.fullJsonSplit[0].name;
+    //set author name
+    this.author = this.fullJsonSplit[0].author;
 
-      //set author name
-      this.author = this.fullJsonSplit[0].author;
+    //set bootlegger
+    if (this.fullJsonSplit[0].bootlegger) {
+      this.bootlegger = this.fullJsonSplit[0].bootlegger
+    } else {
+      this.bootlegger = []
+    }
+    //-----------------------------
+    //Characters
+    this.characters = []
 
-      //set bootlegger
-      if (this.fullJsonSplit[0].bootlegger) {
-        this.bootlegger = this.fullJsonSplit[0].bootlegger
-      } else {
-        this.bootlegger = []
-      }
-      //-----------------------------
-      //Characters
-      this.characters = []
-
-      for (let i = 1; i < this.fullJsonSplit.length; i++) {
-
-
-        //if json item has id 
-        if (this.fullJsonSplit[i].id) {
-
-          //if id is an official character
-          if (this.charData.find(innerArray =>
-            innerArray.ID === this.fullJsonSplit[i].id)) {
-
-            this.characters.push(this.fullJsonSplit[i].id)
-
-            //if hb character
-          } else {
-
-            this.hbchar = this.fullJsonSplit[i];
-
-            if (this.hbchar.team = 'traveler'){
-              this.hbchar.team = 'traveller'
-            }
-
-            //add hb char to charData and characters array
-            this.charData.push({
-              ID: this.hbchar.id,
-              Name: this.hbchar.name,
-              Ability: this.hbchar.ability,
-              Team: this.hbchar.team,
-              Image: this.hbchar.image,
-              Image2: this.hbchar.image,
-            });
-
-            this.characters.push(this.hbchar.id)
-
-            //add hb jinxes to jinxData
-            if (this.hbchar.jinxes) {
-              for (let i = 0; i < this.hbchar.jinxes.length; i++) {
-                this.jinxData.push(
-                  {
-                    char1: this.hbchar.id,
-                    char2: this.hbchar.jinxes[i].id,
-                    reason: this.hbchar.jinxes[i].reason
-                  }
-                )
-              }
-            }
-            //add to night order
-
-            if (this.hbchar.firstNight > 0) {
-              this.nightOrderData.push({
-                order: this.hbchar.firstNight,
-                firstNight: this.hbchar.id,
-                otherNights: ""
-              })
-            }
+    for (let i = 1; i < this.fullJsonSplit.length; i++) {
 
 
-            if (this.hbchar.otherNight > 0) {
-              this.nightOrderData.push({
-                order: this.hbchar.otherNight,
-                firstNight: "",
-                otherNights: this.hbchar.id
-              })
-            }
+      //if json item has id 
+      if (this.fullJsonSplit[i].id) {
+
+        //if id is an official character
+        if (this.charData.find(innerArray =>
+          innerArray.ID === this.fullJsonSplit[i].id)) {
+
+          this.characters.push(this.fullJsonSplit[i].id)
+
+          //if hb character
+        } else {
+
+          this.hbchar = this.fullJsonSplit[i];
+
+          if (this.hbchar.team == 'traveler') {
+            this.hbchar.team = 'traveller'
           }
 
-          //if split does not have id add to characters
-        } else if (this.fullJsonSplit[i]) {
-          
-          let char = this.fullJsonSplit[i].replace('_','').replace('-','')
-          
-          this.characters.push(char)
+          //add hb char to charData and characters array
+          this.charData.push({
+            ID: this.hbchar.id,
+            Name: this.hbchar.name,
+            Ability: this.hbchar.ability,
+            Team: this.hbchar.team,
+            Image: this.hbchar.image,
+            Image2: this.hbchar.image,
+          });
+
+          this.characters.push(this.hbchar.id)
+
+          //add hb jinxes to jinxData
+          if (this.hbchar.jinxes) {
+            for (let i = 0; i < this.hbchar.jinxes.length; i++) {
+              this.jinxData.push(
+                {
+                  char1: this.hbchar.id,
+                  char2: this.hbchar.jinxes[i].id,
+                  reason: this.hbchar.jinxes[i].reason
+                }
+              )
+            }
+          }
+          //add to night order
+
+          if (this.hbchar.firstNight > 0) {
+            this.nightOrderData.push({
+              order: this.hbchar.firstNight,
+              firstNight: this.hbchar.id,
+              otherNights: ""
+            })
+          }
+
+
+          if (this.hbchar.otherNight > 0) {
+            this.nightOrderData.push({
+              order: this.hbchar.otherNight,
+              firstNight: "",
+              otherNights: this.hbchar.id
+            })
+          }
         }
+
+        //if split does not have id add to characters
+      } else if (this.fullJsonSplit[i]) {
+
+        let char = this.fullJsonSplit[i].replace('_', '').replace('-', '')
+
+        this.characters.push(char)
       }
-      this.stormcaughtUpdate()
+    }
+    this.stormcaughtUpdate()
 
 
-      //-------------------------------------------
-      //set character lists
+    //-------------------------------------------
+    //set character lists
 
-      //get list of townsfolk
-      this.townsfolk = this.setcharacters(this.townsfolk, "townsfolk")
+    //get list of townsfolk
+    this.townsfolk = this.setcharacters(this.townsfolk, "townsfolk")
 
-      this.townsfolkPage1 = this.reorderForColumns(this.townsfolk)
-
-
-      //get list of outsiders
-      this.outsiders = this.setcharacters(this.outsiders, "outsider")
-
-      this.outsidersPage1 = this.reorderForColumns(this.outsiders)
+    this.townsfolkPage1 = this.reorderForColumns(this.townsfolk)
 
 
-      //get list of minions
-      this.minions = this.setcharacters(this.minions, "minion")
+    //get list of outsiders
+    this.outsiders = this.setcharacters(this.outsiders, "outsider")
 
-      this.minionsPage1 = this.reorderForColumns(this.minions)
-
-
-      //get list of demons
-      this.demons = this.setcharacters(this.demons, "demon")
-
-      this.demonsPage1 = this.reorderForColumns(this.demons)
+    this.outsidersPage1 = this.reorderForColumns(this.outsiders)
 
 
+    //get list of minions
+    this.minions = this.setcharacters(this.minions, "minion")
 
-      //get list of trav
-      this.trav = this.setcharacters(this.trav, "traveller")
+    this.minionsPage1 = this.reorderForColumns(this.minions)
+
+
+    //get list of demons
+    this.demons = this.setcharacters(this.demons, "demon")
+
+    this.demonsPage1 = this.reorderForColumns(this.demons)
 
 
 
-      //get list of npcs, not including djinn
-      this.npcs = this.charData
-        .filter(item =>
-          this.characters.includes(item.ID)
-          && (item.Team === "loric" || item.Team === 'fabled')
-          && item.ID != 'djinn'
-          && item.ID != 'bootlegger'
-        )
-
-      if ((!this.showBoot && this.bootlegger.length > 0) || (this.characters.includes("bootlegger") && !this.showBoot)) {
-        this.npcs.push({
-          "ID": "bootlegger",
-          "Name": "Bootlegger",
-          "Ability": "This script has homebrew characters or rules.",
-          "Team": "loric",
-          "Image": this.getImageForID("bootlegger")
-        })
-      }
-
-
-      //---------------------------------------------
-      //Jinxes - get array of jinxes
-      this.updateJinxes()
-
-      
-        if (this.showDjinn && this.filteredJinxes2.length > 0) {
-        this.npcs.push({
-          "ID": "djinn",
-          "Name": "Djinn",
-          "Ability": "Use the Djinn's special rule. All players know what it is.",
-          "Team": "fabled",
-          "Image": this.getImageForID("djinn")
-        })
-      }
+    //get list of trav
+    this.trav = this.setcharacters(this.trav, "traveller")
 
 
 
-      //----------------------------------------------------
-      //Night Order
+    //get list of npcs, not including djinn
+    this.npcs = this.charData
+      .filter(item =>
+        this.characters.includes(item.ID)
+        && (item.Team === "loric" || item.Team === 'fabled')
+        && item.ID != 'djinn'
+        && item.ID != 'bootlegger'
+      )
 
-      //filter out travellers from characters
-      const nightOrderInput = this.characters.filter(id =>
-        this.charData.find(d => d.ID === id)?.Team !== 'traveller'
-      );
-
-      //add meta info to first night
-      let firstNightInput = nightOrderInput
-
-      firstNightInput.push("dawn", "dusk", "minioninfo", "demoninfo")
-
-      //filter night order
-      const firstFiltered = this.nightOrderData
-        .filter(item => firstNightInput.includes(item.firstNight))
-
-      //sort night order
-      firstFiltered.sort((a, b) => a.order - b.order);
-
-      //set first order
-      this.firstOrder = firstFiltered.map(item => item.firstNight);
+    if ((!this.showBoot && this.bootlegger.length > 0) || (this.characters.includes("bootlegger") && !this.showBoot)) {
+      this.npcs.push({
+        "ID": "bootlegger",
+        "Name": "Bootlegger",
+        "Ability": "This script has homebrew characters or rules.",
+        "Team": "loric",
+        "Image": this.getImageForID("bootlegger")
+      })
+    }
 
 
+    //---------------------------------------------
+    //Jinxes - get array of jinxes
+    this.updateJinxes()
 
-      //add meta info to other night
-      let otherNightInput = nightOrderInput
 
-      otherNightInput.push("dawn", "dusk")
+    if (this.showDjinn && this.filteredJinxes2.length > 0) {
+      this.npcs.push({
+        "ID": "djinn",
+        "Name": "Djinn",
+        "Ability": "Use the Djinn's special rule. All players know what it is.",
+        "Team": "fabled",
+        "Image": this.getImageForID("djinn")
+      })
+    }
 
-      //filter night order
-      const otherFiltered = this.nightOrderData
-        .filter(item => otherNightInput.includes(item.otherNights))
 
-      //sort night order
-      otherFiltered.sort((a, b) => a.order - b.order);
 
-      //set first order
-      this.otherOrder = otherFiltered.map(item => item.otherNights);
+    //----------------------------------------------------
+    //Night Order
 
-      //Set Row Height-----------------
-      this.rows =
-        Math.ceil(this.townsfolk.length / 2) +
-        Math.ceil(this.outsiders.length / 2) +
-        Math.ceil(this.minions.length / 2) +
-        Math.ceil(this.demons.length / 2)
+    //filter out travellers from characters
+    const nightOrderInput = this.characters.filter(id =>
+      this.charData.find(d => d.ID === id)?.Team !== 'traveller'
+    );
 
-      this.page1height = ""
-      if (this.rows >= 13) {
-        this.page1height = "100%"
-      } else {
-        this.page1height = this.rows * 7.8 + "%"
-      }
+    //add meta info to first night
+    let firstNightInput = nightOrderInput
 
-      //decrease line height if 15+ rows to fit on page
-      if (this.rows >=15){
-        this.abilityLineHeight = '1';
-      }else{
-        this.abilityLineHeight = '1.2';
-      }
+    firstNightInput.push("dawn", "dusk", "minioninfo", "demoninfo")
 
-      this.updateCSS()
+    //filter night order
+    const firstFiltered = this.nightOrderData
+      .filter(item => firstNightInput.includes(item.firstNight))
+
+    //sort night order
+    firstFiltered.sort((a, b) => a.order - b.order);
+
+    //set first order
+    this.firstOrder = firstFiltered.map(item => item.firstNight);
+
+
+
+    //add meta info to other night
+    let otherNightInput = nightOrderInput
+
+    otherNightInput.push("dawn", "dusk")
+
+    //filter night order
+    const otherFiltered = this.nightOrderData
+      .filter(item => otherNightInput.includes(item.otherNights))
+
+    //sort night order
+    otherFiltered.sort((a, b) => a.order - b.order);
+
+    //set first order
+    this.otherOrder = otherFiltered.map(item => item.otherNights);
+
+    //Set Row Height-----------------
+    this.rows =
+      Math.ceil(this.townsfolk.length / 2) +
+      Math.ceil(this.outsiders.length / 2) +
+      Math.ceil(this.minions.length / 2) +
+      Math.ceil(this.demons.length / 2)
+
+    this.page1height = ""
+    if (this.rows >= 13) {
+      this.page1height = "100%"
+    } else {
+      this.page1height = this.rows * 7.8 + "%"
+    }
+
+    //decrease line height if 15+ rows to fit on page
+    if (this.rows >= 15) {
+      this.abilityLineHeight = '1';
+    } else {
+      this.abilityLineHeight = '1.2';
+    }
+
+    this.updateCSS()
 
     this.cd.detectChanges();
   }
 
-  updateCSS(){
+  updateCSS() {
 
-      //if firstnight text goes too long, remove it
-      if (this.firstOrder.length >= 23) {
-        this.showFirstNightText = 0 + 'mm'
-        
-      } else {
-        this.showFirstNightText = 6 + 'mm'
-        
-      }
+    //if firstnight text goes too long, remove it
+    if (this.firstOrder.length >= 22) {
+      this.showFirstNightText = 0 + 'mm'
 
-      //if othernight text goes too long, remove it
-      if (this.otherOrder.length >= 23) {
-        this.showOtherNightText = 0 + 'mm'
-        
-      } else {
-        this.showOtherNightText = 6 + 'mm'
-        
-      }
+    } else {
+      this.showFirstNightText = 6 + 'mm'
 
-      //----Invert other night
-      if (!this.invertOther) {
-        this.invertOtherDeg = "rotate(0deg)"
-        
-      } else {
-        this.invertOtherDeg = "rotate(180deg)"
-      }
     }
+
+    //if othernight text goes too long, remove it
+    if (this.otherOrder.length >= 22) {
+      this.showOtherNightText = 0 + 'mm'
+
+    } else {
+      this.showOtherNightText = 6 + 'mm'
+
+    }
+
+    //----Invert other night
+    if (!this.invertOther) {
+      this.invertOtherDeg = "rotate(0deg)"
+
+    } else {
+      this.invertOtherDeg = "rotate(180deg)"
+    }
+  }
 
 
 

@@ -44,7 +44,7 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 To run locally, have npm and angular installed.
 
-In scr/index.html, change "base href='/ScriptMaker/'" to "base href='/'"
+In scr/index.html, change base href='/ScriptMaker/' to base href='/'
 
 Run the command 'ng serve' in the ScriptMaker folder.
 

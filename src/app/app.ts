@@ -53,6 +53,13 @@ export class App implements OnInit, AfterViewInit {
 
   goodCharColor: string = '#0b6aaf'
   evilCharColor: string = '#760A0D'
+  scriptNameColor: string = 'maroon'
+
+  loricColor:string = '#6f854d'
+  fabledColor:string = '#7a6550'
+  travColor:string = '#500050'
+
+  scriptFontSize: string = '34px'
 
   townsfolk: {
     ID: string,
@@ -183,8 +190,10 @@ onFileSelected(event: Event): void {
 
   reader.readAsText(file);
 
-
 }
+
+
+
 
 
   //Images---------------
@@ -237,20 +246,32 @@ onFileSelected(event: Event): void {
   }
 
   resetColors(){
+    this.scriptNameColor = 'maroon'
       this.goodCharColor = '#0b6aaf'
       this.evilCharColor = '#760A0D'
-  }
+      this.fabledColor = '#7a6550'
+      this.loricColor = '#6f854d'
+      this.travColor = '#500050'
+    }
 
   
   lightColors(){
+      this.scriptNameColor = 'brown'
       this.goodCharColor = '#0000ff'
       this.evilCharColor = '#ff0000'
+      this.fabledColor = '#aa9e00ff'
+      this.loricColor = '#8ac729ff'
+      this.travColor = '#bd00bdff'
   }
 
    
   blackColors(){
+      this.scriptNameColor = 'black'
       this.goodCharColor = 'black'
       this.evilCharColor = 'black'
+      this.fabledColor = 'black'
+      this.loricColor = 'black'
+      this.travColor = 'black'
   }
 
 
@@ -327,7 +348,7 @@ onFileSelected(event: Event): void {
               Ability: this.hbchar.ability,
               Team: this.hbchar.team,
               Image: this.hbchar.image,
-              Image2: '',
+              Image2: this.hbchar.image,
             });
 
             this.characters.push(this.hbchar.id)
@@ -483,7 +504,7 @@ onFileSelected(event: Event): void {
       if (this.rows >= 13) {
         this.page1height = "105%"
       } else {
-        this.page1height = this.rows * 9 + "%"
+        this.page1height = this.rows * 7.8 + "%"
       }
 
       this.updateCSS()

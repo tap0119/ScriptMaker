@@ -61,6 +61,7 @@ export class App implements OnInit, AfterViewInit {
   travColor:string = '#500050'
 
   scriptFontSize: string = '34px'
+  abilityLineHeight: string = '1.2';
 
   townsfolk: {
     ID: string,
@@ -514,9 +515,16 @@ onFileSelected(event: Event): void {
 
       this.page1height = ""
       if (this.rows >= 13) {
-        this.page1height = "105%"
+        this.page1height = "100%"
       } else {
         this.page1height = this.rows * 7.8 + "%"
+      }
+
+      //decrease line height if 15+ rows to fit on page
+      if (this.rows >=15){
+        this.abilityLineHeight = '1';
+      }else{
+        this.abilityLineHeight = '1.2';
       }
 
       this.updateCSS()

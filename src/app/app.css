@@ -204,7 +204,7 @@
   /* letter
   height: 11.5in;
   */
-  height: 11.7in;
+  height: 11in;
   position: relative;
   align-items: stretch;
 }
@@ -226,7 +226,7 @@
   border: 0px solid blue;
   max-height: 80px;
   min-height: 70px;
-  margin: -3px 0px -3px 0px;
+  margin: -3px 0px -13px 0px;
   
 
 }
@@ -535,7 +535,7 @@
 
 .playerCountContainer {
   position: absolute;
-  bottom: 20px;
+  bottom:50px;
   left: 70px;
 
 
@@ -565,7 +565,7 @@
   color: rgb(99, 98, 98);
 
   position: relative;
-  bottom: -16px;
+  bottom: -30px;
   padding-left: 15px;
   padding-right: 15px;
 

@@ -36,6 +36,7 @@ export class App implements OnInit, AfterViewInit {
   stormcaughtOld: any;
   hbchar: any;
   showBoot: boolean = false;
+  showDjinn: boolean = false;
   rows: any;
   page1height: string = '';
 
@@ -450,6 +451,17 @@ onFileSelected(event: Event): void {
       //---------------------------------------------
       //Jinxes - get array of jinxes
       this.updateJinxes()
+
+      
+        if (this.showDjinn && this.filteredJinxes2.length > 0) {
+        this.npcs.push({
+          "ID": "djinn",
+          "Name": "Djinn",
+          "Ability": "Use the Djinn's special rule. All players know what it is.",
+          "Team": "fabled",
+          "Image": this.getImageForID("djinn")
+        })
+      }
 
 
 

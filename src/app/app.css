@@ -108,11 +108,11 @@
   padding-top: 0in;
   padding-bottom: 0in;
   position: relative;
-  bottom: 5px;
-  height: 30px;
-  border: 0px solid green;
+  bottom: 20px;
+  height: 5px;
+  border:0px solid green;
   grid-column: span 2;
-  margin: -5px 0px -5px 0px;
+  margin: -5px 0px -10px 0px;
 
 }
 
@@ -165,14 +165,15 @@
   float: right;
   padding-right: 0.2in;
   padding-left:0.15in;
+  padding-top:10px;
   position: relative;
-  top: 4px;
+  top: 6px;
   left:-15px;
-  height: 30px;
+  height:30px;
   font-size: 3.5mm;
   color: black;
   background-color: white;
-  border: 0px solid red;
+  border: 0px solid red;;
 }
 
 .print-page {

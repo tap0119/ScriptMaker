@@ -76,7 +76,7 @@
   display: flex;
   align-items: left;
   position: relative;
-  top: 5px;
+  top: 10px;
   width: 80px;
   height: 80px;
   border: 1px solid clear;
@@ -98,7 +98,7 @@
   /* vertical alignment */
   border: 1px solid clear;
   position: relative;
-  bottom:40px;
+  bottom:35px;
   width: 98%;
   margin: -20px 0px -10px 0px;
 }
@@ -114,6 +114,20 @@
   border:0px solid green;
   grid-column: span 2;
   margin: -10px 0px -5px 0px;
+
+}
+
+.divRowBoot {
+  width: 100%;
+  clear: both;
+  padding-top: 0in;
+  padding-bottom: 0in;
+  position: relative;
+  bottom: 6px;
+  height: 40px;
+  border:0px solid green;
+  grid-column: span 2;
+  margin: -10px 0px -20px 0px;
 
 }
 
@@ -507,6 +521,7 @@
   font-family: 'Assi';
   font-size: 3.4mm;
   padding-left: 10px;
+  padding-top: 1px;
 
 }
 

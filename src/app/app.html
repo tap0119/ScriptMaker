@@ -213,20 +213,27 @@
 
             </div>
 
-          </div>
-          <div class="col">
-            <div class="form-check form-switch ps-5 mt-3">
-              <input class="form-check-input fs-5" type="checkbox" id="showBoot" [(ngModel)]="showBoot"
-                (ngModelChange)="create()">
-              <label class="form-check-label fs-4" for="showBoot">Show Bootlegger rules on script page</label>
+            <div class="col-5 mt-1">
+              <label class="form-check-label fs-4 mt-2" for="showBoot">Show Bootlegger:</label>
+            </div>
+            <div class="col-7 mt-1">
+
+              <select [(ngModel)]="showBoot" (ngModelChange)="create()" class="form-select fs-4"
+                title="showBootlegger">
+                <option>none</option>
+                <option>Top</option>
+                <option>Bottom</option>
+              </select>
+
             </div>
           </div>
+
 
           <div class="col">
             <div class="form-check form-switch ps-5 mt-3">
               <input class="form-check-input fs-5" type="checkbox" id="showDjinn" [(ngModel)]="showDjinn"
                 (ngModelChange)="create()">
-              <label class="form-check-label fs-4" for="showDjinn">Show Djinn on script page</label>
+              <label class="form-check-label fs-4" for="showDjinn">Show Djinn on script</label>
             </div>
           </div>
 
@@ -234,7 +241,7 @@
             <div class="form-check form-switch ps-5 mt-3">
               <input class="form-check-input fs-5" type="checkbox" id="npcNames" [(ngModel)]="showNpcNames"
                 (ngModelChange)="create()">
-              <label class="form-check-label fs-4" for="npcNames">Show NPC names on script page</label>
+              <label class="form-check-label fs-4" for="npcNames">Show NPC names on script</label>
             </div>
           </div>
 
@@ -467,7 +474,7 @@
               </div>
 
               <!-----Bootlegger row page 1-->
-              @if (bootlegger.length > 0 && showBoot){
+              @if (bootlegger.length > 0 && showBoot == 'Top'){
               <div class="bootleggerPage1Div">
                 <div class="bootleggerPage1Image">
                   <img src="{{getImageForID('bootlegger')}}" (error)="onImageError($event,'bootlegger')" height="60">
@@ -615,6 +622,30 @@
                   <p class="charability" [style.line-height]="abilityLineHeight">{{item.Ability}}</p>
 
                 </div>
+              </div>
+              }
+
+              @if (bootlegger.length > 0 && showBoot== 'Bottom'){
+              
+              <div class="divRowBoot">
+                <div class="divider">
+                  <img src="divider.png" class="divPng">
+                </div>
+                <div class="TypeHeader"></div>
+              </div>
+              <div class="bootleggerPage1Div" style="grid-column: span 2;">
+                <div class="bootleggerPage1Image">
+                  <img src="{{getImageForID('bootlegger')}}" (error)="onImageError($event,'bootlegger')" height="60">
+                </div>
+
+
+                @for (rule of bootlegger; track rule){
+                <div class="bootleggerPage1Row">
+                  <b style="padding-right: 60px;"></b>
+                  <p>⦁</p>
+                  <p class="bootleggerRule">{{ rule }}</p>
+                </div>
+                }
               </div>
               }
 

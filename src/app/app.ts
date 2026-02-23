@@ -35,7 +35,7 @@ export class App implements OnInit, AfterViewInit {
   stormcaught: string = 'none';
   stormcaughtOld: any;
   hbchar: any;
-  showBoot: boolean = false;
+  showBoot: string = 'none';
   showDjinn: boolean = false;
   rows: any;
   page1height: string = '';
@@ -172,29 +172,29 @@ export class App implements OnInit, AfterViewInit {
 
   }
 
-  reset(){
-  this.invertOther = false;
-  this.showPlayerCount = true;
-  this.showCharBottom = true;
-  this.showNpcNames = true;
-  this.showBoot = false;
-  this.showDjinn = false;
+  reset() {
+    this.invertOther = false;
+    this.showPlayerCount = true;
+    this.showCharBottom = true;
+    this.showNpcNames = true;
+    this.showBoot = 'none';
+    this.showDjinn = false;
 
-  this.resetColors()
+    this.resetColors()
 
-  this.scriptFontSize = '34px'
-  this.authorFontSize = '17px'
-  this.italicAuthor= true;
-  this.authorOffset = '10px'
-  this.fontName = ''
-  
-  this.authorFont = true;
-  this.titleFont = true;
-  this.charFont = false;
-  this.npcFont = false;
-  this.stormcaught = 'none'
+    this.scriptFontSize = '34px'
+    this.authorFontSize = '17px'
+    this.italicAuthor = true;
+    this.authorOffset = '10px'
+    this.fontName = ''
 
-  this.create()
+    this.authorFont = true;
+    this.titleFont = true;
+    this.charFont = false;
+    this.npcFont = false;
+    this.stormcaught = 'none'
+
+    this.create()
   }
 
   onFileSelected(event: Event): void {
@@ -230,8 +230,8 @@ export class App implements OnInit, AfterViewInit {
   currentFontNpc = ''
   authorFont: boolean = true;
   titleFont: boolean = true;
-  charFont:boolean = false;
-  npcFont:boolean = false;
+  charFont: boolean = false;
+  npcFont: boolean = false;
   fontName: string = ''
 
   onFontUpload(event: Event) {
@@ -243,7 +243,7 @@ export class App implements OnInit, AfterViewInit {
 
     reader.onload = () => {
       const base64 = reader.result as string;
-      this.fontName = file.name.replace(/\.[^/.]+$/, '').replace(/\s+/g, '-').replace(".","").replace("(","").replace(")","");
+      this.fontName = file.name.replace(/\.[^/.]+$/, '').replace(/\s+/g, '-').replace(".", "").replace("(", "").replace(")", "");
 
       const style = document.createElement('style');
       style.innerHTML = `
@@ -255,32 +255,32 @@ export class App implements OnInit, AfterViewInit {
 
       document.head.appendChild(style);
 
-      
-      if(this.titleFont){
+
+      if (this.titleFont) {
         this.currentFont = this.fontName;
-      }else{
+      } else {
         this.currentFont = 'Philo'
       }
-      if(this.authorFont){
+      if (this.authorFont) {
         this.currentFontAuthor = this.fontName;
-      }else{
+      } else {
         this.currentFontAuthor = 'Philo'
       }
-      if(this.charFont){
+      if (this.charFont) {
         this.currentFontChar = this.fontName;
-      }else{
+      } else {
         this.currentFontChar = 'Assi'
       }
-      if(this.npcFont){
+      if (this.npcFont) {
         this.currentFontNpc = this.fontName;
-      }else{
+      } else {
         this.currentFontNpc = 'Assi'
       }
       this.create();
     };
 
     reader.readAsDataURL(file);
-    
+
   }
 
 
@@ -375,7 +375,7 @@ export class App implements OnInit, AfterViewInit {
       this.jsonInput = clipboard;
       this.cd.detectChanges();
       this.create();
-      
+
 
 
     } catch (err) {
@@ -396,30 +396,30 @@ export class App implements OnInit, AfterViewInit {
     }
 
     //Set fonts
-      if(this.titleFont && this.fontName){
-        this.currentFont = this.fontName;
-      }else{
-        this.currentFont = 'Philo'
-      }
+    if (this.titleFont && this.fontName) {
+      this.currentFont = this.fontName;
+    } else {
+      this.currentFont = 'Philo'
+    }
 
-      if(this.authorFont && this.fontName){
-        this.currentFontAuthor = this.fontName;
-      }else{
-        this.currentFontAuthor = 'Philo'
-      }
+    if (this.authorFont && this.fontName) {
+      this.currentFontAuthor = this.fontName;
+    } else {
+      this.currentFontAuthor = 'Philo'
+    }
 
-      if(this.charFont && this.fontName){
-        this.currentFontChar = this.fontName;
-      }else{
-        this.currentFontChar = 'Assi'
-      }
+    if (this.charFont && this.fontName) {
+      this.currentFontChar = this.fontName;
+    } else {
+      this.currentFontChar = 'Assi'
+    }
 
-      if(this.npcFont && this.fontName){
-        this.currentFontNpc = this.fontName;
-      }else{
-        this.currentFontNpc = 'Assi'
-      }
-    
+    if (this.npcFont && this.fontName) {
+      this.currentFontNpc = this.fontName;
+    } else {
+      this.currentFontNpc = 'Assi'
+    }
+
     //set script name
     this.scriptName = this.fullJsonSplit[0].name;
 
@@ -554,7 +554,7 @@ export class App implements OnInit, AfterViewInit {
         && item.ID != 'bootlegger'
       )
 
-    if ((!this.showBoot && this.bootlegger.length > 0) || (this.characters.includes("bootlegger") && !this.showBoot)) {
+    if ((this.showBoot == 'none' && this.bootlegger.length > 0) || (this.characters.includes("bootlegger") && this.showBoot == 'none')) {
       this.npcs.push({
         "ID": "bootlegger",
         "Name": "Bootlegger",
@@ -632,11 +632,22 @@ export class App implements OnInit, AfterViewInit {
     this.page1height = ""
     if (this.rows >= 13) {
       this.page1height = "100%"
-    } else if(this.rows == 12) {
-      this.page1height ="90%"
-    } else{
+    } else if (this.rows == 12) {
+      this.page1height = "90%"
+    } else {
       this.page1height = this.rows * 8.4 + "%"
     }
+
+
+    if (this.page1height !== "100%" && this.showBoot == "Bottom") {
+
+      if(10 + (this.rows * 8.4) < 100){
+        this.page1height = 10 + (this.rows * 8.4) + "%"
+      }else{
+        this.page1height = "100%"
+      }
+    }
+
 
     //decrease line height if 15+ rows to fit on page
     if (this.rows >= 15) {

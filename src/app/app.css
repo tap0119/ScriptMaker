@@ -27,7 +27,7 @@
   padding-left: .2in;
   padding-right: .1in;
   position: relative;
-  bottom: 10px;
+  bottom: 5px;
 
     border: 0px solid red;
 
@@ -53,7 +53,7 @@
   padding-left: .1in;
   font-size: 17px;
   position: relative;
-  bottom:13px;
+  bottom:10px;
   display: flex;
   border: 0px solid red;
 
@@ -61,7 +61,7 @@
 
 .AuthorText{
     align-self: flex-end;
-    padding-bottom:5px;
+    padding-bottom:0px;
 }
 
 .HeaderRow {

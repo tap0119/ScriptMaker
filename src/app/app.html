@@ -103,15 +103,32 @@
               <input class="form-control" type="file" accept=".ttf,.otf,.woff,.woff2" (change)="onFontUpload($event)" />
             </div>
           </div>
-          <div class="row mt-2 mb-3">
+          <div class="row mt-2">
             <div class="col-5">
-              <label class="form-check-label fs-4 mt-2" for="showBoot">Title Font Size:</label>
+              <label class="form-check-label fs-4 mt-3" for="showBoot">Title Font Size:</label>
             </div>
-            <div class="col-7 mb-3">
-              <textarea type="text" [(ngModel)]="scriptFontSize" (ngModelChange)="imageOverwrite()"
-                placeholder="Custom image URL" rows="1" class="form-control fs-4"></textarea>
+            <div class="col-7">
+              <textarea type="text" [(ngModel)]="scriptFontSize" (ngModelChange)="create()"
+                 rows="1" class="form-control fs-4"></textarea>
             </div>
           </div>
+                    <div class="row mt-2 mb-3">
+            <div class="col-5">
+              <label class="form-check-label fs-4 mt-2" for="showBoot">Author Font Size:</label>
+            </div>
+            <div class="col-7 mb-3">
+              <textarea type="text" [(ngModel)]="authorFontSize" (ngModelChange)="create()" rows="1" class="form-control fs-4"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-check form-switch ps-5 mb-3">
+                <input class="form-check-input fs-5" type="checkbox" id="italicAuthor" [(ngModel)]="italicAuthor"
+                  (ngModelChange)="create()">
+                <label class="form-check-label fs-4" for="italicAuthor">Italicize author</label>
+              </div>
+            </div>
+            </div>
           <div class="row">
             <div class="col">
               <div class="form-check form-switch ps-5 mb-3">
@@ -248,7 +265,7 @@
             </div>
             <div class="col-5">
               <input [(colorPicker)]="scriptNameColor" [style.background]="scriptNameColor" 
-                [cpPresetColors]="['#000000', '#800000', '#d90a0aff']" class="w-100" [cpEyeDropper]="true" [cpPosition]="'top-right'"(change)="create()"/>
+                [cpPresetColors]="['#000000', '#800000', '#d90a0a']" class="w-100" [cpEyeDropper]="true" [cpPosition]="'top-right'"(change)="create()"/>
 
             </div>
           </div>
@@ -272,35 +289,42 @@
             </div>
             <div class="col-5">
               <input [(colorPicker)]="fabledColor" [style.background]="fabledColor"
-                [cpPresetColors]="['#000000', '#7a6550', '#aa9e00ff' ]" class="w-100"  [cpEyeDropper]="true" [cpPosition]="'top-right'" (change)="create()" />
+                [cpPresetColors]="['#000000', '#7a6550', '#aa9e00' ]" class="w-100"  [cpEyeDropper]="true" [cpPosition]="'top-right'" (change)="create()" />
             </div>
             <div class="col-7">
               <label class="form-check-label fs-4">Loric Color:</label>
             </div>
             <div class="col-5">
               <input [(colorPicker)]="loricColor" [style.background]="loricColor"
-                [cpPresetColors]="['#000000', '#6f854d', '#8ac729ff' ]" class="w-100"  [cpEyeDropper]="true" [cpPosition]="'top-right'"  (change)="create()" />
+                [cpPresetColors]="['#000000', '#6f854d', '#8ac729' ]" class="w-100"  [cpEyeDropper]="true" [cpPosition]="'top-right'"  (change)="create()" />
             </div>
             <div class="col-7">
               <label class="form-check-label fs-4">Traveller Color:</label>
             </div>
             <div class="col-5">
               <input [(colorPicker)]="travColor" [style.background]="travColor"
-                [cpPresetColors]="['#000000', '#500050', '#bd00bdff' ]" class="w-100" [cpEyeDropper]="true" [cpPosition]="'top-right'"(change)="create()" />
+                [cpPresetColors]="['#000000', '#500050', '#bd00bd' ]" class="w-100" [cpEyeDropper]="true" [cpPosition]="'top-right'"(change)="create()" />
             </div>
 
 
 
           </div>
           <div class="row mt-3">
-            <div class="col-2">
-              <button class="btn btn-secondary w-100" (click)="blackColors()">Black</button>
+            <div class="col-4">
+              <button class="btn btn-lg btn-secondary w-100" (click)="blackColors()">Black</button>
             </div>
-            <div class="col-2">
-              <button class="btn btn-secondary w-100" (click)="resetColors()">Dark</button>
+            <div class="col-4">
+              <button class="btn btn-lg btn-secondary w-100" (click)="resetColors()">Dark</button>
             </div>
-            <div class="col-2">
-              <button class="btn btn-secondary w-100" (click)="lightColors()">Light</button>
+            <div class="col-4">
+              <button class="btn btn-lg btn-secondary w-100" (click)="lightColors()">Light</button>
+            </div>
+
+          </div>
+          <img src="divider.png" style="height:1px; width:100%" class="mt-5 mb-4">
+          <div class="row mt-3">
+            <div class="col">
+              <button class="btn btn-lg btn-dark w-100" (click)="reset()">Reset Options</button>
             </div>
 
           </div>
@@ -414,9 +438,15 @@
 
                   @if (author){
                   <div class="Author" [style.font-family]="currentFontAuthor || 'Philo'"
-                    [style.color]="scriptNameColor">
+                    [style.color]="scriptNameColor" [style.font-size]="authorFontSize">
                     <div class="AuthorText">
+                      @if(italicAuthor){
                       <i>by {{author}}</i>
+                      }
+                      @if(!italicAuthor){
+                        by {{author}}
+                      }
+
                     </div>
                   </div>
                   }

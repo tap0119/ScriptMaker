@@ -61,7 +61,9 @@ export class App implements OnInit, AfterViewInit {
   travColor: string = '#500050'
 
   scriptFontSize: string = '34px'
+  authorFontSize: string = '17px'
   abilityLineHeight: string = '1.2';
+  italicAuthor: boolean = true;
 
   townsfolk: {
     ID: string,
@@ -167,6 +169,36 @@ export class App implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
 
+  }
+
+  reset(){
+  this.invertOther = false;
+  this.showPlayerCount = true;
+  this.showCharBottom = true;
+  this.showNpcNames = true;
+  this.showBoot = false;
+  this.showDjinn = false;
+
+  this.goodCharColor = '#0b6aaf'
+  this.evilCharColor = '#760A0D'
+  this.scriptNameColor= '#800000'
+
+  this.loricColor= '#6f854d'
+  this.fabledColor = '#7a6550'
+  this.travColor = '#500050'
+
+  this.scriptFontSize = '34px'
+  this.authorFontSize = '17px'
+  this.italicAuthor= true;
+  this.fontName = ''
+  
+  this.authorFont = true;
+  this.titleFont = true;
+  this.charFont = false;
+  this.npcFont = false;
+  this.stormcaught = 'none'
+
+  this.create()
   }
 
   onFileSelected(event: Event): void {
@@ -319,12 +351,12 @@ export class App implements OnInit, AfterViewInit {
 
 
   lightColors() {
-    this.scriptNameColor = '#d90a0aff'
+    this.scriptNameColor = '#d90a0a'
     this.goodCharColor = '#0000ff'
     this.evilCharColor = '#ff0000'
-    this.fabledColor = '#aa9e00ff'
-    this.loricColor = '#8ac729ff'
-    this.travColor = '#bd00bdff'
+    this.fabledColor = '#aa9e00'
+    this.loricColor = '#8ac729'
+    this.travColor = '#bd00bd'
   }
 
 
@@ -368,31 +400,29 @@ export class App implements OnInit, AfterViewInit {
     }
 
     //Set fonts
-          
-      if(this.titleFont){
+      if(this.titleFont && this.fontName){
         this.currentFont = this.fontName;
       }else{
         this.currentFont = 'Philo'
       }
 
-      if(this.authorFont){
+      if(this.authorFont && this.fontName){
         this.currentFontAuthor = this.fontName;
       }else{
         this.currentFontAuthor = 'Philo'
       }
 
-      if(this.charFont){
+      if(this.charFont && this.fontName){
         this.currentFontChar = this.fontName;
       }else{
         this.currentFontChar = 'Assi'
       }
 
-            if(this.npcFont){
+      if(this.npcFont && this.fontName){
         this.currentFontNpc = this.fontName;
       }else{
         this.currentFontNpc = 'Assi'
       }
-
     
     //set script name
     this.scriptName = this.fullJsonSplit[0].name;

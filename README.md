@@ -16,7 +16,7 @@ For any feedback or questions, contact @Thomas04 on the Unoffical BOTC discord.
 
 * Show Stormcaught character on the script like a jinx. Stormcaught character will also be indicated on the back page under Storm Catcher
 
-* Show Bootlegger rules at the top of the script
+* Show Bootlegger rules at the top or bottom of the script
 
 * Toggle showing Djinn on script page
 

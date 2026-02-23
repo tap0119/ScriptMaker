@@ -30,8 +30,13 @@ For any feedback or questions, contact @Thomas04 on the Unoffical BOTC discord.
 
 * Dynamically adjust for teensyville or 25+ character scripts
 
-
-
+## Screenshots 
+![1|300](./public/screenshots/1.png)
+![2|300](./public/screenshots/2.png)
+![3|300](./public/screenshots/3.png)
+![4|300](./public/screenshots/4.png)
+![5|300](./public/screenshots/5.png)
+![6|300](./public/screenshots/6.png)
 
 ## Running Locally
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.3.

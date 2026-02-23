@@ -247,8 +247,8 @@
               <label class="form-check-label fs-4">Script Name:</label>
             </div>
             <div class="col-5">
-              <input [(colorPicker)]="scriptNameColor" [style.background]="scriptNameColor"
-                [cpPresetColors]="['#000000', '#800000']" class="w-100" (change)="create()" />
+              <input [(colorPicker)]="scriptNameColor" [style.background]="scriptNameColor" 
+                [cpPresetColors]="['#000000', '#800000', '#d90a0aff']" class="w-100" [cpEyeDropper]="true" [cpPosition]="'top-right'"(change)="create()"/>
 
             </div>
           </div>
@@ -258,35 +258,35 @@
             </div>
             <div class="col-5">
               <input [(colorPicker)]="goodCharColor" [style.background]="goodCharColor"
-                [cpPresetColors]="['#000000', '#0b6aaf', '#0000ff' ]" class="w-100" (change)="create()" />
+                [cpPresetColors]="['#000000', '#0b6aaf', '#0000ff' ]" class="w-100"  [cpEyeDropper]="true" [cpPosition]="'top-right'" (change)="create()" />
             </div>
             <div class="col-7">
               <label class="form-check-label fs-4">Evil Color:</label>
             </div>
             <div class="col-5">
               <input [(colorPicker)]="evilCharColor" [style.background]="evilCharColor"
-                [cpPresetColors]="['#000000', '#760A0D', '#ff0000' ]" class="w-100" (change)="create()" />
+                [cpPresetColors]="['#000000', '#760A0D', '#ff0000' ]" class="w-100"  [cpEyeDropper]="true" [cpPosition]="'top-right'"  (change)="create()" />
             </div>
             <div class="col-7">
               <label class="form-check-label fs-4">Fabled Color:</label>
             </div>
             <div class="col-5">
               <input [(colorPicker)]="fabledColor" [style.background]="fabledColor"
-                [cpPresetColors]="['#000000', '#7a6550', '#aa9e00ff' ]" class="w-100" (change)="create()" />
+                [cpPresetColors]="['#000000', '#7a6550', '#aa9e00ff' ]" class="w-100"  [cpEyeDropper]="true" [cpPosition]="'top-right'" (change)="create()" />
             </div>
             <div class="col-7">
               <label class="form-check-label fs-4">Loric Color:</label>
             </div>
             <div class="col-5">
               <input [(colorPicker)]="loricColor" [style.background]="loricColor"
-                [cpPresetColors]="['#000000', '#6f854d', '#8ac729ff' ]" class="w-100" (change)="create()" />
+                [cpPresetColors]="['#000000', '#6f854d', '#8ac729ff' ]" class="w-100"  [cpEyeDropper]="true" [cpPosition]="'top-right'"  (change)="create()" />
             </div>
             <div class="col-7">
               <label class="form-check-label fs-4">Traveller Color:</label>
             </div>
             <div class="col-5">
               <input [(colorPicker)]="travColor" [style.background]="travColor"
-                [cpPresetColors]="['#000000', '#500050', '#bd00bdff' ]" class="w-100" (change)="create()" />
+                [cpPresetColors]="['#000000', '#500050', '#bd00bdff' ]" class="w-100" [cpEyeDropper]="true" [cpPosition]="'top-right'"(change)="create()" />
             </div>
 
 

@@ -54,7 +54,7 @@ export class App implements OnInit, AfterViewInit {
 
   goodCharColor: string = '#0b6aaf'
   evilCharColor: string = '#760A0D'
-  scriptNameColor: string = 'maroon'
+  scriptNameColor: string = '#800000'
 
   loricColor: string = '#6f854d'
   fabledColor: string = '#7a6550'
@@ -215,7 +215,7 @@ export class App implements OnInit, AfterViewInit {
 
     reader.onload = () => {
       const base64 = reader.result as string;
-      this.fontName = file.name.replace(/\.[^/.]+$/, '').replace(/\s+/g, '-').replace(".","");
+      this.fontName = file.name.replace(/\.[^/.]+$/, '').replace(/\s+/g, '-').replace(".","").replace("(","").replace(")","");
 
       const style = document.createElement('style');
       style.innerHTML = `
@@ -309,7 +309,7 @@ export class App implements OnInit, AfterViewInit {
   }
 
   resetColors() {
-    this.scriptNameColor = 'maroon'
+    this.scriptNameColor = '#800000'
     this.goodCharColor = '#0b6aaf'
     this.evilCharColor = '#760A0D'
     this.fabledColor = '#7a6550'
@@ -319,7 +319,7 @@ export class App implements OnInit, AfterViewInit {
 
 
   lightColors() {
-    this.scriptNameColor = 'brown'
+    this.scriptNameColor = '#d90a0aff'
     this.goodCharColor = '#0000ff'
     this.evilCharColor = '#ff0000'
     this.fabledColor = '#aa9e00ff'

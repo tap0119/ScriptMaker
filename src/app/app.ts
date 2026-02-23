@@ -520,13 +520,15 @@ export class App implements OnInit, AfterViewInit {
     this.page1height = ""
     if (this.rows >= 13) {
       this.page1height = "100%"
-    } else {
-      this.page1height = this.rows * 7.8 + "%"
+    } else if(this.rows == 12) {
+      this.page1height ="90%"
+    } else{
+      this.page1height = this.rows * 8.4 + "%"
     }
 
     //decrease line height if 15+ rows to fit on page
     if (this.rows >= 15) {
-      this.abilityLineHeight = '1';
+      this.abilityLineHeight = '1.1';
     } else {
       this.abilityLineHeight = '1.2';
     }

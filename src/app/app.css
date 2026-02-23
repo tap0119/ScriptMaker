@@ -108,11 +108,25 @@
   padding-top: 0in;
   padding-bottom: 0in;
   position: relative;
-  bottom: 20px;
-  height: 5px;
+  bottom: 6px;
+  height: 20px;
   border:0px solid green;
   grid-column: span 2;
-  margin: -5px 0px -10px 0px;
+  margin: -10px 0px -5px 0px;
+
+}
+
+.townsfolkRow {
+  width: 100%;
+  clear: both;
+  padding-top: 0in;
+  padding-bottom: 0in;
+  position: relative;
+  bottom: 15px;
+  height: 20px;
+  border:0px solid green;
+  grid-column: span 2;
+  margin: 0px 0px -15px 0px;
 
 }
 

@@ -39,6 +39,8 @@ For any feedback or questions, contact @Thomas04 on the Unoffical BOTC discord.
 ![4|300](./public/screenshots/4.png)
 ![5|300](./public/screenshots/5.png)
 ![6|300](./public/screenshots/6.png)
+![7|300](./public/screenshots/7.png)
+![8|300](./public/screenshots/8.png)
 
 ## Running Locally
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.3.

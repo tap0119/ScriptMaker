@@ -5,6 +5,8 @@ For any feedback or questions, contact @Thomas04 on the Unoffical BOTC discord.
 
 #### https://tap0119.github.io/ScriptMaker/
 
+#### https://madness-script-maker.vercel.app
+
 ## Features
 * Full homebrew support
 

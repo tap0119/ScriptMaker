@@ -475,6 +475,12 @@
 
               <!-----Bootlegger row page 1-->
               @if (bootlegger.length > 0 && showBoot == 'Top'){
+                              
+              <div class="divRowBootTop">
+                <div class="divider">
+                  <img src="divider.png" class="divPng100">
+                </div>
+              </div>
               <div class="bootleggerPage1Div">
                 <div class="bootleggerPage1Image">
                   <img src="{{getImageForID('bootlegger')}}" (error)="onImageError($event,'bootlegger')" height="60">
@@ -626,10 +632,11 @@
               }
 
               @if (bootlegger.length > 0 && showBoot== 'Bottom'){
+
               
               <div class="divRowBoot">
                 <div class="divider">
-                  <img src="divider.png" class="divPng">
+                  <img src="divider.png" class="divPng100">
                 </div>
                 <div class="TypeHeader"></div>
               </div>

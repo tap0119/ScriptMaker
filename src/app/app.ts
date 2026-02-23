@@ -179,13 +179,7 @@ export class App implements OnInit, AfterViewInit {
   this.showBoot = false;
   this.showDjinn = false;
 
-  this.goodCharColor = '#0b6aaf'
-  this.evilCharColor = '#760A0D'
-  this.scriptNameColor= '#800000'
-
-  this.loricColor= '#6f854d'
-  this.fabledColor = '#7a6550'
-  this.travColor = '#500050'
+  this.resetColors()
 
   this.scriptFontSize = '34px'
   this.authorFontSize = '17px'

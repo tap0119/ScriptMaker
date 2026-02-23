@@ -196,6 +196,52 @@ export class App implements OnInit, AfterViewInit {
   }
 
 
+  currentFont = '';
+  currentFontAuthor = ''
+  authorFont: boolean = true;
+  titleFont: boolean = true;
+  fontName: string = ''
+
+  onFontUpload(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (!input.files?.length) return;
+
+    const file = input.files[0];
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      const base64 = reader.result as string;
+      this.fontName = file.name.replace(/\.[^/.]+$/, '').replace(/\s+/g, '-').replace(".","");
+
+      const style = document.createElement('style');
+      style.innerHTML = `
+        @font-face {
+          font-family: '${this.fontName}';
+          src: url('${base64}');
+        }
+      `;
+
+      document.head.appendChild(style);
+
+      
+      if(this.titleFont){
+        this.currentFont = this.fontName;
+      }else{
+        this.currentFont = 'Philo'
+      }
+      if(this.authorFont){
+        this.currentFontAuthor = this.fontName;
+      }else{
+        this.currentFontAuthor = 'Philo'
+      }
+      this.create();
+    };
+
+    reader.readAsDataURL(file);
+    
+  }
+
+
 
 
 
@@ -306,6 +352,20 @@ export class App implements OnInit, AfterViewInit {
     } catch (error) {
       this.jsonError = true
     }
+
+    //Set fonts
+          
+      if(this.titleFont){
+        this.currentFont = this.fontName;
+      }else{
+        this.currentFont = 'Philo'
+      }
+
+      if(this.authorFont){
+        this.currentFontAuthor = this.fontName;
+      }else{
+        this.currentFontAuthor = 'Philo'
+      }
 
     
     //set script name

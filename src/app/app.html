@@ -4,6 +4,8 @@
     <div class="row">
       <div class="col-6">
 
+
+
         <!-----------Options -->
         <div class=" bg-light p-3">
           <div class="row">
@@ -20,7 +22,7 @@
             <div class="col-12 mb-3">
               <h5 class="card-title fs-3">Input JSON</h5>
             </div>
-                      <div class="d-flex flex-row">
+            <div class="d-flex flex-row">
 
               <div class="col-4">
                 <button class="btn btn-secondary mb-3 btn-lg btn-group w-100" (click)="paste()">Paste JSON</button>
@@ -30,21 +32,21 @@
                 <button class="btn w-100 btn-primary btn-lg" [useExistingCss]="true" printSectionId="print-section"
                   ngxPrint>Save & Print</button>
               </div>
-              </div>
+            </div>
             <div class="col mb-3">
               <input type="file" id="formFile" class="custom-file-input form-control" accept=".json"
                 (change)="onFileSelected($event)" />
             </div>
           </div>
 
-            <div class="row">
-              <div class = "col">
-              <textarea type="text" class="form-control fs-5" [(ngModel)]="jsonInput" (ngModelChange)="create()" rows="4"
-                cols="50" placeholder=""></textarea>
-                </div>
+          <div class="row">
+            <div class="col">
+              <textarea type="text" class="form-control fs-5" [(ngModel)]="jsonInput" (ngModelChange)="create()"
+                rows="4" cols="50" placeholder=""></textarea>
             </div>
+          </div>
 
-          
+
 
           <!-------------------->
           <img src="divider.png" style="height:1px; width:100%" class="mt-3">
@@ -52,7 +54,7 @@
 
           <div class="row mt-4">
             <div class="col">
-              <h5 class="card-title fs-3">Images</h5>
+              <h5 class="card-title fs-3 mb-3">Images</h5>
             </div>
           </div>
           <div class="row mt-2 mb-3">
@@ -85,34 +87,69 @@
             </div>
           </div>
           }
+                    <img src="divider.png" style="height:1px; width:100%" class="mt-3">
 
 
-          
-
-
-          <!--------------Options-->
-          <img src="divider.png" style="height:1px; width:100%">
-
-          <div class="row mt-3 mb-3">
+          <div class="row mt-4">
             <div class="col">
-              <h5 class="card-title fs-3">Options</h5>
+              <h5 class="card-title fs-3 mb-3">Title Font</h5>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-5">
+              <label class="form-check-label fs-4 mt-1" for="showBoot">Custom Title Font:</label>
+            </div>
+            <div class="col-7">
+              <input class="form-control" type="file" accept=".ttf,.otf,.woff,.woff2" (change)="onFontUpload($event)" />
             </div>
           </div>
           <div class="row mt-2 mb-3">
-            <div class="col-7">
-              <label class="form-check-label fs-4 mt-1" for="showBoot">Title Font Size (default 34px):</label>
-            </div>
             <div class="col-5">
+              <label class="form-check-label fs-4 mt-1" for="showBoot">Title Font Size:</label>
+            </div>
+            <div class="col-7 mb-3">
               <textarea type="text" [(ngModel)]="scriptFontSize" (ngModelChange)="imageOverwrite()"
                 placeholder="Custom image URL" rows="1" class="form-control fs-4"></textarea>
             </div>
+            <div class="row">
+              <div class="col">
+              <div class="form-check form-switch ps-5 mb-3">
+                <input class="form-check-input fs-5" type="checkbox" id="titleFont" [(ngModel)]="titleFont"
+                  (ngModelChange)="create()">
+                <label class="form-check-label fs-4" for="titleFont">Use custom font for title</label>
+              </div>
+            </div>
+            </div>
+            <div class="row">
+              <div class="col">
+              <div class="form-check form-switch ps-5 mb-3">
+                <input class="form-check-input fs-5" type="checkbox" id="authorFont" [(ngModel)]="authorFont"
+                  (ngModelChange)="create()">
+                <label class="form-check-label fs-4" for="authorFont">Use custom font for author name</label>
+              </div>
+            </div>
+
+            </div>
+
+
+
+
+            <!--------------Options-->
+            <img src="divider.png" style="height:1px; width:100%">
+
+            <div class="row mt-3 mb-3">
+              <div class="col">
+                <h5 class="card-title fs-3">Options</h5>
+              </div>
+            </div>
+
 
           </div>
           <div class="row">
-            <div class="col-7">
-              <label class="form-check-label fs-4 mt-1" for="showBoot">Stormcaught Character:</label>
-            </div>
             <div class="col-5">
+              <label class="form-check-label fs-4 mt-2" for="showBoot">Storm Catcher:</label>
+            </div>
+            <div class="col-7">
 
               <select [(ngModel)]="stormcaught" (ngModelChange)="create()" class="form-select fs-4"
                 title="Stormcaught Character">
@@ -132,7 +169,7 @@
             <div class="form-check form-switch ps-5 mt-3">
               <input class="form-check-input fs-5" type="checkbox" id="showBoot" [(ngModel)]="showBoot"
                 (ngModelChange)="create()">
-              <label class="form-check-label fs-4" for="showBoot">Show Bootlegger rules on script page (if any)</label>
+              <label class="form-check-label fs-4" for="showBoot">Show Bootlegger rules on script page</label>
             </div>
           </div>
 
@@ -152,7 +189,7 @@
             </div>
           </div>
 
-                    <div class="col">
+          <div class="col">
             <div class="form-check form-switch ps-5 mt-3">
               <input class="form-check-input fs-5" type="checkbox" id="invertOtherNight" [(ngModel)]="invertOther"
                 (ngModelChange)="create()">
@@ -172,7 +209,8 @@
             <div class="form-check form-switch ps-5 mt-3">
               <input class="form-check-input fs-5" type="checkbox" id="invertOtherNight" [(ngModel)]="showCharBottom"
                 (ngModelChange)="create()">
-              <label class="form-check-label fs-4" for="showPlayerCount">Show character icons on bottom of 2nd page</label>
+              <label class="form-check-label fs-4" for="showPlayerCount">Show character icons on bottom of 2nd
+                page</label>
             </div>
           </div>
 
@@ -260,7 +298,8 @@
             <div class="alert alert-secondary" role="alert">
               Created by @Thomas04 on the Unoffical BOTC Discord. <br>Not endorsed by TPI.
               <br>
-              Source Code: <a href="https://github.com/tap0119/ScriptMaker">https://github.com/thomas0465/ScriptMaker</a>
+              Source Code: <a
+                href="https://github.com/thomas0465/ScriptMaker">https://github.com/thomas0465/ScriptMaker</a>
 
             </div>
 
@@ -345,14 +384,16 @@
 
                   <!----Name and Author-->
                   <div class="d-flex">
-                    <div class="ScriptName" [style.color]="scriptNameColor" [style.font-size]="scriptFontSize">
+                    <div class="ScriptName" [style.font-family]="currentFont || 'Philo'" [style.color]="scriptNameColor"
+                      [style.font-size]="scriptFontSize">
                       {{scriptName}}
                     </div>
 
                     @if (author){
-                    <div class="Author" [style.color]="scriptNameColor">
+                    <div class="Author" [style.font-family]="currentFontAuthor || 'Philo'"
+                      [style.color]="scriptNameColor">
                       <div class="AuthorText">
-                      <i>by {{author}}</i>
+                        <i>by {{author}}</i>
                       </div>
                     </div>
                     }
@@ -397,7 +438,7 @@
                   </div>
                   <div class="chartextrow">
                     <div class="charnamerow">
-                      <b class="charname" [style.color]='goodCharColor'>{{ item.Name }}</b>
+                      <b class="charname" [style.color]='goodCharColor' [style.font-family]="charFont || 'Philo'" >{{ item.Name }}</b>
                       @for (jinx of filteredJinxes; track jinx){
                       @if (jinx.char1 === item.ID){
                       @if (getImageForID(jinx.char2)) {
@@ -525,7 +566,7 @@
 
 
           <!----Page 2 -->
-          <div class="print-page" >
+          <div class="print-page">
 
             @if(jsonInput){
 
@@ -549,7 +590,8 @@
               <p class="othernightText" [style.font-size]="showOtherNightText">OTHER NIGHTS</p>
             </div>
 
-            <div class="ScriptNameBottom" [style.color]="scriptNameColor">{{scriptName}}</div>
+            <div class="ScriptNameBottom" [style.color]="scriptNameColor" [style.font-family]="currentFont || 'Philo'">
+              {{scriptName}}</div>
 
             <div class="page2main">
               <!----- NPCs Header -->
@@ -702,7 +744,7 @@
               </div>
             </div>
 
-        
+
 
 
             }

@@ -38,7 +38,6 @@ For any feedback or questions, contact @Thomas04 on the Unoffical BOTC discord.
 ![5|300](./public/screenshots/5.png)
 ![6|300](./public/screenshots/6.png)
 
-
 ## Running Locally
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.3.
 

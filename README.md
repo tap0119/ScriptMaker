@@ -8,6 +8,8 @@ For any feedback or questions, contact @Thomas04 on the Unoffical BOTC discord.
 ## Features
 * Full homebrew support
 
+* Upload a custom font file that can be used for the title, author, and character names.
+
 * Choose between Unofficial PNG, SVG or your external character images
 
 * Change script title font size

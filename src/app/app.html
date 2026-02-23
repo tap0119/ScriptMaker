@@ -29,8 +29,10 @@
               </div>
 
               <div class="ms-3 col">
-                <button class="btn w-100 btn-primary btn-lg" [useExistingCss]="true" printSectionId="print-section"
-                  ngxPrint>Save & Print</button>
+                <button 
+                class="btn w-100 btn-primary btn-lg" [useExistingCss]="true" printSectionId="print-section"
+                printTitle={{scriptName}}
+                ngxPrint>Save & Print</button>
               </div>
             </div>
             <div class="col mb-3">

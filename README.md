@@ -5,6 +5,8 @@ For any feedback or questions, contact @Thomas04 on the Unoffical BOTC discord.
 
 #### https://tap0119.github.io/ScriptMaker/
 
+#### https://madness-script-maker.vercel.app
+
 ## Features
 * Full homebrew support
 
@@ -43,8 +45,6 @@ For any feedback or questions, contact @Thomas04 on the Unoffical BOTC discord.
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.3.
 
 To run locally, have npm and angular installed.
-
-In scr/index.html, change base href='/ScriptMaker/' to base href='/'
 
 Run the command 'ng serve' in the ScriptMaker folder.
 

@@ -64,6 +64,7 @@ export class App implements OnInit, AfterViewInit {
   authorFontSize: string = '17px'
   abilityLineHeight: string = '1.2';
   italicAuthor: boolean = true;
+  authorOffset: string = '10px'
 
   townsfolk: {
     ID: string,
@@ -184,6 +185,7 @@ export class App implements OnInit, AfterViewInit {
   this.scriptFontSize = '34px'
   this.authorFontSize = '17px'
   this.italicAuthor= true;
+  this.authorOffset = '10px'
   this.fontName = ''
   
   this.authorFont = true;

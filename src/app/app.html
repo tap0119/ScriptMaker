@@ -97,7 +97,7 @@
           </div>
           <div class="row">
             <div class="col-5">
-              <label class="form-check-label fs-4 mt-2" for="showBoot">Custom Font:</label>
+              <label class="form-check-label fs-4 mt-2" for="showBoot">Custom font:</label>
             </div>
             <div class="col-7">
               <input class="form-control" type="file" accept=".ttf,.otf,.woff,.woff2" (change)="onFontUpload($event)" />
@@ -105,19 +105,27 @@
           </div>
           <div class="row mt-2">
             <div class="col-5">
-              <label class="form-check-label fs-4 mt-3" for="showBoot">Title Font Size:</label>
+              <label class="form-check-label fs-4 mt-3" for="showBoot">Title font size:</label>
             </div>
             <div class="col-7">
               <textarea type="text" [(ngModel)]="scriptFontSize" (ngModelChange)="create()"
                  rows="1" class="form-control fs-4"></textarea>
             </div>
           </div>
-                    <div class="row mt-2 mb-3">
+                    <div class="row mt-3">
             <div class="col-5">
-              <label class="form-check-label fs-4 mt-2" for="showBoot">Author Font Size:</label>
+              <label class="form-check-label fs-4 mt-2" for="authorFontSize">Author font size:</label>
             </div>
             <div class="col-7 mb-3">
               <textarea type="text" [(ngModel)]="authorFontSize" (ngModelChange)="create()" rows="1" class="form-control fs-4"></textarea>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-5">
+              <label class="form-check-label fs-4 mt-1" for="authorOffset">Author text offset:</label>
+            </div>
+            <div class="col-7 mb-3">
+              <textarea type="text" [(ngModel)]="authorOffset" (ngModelChange)="create()" rows="1" class="form-control fs-4"></textarea>
             </div>
           </div>
           <div class="row">
@@ -438,7 +446,7 @@
 
                   @if (author){
                   <div class="Author" [style.font-family]="currentFontAuthor || 'Philo'"
-                    [style.color]="scriptNameColor" [style.font-size]="authorFontSize">
+                    [style.color]="scriptNameColor" [style.font-size]="authorFontSize" [style.bottom]="authorOffset">
                     <div class="AuthorText">
                       @if(italicAuthor){
                       <i>by {{author}}</i>

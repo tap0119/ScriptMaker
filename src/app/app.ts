@@ -198,8 +198,12 @@ export class App implements OnInit, AfterViewInit {
 
   currentFont = '';
   currentFontAuthor = ''
+  currentFontChar = ''
+  currentFontNpc = ''
   authorFont: boolean = true;
   titleFont: boolean = true;
+  charFont:boolean = false;
+  npcFont:boolean = false;
   fontName: string = ''
 
   onFontUpload(event: Event) {
@@ -233,6 +237,16 @@ export class App implements OnInit, AfterViewInit {
         this.currentFontAuthor = this.fontName;
       }else{
         this.currentFontAuthor = 'Philo'
+      }
+      if(this.charFont){
+        this.currentFontChar = this.fontName;
+      }else{
+        this.currentFontChar = 'Assi'
+      }
+      if(this.npcFont){
+        this.currentFontNpc = this.fontName;
+      }else{
+        this.currentFontNpc = 'Assi'
       }
       this.create();
     };
@@ -365,6 +379,18 @@ export class App implements OnInit, AfterViewInit {
         this.currentFontAuthor = this.fontName;
       }else{
         this.currentFontAuthor = 'Philo'
+      }
+
+      if(this.charFont){
+        this.currentFontChar = this.fontName;
+      }else{
+        this.currentFontChar = 'Assi'
+      }
+
+            if(this.npcFont){
+        this.currentFontNpc = this.fontName;
+      }else{
+        this.currentFontNpc = 'Assi'
       }
 
     

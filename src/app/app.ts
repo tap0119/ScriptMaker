@@ -34,6 +34,11 @@ export class App implements OnInit, AfterViewInit {
     char2: string,
     reason: string,
   }[] = [];
+    allJinxes2: {
+    char1: string,
+    char2: string,
+    reason: string,
+  }[] = [];
   dontShowJinxes: {
     char1: string,
     char2: string,
@@ -229,6 +234,8 @@ export class App implements OnInit, AfterViewInit {
       }
     };
 
+    this.dontShowJinxes = []
+    this.stormcaught = 'none'
     reader.readAsText(file);
 
   }
@@ -388,6 +395,8 @@ export class App implements OnInit, AfterViewInit {
       this.create();
 
 
+      this.dontShowJinxes = []
+      this.stormcaught = 'none'
 
     } catch (err) {
       console.error('Failed to read clipboard:', err);
@@ -589,6 +598,8 @@ export class App implements OnInit, AfterViewInit {
     //Jinxes - get array of jinxes
     this.updateJinxes()
 
+    console.log(this.bootlegger)
+
 
     if (this.showDjinn && this.filteredJinxes2.length > 0) {
       this.npcs.push({
@@ -770,29 +781,67 @@ export class App implements OnInit, AfterViewInit {
         this.characters.includes(jinx.char1) &&
         this.characters.includes(jinx.char2));
 
-    this.allJinxes =
+    console.log(this.filteredJinxes)
+
+    this.filteredJinxes2 =
       this.jinxData.filter(jinx =>
         this.characters.includes(jinx.char1) &&
         this.characters.includes(jinx.char2) &&
         jinx.char2 != 'stormcatcher');
 
-      this.filteredJinxes2 = this.allJinxes
+    this.allJinxes = this.filteredJinxes
+    this.allJinxes2 = this.filteredJinxes2
 
 
-      let removeSet = new Set(
-        this.dontShowJinxes.map(j => `${j.char1}|${j.char2}`)
-      );
+    let removeSet = new Set(
+      this.dontShowJinxes.map(j => `${j.char1}|${j.char2}`)
+    );
 
-      this.filteredJinxes2 = this.allJinxes.filter(
-        j => !removeSet.has(`${j.char1}|${j.char2}`)
-      );
+    this.filteredJinxes = this.allJinxes.filter(
+      j => !removeSet.has(`${j.char1}|${j.char2}`)
+    );
 
-      this.filteredJinxes = this.allJinxes.filter(
-        j => !removeSet.has(`${j.char1}|${j.char2}`)
-      );
+        this.filteredJinxes2 = this.allJinxes2.filter(
+      j => !removeSet.has(`${j.char1}|${j.char2}`)
+    );
+
+    
+    this.bootlegger = this.bootlegger.filter(
+        item => item !==this.hiddenJinxesString)
+
+
+    let hiddenJinxes = this.dontShowJinxes
+      .map(pair => `${this.getNameForID(pair.char1)}/${this.getNameForID(pair.char2)}`)
+
+    
+
+    if (hiddenJinxes.length === 1) {
+      this.hiddenJinxesString = hiddenJinxes[0];
+    }
+    else if (hiddenJinxes.length === 2) {
+      this.hiddenJinxesString = hiddenJinxes.join(' and ');
+    }
+    else {
+      this.hiddenJinxesString =
+        hiddenJinxes.slice(0, -1).join(', ') +
+        ', and ' +
+        hiddenJinxes[hiddenJinxes.length - 1];
+    }
+
+      if (this.dontShowJinxes.length > 1) {
+        this.hiddenJinxesString = "Do not use the " + this.hiddenJinxesString + " jinxes."
+        this.bootlegger.push(this.hiddenJinxesString)
+
+      } else if(this.dontShowJinxes.length == 1){
+        this.hiddenJinxesString = "Do not use the " + this.hiddenJinxesString + " jinx."
+
+        this.bootlegger.push(this.hiddenJinxesString)
+      }
 
 
   }
+
+  hiddenJinxesString:string = '' 
 
   dontShowJinxesFun(char1: string, char2: string) {
 
@@ -803,18 +852,15 @@ export class App implements OnInit, AfterViewInit {
 
       this.dontShowJinxes = this.dontShowJinxes.filter(
         item => !(item.char1 === char1 && item.char2 === char2))
-        
-      this.bootlegger = this.bootlegger.filter(
-        item => "Do not use the " + this.getNameForID(char1) + " / " + this.getNameForID(char2) + " jinx"
-      )
-    
-      } else {
-      this.dontShowJinxes.push({ 'char1': char1, 'char2': char2, 'reason': '' })
 
-      this.bootlegger.push("Do not use the " + this.getNameForID(char1) + " / " + this.getNameForID(char2) + " jinx")
+
+    } else {
+      this.dontShowJinxes.push({ 'char1': char1, 'char2': char2, 'reason': '' })
     }
 
-    this.updateJinxes()
+    
+
+    this.create()
 
 
   }

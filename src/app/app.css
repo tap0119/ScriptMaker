@@ -74,21 +74,32 @@
 
 .bootleggerPage1Image {
   display: flex;
-  align-items: left;
+  align-items: center;
   position: relative;
-  top: 10px;
+  top: 0px;
+  padding-left:18px;
   width: 80px;
-  height: 80px;
-  border: 1px solid clear;
+  height: 85px;
+  border: 0px solid red;
 }
 
 .bootleggerPage1Div {
   position: relative;
   bottom: 30px;
   clear: both;
-  border: 1px solid clear;
+  height:auto;
+  border: 0px solid red;
   margin: 0px 0px -60px 0px;
 
+}
+
+.bootleggerPage1DivBottom{
+    position: relative;
+  bottom: 30px;
+  clear: both;
+  height:auto;
+  border: 0px solid red;
+  margin: 0px 0px -100px 0px;
 }
 
 .bootleggerPage1Row {
@@ -96,11 +107,12 @@
   flex-direction: row;
   align-items: center;
   /* vertical alignment */
-  border: 1px solid clear;
+  border: 0px solid red;
   position: relative;
   bottom:35px;
   width: 98%;
   margin: -20px 0px -10px 0px;
+
 }
 
 .divRow {
@@ -172,9 +184,15 @@
   padding-left: 13px;
 }
 
-.divPng100{
+.divPngTop{
   height: 1px;
   width: 96%;
+  padding-left: 28px;
+}
+
+.divPngBottom{
+  height: 1px;
+  width: 95%;
   padding-left: 13px;
 }
 
@@ -215,15 +233,16 @@
   float: right;
   padding-right: 0.2in;
   padding-left:0.15in;
-  padding-top:10px;
+  padding-top:0px;
   position: relative;
-  top: 6px;
+  top: 17px;
   left:-15px;
-  height:30px;
+  height:20px;
   font-size: 3.5mm;
   color: black;
-  background-color: white;
+  /*background-color: white;
   border: 0px solid red;;
+  */
 }
 
 .print-page {
@@ -542,7 +561,7 @@
   font-family: 'Assi';
   font-size: 3.4mm;
   padding-left: 10px;
-  padding-top: 1px;
+  padding-top: 0px;
 
 }
 

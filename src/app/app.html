@@ -6,6 +6,7 @@
 
 
 
+
         <!-----------Options -->
         <div class=" bg-light p-3">
           <div class="row">
@@ -29,11 +30,8 @@
               </div>
 
               <div class="ms-3 col">
-                <button 
-                class="btn w-100 btn-primary btn-lg" [useExistingCss]="true" printSectionId="print-section"
-                printTitle={{scriptName}}
-                [previewOnly]="false"
-                ngxPrint>Save & Print</button>
+                <button class="btn w-100 btn-primary btn-lg" [useExistingCss]="true" printSectionId="print-section"
+                  printTitle={{scriptName}} [previewOnly]="false" ngxPrint>Save & Print</button>
               </div>
             </div>
             <div class="col mb-3">
@@ -111,16 +109,17 @@
               <label class="form-check-label fs-4 mt-3" for="showBoot">Title font size:</label>
             </div>
             <div class="col-7">
-              <textarea type="text" [(ngModel)]="scriptFontSize" (ngModelChange)="create()"
-                 rows="1" class="form-control fs-4"></textarea>
+              <textarea type="text" [(ngModel)]="scriptFontSize" (ngModelChange)="create()" rows="1"
+                class="form-control fs-4"></textarea>
             </div>
           </div>
-                    <div class="row mt-3">
+          <div class="row mt-3">
             <div class="col-5">
               <label class="form-check-label fs-4 mt-2" for="authorFontSize">Author font size:</label>
             </div>
             <div class="col-7 mb-3">
-              <textarea type="text" [(ngModel)]="authorFontSize" (ngModelChange)="create()" rows="1" class="form-control fs-4"></textarea>
+              <textarea type="text" [(ngModel)]="authorFontSize" (ngModelChange)="create()" rows="1"
+                class="form-control fs-4"></textarea>
             </div>
           </div>
           <div class="row mb-3">
@@ -128,7 +127,8 @@
               <label class="form-check-label fs-4 mt-1" for="authorOffset">Author text offset:</label>
             </div>
             <div class="col-7 mb-3">
-              <textarea type="text" [(ngModel)]="authorOffset" (ngModelChange)="create()" rows="1" class="form-control fs-4"></textarea>
+              <textarea type="text" [(ngModel)]="authorOffset" (ngModelChange)="create()" rows="1"
+                class="form-control fs-4"></textarea>
             </div>
           </div>
           <div class="row">
@@ -139,7 +139,7 @@
                 <label class="form-check-label fs-4" for="italicAuthor">Italicize author</label>
               </div>
             </div>
-            </div>
+          </div>
           <div class="row">
             <div class="col">
               <div class="form-check form-switch ps-5 mb-3">
@@ -168,7 +168,7 @@
             </div>
 
           </div>
-                    <div class="row">
+          <div class="row">
             <div class="col">
               <div class="form-check form-switch ps-5 mb-3">
                 <input class="form-check-input fs-5" type="checkbox" id="npcFont" [(ngModel)]="npcFont"
@@ -218,8 +218,7 @@
             </div>
             <div class="col-7 mt-1">
 
-              <select [(ngModel)]="showBoot" (ngModelChange)="create()" class="form-select fs-4"
-                title="showBootlegger">
+              <select [(ngModel)]="showBoot" (ngModelChange)="create()" class="form-select fs-4" title="showBootlegger">
                 <option>none</option>
                 <option>Top</option>
                 <option>Bottom</option>
@@ -282,8 +281,9 @@
               <label class="form-check-label fs-4">Script Name:</label>
             </div>
             <div class="col-5">
-              <input [(colorPicker)]="scriptNameColor" [style.background]="scriptNameColor" 
-                [cpPresetColors]="['#000000', '#800000', '#d90a0a']" class="w-100" [cpEyeDropper]="true" [cpPosition]="'top-right'"(change)="create()"/>
+              <input [(colorPicker)]="scriptNameColor" [style.background]="scriptNameColor"
+                [cpPresetColors]="['#000000', '#800000', '#d90a0a']" class="w-100" [cpEyeDropper]="true"
+                [cpPosition]="'top-right'" (change)="create()" />
 
             </div>
           </div>
@@ -293,35 +293,40 @@
             </div>
             <div class="col-5">
               <input [(colorPicker)]="goodCharColor" [style.background]="goodCharColor"
-                [cpPresetColors]="['#000000', '#0b6aaf', '#0000ff' ]" class="w-100"  [cpEyeDropper]="true" [cpPosition]="'top-right'" (change)="create()" />
+                [cpPresetColors]="['#000000', '#0b6aaf', '#0000ff' ]" class="w-100" [cpEyeDropper]="true"
+                [cpPosition]="'top-right'" (change)="create()" />
             </div>
             <div class="col-7">
               <label class="form-check-label fs-4">Evil Color:</label>
             </div>
             <div class="col-5">
               <input [(colorPicker)]="evilCharColor" [style.background]="evilCharColor"
-                [cpPresetColors]="['#000000', '#760A0D', '#ff0000' ]" class="w-100"  [cpEyeDropper]="true" [cpPosition]="'top-right'"  (change)="create()" />
+                [cpPresetColors]="['#000000', '#760A0D', '#ff0000' ]" class="w-100" [cpEyeDropper]="true"
+                [cpPosition]="'top-right'" (change)="create()" />
             </div>
             <div class="col-7">
               <label class="form-check-label fs-4">Fabled Color:</label>
             </div>
             <div class="col-5">
               <input [(colorPicker)]="fabledColor" [style.background]="fabledColor"
-                [cpPresetColors]="['#000000', '#7a6550', '#aa9e00' ]" class="w-100"  [cpEyeDropper]="true" [cpPosition]="'top-right'" (change)="create()" />
+                [cpPresetColors]="['#000000', '#7a6550', '#aa9e00' ]" class="w-100" [cpEyeDropper]="true"
+                [cpPosition]="'top-right'" (change)="create()" />
             </div>
             <div class="col-7">
               <label class="form-check-label fs-4">Loric Color:</label>
             </div>
             <div class="col-5">
               <input [(colorPicker)]="loricColor" [style.background]="loricColor"
-                [cpPresetColors]="['#000000', '#6f854d', '#8ac729' ]" class="w-100"  [cpEyeDropper]="true" [cpPosition]="'top-right'"  (change)="create()" />
+                [cpPresetColors]="['#000000', '#6f854d', '#8ac729' ]" class="w-100" [cpEyeDropper]="true"
+                [cpPosition]="'top-right'" (change)="create()" />
             </div>
             <div class="col-7">
               <label class="form-check-label fs-4">Traveller Color:</label>
             </div>
             <div class="col-5">
               <input [(colorPicker)]="travColor" [style.background]="travColor"
-                [cpPresetColors]="['#000000', '#500050', '#bd00bd' ]" class="w-100" [cpEyeDropper]="true" [cpPosition]="'top-right'"(change)="create()" />
+                [cpPresetColors]="['#000000', '#500050', '#bd00bd' ]" class="w-100" [cpEyeDropper]="true"
+                [cpPosition]="'top-right'" (change)="create()" />
             </div>
 
 
@@ -346,6 +351,27 @@
             </div>
 
           </div>
+          
+          @if(allJinxes.length >= 1){
+          <img src="divider.png" style="height:1px; width:100%" class="mt-5">
+          <div class="row mt-3 mb-2">
+            <div class="col">
+              <h5 class="card-title fs-3">Toggle Jinxes</h5>
+            </div>
+          </div>
+          <div class ="mt-3">
+          @for(jinx of allJinxes; track jinx){
+          
+          <div class="row" style="padding-left:20px">
+          <input class="form-check-input fs-5" type="checkbox" id=jinx.char1-jinx.char2 checked
+                  (click)="dontShowJinxesFun(jinx.char1,jinx.char2)">
+          <div class="col-4 form-check-label fs-4" for=jinx.char1-jinx.char2>{{jinx.char1}}</div>
+          <div class="col-4 form-check-label fs-4">{{jinx.char2}}</div>
+          </div>
+        
+        }
+        </div>
+      }
 
           <div class="col-12 mt-5">
             <div class="alert alert-secondary" role="alert">
@@ -370,291 +396,330 @@
           </div>
         </div>
       </div>
-  
 
 
-    <div class="col-6">
+
+      <div class="col-6">
 
 
-      @if(jsonError && jsonInput){
-      <div class="row">
-        <div class="col-12">
-          <div class="alert alert-danger fs-4" role="alert">
-            Error! Incorrect json input
+        @if(jsonError && jsonInput){
+        <div class="row">
+          <div class="col-12">
+            <div class="alert alert-danger fs-4" role="alert">
+              Error! Incorrect json input
+            </div>
           </div>
         </div>
-      </div>
 
-      }
+        }
 
-      <!----------Print--------------------------------------------------------->
+        <!----------Print--------------------------------------------------------->
 
-      <div id="print-section">
+        <div id="print-section">
 
-        <!---- Page 1 --->
-        <div class="print-page">
-          @if(jsonInput){
-          <div class="page1">
+          <!---- Page 1 --->
+          <div class="print-page">
+            @if(jsonInput){
+            <div class="page1">
 
-            <div class="page1header">
-              <div class="HeaderRow">
-                <!----NPCs-->
-                <div style="padding-right:15px; padding-bottom:10px; position: relative; 
+              <div class="page1header">
+                <div class="HeaderRow">
+                  <!----NPCs-->
+                  <div style="padding-right:15px; padding-bottom:10px; position: relative; 
         top: 6px;">
 
-                  @if(npcs.length > 3) {
-                  <p class="npcNamePage1" style="padding-left:7px; padding-right:7px;"><b>+ {{npcs.length -
-                      3}}</b>
-                  </p>
-                  }
+                    @if(npcs.length > 3) {
+                    <p class="npcNamePage1" style="padding-left:7px; padding-right:7px;"><b>+ {{npcs.length -
+                        3}}</b>
+                    </p>
+                    }
 
-                  @if (npcs[2]) {
-                  @if(showNpcNames){
-                  @if (npcs[2].Team === 'loric') {
-                  <p class="npcNamePage1" [style.font-family]="currentFontNpc || 'Assi'" [style.color]='loricColor'>{{npcs[2].Name}}</p>
-                  }@else{
+                    @if (npcs[2]) {
+                    @if(showNpcNames){
+                    @if (npcs[2].Team === 'loric') {
+                    <p class="npcNamePage1" [style.font-family]="currentFontNpc || 'Assi'" [style.color]='loricColor'>
+                      {{npcs[2].Name}}</p>
+                    }@else{
 
-                  <p class="npcNamePage1" [style.font-family]="currentFontNpc || 'Assi'" [style.color]='fabledColor'>{{npcs[2].Name}}</p>
-                  }
-                  }
-                  <img src={{npcs[2].Image}} class="imagenpc" (error)="onImageError($event,npcs[2].ID)">
-                  }
+                    <p class="npcNamePage1" [style.font-family]="currentFontNpc || 'Assi'" [style.color]='fabledColor'>
+                      {{npcs[2].Name}}</p>
+                    }
+                    }
+                    <img src={{npcs[2].Image}} class="imagenpc" (error)="onImageError($event,npcs[2].ID)">
+                    }
 
-                  @if (npcs[1]) {
-                  @if(showNpcNames){
-                  @if (npcs[1].Team === 'loric') {
-                  <p class="npcNamePage1" [style.font-family]="currentFontNpc || 'Assi'" [style.color]='loricColor'>{{npcs[1].Name}}</p>
-                  }@else{
+                    @if (npcs[1]) {
+                    @if(showNpcNames){
+                    @if (npcs[1].Team === 'loric') {
+                    <p class="npcNamePage1" [style.font-family]="currentFontNpc || 'Assi'" [style.color]='loricColor'>
+                      {{npcs[1].Name}}</p>
+                    }@else{
 
-                  <p class="npcNamePage1" [style.font-family]="currentFontNpc || 'Assi'" [style.color]='fabledColor'>{{npcs[1].Name}}</p>
-                  }
-                  }
-                  <img src={{npcs[1].Image}} class="imagenpc" (error)="onImageError($event,npcs[1].ID)">
-                  }
-
-
-                  @if (npcs[0]) {
-                  @if(showNpcNames){
-                  @if (npcs[0].Team === 'loric') {
-                  <p class="npcNamePage1" [style.font-family]="currentFontNpc || 'Assi'" [style.color]='loricColor'>{{npcs[0].Name}}</p>
-                  }@else{
-
-                  <p class="npcNamePage1" [style.font-family]="currentFontNpc || 'Assi'" [style.color]='fabledColor'>{{npcs[0].Name}}</p>
-                  }
-                  }
-                  <img src={{npcs[0].Image}} class="imagenpc" (error)="onImageError($event,npcs[0].ID)">
-                  }
-                </div>
+                    <p class="npcNamePage1" [style.font-family]="currentFontNpc || 'Assi'" [style.color]='fabledColor'>
+                      {{npcs[1].Name}}</p>
+                    }
+                    }
+                    <img src={{npcs[1].Image}} class="imagenpc" (error)="onImageError($event,npcs[1].ID)">
+                    }
 
 
-                <!----Name and Author-->
-                <div class="d-flex">
-                  <div class="ScriptName" [style.font-family]="currentFont || 'Philo'" [style.color]="scriptNameColor"
-                    [style.font-size]="scriptFontSize">
-                    {{scriptName}}
+                    @if (npcs[0]) {
+                    @if(showNpcNames){
+                    @if (npcs[0].Team === 'loric') {
+                    <p class="npcNamePage1" [style.font-family]="currentFontNpc || 'Assi'" [style.color]='loricColor'>
+                      {{npcs[0].Name}}</p>
+                    }@else{
+
+                    <p class="npcNamePage1" [style.font-family]="currentFontNpc || 'Assi'" [style.color]='fabledColor'>
+                      {{npcs[0].Name}}</p>
+                    }
+                    }
+                    <img src={{npcs[0].Image}} class="imagenpc" (error)="onImageError($event,npcs[0].ID)">
+                    }
                   </div>
 
-                  @if (author){
-                  <div class="Author" [style.font-family]="currentFontAuthor || 'Philo'"
-                    [style.color]="scriptNameColor" [style.font-size]="authorFontSize" [style.bottom]="authorOffset">
-                    <div class="AuthorText">
-                      @if(italicAuthor){
-                      <i>by {{author}}</i>
-                      }
-                      @if(!italicAuthor){
-                        by {{author}}
-                      }
 
+                  <!----Name and Author-->
+                  <div class="d-flex">
+                    <div class="ScriptName" [style.font-family]="currentFont || 'Philo'" [style.color]="scriptNameColor"
+                      [style.font-size]="scriptFontSize">
+                      {{scriptName}}
                     </div>
+
+                    @if (author){
+                    <div class="Author" [style.font-family]="currentFontAuthor || 'Philo'"
+                      [style.color]="scriptNameColor" [style.font-size]="authorFontSize" [style.bottom]="authorOffset">
+                      <div class="AuthorText">
+                        @if(italicAuthor){
+                        <i>by {{author}}</i>
+                        }
+                        @if(!italicAuthor){
+                        by {{author}}
+                        }
+
+                      </div>
+                    </div>
+                    }
+
+
+                  </div>
+                </div>
+
+                <!-----Bootlegger row page 1-->
+                @if (bootlegger.length > 0 && showBoot== 'Top'){
+
+                <div class="divRowBootTop">
+                  <div class="divider">
+                    <img src="divider.png" class="divPngTop">
+                  </div>
+                </div>
+                <div class="bootleggerPage1Div">
+                  <div class="bootleggerPage1Image">
+                    <img src="{{getImageForID('bootlegger')}}" (error)="onImageError($event,'bootlegger')" height="60">
+                  </div>
+
+
+                                    @if(this.fullJsonSplit[0].bootlegger.length > 1){
+                  <div style="position:relative; top:-5px;
+  margin: 0px 0px -70px 0px;">
+                    @for (rule of bootlegger; track rule){
+                    <div class="bootleggerPage1Row">
+                      <b style="padding-right: 80px;"></b>
+                      <p>⦁</p>
+                      <p class="bootleggerRule">{{ rule }}</p>
+                    </div>
+                    }
                   </div>
                   }
-
-
-                </div>
-              </div>
-
-              <!-----Bootlegger row page 1-->
-              @if (bootlegger.length > 0 && showBoot == 'Top'){
-                              
-              <div class="divRowBootTop">
-                <div class="divider">
-                  <img src="divider.png" class="divPng100">
-                </div>
-              </div>
-              <div class="bootleggerPage1Div">
-                <div class="bootleggerPage1Image">
-                  <img src="{{getImageForID('bootlegger')}}" (error)="onImageError($event,'bootlegger')" height="60">
-                </div>
-
-
-                @for (rule of bootlegger; track rule){
-                <div class="bootleggerPage1Row">
-                  <b style="padding-right: 60px;"></b>
-                  <p>⦁</p>
-                  <p class="bootleggerRule">{{ rule }}</p>
+                  
+                  @if(this.fullJsonSplit[0].bootlegger.length <= 1){
+                    @for (rule of bootlegger; track rule){
+                    <div class="bootleggerPage1Row">
+                      <b style="padding-right:80px;"></b>
+                      <p>⦁</p>
+                      <p class="bootleggerRule">{{ rule }}</p>
+                    </div>
+                  }
+                }
                 </div>
                 }
               </div>
-              }
-            </div>
 
-            <div class="page1main" [style.height]="page1height">
-              <!-- Townsfolk -->
-              <div class="townsfolkRow mt-2">
-                <div class="divider">
-                  <img src="divider.png" class="divPng">
-                </div>
-                <div class="TypeHeader">TOWNSFOLK</div>
-              </div>
-
-
-              @for (item of townsfolkPage1; track item) {
-              <div class="charRow" style="float: left;">
-                <div class="charImageContainer">
-                  <img src={{item.Image}} class="charImage" (error)="onImageError($event,item.ID)">
-                </div>
-                <div class="chartextrow">
-                  <div class="charnamerow">
-                    <b class="charname" [style.color]='goodCharColor'
-                      [style.font-family]="currentFontChar || 'Assi'">{{
-                      item.Name }}</b>
-                    @for (jinx of filteredJinxes; track jinx){
-                    @if (jinx.char1 === item.ID){
-                    @if (getImageForID(jinx.char2)) {
-                    <img src={{getImageForID(jinx.char2)}} class="jinxIcon" (error)="onImageError($event,jinx.char2)">
-                    }
-                    }
-                    }
+              <div class="page1main" [style.height]="page1height">
+                <!-- Townsfolk -->
+                <div class="townsfolkRow mt-2">
+                  <div class="divider">
+                    <img src="divider.png" class="divPng" style="width: 85%;">
                   </div>
-                  <p class="charability" [style.line-height]="abilityLineHeight">{{item.Ability}}</p>
+                  <div class="TypeHeader">TOWNSFOLK</div>
                 </div>
-              </div>
-              }
 
 
-
-              <!-- Outsiders -->
-              <div class="divRow">
-                <div class="divider">
-                  <img src="divider.png" class="divPng">
-                </div>
-                <div class="TypeHeader">OUTSIDERS</div>
-              </div>
-
-              @for (item of outsidersPage1; track item) {
-              <div class="charRow">
-                <div class="charImageContainer">
-                  <img src={{item.Image}} class="charImage" (error)="onImageError($event,item.ID)">
-                </div>
-                <div class="chartextrow">
-                  <div class="charnamerow">
-                    <b class="charname" [style.color]='goodCharColor'
-                      [style.font-family]="currentFontChar || 'Assi'">{{
-                      item.Name }}</b>
-                    @for (jinx of filteredJinxes; track jinx){
-                    @if (jinx.char1 === item.ID){
-                    @if (getImageForID(jinx.char2)) {
-                    <img src={{getImageForID(jinx.char2)}} class="jinxIcon" (error)="onImageError($event,jinx.char2)">
-                    }
-                    }
-                    }
+                @for (item of townsfolkPage1; track item) {
+                <div class="charRow" style="float: left;">
+                  <div class="charImageContainer">
+                    <img src={{item.Image}} class="charImage" (error)="onImageError($event,item.ID)">
                   </div>
-                  <p class="charability" [style.line-height]="abilityLineHeight">{{item.Ability}}</p>
-
-                </div>
-              </div>
-              }
-
-
-              <!-- Minions -->
-              <div class="divRow">
-                <div class="divider">
-                  <img src="divider.png" class="divPng">
-                </div>
-                <div class="TypeHeader">MINIONS</div>
-              </div>
-
-              @for (item of minionsPage1; track item) {
-              <div class="charRow">
-                <div class="charImageContainer">
-                  <img src={{item.Image}} class="charImage" (error)="onImageError($event,item.ID)">
-                </div>
-                <div class="chartextrow">
-                  <div class="charnamerow">
-                    <b class="charname" [style.color]='evilCharColor'
-                      [style.font-family]="currentFontChar || 'Assi'">{{
-                      item.Name }}</b>
-                    @for (jinx of filteredJinxes; track jinx){
-                    @if (jinx.char1 === item.ID){
-                    @if (getImageForID(jinx.char2)) {
-                    <img src={{getImageForID(jinx.char2)}} class="jinxIcon" (error)="onImageError($event,jinx.char2)">
-                    }
-                    }
-                    }
+                  <div class="chartextrow">
+                    <div class="charnamerow">
+                      <b class="charname" [style.color]='goodCharColor'
+                        [style.font-family]="currentFontChar || 'Assi'">{{
+                        item.Name }}</b>
+                      @for (jinx of filteredJinxes; track jinx){
+                      @if (jinx.char1 === item.ID){
+                      @if (getImageForID(jinx.char2)) {
+                      <img src={{getImageForID(jinx.char2)}} class="jinxIcon" (error)="onImageError($event,jinx.char2)">
+                      }
+                      }
+                      }
+                    </div>
+                    <p class="charability" [style.line-height]="abilityLineHeight">{{item.Ability}}</p>
                   </div>
-                  <p class="charability" [style.line-height]="abilityLineHeight">{{item.Ability}}</p>
-
-                </div>
-              </div>
-              }
-
-
-              <!-- Demons -->
-              <div class="divRow">
-                <div class="divider">
-                  <img src="divider.png" class="divPng">
-                </div>
-                <div class="TypeHeader">DEMONS</div>
-              </div>
-
-              @for (item of demonsPage1; track item) {
-              <div class="charRow">
-                <div class="charImageContainer">
-                  <img src={{item.Image}} class="charImage" (error)="onImageError($event,item.ID)">
-                </div>
-                <div class="chartextrow">
-                  <div class="charnamerow">
-                    <b class="charname" [style.color]='evilCharColor'
-                      [style.font-family]="currentFontChar || 'Assi'">{{
-                      item.Name }}</b>
-                    @for (jinx of filteredJinxes; track jinx){
-                    @if (jinx.char1 === item.ID){
-                    @if (getImageForID(jinx.char2)) {
-                    <img src={{getImageForID(jinx.char2)}} class="jinxIcon" (error)="onImageError($event,jinx.char2)">
-                    }
-                    }
-                    }
-                  </div>
-                  <p class="charability" [style.line-height]="abilityLineHeight">{{item.Ability}}</p>
-
-                </div>
-              </div>
-              }
-
-              @if (bootlegger.length > 0 && showBoot== 'Bottom'){
-
-              
-              <div class="divRowBoot">
-                <div class="divider">
-                  <img src="divider.png" class="divPng100">
-                </div>
-                <div class="TypeHeader"></div>
-              </div>
-              <div class="bootleggerPage1Div" style="grid-column: span 2;">
-                <div class="bootleggerPage1Image">
-                  <img src="{{getImageForID('bootlegger')}}" (error)="onImageError($event,'bootlegger')" height="60">
-                </div>
-
-
-                @for (rule of bootlegger; track rule){
-                <div class="bootleggerPage1Row">
-                  <b style="padding-right: 60px;"></b>
-                  <p>⦁</p>
-                  <p class="bootleggerRule">{{ rule }}</p>
                 </div>
                 }
+
+
+
+                <!-- Outsiders -->
+                <div class="divRow">
+                  <div class="divider">
+                    <img src="divider.png" class="divPng" style="width: 86%;">
+                  </div>
+                  <div class="TypeHeader">OUTSIDERS</div>
+                </div>
+
+                @for (item of outsidersPage1; track item) {
+                <div class="charRow">
+                  <div class="charImageContainer">
+                    <img src={{item.Image}} class="charImage" (error)="onImageError($event,item.ID)">
+                  </div>
+                  <div class="chartextrow">
+                    <div class="charnamerow">
+                      <b class="charname" [style.color]='goodCharColor'
+                        [style.font-family]="currentFontChar || 'Assi'">{{
+                        item.Name }}</b>
+                      @for (jinx of filteredJinxes; track jinx){
+                      @if (jinx.char1 === item.ID){
+                      @if (getImageForID(jinx.char2)) {
+                      <img src={{getImageForID(jinx.char2)}} class="jinxIcon" (error)="onImageError($event,jinx.char2)">
+                      }
+                      }
+                      }
+                    </div>
+                    <p class="charability" [style.line-height]="abilityLineHeight">{{item.Ability}}</p>
+
+                  </div>
+                </div>
+                }
+
+
+                <!-- Minions -->
+                <div class="divRow">
+                  <div class="divider">
+                    <img src="divider.png" class="divPng" style="width: 87%;">
+                  </div>
+                  <div class="TypeHeader">MINIONS</div>
+                </div>
+
+                @for (item of minionsPage1; track item) {
+                <div class="charRow">
+                  <div class="charImageContainer">
+                    <img src={{item.Image}} class="charImage" (error)="onImageError($event,item.ID)">
+                  </div>
+                  <div class="chartextrow">
+                    <div class="charnamerow">
+                      <b class="charname" [style.color]='evilCharColor'
+                        [style.font-family]="currentFontChar || 'Assi'">{{
+                        item.Name }}</b>
+                      @for (jinx of filteredJinxes; track jinx){
+                      @if (jinx.char1 === item.ID){
+                      @if (getImageForID(jinx.char2)) {
+                      <img src={{getImageForID(jinx.char2)}} class="jinxIcon" (error)="onImageError($event,jinx.char2)">
+                      }
+                      }
+                      }
+                    </div>
+                    <p class="charability" [style.line-height]="abilityLineHeight">{{item.Ability}}</p>
+
+                  </div>
+                </div>
+                }
+
+
+                <!-- Demons -->
+                <div class="divRow">
+                  <div class="divider">
+                    <img src="divider.png" class="divPng" style="width: 87%;">
+                  </div>
+                  <div class="TypeHeader">DEMONS</div>
+                </div>
+
+                @for (item of demonsPage1; track item) {
+                <div class="charRow">
+                  <div class="charImageContainer">
+                    <img src={{item.Image}} class="charImage" (error)="onImageError($event,item.ID)">
+                  </div>
+                  <div class="chartextrow">
+                    <div class="charnamerow">
+                      <b class="charname" [style.color]='evilCharColor'
+                        [style.font-family]="currentFontChar || 'Assi'">{{
+                        item.Name }}</b>
+                      @for (jinx of filteredJinxes; track jinx){
+                      @if (jinx.char1 === item.ID){
+                      @if (getImageForID(jinx.char2)) {
+                      <img src={{getImageForID(jinx.char2)}} class="jinxIcon" (error)="onImageError($event,jinx.char2)">
+                      }
+                      }
+                      }
+                    </div>
+                    <p class="charability" [style.line-height]="abilityLineHeight">{{item.Ability}}</p>
+
+                  </div>
+                </div>
+                }
+
+                @if (bootlegger.length > 0 && showBoot== 'Bottom'){
+
+
+                <div class="divRowBoot">
+                  <div class="divider">
+                    <img src="divider.png" class="divPngBottom">
+                  </div>
+                  <div class="TypeHeader"></div>
+                </div>
+                <div class="bootleggerPage1DivBottom" style="grid-column: span 2;">
+                  <div class="bootleggerPage1Image">
+                    <img src="{{getImageForID('bootlegger')}}" (error)="onImageError($event,'bootlegger')" height="60"
+                      style="position:relative; left:-15px;">
+                  </div>
+
+                  @if(this.fullJsonSplit[0].bootlegger.length > 1){
+                  <div style="position:relative; top:-10px">
+                    @for (rule of bootlegger; track rule){
+                    <div class="bootleggerPage1Row">
+                      <b style="padding-right: 70px;"></b>
+                      <p>⦁</p>
+                      <p class="bootleggerRule">{{ rule }}</p>
+                    </div>
+                    }
+                  </div>
+                  }
+                  
+                  @if(this.fullJsonSplit[0].bootlegger.length <= 1){
+                    @for (rule of bootlegger; track rule){
+                    <div class="bootleggerPage1Row">
+                      <b style="padding-right: 70px;"></b>
+                      <p>⦁</p>
+                      <p class="bootleggerRule">{{ rule }}</p>
+                    </div>
+                  }
+                }
+
+
+                
               </div>
               }
+
 
             </div>
             <footer class="footer">
@@ -733,7 +798,8 @@
             @if (bootlegger.length > 0 || characters.includes("bootlegger")){
             <div class="npcRow">
               <img src="{{getImageForID('bootlegger')}}" height="60" (error)="onImageError($event,'bootlegger')">
-              <b class="npcName" [style.font-family]="currentFontNpc || 'Assi'"[style.color]='loricColor'>Bootlegger</b>
+              <b class="npcName" [style.font-family]="currentFontNpc || 'Assi'"
+                [style.color]='loricColor'>Bootlegger</b>
             </div>
 
 
@@ -751,7 +817,8 @@
             <div class="npcRow">
               <img src="{{getImageForID('stormcatcher')}}" height="60" (error)="onImageError($event,'stormcatcher')">
               <div class="chartextrow">
-                <b class="npcName" [style.font-family]="currentFontNpc || 'Assi'" [style.color]='loricColor'>Storm Catcher</b>
+                <b class="npcName" [style.font-family]="currentFontNpc || 'Assi'" [style.color]='loricColor'>Storm
+                  Catcher</b>
                 <p class="npcAbility">Name a good character. If in play, they can only die by execution, but evil
                   players
                   learn which player it is.</p>
@@ -784,9 +851,11 @@
               </div>
               <div class="chartextrow">
                 @if(item.Team === 'loric') {
-                <b class="npcName" [style.font-family]="currentFontNpc || 'Assi'" [style.color]='loricColor'>{{item.Name}}</b>
+                <b class="npcName" [style.font-family]="currentFontNpc || 'Assi'"
+                  [style.color]='loricColor'>{{item.Name}}</b>
                 }@else{
-                <b class="npcName" [style.font-family]="currentFontNpc || 'Assi'" [style.color]='fabledColor'>{{item.Name}}</b>
+                <b class="npcName" [style.font-family]="currentFontNpc || 'Assi'"
+                  [style.color]='fabledColor'>{{item.Name}}</b>
                 }
                 <p class="npcAbility">{{item.Ability}}</p>
               </div>
@@ -809,7 +878,8 @@
                 <img src={{item.Image}} height="60" (error)="onImageError($event,item.ID)">
               </div>
               <div class="chartextrow">
-                <b class="npcName" [style.font-family]="currentFontNpc || 'Assi'" [style.color]='travColor'>{{ item.Name }}</b>
+                <b class="npcName" [style.font-family]="currentFontNpc || 'Assi'" [style.color]='travColor'>{{ item.Name
+                  }}</b>
                 <p class="npcAbility">{{item.Ability}}</p>
               </div>
             </div>

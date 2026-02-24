@@ -29,6 +29,16 @@ export class App implements OnInit, AfterViewInit {
     char2: string,
     reason: string,
   }[] = [];
+  allJinxes: {
+    char1: string,
+    char2: string,
+    reason: string,
+  }[] = [];
+  dontShowJinxes: {
+    char1: string,
+    char2: string,
+    reason: string,
+  }[] = [];
   bootlegger: string[] = [];
   firstOrder: any;
   otherOrder: any;
@@ -317,8 +327,8 @@ export class App implements OnInit, AfterViewInit {
       };
     });
 
-    if(!this.fullJsonSplit[0].charLink){
-    this.create()
+    if (!this.fullJsonSplit[0].charLink) {
+      this.create()
     }
   }
 
@@ -440,8 +450,8 @@ export class App implements OnInit, AfterViewInit {
       this.imageOverwriteText = this.fullJsonSplit[0].charLink
       this.imageSelection = "Custom"
       this.imageOverwrite()
-      
-    } 
+
+    }
     //-----------------------------
     //Characters
     this.characters = []
@@ -651,9 +661,9 @@ export class App implements OnInit, AfterViewInit {
 
     if (this.page1height !== "100%" && this.showBoot == "Bottom") {
 
-      if(10 + (this.rows * 8.4) < 100){
+      if (10 + (this.rows * 8.4) < 100) {
         this.page1height = 10 + (this.rows * 8.4) + "%"
-      }else{
+      } else {
         this.page1height = "100%"
       }
     }
@@ -760,11 +770,53 @@ export class App implements OnInit, AfterViewInit {
         this.characters.includes(jinx.char1) &&
         this.characters.includes(jinx.char2));
 
-    this.filteredJinxes2 =
+    this.allJinxes =
       this.jinxData.filter(jinx =>
         this.characters.includes(jinx.char1) &&
         this.characters.includes(jinx.char2) &&
         jinx.char2 != 'stormcatcher');
+
+      this.filteredJinxes2 = this.allJinxes
+
+
+      let removeSet = new Set(
+        this.dontShowJinxes.map(j => `${j.char1}|${j.char2}`)
+      );
+
+      this.filteredJinxes2 = this.allJinxes.filter(
+        j => !removeSet.has(`${j.char1}|${j.char2}`)
+      );
+
+      this.filteredJinxes = this.allJinxes.filter(
+        j => !removeSet.has(`${j.char1}|${j.char2}`)
+      );
+
+
+  }
+
+  dontShowJinxesFun(char1: string, char2: string) {
+
+    if (this.dontShowJinxes.some(
+
+      pair => pair.char1 === char1 && pair.char2 === char2)
+    ) {
+
+      this.dontShowJinxes = this.dontShowJinxes.filter(
+        item => !(item.char1 === char1 && item.char2 === char2))
+        
+      this.bootlegger = this.bootlegger.filter(
+        item => "Do not use the " + this.getNameForID(char1) + " / " + this.getNameForID(char2) + " jinx"
+      )
+    
+      } else {
+      this.dontShowJinxes.push({ 'char1': char1, 'char2': char2, 'reason': '' })
+
+      this.bootlegger.push("Do not use the " + this.getNameForID(char1) + " / " + this.getNameForID(char2) + " jinx")
+    }
+
+    this.updateJinxes()
+
+
   }
 
   //reorder for page1

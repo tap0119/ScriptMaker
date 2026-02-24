@@ -317,8 +317,9 @@ export class App implements OnInit, AfterViewInit {
       };
     });
 
+    if(!this.fullJsonSplit[0].charLink){
     this.create()
-
+    }
   }
 
   resetImages() {
@@ -420,6 +421,7 @@ export class App implements OnInit, AfterViewInit {
       this.currentFontNpc = 'Assi'
     }
 
+    //-----------------------------
     //set script name
     this.scriptName = this.fullJsonSplit[0].name;
 
@@ -432,6 +434,14 @@ export class App implements OnInit, AfterViewInit {
     } else {
       this.bootlegger = []
     }
+
+    //set char link
+    if (this.fullJsonSplit[0].charLink) {
+      this.imageOverwriteText = this.fullJsonSplit[0].charLink
+      this.imageSelection = "Custom"
+      this.imageOverwrite()
+      
+    } 
     //-----------------------------
     //Characters
     this.characters = []

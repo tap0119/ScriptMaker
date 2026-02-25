@@ -427,7 +427,7 @@
   float: left;
   height: 35px;
   position: relative;
-  bottom: -2px;
+  bottom:1px;
   border: 0px solid red;
   margin: -10px 0px -10px 0px;
 }

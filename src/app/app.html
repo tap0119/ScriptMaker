@@ -691,13 +691,14 @@
               @if (bootlegger.length > 0 && showBoot== 'Bottom'){
 
 
-              <div class="divRowBoot">
+            
+              <div class="divRowBoot mt-1">
                 <div class="divider">
                   <img src="divider.png" class="divPngBottom">
                 </div>
                 <div class="TypeHeader"></div>
               </div>
-              <div class="bootleggerPage1DivBottom" style="grid-column: span 2;">
+              <div class="bootleggerPage1DivBottom mt-1" style="grid-column: span 2;">
                 <div class="bootleggerPage1Image">
                   <img src="{{getImageForID('bootlegger')}}" (error)="onImageError($event,'bootlegger')" height="60"
                     style="position:relative; left:-15px;">

@@ -80,6 +80,7 @@ export class App implements OnInit, AfterViewInit {
   abilityLineHeight: string = '1.2';
   italicAuthor: boolean = true;
   authorOffset: string = '10px'
+  addBootRule:boolean = true;
 
   townsfolk: {
     ID: string,
@@ -154,6 +155,14 @@ export class App implements OnInit, AfterViewInit {
     Image: string
   }[] = []
 
+    goodcharacters: {
+    ID: string,
+    Name: string,
+    Ability: string,
+    Team: string,
+    Image: string
+  }[] = []
+
   test: string = ''
 
   constructor(private cd: ChangeDetectorRef) { }
@@ -215,6 +224,7 @@ export class App implements OnInit, AfterViewInit {
     this.charFont = false;
     this.npcFont = false;
     this.stormcaught = 'none'
+    this.stormcaughtName = 'none'
 
     this.create()
   }
@@ -227,8 +237,6 @@ export class App implements OnInit, AfterViewInit {
   expandImagesFun(){
     this.expandImages = !this.expandImages
     this.toggleFun(this.expandImages,this,'expandImagesToggle')
-
-    console.log(this.expandImagesToggle)
   }
 
   expandFont:boolean = true;
@@ -285,6 +293,7 @@ export class App implements OnInit, AfterViewInit {
 
     this.dontShowJinxes = []
     this.stormcaught = 'none'
+    this.stormcaughtName ='none'
     reader.readAsText(file);
 
   }
@@ -446,6 +455,7 @@ export class App implements OnInit, AfterViewInit {
 
       this.dontShowJinxes = []
       this.stormcaught = 'none'
+      this.stormcaughtName = 'none'
 
     } catch (err) {
       console.error('Failed to read clipboard:', err);
@@ -642,12 +652,12 @@ export class App implements OnInit, AfterViewInit {
       })
     }
 
+    this.goodcharacters = this.townsfolk.concat(this.outsiders)
+
 
     //---------------------------------------------
     //Jinxes - get array of jinxes
     this.updateJinxes()
-
-    console.log(this.bootlegger)
 
 
     if (this.showDjinn && this.filteredJinxes2.length > 0) {
@@ -780,24 +790,34 @@ export class App implements OnInit, AfterViewInit {
   // Get image from charData by id
   getImageForID(inputID: string): string {
     const match = this.charData.find(item => item.ID === inputID);
-    return match ? match.Image : "not found";
+    return match ? match.Image : "none";
   }
 
   getImage2ForID(inputID: string): string {
     const match = this.charData.find(item => item.ID === inputID);
-    return match ? (match.Image2 ? match.Image2 : "not found") : "not found";
+    return match ? (match.Image2 ? match.Image2 : "none") : "none";
   }
 
   // Get name from charData by id
   getNameForID(inputID: string): string {
     const match = this.charData.find(item => item.ID === inputID);
-    return match ? match.Name : "not found";
+    return match ? match.Name : "none";
+  }
+
+  getIDForName(inputName: string): string {
+    const match = this.charData.find(item => item.Name === inputName);
+    return match ? match.ID : "none";
   }
 
 
   //Updates-------------
 
+  stormcaughtName:string = ''
   stormcaughtUpdate() {
+
+    this.stormcaught = this.getIDForName(this.stormcaughtName);
+    console.log(this.stormcaught)
+
     if (this.stormcaughtOld != this.stormcaught) {
       this.jinxData.unshift(
         {
@@ -829,8 +849,6 @@ export class App implements OnInit, AfterViewInit {
       this.jinxData.filter(jinx =>
         this.characters.includes(jinx.char1) &&
         this.characters.includes(jinx.char2));
-
-    console.log(this.filteredJinxes)
 
     this.filteredJinxes2 =
       this.jinxData.filter(jinx =>
@@ -877,11 +895,11 @@ export class App implements OnInit, AfterViewInit {
         hiddenJinxes[hiddenJinxes.length - 1];
     }
 
-      if (this.dontShowJinxes.length > 1) {
+      if (this.dontShowJinxes.length > 1 && this.addBootRule) {
         this.hiddenJinxesString = "Do not use the " + this.hiddenJinxesString + " jinxes."
         this.bootlegger.push(this.hiddenJinxesString)
 
-      } else if(this.dontShowJinxes.length == 1){
+      } else if(this.dontShowJinxes.length == 1 && this.addBootRule){
         this.hiddenJinxesString = "Do not use the " + this.hiddenJinxesString + " jinx."
 
         this.bootlegger.push(this.hiddenJinxesString)

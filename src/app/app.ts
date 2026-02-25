@@ -323,7 +323,7 @@ export class App implements OnInit, AfterViewInit {
 
     reader.onload = () => {
       const base64 = reader.result as string;
-      this.fontName = file.name.replace(/\.[^/.]+$/, '').replace(/\s+/g, '-').replace(".", "").replace("(", "").replace(")", "");
+      this.fontName = file.name.replace(/\.[^/.]+$/, '').replace(/\s+/g, '-').replace(".", "").replace("(", "").replace(")", "").replace("!","");
 
       const style = document.createElement('style');
       style.innerHTML = `

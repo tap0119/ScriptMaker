@@ -180,6 +180,13 @@ export class App implements OnInit, AfterViewInit {
     }));
 
 
+    this.toggleFun(this.expandImages,this,'expandImagesToggle')
+    this.toggleFun(this.expandFont,this,'expandFontToggle')
+    this.toggleFun(this.expandOptions,this,'expandOptionsToggle')
+    this.toggleFun(this.expandColors,this,'expandColorsToggle')
+    this.toggleFun(this.expandJinx,this,'expandJinxToggle')
+
+ 
 
   }
 
@@ -210,6 +217,48 @@ export class App implements OnInit, AfterViewInit {
     this.stormcaught = 'none'
 
     this.create()
+  }
+
+  toggleFun(bool:boolean, obj:any, toggle:string){
+    obj[toggle] = bool ? '▵' : '▿';
+  }
+  expandImages:boolean = false;
+  expandImagesToggle = ''
+  expandImagesFun(){
+    this.expandImages = !this.expandImages
+    this.toggleFun(this.expandImages,this,'expandImagesToggle')
+
+    console.log(this.expandImagesToggle)
+  }
+
+  expandFont:boolean = true;
+  expandFontToggle = ''
+  expandFontFun(){
+    this.expandFont = !this.expandFont
+    this.toggleFun(this.expandFont,this,'expandFontToggle')
+
+  }
+
+  expandOptions:boolean = true;
+  expandOptionsToggle = ''
+  expandOptionsFun(){
+    this.expandOptions = !this.expandOptions
+    this.toggleFun(this.expandOptions,this,'expandOptionsToggle')
+  }
+
+  expandColors:boolean = true;
+  expandColorsToggle = ''
+  expandColorsFun(){
+    this.expandColors = !this.expandColors
+    this.toggleFun(this.expandColors,this,'expandColorsToggle')
+  }
+
+  expandJinx:boolean = false;
+  expandJinxToggle = ''
+  expandJinxFun(){
+    this.expandJinx = !this.expandJinx
+    this.toggleFun(this.expandJinx,this,'expandJinxToggle')
+
   }
 
   onFileSelected(event: Event): void {

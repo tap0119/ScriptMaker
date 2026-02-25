@@ -13,6 +13,13 @@
   src: url('../fonts/Philosopher-Regular.ttf');
 }
 
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
 
 .container {
   margin-left: 0!important;
@@ -186,8 +193,9 @@
 
 .divPngTop{
   height: 1px;
-  width: 96%;
-  padding-left: 28px;
+  width: 94%;
+  position:relative;
+  left:17px;
 }
 
 .divPngBottom{
@@ -292,7 +300,7 @@
 
 
 .charRow {
-  padding-top: 2px;
+  padding-top: 0px;
   border: 0px solid blue;
   max-height: 80px;
   min-height: 70px;
@@ -312,7 +320,7 @@
   padding-left: 37px;
   padding-right: 3px;
     position: relative;
-  bottom:-1px;
+  bottom:-3px;
 }
 
 

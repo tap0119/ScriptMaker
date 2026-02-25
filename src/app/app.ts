@@ -69,7 +69,12 @@ export class App implements OnInit, AfterViewInit {
 
   goodCharColor: string = '#0b6aaf'
   evilCharColor: string = '#760A0D'
+  goodAbilityColor: string = '#000000'
+  evilAbilityColor: string = '#000000'
+  
   scriptNameColor: string = '#800000'
+  divTopColor: string = '#000000'
+  divBottomColor: string = '#000000'
 
   loricColor: string = '#6f854d'
   fabledColor: string = '#7a6550'
@@ -419,6 +424,24 @@ export class App implements OnInit, AfterViewInit {
     this.fabledColor = '#7a6550'
     this.loricColor = '#6f854d'
     this.travColor = '#500050'
+    this.divTopColor = '#000000'
+    this.divBottomColor = '#000000'
+    this.goodAbilityColor = '#000000'
+    this.evilAbilityColor = '#000000'
+  }
+
+  
+  darkWithTextColors() {
+    this.scriptNameColor = '#000000'
+    this.goodCharColor = '#0b6aaf'
+    this.evilCharColor = '#760A0D'
+    this.fabledColor = '#7a6550'
+    this.loricColor = '#6f854d'
+    this.travColor = '#500050'
+    this.divTopColor = '#0b6aaf'
+    this.divBottomColor = '#760A0D'
+    this.goodAbilityColor = '#0b6aaf'
+    this.evilAbilityColor = '#760A0D'
   }
 
 
@@ -429,17 +452,66 @@ export class App implements OnInit, AfterViewInit {
     this.fabledColor = '#aa9e00'
     this.loricColor = '#8ac729'
     this.travColor = '#bd00bd'
+    this.divTopColor = '#000000'
+    this.divBottomColor = '#000000'
+    this.goodAbilityColor = '#000000'
+    this.evilAbilityColor = '#000000'
+  }
+
+  
+  lightWithTextColors() {
+    this.scriptNameColor = '#000000'
+    this.goodCharColor = '#0000ff'
+    this.evilCharColor = '#ff0000'
+    this.fabledColor = '#aa9e00'
+    this.loricColor = '#8ac729'
+    this.travColor = '#bd00bd'
+    this.divTopColor = '#0000ff'
+    this.divBottomColor = '#ff0000'
+    this.goodAbilityColor = '#0000ff'
+    this.evilAbilityColor = '#ff0000'
   }
 
 
   blackColors() {
-    this.scriptNameColor = 'black'
-    this.goodCharColor = 'black'
-    this.evilCharColor = 'black'
-    this.fabledColor = 'black'
-    this.loricColor = 'black'
-    this.travColor = 'black'
+    this.scriptNameColor = '#000000'
+    this.goodCharColor = '#000000'
+    this.evilCharColor = '#000000'
+    this.fabledColor = '#000000'
+    this.loricColor = '#000000'
+    this.travColor = '#000000'
+    this.divTopColor = '#000000'
+    this.divBottomColor = '#000000'
+    this.goodAbilityColor = '#000000'
+    this.evilAbilityColor = '#000000'
   }
+
+
+  /*
+  randomizeColors(){
+    this.randomColor('scriptNameColor')
+    this.randomColor('goodCharColor')
+    this.randomColor('evilCharColor')
+    this.randomColor('goodAbilityColor')
+    this.randomColor('evilAbilityColor')
+    this.randomColor('fabledColor')
+    this.randomColor('loricColor')
+    this.randomColor('travColor')
+    this.randomColor('divColor')
+  }
+*/
+
+  randomColor(inputColor:string) {
+    let color = '#'; 
+    const letters =  '0123456789ABCDEF'
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    
+    (this as any)[inputColor] = color
+}
+
+
 
 
 

@@ -12,7 +12,7 @@ For any feedback or questions, contact @Thomas04 on the Unoffical BOTC discord.
 
 * Choose between Unofficial PNG, SVG or your external character images
 
-* Change script title font size
+* Change title and author font size
 
 * Show Stormcaught character on the script like a jinx. Stormcaught character will also be indicated on the back page under Storm Catcher
 
@@ -28,7 +28,9 @@ For any feedback or questions, contact @Thomas04 on the Unoffical BOTC discord.
 
 * Toggle showing all character images on back page footer (useful for pulling tokens with just the back page)
 
-* Adjust colors for the Script name, author and names of characters.
+* Adjust colors for the Script name, author and names of characters
+
+* Option to hide individual jinxes on the script 
 
 * Dynamically adjust for teensyville or 25+ character scripts
 
@@ -43,7 +45,7 @@ For any feedback or questions, contact @Thomas04 on the Unoffical BOTC discord.
 ![8|300](./public/screenshots/8.png)
 
 ## Running Locally
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.3.
+This project was created with Angular. 
 
 To run locally, have npm and angular installed.
 
@@ -57,4 +59,4 @@ Once the server is running, open your browser and navigate to `http://localhost:
 
 * Unofficial character icons are sourced from https://github.com/tomozbot/botc-icons
 
-* This project uses [ngx-print](https://www.npmjs.com/package/ngx-print), [ngx-color-picker](https://www.npmjs.com/package/ngx-color-picker) and [bootstrap](https://getbootstrap.com)
+* This project uses [Angular CLI](https://github.com/angular/angular-cli) version 21.1.3, [ngx-print](https://www.npmjs.com/package/ngx-print), [ngx-color-picker](https://www.npmjs.com/package/ngx-color-picker) and [bootstrap](https://getbootstrap.com)

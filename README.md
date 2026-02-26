@@ -1,7 +1,8 @@
 # Madness Script Maker
-A Blood on the Clocktower script pdf creator, with added customization options.
+A Blood on the Clocktower script pdf creator, with added customization options. [For examples of PDFs, cilck here](public/Examples)
 
 For any feedback or questions, contact @Thomas04 on the Unoffical BOTC discord. 
+
 
 #### https://madness-script-maker.vercel.app
 
@@ -35,16 +36,17 @@ For any feedback or questions, contact @Thomas04 on the Unoffical BOTC discord.
 * Dynamically adjust for teensyville or 25+ character scripts
 
 ## Screenshots 
-![1|300](./public/screenshots/1.png)
-![2|300](./public/screenshots/2.png)
-![3|300](./public/screenshots/3.png)
-![4|300](./public/screenshots/4.png)
-![5|300](./public/screenshots/5.png)
-![6|100](./public/screenshots/6.png)
-![7|100](./public/screenshots/7.png)
-![8|100](./public/screenshots/8.png)
-![9|100](./public/screenshots/9.png)
-![10|100](./public/screenshots/10.png)
+<img src="./public/screenshots/1.png" width="500">
+<img src="./public/screenshots/2.png" width="500">
+<img src="./public/screenshots/3.png" width="500">
+<img src="./public/screenshots/4.png" width="500">
+<img src="./public/screenshots/5.png" width="500">
+<img src="./public/screenshots/6.png" height="400">
+<img src="./public/screenshots/7.png" height="400">
+<img src="./public/screenshots/8.png" height="400">
+<img src="./public/screenshots/9.png" height="400">
+<img src="./public/screenshots/10.png" height="400">
+
 
 ## Running Locally
 This project was created with Angular. 

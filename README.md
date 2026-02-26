@@ -40,9 +40,11 @@ For any feedback or questions, contact @Thomas04 on the Unoffical BOTC discord.
 ![3|300](./public/screenshots/3.png)
 ![4|300](./public/screenshots/4.png)
 ![5|300](./public/screenshots/5.png)
-![6|300](./public/screenshots/6.png)
-![7|300](./public/screenshots/7.png)
-![8|300](./public/screenshots/8.png)
+![6|100](./public/screenshots/6.png)
+![7|100](./public/screenshots/7.png)
+![8|100](./public/screenshots/8.png)
+![9|100](./public/screenshots/9.png)
+![10|100](./public/screenshots/10.png)
 
 ## Running Locally
 This project was created with Angular. 

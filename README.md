@@ -1,5 +1,5 @@
 # Madness Script Maker
-A Blood on the Clocktower script pdf creator, with added customization options. [For examples of PDFs, cilck here](public/Examples)
+A Blood on the Clocktower script pdf creator, with added customization options. [Click here for examples of PDFs](public/Examples)
 
 For any feedback or questions, contact @Thomas04 on the Unoffical BOTC discord. 
 

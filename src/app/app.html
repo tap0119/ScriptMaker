@@ -20,6 +20,9 @@
             <div class="col-12 mb-3">
               <h5 class="card-title fs-3">Input JSON</h5>
             </div>
+          </div>
+
+          <div class="row">
             <div class="d-flex flex-row">
 
               <div class="col-4">
@@ -31,18 +34,28 @@
                   printTitle={{scriptName}} [previewOnly]="false" ngxPrint>Save & Print</button>
               </div>
             </div>
-            <div class="col mb-3">
-              <input type="file" id="formFile" class="custom-file-input form-control" accept=".json"
-                (change)="onFileSelected($event)" />
+            <div class="d-flex mt-1 flex-row">
+              <div class="col-12 mb-3">
+                <input type="file" id="formFile" class="custom-file-input fs-5 w-100 form-control" accept=".json"
+                  default="Input JSON" (change)="onFileSelected($event)" />
+              </div>
+
+            </div>
+            <div class="flex-row">
+              <div class="col">
+                <textarea type="text" class="form-control fs-6" [(ngModel)]="jsonInput" (ngModelChange)="create()"
+                  rows="4" cols="100" placeholder=""></textarea>
+              </div>
+
             </div>
           </div>
 
-          <div class="row">
-            <div class="col">
-              <textarea type="text" class="form-control fs-6" [(ngModel)]="jsonInput" (ngModelChange)="create()"
-                rows="4" cols="100" placeholder=""></textarea>
-            </div>
-          </div>
+
+
+
+
+
+
 
 
 
@@ -102,36 +115,63 @@
               <label class="form-check-label fs-4 mt-2" for="showBoot">Custom font:</label>
             </div>
             <div class="col-7">
-              <input class="form-control" type="file" accept=".ttf,.otf,.woff,.woff2" (change)="onFontUpload($event)" />
+              <input class="form-control fs-5" type="file" accept=".ttf,.otf,.woff,.woff2" (change)="onFontUpload($event)" />
             </div>
           </div>
-          <div class="row mt-2">
-            <div class="col-5">
-              <label class="form-check-label fs-4 mt-3" for="showBoot">Title font size:</label>
-            </div>
-            <div class="col-7">
-              <textarea type="text" [(ngModel)]="scriptFontSize" (ngModelChange)="create()" rows="1"
-                class="form-control fs-4"></textarea>
-            </div>
-          </div>
+
           <div class="row mt-3">
-            <div class="col-5">
-              <label class="form-check-label fs-4 mt-2" for="authorFontSize">Author font size:</label>
+            <div class="col-5 mt-2">
+              <label class="form-check-label fs-4" for="showBoot">Title font size:</label>
             </div>
-            <div class="col-7 mb-3">
-              <textarea type="text" [(ngModel)]="authorFontSize" (ngModelChange)="create()" rows="1"
-                class="form-control fs-4"></textarea>
+            <div class="col-6 mb-3">
+              <input type="number" min="0" step="1" [(ngModel)]="scriptFontSizeInput" (ngModelChange)="create()" rows="1"
+                class="form-control fs-4">
             </div>
-          </div>
-          <div class="row mb-3">
-            <div class="col-5">
-              <label class="form-check-label fs-4 mt-1" for="authorOffset">Author text offset:</label>
-            </div>
-            <div class="col-7 mb-3">
-              <textarea type="text" [(ngModel)]="authorOffset" (ngModelChange)="create()" rows="1"
-                class="form-control fs-4"></textarea>
+            <div class="col-1 mt-1">
+              <button class="btn btn-secondary" (click)="resetScriptFontSize()">R</button>
             </div>
           </div>
+
+          <div class="row">
+            <div class="col-5 mt-2">
+              <label class="form-check-label fs-4" for="authorFontSize">Author font size:</label>
+            </div>
+            <div class="col-6 mb-3">
+              <input type="number" min="0" step="1" [(ngModel)]="authorFontSizeInput" (ngModelChange)="create()" rows="1"
+                class="form-control fs-4">
+            </div>
+            <div class="col-1 mt-1">
+              <button class="btn btn-secondary" (click)="resetAuthorFontSize()">R</button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-5 mt-2">
+              <label class="form-check-label fs-4" for="authorOffset">Title horizontal offset:</label>
+            </div>
+            <div class="col-6 mb-3">
+              <input type="number" min="0" step="3" [(ngModel)]="titleOffsetInput" (ngModelChange)="create()" rows="1"
+                class="form-control fs-4">
+            </div>
+            <div class="col-1 mt-1">
+              <button class="btn btn-secondary" (click)="resetTitleOffset()">R</button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-5 mt-2">
+              <label class="form-check-label fs-4" for="authorOffset">Author vertical offset:</label>
+            </div>
+            <div class="col-6 mb-3">
+              <input type="number" min="0" step="1" [(ngModel)]="authorOffsetInput" (ngModelChange)="create()" rows="1"
+                class="form-control fs-4">
+            </div>
+            <div class="col-1 mt-1">
+              <button class="btn btn-secondary" (click)="resetAuthorOffset()">R</button>
+            </div>
+          </div>
+
+
           <div class="row">
             <div class="col">
               <div class="form-check form-switch ps-5 mb-3">
@@ -416,8 +456,8 @@
             <div class="col-4">
               <button class="btn btn-lg btn-secondary w-100" (click)="lightColors()">Light</button>
             </div>
-            </div>
-            <div class="row mt-3">
+          </div>
+          <div class="row mt-3">
             <div class="col-6">
               <button class="btn btn-lg btn-secondary w-100" (click)="darkWithTextColors()">Dark with Text</button>
             </div>
@@ -577,7 +617,7 @@
 
 
                   <!----Name and Author-->
-                  <div class="d-flex">
+                  <div class="d-flex" style="position:relative" [style.left]="titleOffset">
                     <div class="ScriptName" [style.font-family]="currentFont || 'Philo'" [style.color]="scriptNameColor"
                       [style.font-size]="scriptFontSize">
                       {{scriptName}}
@@ -865,10 +905,28 @@
 
         <div class="page2main">
           <!----- NPCs Header -->
-          @if(filteredJinxes.length > 0 || bootlegger.length > 0 || npcs.length > 0){
+          @if(showFabled || showLoric){
           <div class="divRowPage2" style="padding-top:20px">
             <img style="background: black;" class="divPngPage2">
-            <div class="HeaderPage2">Fabled & Loric</div>
+
+            @if(showFabled && !showLoric){
+            <div class="HeaderPage2" style="width:80px">
+              Fabled
+            </div>
+            }
+
+            @if(!showFabled && showLoric){
+            <div class="HeaderPage2" style="width:80px">
+              Loric
+            </div>
+            }
+
+            @if(showFabled && showLoric){
+            <div class="HeaderPage2">
+              Fabled & Loric
+            </div>
+            }
+
           </div>
           }
 
@@ -885,6 +943,23 @@
             <img src={{getImageForID(jinx.char1)}} class="jinxIcon2" (error)="onImageError($event,jinx.char1)">
             <img src={{getImageForID(jinx.char2)}} class="jinxIcon2" (error)="onImageError($event,jinx.char2)">
             <p class="jinxReason">{{jinx.reason}}</p>
+          </div>
+          }
+          }
+
+          @for (item of fabled; track item) {
+          @if (
+          item.ID !== 'djinn'
+          ) {
+          <div class="npcRow">
+            <div class="image">
+              <img src={{item.Image}} height="60" (error)="onImageError($event,item.ID)">
+            </div>
+            <div class="chartextrow">
+              <b class="npcName" [style.font-family]="currentFontNpc || 'Assi'"
+                [style.color]='fabledColor'>{{item.Name}}</b>
+              <p class="npcAbility">{{item.Ability}}</p>
+            </div>
           </div>
           }
           }
@@ -930,10 +1005,9 @@
 
 
 
-          <!---- Other Npcs -->
-          @for (item of npcs; track item) {
+          <!---- Loric -->
+          @for (item of loric; track item) {
           @if (
-          item.ID !== 'djinn' &&
           item.ID !== 'bootlegger' &&
           (item.ID !== 'stormcatcher' ||
           (!stormcaught || stormcaught === 'none')
@@ -944,13 +1018,8 @@
               <img src={{item.Image}} height="60" (error)="onImageError($event,item.ID)">
             </div>
             <div class="chartextrow">
-              @if(item.Team === 'loric') {
               <b class="npcName" [style.font-family]="currentFontNpc || 'Assi'"
                 [style.color]='loricColor'>{{item.Name}}</b>
-              }@else{
-              <b class="npcName" [style.font-family]="currentFontNpc || 'Assi'"
-                [style.color]='fabledColor'>{{item.Name}}</b>
-              }
               <p class="npcAbility">{{item.Ability}}</p>
             </div>
           </div>
@@ -981,7 +1050,7 @@
           }
 
 
-
+          <!-----Player Count----->
           <div class="playerCountContainer" #playerCountContainer>
 
             @if(showPlayerCount){

@@ -34,7 +34,7 @@ export class App implements OnInit, AfterViewInit {
     char2: string,
     reason: string,
   }[] = [];
-    allJinxes2: {
+  allJinxes2: {
     char1: string,
     char2: string,
     reason: string,
@@ -71,7 +71,7 @@ export class App implements OnInit, AfterViewInit {
   evilCharColor: string = '#760A0D'
   goodAbilityColor: string = '#000000'
   evilAbilityColor: string = '#000000'
-  
+
   scriptNameColor: string = '#800000'
   divTopColor: string = '#000000'
   divBottomColor: string = '#000000'
@@ -80,12 +80,26 @@ export class App implements OnInit, AfterViewInit {
   fabledColor: string = '#7a6550'
   travColor: string = '#500050'
 
+  scriptFontSizeInput: number = 34
   scriptFontSize: string = '34px'
+
+  authorFontSizeInput: number = 17
   authorFontSize: string = '17px'
-  abilityLineHeight: string = '1.2';
-  italicAuthor: boolean = true;
+
+  titleOffsetInput: number = 0
+  titleOffset: string = '0px';
+
+  authorOffsetInput: number = 10
   authorOffset: string = '10px'
-  addBootRule:boolean = true;
+  
+  abilityLineHeight: string = '1.2';
+  italicAuthor: boolean = false;
+  addBootRule: boolean = true;
+
+  showFabled: boolean = false;
+  showLoric: boolean = false;
+
+  
 
   townsfolk: {
     ID: string,
@@ -159,8 +173,22 @@ export class App implements OnInit, AfterViewInit {
     Team: string,
     Image: string
   }[] = []
+  fabled: {
+    ID: string,
+    Name: string,
+    Ability: string,
+    Team: string,
+    Image: string
+  }[] = []
+  loric: {
+    ID: string,
+    Name: string,
+    Ability: string,
+    Team: string,
+    Image: string
+  }[] = []
 
-    goodcharacters: {
+  goodcharacters: {
     ID: string,
     Name: string,
     Ability: string,
@@ -194,13 +222,13 @@ export class App implements OnInit, AfterViewInit {
     }));
 
 
-    this.toggleFun(this.expandImages,this,'expandImagesToggle')
-    this.toggleFun(this.expandFont,this,'expandFontToggle')
-    this.toggleFun(this.expandOptions,this,'expandOptionsToggle')
-    this.toggleFun(this.expandColors,this,'expandColorsToggle')
-    this.toggleFun(this.expandJinx,this,'expandJinxToggle')
+    this.toggleFun(this.expandImages, this, 'expandImagesToggle')
+    this.toggleFun(this.expandFont, this, 'expandFontToggle')
+    this.toggleFun(this.expandOptions, this, 'expandOptionsToggle')
+    this.toggleFun(this.expandColors, this, 'expandColorsToggle')
+    this.toggleFun(this.expandJinx, this, 'expandJinxToggle')
 
- 
+
 
   }
 
@@ -218,12 +246,20 @@ export class App implements OnInit, AfterViewInit {
 
     this.resetColors()
 
+    this.scriptFontSizeInput = 34
     this.scriptFontSize = '34px'
-    this.authorFontSize = '17px'
-    this.italicAuthor = true;
-    this.authorOffset = '10px'
-    this.fontName = ''
 
+    this.authorFontSizeInput = 17
+    this.authorFontSize = '17px'
+
+    this.titleOffsetInput = 0
+    this.titleOffset = '0px'
+
+    this.authorOffsetInput = 10
+    this.authorOffset = '10px'
+
+    this.italicAuthor = true;
+    this.fontName = ''
     this.authorFont = true;
     this.titleFont = true;
     this.charFont = false;
@@ -234,45 +270,69 @@ export class App implements OnInit, AfterViewInit {
     this.create()
   }
 
-  toggleFun(bool:boolean, obj:any, toggle:string){
+
+  //Toggle page sections
+  //------------------------------
+  toggleFun(bool: boolean, obj: any, toggle: string) {
     obj[toggle] = bool ? '▵' : '▿';
   }
-  expandImages:boolean = false;
+
+  expandImages: boolean = false;
   expandImagesToggle = ''
-  expandImagesFun(){
+  expandImagesFun() {
     this.expandImages = !this.expandImages
-    this.toggleFun(this.expandImages,this,'expandImagesToggle')
+    this.toggleFun(this.expandImages, this, 'expandImagesToggle')
   }
 
-  expandFont:boolean = true;
+  expandFont: boolean = true;
   expandFontToggle = ''
-  expandFontFun(){
+  expandFontFun() {
     this.expandFont = !this.expandFont
-    this.toggleFun(this.expandFont,this,'expandFontToggle')
+    this.toggleFun(this.expandFont, this, 'expandFontToggle')
 
   }
 
-  expandOptions:boolean = true;
+  expandOptions: boolean = true;
   expandOptionsToggle = ''
-  expandOptionsFun(){
+  expandOptionsFun() {
     this.expandOptions = !this.expandOptions
-    this.toggleFun(this.expandOptions,this,'expandOptionsToggle')
+    this.toggleFun(this.expandOptions, this, 'expandOptionsToggle')
   }
 
-  expandColors:boolean = true;
+  expandColors: boolean = true;
   expandColorsToggle = ''
-  expandColorsFun(){
+  expandColorsFun() {
     this.expandColors = !this.expandColors
-    this.toggleFun(this.expandColors,this,'expandColorsToggle')
+    this.toggleFun(this.expandColors, this, 'expandColorsToggle')
   }
 
-  expandJinx:boolean = false;
+  expandJinx: boolean = false;
   expandJinxToggle = ''
-  expandJinxFun(){
+  expandJinxFun() {
     this.expandJinx = !this.expandJinx
-    this.toggleFun(this.expandJinx,this,'expandJinxToggle')
+    this.toggleFun(this.expandJinx, this, 'expandJinxToggle')
 
   }
+
+  //File input
+  //-------------------------
+  async paste() {
+    try {
+      const clipboard = await navigator.clipboard.readText();
+      this.jsonInput = clipboard;
+      this.cd.detectChanges();
+      this.create();
+
+
+      this.dontShowJinxes = []
+      this.stormcaught = 'none'
+      this.stormcaughtName = 'none'
+
+    } catch (err) {
+      console.error('Failed to read clipboard:', err);
+    }
+  }
+
 
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -298,12 +358,13 @@ export class App implements OnInit, AfterViewInit {
 
     this.dontShowJinxes = []
     this.stormcaught = 'none'
-    this.stormcaughtName ='none'
+    this.stormcaughtName = 'none'
     reader.readAsText(file);
 
   }
 
-
+  //Font
+  //----------------------
   currentFont = '';
   currentFontAuthor = ''
   currentFontChar = ''
@@ -323,7 +384,7 @@ export class App implements OnInit, AfterViewInit {
 
     reader.onload = () => {
       const base64 = reader.result as string;
-      this.fontName = file.name.replace(/\.[^/.]+$/, '').replace(/\s+/g, '-').replace(".", "").replace("(", "").replace(")", "").replace("!","");
+      this.fontName = file.name.replace(/\.[^/.]+$/, '').replace(/\s+/g, '-').replace(".", "").replace("(", "").replace(")", "").replace("!", "");
 
       const style = document.createElement('style');
       style.innerHTML = `
@@ -417,6 +478,10 @@ export class App implements OnInit, AfterViewInit {
     img.src = this.getImage2ForID(ID)
   }
 
+
+  //Color Functions
+  //---------------------------------
+
   resetColors() {
     this.scriptNameColor = '#800000'
     this.goodCharColor = '#0b6aaf'
@@ -430,7 +495,6 @@ export class App implements OnInit, AfterViewInit {
     this.evilAbilityColor = '#000000'
   }
 
-  
   darkWithTextColors() {
     this.scriptNameColor = '#000000'
     this.goodCharColor = '#0b6aaf'
@@ -443,7 +507,6 @@ export class App implements OnInit, AfterViewInit {
     this.goodAbilityColor = '#0b6aaf'
     this.evilAbilityColor = '#760A0D'
   }
-
 
   lightColors() {
     this.scriptNameColor = '#d90a0a'
@@ -458,7 +521,6 @@ export class App implements OnInit, AfterViewInit {
     this.evilAbilityColor = '#000000'
   }
 
-  
   lightWithTextColors() {
     this.scriptNameColor = '#000000'
     this.goodCharColor = '#0000ff'
@@ -472,7 +534,6 @@ export class App implements OnInit, AfterViewInit {
     this.evilAbilityColor = '#ff0000'
   }
 
-
   blackColors() {
     this.scriptNameColor = '#000000'
     this.goodCharColor = '#000000'
@@ -485,7 +546,6 @@ export class App implements OnInit, AfterViewInit {
     this.goodAbilityColor = '#000000'
     this.evilAbilityColor = '#000000'
   }
-
 
   /*
   randomizeColors(){
@@ -501,41 +561,22 @@ export class App implements OnInit, AfterViewInit {
   }
 */
 
-  randomColor(inputColor:string) {
-    let color = '#'; 
-    const letters =  '0123456789ABCDEF'
+  randomColor(inputColor: string) {
+    let color = '#';
+    const letters = '0123456789ABCDEF'
     for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
+      color += letters[Math.floor(Math.random() * 16)];
     }
-    
+
     (this as any)[inputColor] = color
-}
-
-
-
-
-
-  //-------------------------
-
-  async paste() {
-    try {
-      const clipboard = await navigator.clipboard.readText();
-      this.jsonInput = clipboard;
-      this.cd.detectChanges();
-      this.create();
-
-
-      this.dontShowJinxes = []
-      this.stormcaught = 'none'
-      this.stormcaughtName = 'none'
-
-    } catch (err) {
-      console.error('Failed to read clipboard:', err);
-    }
   }
 
 
 
+
+
+  //Create
+  //---------------------------------------------------------
   create() {
     try {
       this.fullJsonSplit = JSON.parse(this.jsonInput)
@@ -724,6 +765,26 @@ export class App implements OnInit, AfterViewInit {
       })
     }
 
+
+    //fabled
+    this.fabled = this.npcs.filter(item => item.Team ==='fabled')
+
+    if(this.npcs.filter(item => item.Team ==='fabled').length > 0
+        || this.filteredJinxes2.length > 0){
+      this.showFabled = true
+    }else{
+      this.showFabled = false
+    }
+
+    //loric
+    this.loric = this.npcs.filter(item => item.Team ==='loric')
+
+    if(this.npcs.filter(item => item.Team ==='loric').length > 0){
+      this.showLoric = true
+    }else{
+      this.showLoric = false
+    }
+
     this.goodcharacters = this.townsfolk.concat(this.outsiders)
 
 
@@ -791,25 +852,26 @@ export class App implements OnInit, AfterViewInit {
       Math.ceil(this.minions.length / 2) +
       Math.ceil(this.demons.length / 2)
 
+    let rowHeight = 8.4
+
     this.page1height = ""
     if (this.rows >= 13) {
       this.page1height = "100%"
     } else if (this.rows == 12) {
       this.page1height = "90%"
     } else {
-      this.page1height = this.rows * 8.4 + "%"
+      this.page1height = this.rows * rowHeight + "%"
     }
 
 
     if (this.page1height !== "100%" && this.showBoot == "Bottom") {
 
-      if (10 + (this.rows * 8.4) < 100) {
-        this.page1height = 10 + (this.rows * 8.4) + "%"
+      if (10 + (this.rows * rowHeight) < 100) {
+        this.page1height = 10 + (this.rows * rowHeight) + "%"
       } else {
         this.page1height = "100%"
       }
     }
-
 
     //decrease line height if 15+ rows to fit on page
     if (this.rows >= 15) {
@@ -823,72 +885,18 @@ export class App implements OnInit, AfterViewInit {
     this.cd.detectChanges();
   }
 
-  updateCSS() {
 
-    //if firstnight text goes too long, remove it
-    if (this.firstOrder.length >= 22) {
-      this.showFirstNightText = 0 + 'mm'
+  ///End of Create()
+  //------------------------------------------------
 
-    } else {
-      this.showFirstNightText = 6 + 'mm'
-
-    }
-
-    //if othernight text goes too long, remove it
-    if (this.otherOrder.length >= 22) {
-      this.showOtherNightText = 0 + 'mm'
-
-    } else {
-      this.showOtherNightText = 6 + 'mm'
-
-    }
-
-    //----Invert other night
-    if (!this.invertOther) {
-      this.invertOtherDeg = "rotate(0deg)"
-
-    } else {
-      this.invertOtherDeg = "rotate(180deg)"
-    }
-  }
-
-
-
-
-
-
-
-  //--------------Other functions
-  // Get image from charData by id
-  getImageForID(inputID: string): string {
-    const match = this.charData.find(item => item.ID === inputID);
-    return match ? match.Image : "none";
-  }
-
-  getImage2ForID(inputID: string): string {
-    const match = this.charData.find(item => item.ID === inputID);
-    return match ? (match.Image2 ? match.Image2 : "none") : "none";
-  }
-
-  // Get name from charData by id
-  getNameForID(inputID: string): string {
-    const match = this.charData.find(item => item.ID === inputID);
-    return match ? match.Name : "none";
-  }
-
-  getIDForName(inputName: string): string {
-    const match = this.charData.find(item => item.Name === inputName);
-    return match ? match.ID : "none";
-  }
 
 
   //Updates-------------
-
-  stormcaughtName:string = ''
+  stormcaughtName: string = 'none'
   stormcaughtUpdate() {
 
     this.stormcaught = this.getIDForName(this.stormcaughtName);
-    console.log(this.stormcaught)
+
 
     if (this.stormcaughtOld != this.stormcaught) {
       this.jinxData.unshift(
@@ -916,6 +924,9 @@ export class App implements OnInit, AfterViewInit {
 
   }
 
+
+
+  //Jinxes--------------------
   updateJinxes() {
     this.filteredJinxes =
       this.jinxData.filter(jinx =>
@@ -940,19 +951,19 @@ export class App implements OnInit, AfterViewInit {
       j => !removeSet.has(`${j.char1}|${j.char2}`)
     );
 
-        this.filteredJinxes2 = this.allJinxes2.filter(
+    this.filteredJinxes2 = this.allJinxes2.filter(
       j => !removeSet.has(`${j.char1}|${j.char2}`)
     );
 
-    
+
     this.bootlegger = this.bootlegger.filter(
-        item => item !==this.hiddenJinxesString)
+      item => item !== this.hiddenJinxesString)
 
 
     let hiddenJinxes = this.dontShowJinxes
       .map(pair => `${this.getNameForID(pair.char1)}/${this.getNameForID(pair.char2)}`)
 
-    
+
 
     if (hiddenJinxes.length === 1) {
       this.hiddenJinxesString = hiddenJinxes[0];
@@ -967,21 +978,23 @@ export class App implements OnInit, AfterViewInit {
         hiddenJinxes[hiddenJinxes.length - 1];
     }
 
-      if (this.dontShowJinxes.length > 1 && this.addBootRule) {
-        this.hiddenJinxesString = "Do not use the " + this.hiddenJinxesString + " jinxes."
-        this.bootlegger.push(this.hiddenJinxesString)
+    if (this.dontShowJinxes.length > 1 && this.addBootRule) {
+      this.hiddenJinxesString = "Do not use the " + this.hiddenJinxesString + " jinxes."
+      this.bootlegger.push(this.hiddenJinxesString)
 
-      } else if(this.dontShowJinxes.length == 1 && this.addBootRule){
-        this.hiddenJinxesString = "Do not use the " + this.hiddenJinxesString + " jinx."
+    } else if (this.dontShowJinxes.length == 1 && this.addBootRule) {
+      this.hiddenJinxesString = "Do not use the " + this.hiddenJinxesString + " jinx."
 
-        this.bootlegger.push(this.hiddenJinxesString)
-      }
+      this.bootlegger.push(this.hiddenJinxesString)
+    }
 
 
   }
 
-  hiddenJinxesString:string = '' 
 
+
+
+  hiddenJinxesString: string = ''
   dontShowJinxesFun(char1: string, char2: string) {
 
     if (this.dontShowJinxes.some(
@@ -997,12 +1010,102 @@ export class App implements OnInit, AfterViewInit {
       this.dontShowJinxes.push({ 'char1': char1, 'char2': char2, 'reason': '' })
     }
 
-    
+
 
     this.create()
 
 
   }
+
+
+  //CSS variables--------------------
+  updateCSS() {
+
+    //if firstnight text goes too long, remove it
+    if (this.firstOrder.length >= 22) {
+      this.showFirstNightText = 0 + 'mm'
+
+    } else {
+      this.showFirstNightText = 6 + 'mm'
+
+    }
+
+    //if othernight text goes too long, remove it
+    if (this.otherOrder.length >= 22) {
+      this.showOtherNightText = 0 + 'mm'
+
+    } else {
+      this.showOtherNightText = 6 + 'mm'
+
+    }
+
+    //----Invert other night
+    if (!this.invertOther) {
+      this.invertOtherDeg = "rotate(0deg)"
+
+    } else {
+      this.invertOtherDeg = "rotate(180deg)"
+    }
+
+    this.scriptFontSize = this.scriptFontSizeInput + 'px'
+    this.authorFontSize = this.authorFontSizeInput + 'px'
+    this.titleOffset = this.titleOffsetInput + 'px'
+    this.authorOffset = this.authorOffsetInput + 'px'
+
+  }
+
+  resetScriptFontSize(){
+    this.scriptFontSizeInput = 34
+    this.create()
+  }
+
+  resetAuthorFontSize(){
+    this.authorFontSizeInput = 17
+    this.create()
+  }
+
+  resetTitleOffset(){
+    this.titleOffsetInput = 0
+    this.create()
+  }
+
+  resetAuthorOffset(){
+    this.authorOffsetInput = 10
+    this.create()
+  }
+
+
+
+
+
+
+
+  //--------------Other functions-----------------
+
+  // Get image from charData by id
+  getImageForID(inputID: string): string {
+    const match = this.charData.find(item => item.ID === inputID);
+    return match ? match.Image : "none";
+  }
+
+  getImage2ForID(inputID: string): string {
+    const match = this.charData.find(item => item.ID === inputID);
+    return match ? (match.Image2 ? match.Image2 : "none") : "none";
+  }
+
+  // Get name from charData by id
+  getNameForID(inputID: string): string {
+    const match = this.charData.find(item => item.ID === inputID);
+    return match ? match.Name : "none";
+  }
+
+  getIDForName(inputName: string): string {
+    const match = this.charData.find(item => item.Name === inputName);
+    return match ? match.ID : "none";
+  }
+
+
+
 
   //reorder for page1
   reorderForColumns<T>(array: T[]): T[] {
@@ -1034,6 +1137,7 @@ export class App implements OnInit, AfterViewInit {
     return set;
   }
 
+  //-------------------------------------------
   //data---------------
 
 

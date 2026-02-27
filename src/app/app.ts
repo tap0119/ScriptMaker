@@ -258,7 +258,7 @@ export class App implements OnInit, AfterViewInit {
     this.authorOffsetInput = 10
     this.authorOffset = '10px'
 
-    this.italicAuthor = true;
+    this.italicAuthor = false;
     this.fontName = ''
     this.authorFont = true;
     this.titleFont = true;

@@ -150,7 +150,7 @@
               <label class="form-check-label fs-4" for="authorOffset">Title horizontal offset:</label>
             </div>
             <div class="col-6 mb-3">
-              <input type="number" min="0" step="3" [(ngModel)]="titleOffsetInput" (ngModelChange)="create()" rows="1"
+              <input type="number" min="-10" step="3" [(ngModel)]="titleOffsetInput" (ngModelChange)="create()" rows="1"
                 class="form-control fs-4">
             </div>
             <div class="col-1 mt-1">
@@ -163,7 +163,7 @@
               <label class="form-check-label fs-4" for="authorOffset">Author vertical offset:</label>
             </div>
             <div class="col-6 mb-3">
-              <input type="number" min="0" step="1" [(ngModel)]="authorOffsetInput" (ngModelChange)="create()" rows="1"
+              <input type="number" min="-20" step="1" [(ngModel)]="authorOffsetInput" (ngModelChange)="create()" rows="1"
                 class="form-control fs-4">
             </div>
             <div class="col-1 mt-1">

@@ -86,6 +86,9 @@ export class App implements OnInit, AfterViewInit {
   authorFontSizeInput: number = 17
   authorFontSize: string = '17px'
 
+  titleOffsetInput: number = 0
+  titleOffset: string = '0px';
+
   authorOffsetInput: number = 10
   authorOffset: string = '10px'
   
@@ -248,6 +251,9 @@ export class App implements OnInit, AfterViewInit {
 
     this.authorFontSizeInput = 17
     this.authorFontSize = '17px'
+
+    this.titleOffsetInput = 0
+    this.titleOffset = '0px'
 
     this.authorOffsetInput = 10
     this.authorOffset = '10px'
@@ -1043,6 +1049,7 @@ export class App implements OnInit, AfterViewInit {
 
     this.scriptFontSize = this.scriptFontSizeInput + 'px'
     this.authorFontSize = this.authorFontSizeInput + 'px'
+    this.titleOffset = this.titleOffsetInput + 'px'
     this.authorOffset = this.authorOffsetInput + 'px'
 
   }
@@ -1054,6 +1061,11 @@ export class App implements OnInit, AfterViewInit {
 
   resetAuthorFontSize(){
     this.authorFontSizeInput = 17
+    this.create()
+  }
+
+  resetTitleOffset(){
+    this.titleOffsetInput = 0
     this.create()
   }
 

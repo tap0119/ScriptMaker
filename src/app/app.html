@@ -145,20 +145,7 @@
             </div>
           </div>
 
-          <!-----------
-          <div class="row">
-            <div class="col-5 mt-2">
-              <label class="form-check-label fs-4" for="authorOffset">Title horizontal offset:</label>
-            </div>
-            <div class="col-6 mb-3">
-              <input type="number" min="-10" step="3" [(ngModel)]="titleOffsetInput" (ngModelChange)="create()" rows="1"
-                class="form-control fs-4">
-            </div>
-            <div class="col-1 mt-1">
-              <button class="btn btn-secondary" (click)="resetTitleOffset()">R</button>
-            </div>
-          </div>
-        -->
+
 
           <div class="row">
             <div class="col-5 mt-2">
@@ -619,7 +606,7 @@
 
 
                   <!----Name and Author-->
-                  <div class="d-flex" style="position:relative" [style.left]="titleOffset">
+                  <div class="d-flex" style="position:relative">
                     <div class="ScriptName" [style.font-family]="currentFont || 'Philo'" [style.color]="scriptNameColor"
                       [style.font-size]="scriptFontSize">
                       {{scriptName}}

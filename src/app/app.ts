@@ -97,7 +97,6 @@ export class App implements OnInit, AfterViewInit {
 
   centerTitle: boolean = false
   lowAuthor: boolean = false
-  titleDivWidth: string = '0px'
   
   abilityLineHeight: string = '1.2';
   italicAuthor: boolean = false;
@@ -1065,14 +1064,10 @@ export class App implements OnInit, AfterViewInit {
 
       this.authorLowOffset = 390 - (this.AuthorElement.nativeElement.offsetWidth/2) + 'px'
 
-      //title div width is 50% of page width + 1/2 of title width
-      this.titleDivWidth = 409 + (this.TitleElement.nativeElement.offsetWidth/2)  + 'px'
-
     }else{
     //if title left aligned
       this.titleOffset = '0px'
       this.authorLowOffset = '10px'
-      this.titleDivWidth = '8.5in'
     }
 
 

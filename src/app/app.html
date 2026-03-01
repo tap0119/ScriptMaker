@@ -144,20 +144,6 @@
               <button class="btn btn-secondary" (click)="resetAuthorFontSize()">R</button>
             </div>
           </div>
-
-          
-          <div class="row">
-            <div class="col-5 mt-2">
-              <label class="form-check-label fs-4" for="authorOffset">Title horizontal offset:</label>
-            </div>
-            <div class="col-6 mb-3">
-              <input type="number" min="-10" step="3" [(ngModel)]="titleOffsetInput" (ngModelChange)="create()" rows="1"
-                class="form-control fs-4">
-            </div>
-            <div class="col-1 mt-1">
-              <button class="btn btn-secondary" (click)="resetTitleOffset()">R</button>
-            </div>
-          </div>
         
 
           <div class="row">
@@ -170,6 +156,26 @@
             </div>
             <div class="col-1 mt-1">
               <button class="btn btn-secondary" (click)="resetAuthorOffset()">R</button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <div class="form-check form-switch ps-5 mb-3">
+                <input class="form-check-input fs-5" type="checkbox" id="centerTitle" [(ngModel)]="centerTitle"
+                  (ngModelChange)="create()">
+                <label class="form-check-label fs-4" for="centerTitle">Center Title</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <div class="form-check form-switch ps-5 mb-3">
+                <input class="form-check-input fs-5" type="checkbox" id="lowAuthor" [(ngModel)]="lowAuthor"
+                  (ngModelChange)="create()">
+                <label class="form-check-label fs-4" for="lowAuthor">Author below title</label>
+              </div>
             </div>
           </div>
 
@@ -619,15 +625,25 @@
 
 
                   <!----Name and Author-->
-                  <div class="d-flex" style="position:relative" [style.left]="titleOffset">
-                    <div class="ScriptName" [style.font-family]="currentFont || 'Philo'" [style.color]="scriptNameColor"
-                      [style.font-size]="scriptFontSize">
+                  <div class="d-flex" 
+                  style="position:relative; border:0px red solid" 
+                  [style.width]="titleDivWidth"
+                  [style.left]="titleOffset">
+                    <div #TitleElement 
+                    class="ScriptName" 
+                    [style.font-family]="currentFont || 'Philo'" 
+                    [style.color]="scriptNameColor"
+                    [style.font-size]="scriptFontSize">
                       {{scriptName}}
                     </div>
 
-                    @if (author){
-                    <div class="Author" [style.font-family]="currentFontAuthor || 'Philo'"
-                      [style.color]="scriptNameColor" [style.font-size]="authorFontSize" [style.bottom]="authorOffset">
+                    @if (author && !lowAuthor){
+                    <div #AuthorElement 
+                    class="Author" 
+                    [style.font-family]="currentFontAuthor || 'Philo'"
+                    [style.color]="scriptNameColor" 
+                    [style.font-size]="authorFontSize" 
+                    [style.bottom]="authorOffset">
                       <div class="AuthorText">
                         @if(italicAuthor){
                         <i>by {{author}}</i>
@@ -639,9 +655,32 @@
                       </div>
                     </div>
                     }
+                    
 
 
                   </div>
+                  @if (author && lowAuthor){
+                    <div style="position: relative;">
+                    <div #AuthorElement 
+                    class="Author"
+                    
+                    [style.font-family]="currentFontAuthor || 'Philo'"
+                    [style.color]="scriptNameColor" 
+                    [style.font-size]="authorFontSize" 
+                    [style.bottom]="authorOffset"
+                    [style.left]="authorLowOffset">
+                      <div class="AuthorText">
+                        @if(italicAuthor){
+                        <i>by {{author}}</i>
+                        }
+                        @if(!italicAuthor){
+                        by {{author}}
+                        }
+
+                      </div>
+                    </div>
+                    </div>
+                    }
                 </div>
 
                 <!-----Bootlegger row page 1-->

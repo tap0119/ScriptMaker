@@ -14,6 +14,9 @@ import { ColorPickerModule } from 'ngx-color-picker';
 
 
 export class App implements OnInit, AfterViewInit {
+  @ViewChild('TitleElement') TitleElement!: ElementRef;
+  @ViewChild('AuthorElement') AuthorElement!: ElementRef;
+
   jsonInput: string = '';
   scriptName: string = '';
   author: string = '';
@@ -86,11 +89,15 @@ export class App implements OnInit, AfterViewInit {
   authorFontSizeInput: number = 17
   authorFontSize: string = '17px'
 
-  titleOffsetInput: number = 0
   titleOffset: string = '0px';
+  authorLowOffset: string = '0px';
 
   authorOffsetInput: number = 10
   authorOffset: string = '10px'
+
+  centerTitle: boolean = false
+  lowAuthor: boolean = false
+  titleDivWidth: string = '0px'
   
   abilityLineHeight: string = '1.2';
   italicAuthor: boolean = false;
@@ -252,7 +259,6 @@ export class App implements OnInit, AfterViewInit {
     this.authorFontSizeInput = 17
     this.authorFontSize = '17px'
 
-    this.titleOffsetInput = 0
     this.titleOffset = '0px'
 
     this.authorOffsetInput = 10
@@ -267,8 +273,13 @@ export class App implements OnInit, AfterViewInit {
     this.stormcaught = 'none'
     this.stormcaughtName = 'none'
 
+    this.centerTitle = false
+    this.lowAuthor = false
+
     this.create()
   }
+
+
 
 
   //Toggle page sections
@@ -883,6 +894,7 @@ export class App implements OnInit, AfterViewInit {
     this.updateCSS()
 
     this.cd.detectChanges();
+
   }
 
 
@@ -1047,9 +1059,25 @@ export class App implements OnInit, AfterViewInit {
       this.invertOtherDeg = "rotate(180deg)"
     }
 
+    //if title is centered
+    if(this.centerTitle){
+      this.titleOffset = 390 - (this.TitleElement.nativeElement.offsetWidth/2) + 'px'
+
+      this.authorLowOffset = 390 - (this.AuthorElement.nativeElement.offsetWidth/2) + 'px'
+
+      //title div width is 50% of page width + 1/2 of title width
+      this.titleDivWidth = 409 + (this.TitleElement.nativeElement.offsetWidth/2)  + 'px'
+
+    }else{
+    //if title left aligned
+      this.titleOffset = '0px'
+      this.authorLowOffset = '10px'
+      this.titleDivWidth = '8.5in'
+    }
+
+
     this.scriptFontSize = this.scriptFontSizeInput + 'px'
     this.authorFontSize = this.authorFontSizeInput + 'px'
-    this.titleOffset = this.titleOffsetInput + 'px'
     this.authorOffset = this.authorOffsetInput + 'px'
 
   }
@@ -1061,11 +1089,6 @@ export class App implements OnInit, AfterViewInit {
 
   resetAuthorFontSize(){
     this.authorFontSizeInput = 17
-    this.create()
-  }
-
-  resetTitleOffset(){
-    this.titleOffsetInput = 0
     this.create()
   }
 

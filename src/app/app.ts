@@ -1224,7 +1224,7 @@ export class App implements OnInit, AfterViewInit {
     this.proxiesExist = false
     this.proxies = []
     for (let i = 0; i < this.playablecharacters.length; i++) {
-      this.playablecharacters[i].Proxy = this.playablecharacters[i].ProxyInput?.toLowerCase().replace(" ", "").replace("-", "")
+      this.playablecharacters[i].Proxy = this.playablecharacters[i].ProxyInput?.toLowerCase().replace(" ", "").replace("-", "").replace("'", "")
 
       let out = this.playablecharacters[i].Proxy ?? ''
 

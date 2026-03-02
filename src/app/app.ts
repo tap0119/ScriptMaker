@@ -748,7 +748,7 @@ export class App implements OnInit, AfterViewInit {
 
         //if id is already in array
         if (this.charData.find(innerArray =>
-          innerArray.Ability === this.fullJsonSplit[i].ability)) {
+          innerArray.Ability === this.fullJsonSplit[i].ability && innerArray.ID === this.fullJsonSplit[i].id)) {
 
           this.characters.push(this.fullJsonSplit[i].id)
 

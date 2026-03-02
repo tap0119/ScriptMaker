@@ -1005,10 +1005,11 @@
               Proxy Tokens
             </div>
           </div>
-          <div class="proxyGrid" style="padding-bottom: 25px; padding-top:0px;">
+          @if(proxies.length > 1){
+          <div class="proxyGrid" style="padding-bottom: 25px; padding-left:12px;">
             @for(char of proxies; track char){
-            @if(char.Proxy !== ''){
-            <div class="npcRow" style="left:10px; bottom:-40px; padding-bottom:40px; width:310px">
+            
+            <div style="padding-left: 5px; position: relative; top:10px">
               <b style="padding-right: -5px; position: relative; bottom:25px;"></b>
               <p> </p>
               <div class="bootleggerRule" style="  display: flex;
@@ -1027,9 +1028,26 @@
                 </div>
               </div>
             </div>
-            }
+            
             }
           </div>
+        }@if(proxies.length == 1){
+            <div class="bootleggerRule" style="  display: flex;
+  flex-direction:row; position: relative; left:180px; padding-top:30px; padding-bottom:20px">
+                <div>
+                  <b>
+                    <img src="{{getImageForID(proxies[0].ID)}}" class="jinxIcon">
+                    {{proxies[0].Name}}
+                  </b>
+                </div>
+                <div style="padding-left:5px"> is the </div>
+                <div>
+                  <b>
+                    <img src="{{getImageForID(proxies[0].Proxy)}}" class="jinxIcon">
+                    {{getNameForID(proxies[0].Proxy)}}</b> Token
+                </div>
+              </div>
+        }
           }
           <!----- NPCs Header -->
           @if(showFabled || showLoric){

@@ -1017,14 +1017,14 @@
   flex-direction:row;">
                 <div>
                   <b>
-                    <img src="{{getImageForID(char.ID)}}" class="jinxIcon">
+                    <img src="{{getImageForID(char.ID)}}" (error)="onImageError($event,proxies[0].ID)" class="jinxIcon">
                     {{char.Name}}
                   </b>
                 </div>
                 <div style="padding-left:5px"> is the </div>
                 <div>
                   <b>
-                    <img src="{{getImageForID(char.Proxy)}}" class="jinxIcon">
+                    <img src="{{getImageForID(char.Proxy)}}" (error)="onImageError($event,proxies[0].Proxy)" class="jinxIcon">
                     {{getNameForID(char.Proxy)}}</b> Token
                 </div>
               </div>
@@ -1037,14 +1037,14 @@
   flex-direction:row; position: relative; left:180px; padding-top:30px; padding-bottom:20px">
                 <div>
                   <b>
-                    <img src="{{getImageForID(proxies[0].ID)}}" class="jinxIcon">
+                    <img src="{{getImageForID(proxies[0].ID)}}" (error)="onImageError($event,proxies[0].ID)" class="jinxIcon">
                     {{proxies[0].Name}}
                   </b>
                 </div>
                 <div style="padding-left:5px"> is the </div>
                 <div>
                   <b>
-                    <img src="{{getImageForID(proxies[0].Proxy)}}" class="jinxIcon">
+                    <img src="{{getImageForID(proxies[0].Proxy)}}" (error)="onImageError($event,proxies[0].Proxy)" class="jinxIcon">
                     {{getNameForID(proxies[0].Proxy)}}</b> Token
                 </div>
               </div>

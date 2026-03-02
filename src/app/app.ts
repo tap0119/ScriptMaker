@@ -516,9 +516,9 @@ export class App implements OnInit, AfterViewInit {
   }
 
 
-  onImageError(event: Event, ID: string) {
+  onImageError(event: Event, ID: string | undefined) {
     const img = event.target as HTMLImageElement;
-    console.log("here")
+    if(ID){
     fetch(this.getImage2ForID(ID), { method: 'HEAD' })
       .then(res => {
         img.src = this.getImage2ForID(ID)
@@ -561,7 +561,7 @@ export class App implements OnInit, AfterViewInit {
         }//end of else
       }//end of catch output
     )//end of catch
-
+  }
   }
 
 

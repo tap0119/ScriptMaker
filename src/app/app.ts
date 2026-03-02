@@ -535,7 +535,7 @@ export class App implements OnInit, AfterViewInit {
     const img = event.target as HTMLImageElement;
     if(ID){
       
-    fetch(this.getImageForID(ID), { method: 'GET' })
+    fetch(this.getImage2ForID(ID), { method: 'GET' })
       .then(res => {
         img.src = this.getImage2ForID(ID)
       })

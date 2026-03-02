@@ -766,69 +766,75 @@ export class App implements OnInit, AfterViewInit {
 
           }
 
-          //if hb character
+          //json split has id field and not in charData
         } else {
 
           this.hbchar = this.fullJsonSplit[i];
 
-          if (this.hbchar.team == 'traveler') {
-            this.hbchar.team = 'traveller'
-          }
-		
-
-          if(this.hbchar.image instanceof Array){
-            this.hbimage = this.hbchar.image[0]
-          }else{
-            this.hbimage = this.hbchar.image
-          }
-
-
-          //add hb char to charData and characters array
-          this.charData.push({
-            ID: this.hbchar.id,
-            Name: this.hbchar.name,
-            Ability: this.hbchar.ability,
-            Team: this.hbchar.team,
-            Image: this.hbimage,
-            Image2: this.hbimage,
-          });
-
           this.characters.push(this.hbchar.id)
 
-          //add hb jinxes to jinxData
-          if (this.hbchar.jinxes) {
-            for (let i = 0; i < this.hbchar.jinxes.length; i++) {
-              this.jinxData.push(
-                {
-                  char1: this.hbchar.id,
-                  char2: this.hbchar.jinxes[i].id,
-                  reason: this.hbchar.jinxes[i].reason
-                }
-              )
+          // if HB char
+          if(this.hbchar.hasOwnProperty("ability")){
+
+            if (this.hbchar.team == 'traveler') {
+              this.hbchar.team = 'traveller'
+            }
+      
+
+            if(this.hbchar.image instanceof Array){
+              this.hbimage = this.hbchar.image[0]
+            }else{
+              this.hbimage = this.hbchar.image
             }
 
+
+            //add hb char to charData and characters array
+            this.charData.push({
+              ID: this.hbchar.id,
+              Name: this.hbchar.name,
+              Ability: this.hbchar.ability,
+              Team: this.hbchar.team,
+              Image: this.hbimage,
+              Image2: this.hbimage,
+            });
+
+            
+
+            //add hb jinxes to jinxData
+            if (this.hbchar.jinxes) {
+              for (let i = 0; i < this.hbchar.jinxes.length; i++) {
+                this.jinxData.push(
+                  {
+                    char1: this.hbchar.id,
+                    char2: this.hbchar.jinxes[i].id,
+                    reason: this.hbchar.jinxes[i].reason
+                  }
+                )
+              }
+
+            }
+            //add to night order
+
+            if (this.hbchar.firstNight > 0) {
+              this.nightOrderData.push({
+                order: this.hbchar.firstNight,
+                firstNight: this.hbchar.id,
+                otherNights: ""
+              })
+            }
+
+
+            if (this.hbchar.otherNight > 0) {
+              this.nightOrderData.push({
+                order: this.hbchar.otherNight,
+                firstNight: "",
+                otherNights: this.hbchar.id
+              })
+            }
+
+            this.hbexists = true;
           }
-          //add to night order
-
-          if (this.hbchar.firstNight > 0) {
-            this.nightOrderData.push({
-              order: this.hbchar.firstNight,
-              firstNight: this.hbchar.id,
-              otherNights: ""
-            })
-          }
-
-
-          if (this.hbchar.otherNight > 0) {
-            this.nightOrderData.push({
-              order: this.hbchar.otherNight,
-              firstNight: "",
-              otherNights: this.hbchar.id
-            })
-          }
-
-          this.hbexists = true;
-        }
+      }
 
         //if split does not have id add to characters
       } else if (this.fullJsonSplit[i]) {

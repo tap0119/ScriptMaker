@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, NgModule, OnInit, ViewChild, ChangeDetectorRef} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, NgModule, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgxPrintDirective } from 'ngx-print';
 import { ColorPickerModule } from 'ngx-color-picker';
@@ -97,7 +97,7 @@ export class App implements OnInit, AfterViewInit {
 
   centerTitle: boolean = false
   lowAuthor: boolean = false
-  
+
   abilityLineHeight: string = '1.2';
   italicAuthor: boolean = false;
   addBootRule: boolean = true;
@@ -107,7 +107,7 @@ export class App implements OnInit, AfterViewInit {
 
   proxiesExist: boolean = false;
 
-  
+
 
   townsfolk: {
     ID: string,
@@ -513,9 +513,53 @@ export class App implements OnInit, AfterViewInit {
     this.create()
   }
 
+
   onImageError(event: Event, ID: string) {
     const img = event.target as HTMLImageElement;
-    img.src = this.getImage2ForID(ID)
+    console.log("here")
+    fetch(this.getImage2ForID(ID), { method: 'HEAD' })
+      .then(res => {
+        img.src = this.getImage2ForID(ID)
+      })
+      .catch(() => {
+        //fallback images
+        if (this.imageSelection == 'PNG') {
+
+          if (this.getTeamForID(ID) == 'townsfolk' || this.getTeamForID(ID) == 'outsider') {
+            img.src = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/PNG/townsfolk.png'
+          
+          } else if (this.getTeamForID(ID) == 'minion' || this.getTeamForID(ID) == 'demon') {
+            img.src = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/PNG/demon.png'
+
+          } else if (this.getTeamForID(ID) == 'fabled') {
+            img.src = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/PNG/fabled.png'
+          
+          } else if (this.getTeamForID(ID) == 'loric') {
+            img.src = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/PNG/loric.png'
+          
+          } else {
+            img.src = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/PNG/traveller.png'
+          }
+        } else {
+          if (this.getTeamForID(ID) == 'townsfolk' || this.getTeamForID(ID) == 'outsider') {
+            img.src = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/SVG/townsfolk.svg'
+
+          } else if (this.getTeamForID(ID) == 'minion' || this.getTeamForID(ID) == 'demon') {
+            img.src = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/SVG/demon.svg'
+
+          } else if (this.getTeamForID(ID) == 'fabled') {
+            img.src = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/SVG/fabled.svg'
+
+          } else if (this.getTeamForID(ID) == 'loric') {
+            img.src = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/SVG/loric.svg'
+          
+          } else {
+            img.src = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/SVG/traveller.svg'
+          }
+        }//end of else
+      }//end of catch output
+    )//end of catch
+
   }
 
 
@@ -807,21 +851,21 @@ export class App implements OnInit, AfterViewInit {
 
 
     //fabled
-    this.fabled = this.npcs.filter(item => item.Team ==='fabled')
+    this.fabled = this.npcs.filter(item => item.Team === 'fabled')
 
-    if(this.npcs.filter(item => item.Team ==='fabled').length > 0
-        || this.filteredJinxes2.length > 0){
+    if (this.npcs.filter(item => item.Team === 'fabled').length > 0
+      || this.filteredJinxes2.length > 0) {
       this.showFabled = true
-    }else{
+    } else {
       this.showFabled = false
     }
 
     //loric
-    this.loric = this.npcs.filter(item => item.Team ==='loric')
+    this.loric = this.npcs.filter(item => item.Team === 'loric')
 
-    if(this.npcs.filter(item => item.Team ==='loric').length > 0){
+    if (this.npcs.filter(item => item.Team === 'loric').length > 0) {
       this.showLoric = true
-    }else{
+    } else {
       this.showLoric = false
     }
 
@@ -1093,13 +1137,13 @@ export class App implements OnInit, AfterViewInit {
     }
 
     //if title is centered
-    if(this.centerTitle){
-      this.titleOffset = 390 - (this.TitleElement.nativeElement.offsetWidth/2) + 'px'
+    if (this.centerTitle) {
+      this.titleOffset = 390 - (this.TitleElement.nativeElement.offsetWidth / 2) + 'px'
 
-      this.authorLowOffset = 390 - (this.AuthorElement.nativeElement.offsetWidth/2) + 'px'
+      this.authorLowOffset = 390 - (this.AuthorElement.nativeElement.offsetWidth / 2) + 'px'
 
-    }else{
-    //if title left aligned
+    } else {
+      //if title left aligned
       this.titleOffset = '0px'
       this.authorLowOffset = '10px'
     }
@@ -1111,17 +1155,17 @@ export class App implements OnInit, AfterViewInit {
 
   }
 
-  resetScriptFontSize(){
+  resetScriptFontSize() {
     this.scriptFontSizeInput = 34
     this.create()
   }
 
-  resetAuthorFontSize(){
+  resetAuthorFontSize() {
     this.authorFontSizeInput = 17
     this.create()
   }
 
-  resetAuthorOffset(){
+  resetAuthorOffset() {
     this.authorOffsetInput = 10
     this.create()
   }
@@ -1135,16 +1179,16 @@ export class App implements OnInit, AfterViewInit {
   //--------------Other functions-----------------
 
   // Get image from charData by id
-  getImageForID(inputID: string| undefined): string {
+  getImageForID(inputID: string | undefined): string {
     const match = this.charData.find(item => item.ID === inputID);
     return match ? match.Image : "none";
   }
 
   getImage2ForID(inputID: string): string {
-    if(inputID !== ''){
-    const match = this.charData.find(item => item.ID === inputID);
-    return match ? (match.Image2 ? match.Image2 : "none") : "none";
-    }else{
+    if (inputID !== '') {
+      const match = this.charData.find(item => item.ID === inputID);
+      return match ? (match.Image2 ? match.Image2 : "none") : "none";
+    } else {
       return ''
     }
   }
@@ -1157,34 +1201,39 @@ export class App implements OnInit, AfterViewInit {
 
   getIDForName(inputName: string): string {
     const match = this.charData.find(item => item.Name === inputName);
-    
+
     return match ? match.ID : "none";
+  }
+
+  getTeamForID(inputID: string): string {
+    const match = this.charData.find(item => item.ID === inputID);
+    return match ? match.Team : '';
   }
 
   getProxyForName(inputName: string): string {
     const match = this.playablecharacters.find(item => item.Name === inputName);
-    return match ? (match.Proxy ? match.Proxy: ''): '';
+    return match ? (match.Proxy ? match.Proxy : '') : '';
   }
 
-  setProxy(){
+  setProxy() {
     this.proxiesExist = false
     this.proxies = []
-     for (let i = 0; i < this.playablecharacters.length; i++){
-        this.playablecharacters[i].Proxy = this.playablecharacters[i].ProxyInput?.toLowerCase().replace(" ","").replace("-","")
+    for (let i = 0; i < this.playablecharacters.length; i++) {
+      this.playablecharacters[i].Proxy = this.playablecharacters[i].ProxyInput?.toLowerCase().replace(" ", "").replace("-", "")
 
-        let out = this.playablecharacters[i].Proxy ?? ''
+      let out = this.playablecharacters[i].Proxy ?? ''
 
-        if(this.getNameForID(out) == 'none'){
-          this.playablecharacters[i].Proxy = ''
-        }else{
-          this.proxiesExist = true
+      if (this.getNameForID(out) == 'none') {
+        this.playablecharacters[i].Proxy = ''
+      } else {
+        this.proxiesExist = true
 
-          this.proxies.push(this.playablecharacters[i])
-        }
+        this.proxies.push(this.playablecharacters[i])
+      }
 
-     }
+    }
 
-     this.proxies = this.reorderForColumns(this.proxies) 
+    this.proxies = this.reorderForColumns(this.proxies)
   }
 
 

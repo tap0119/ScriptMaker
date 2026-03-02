@@ -750,8 +750,8 @@ export class App implements OnInit, AfterViewInit {
             Name: this.hbchar.name,
             Ability: this.hbchar.ability,
             Team: this.hbchar.team,
-            Image: this.hbchar.image,
-            Image2: this.hbchar.image,
+            Image: this.hbchar.image[0],
+            Image2: this.hbchar.image[0],
           });
 
           this.characters.push(this.hbchar.id)

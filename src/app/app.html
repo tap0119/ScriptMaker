@@ -274,7 +274,21 @@
               </select>
 
             </div>
-          </div>
+          
+            @if(hbexists){
+
+            <div class="col-5 mt-1">
+              <label class="form-check-label fs-4 mt-2" for="showBoot">Homebrew Mark:</label>
+            </div>
+            <div class="col-7 mt-1">
+
+              <textarea rows="1" class="form-control fs-4" (input)='create()' [(ngModel)]="hbmark"></textarea>
+
+
+            </div>
+          }
+        
+        </div>
 
 
           <div class="col">

@@ -53,6 +53,9 @@ export class App implements OnInit, AfterViewInit {
   stormcaught: string = 'none';
   stormcaughtOld: any;
   hbchar: any;
+  hbimage: any;
+  hbexists: boolean = false
+  hbmark:any;
   showBoot: string = 'none';
   showDjinn: boolean = false;
   rows: any;
@@ -363,12 +366,20 @@ export class App implements OnInit, AfterViewInit {
       const clipboard = await navigator.clipboard.readText();
       this.jsonInput = clipboard;
       this.cd.detectChanges();
-      this.create();
+
 
 
       this.dontShowJinxes = []
       this.stormcaught = 'none'
       this.stormcaughtName = 'none'
+      this.hbexists = false
+      this.hbmark = ''
+
+      this.create();
+      
+
+    
+
 
     } catch (err) {
       console.error('Failed to read clipboard:', err);
@@ -388,6 +399,12 @@ export class App implements OnInit, AfterViewInit {
     const reader = new FileReader();
 
     reader.onload = () => {
+          this.dontShowJinxes = []
+    this.stormcaught = 'none'
+    this.stormcaughtName = 'none'
+    this.hbexists = false
+    this.hbmark = ''
+
       this.jsonInput = ''
       this.jsonInput = reader.result as string;
       try {
@@ -398,9 +415,7 @@ export class App implements OnInit, AfterViewInit {
       }
     };
 
-    this.dontShowJinxes = []
-    this.stormcaught = 'none'
-    this.stormcaughtName = 'none'
+
     reader.readAsText(file);
 
   }
@@ -722,6 +737,7 @@ export class App implements OnInit, AfterViewInit {
     //-----------------------------
     //Characters
     this.characters = []
+    
 
     for (let i = 1; i < this.fullJsonSplit.length; i++) {
 
@@ -729,11 +745,25 @@ export class App implements OnInit, AfterViewInit {
       //if json item has id 
       if (this.fullJsonSplit[i].id) {
 
-        //if id is an official character
+        //if id is already in array
         if (this.charData.find(innerArray =>
-          innerArray.ID === this.fullJsonSplit[i].id)) {
+          innerArray.Ability === this.fullJsonSplit[i].ability)) {
 
           this.characters.push(this.fullJsonSplit[i].id)
+
+          if(this.fullJsonSplit[i].name){
+            let char = this.charData.find(inner =>
+              inner.ID === this.fullJsonSplit[i].id
+            )
+            if(char){
+              char.Name = this.fullJsonSplit[i].name + " " + this.hbmark
+
+              this.hbexists = true
+
+            }
+            
+
+          }
 
           //if hb character
         } else {
@@ -744,12 +774,13 @@ export class App implements OnInit, AfterViewInit {
             this.hbchar.team = 'traveller'
           }
 		
-		let hbimage = ''
-	if(this.hbchar.image[0]){
-		hbimage= this.hbchar.image[0]
-	}else{
-		hbimage = this.hbchar.image
-	}
+
+          if(this.hbchar.image instanceof Array){
+            this.hbimage = this.hbchar.image[0]
+          }else{
+            this.hbimage = this.hbchar.image
+          }
+
 
           //add hb char to charData and characters array
           this.charData.push({
@@ -757,8 +788,8 @@ export class App implements OnInit, AfterViewInit {
             Name: this.hbchar.name,
             Ability: this.hbchar.ability,
             Team: this.hbchar.team,
-            Image: hbimage,
-            Image2: hbimage,
+            Image: this.hbimage,
+            Image2: this.hbimage,
           });
 
           this.characters.push(this.hbchar.id)
@@ -774,6 +805,7 @@ export class App implements OnInit, AfterViewInit {
                 }
               )
             }
+
           }
           //add to night order
 
@@ -793,6 +825,8 @@ export class App implements OnInit, AfterViewInit {
               otherNights: this.hbchar.id
             })
           }
+
+          this.hbexists = true;
         }
 
         //if split does not have id add to characters
@@ -802,6 +836,9 @@ export class App implements OnInit, AfterViewInit {
 
         this.characters.push(char)
       }
+    }
+    if(this.hbmark != '' && this.hbexists){
+      this.bootlegger.push("This script features homebrew characters marked with " + this.hbmark)
     }
     this.stormcaughtUpdate()
 

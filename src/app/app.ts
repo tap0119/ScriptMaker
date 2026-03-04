@@ -55,7 +55,7 @@ export class App implements OnInit, AfterViewInit {
   hbchar: any;
   hbimage: any;
   hbexists: boolean = false
-  hbmark: any;
+  hbmark: string = '';
   showBoot: string = 'none';
   showDjinn: boolean = false;
   rows: any;
@@ -820,7 +820,7 @@ loadJson(){
             }
 
             //if hbmark is already set
-            if (this.hbmark != '') {
+            if (this.hbmark !== '') {
               this.hbchar.name = this.hbchar.name + " " + this.hbmark
             }
 
@@ -880,9 +880,17 @@ loadJson(){
         this.characters.push(char)
       }
     }
-    if (this.hbmark != '' && this.hbexists) {
+
+    let index = this.bootlegger.indexOf("This script features homebrew characters marked with " + this.hbmark);
+
+      if (index !== -1) {
+        this.bootlegger.splice(index, 1);
+      }
+    
+    if (this.hbmark !== '' && this.hbexists) {
       this.bootlegger.push("This script features homebrew characters marked with " + this.hbmark)
     }
+    
     this.stormcaughtUpdate()
 
 
@@ -1178,6 +1186,19 @@ loadJson(){
         ', and ' +
         hiddenJinxes[hiddenJinxes.length - 1];
     }
+
+    let index = this.bootlegger.indexOf(this.hiddenJinxesString = "Do not use the " + this.hiddenJinxesString + " jinx.");
+
+      if (index !== -1) {
+        this.bootlegger.splice(index, 1);
+      }
+
+      let index2 = this.bootlegger.indexOf(this.hiddenJinxesString = "Do not use the " + this.hiddenJinxesString + " jinxes.");
+
+      if (index !== -1) {
+        this.bootlegger.splice(index2, 1);
+      }
+
 
     if (this.dontShowJinxes.length > 1 && this.addBootRule) {
       this.hiddenJinxesString = "Do not use the " + this.hiddenJinxesString + " jinxes."

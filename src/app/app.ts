@@ -1430,110 +1430,208 @@ loadJson(){
   saveParams(){
     if(this.imageSelection !== 'SVG'){
       this.fullJsonSplit[0]["imageSelection"] = this.imageSelection
+    }else{
+            delete this.fullJsonSplit[0]["imageSelection"] 
     }
 
     //font name only for refrence, not saved with json
     if(this.fontName){
       this.fullJsonSplit[0]["fontName"] = this.fontName
+    }else{
+      delete this.fullJsonSplit[0]["fontName"]
     }
+
     if(this.scriptFontSizeInput !== 34){
       this.fullJsonSplit[0]["scriptFontSizeInput"] = this.scriptFontSizeInput
+    }else{
+      delete this.fullJsonSplit[0]["scriptFontSizeInput"] 
     }
+
     if(this.authorFontSizeInput !== 17){
       this.fullJsonSplit[0]["authorFontSizeInput"] = this.authorFontSizeInput
+    }else{
+      delete this.fullJsonSplit[0]["authorFontSizeInput"]
     }
+
     if(this.authorOffsetInput !== 10){
       this.fullJsonSplit[0]["authorOffsetInput"] = this.authorOffsetInput
+    }else{
+      delete this.fullJsonSplit[0]["authorOffsetInput"] 
     }
+
+
     if(this.centerTitle !== false){
       this.fullJsonSplit[0]["centerTitle"] = this.centerTitle
+    }else{
+      delete this.fullJsonSplit[0]["centerTitle"]
     }
+
     if(this.lowAuthor !== false){ 
       this.fullJsonSplit[0]["lowAuthor"] = this.lowAuthor
+    }else{
+      delete this.fullJsonSplit[0]["lowAuthor"]
     }
+
     if(this.italicAuthor !== false){ 
       this.fullJsonSplit[0]["italicAuthor"] = this.italicAuthor
+    }else{
+      delete this.fullJsonSplit[0]["italicAuthor"] 
     }
+
     if(this.titleFont !== true){ 
       this.fullJsonSplit[0]["titleFont"] = this.titleFont;
+    }else{
+      delete this.fullJsonSplit[0]["titleFont"] 
     }
+
     if(this.authorFont !== true){
       this.fullJsonSplit[0]["authorFont"] = this.authorFont;
+    }else{
+      delete this.fullJsonSplit[0]["authorFont"] 
     }
+
     if(this.charFont !== false){
       this.fullJsonSplit[0]["charFont"] = this.charFont;
+    }else{
+      delete this.fullJsonSplit[0]["charFont"] 
     }
+
     if(this.npcFont !== false){
       this.fullJsonSplit[0]["npcFont"] = this.npcFont;
+    }else{
+      delete this.fullJsonSplit[0]["npcFont"] 
     }
 
     if(this.stormcaughtName !== 'none'){
       this.fullJsonSplit[0]["stormcaughtName"] = this.stormcaughtName;
+    }else{
+      delete this.fullJsonSplit[0]["stormcaughtName"] 
     }
+
     if(this.showBoot !== 'none'){
       this.fullJsonSplit[0]["showBoot"] = this.showBoot;
+    }else{
+      delete this.fullJsonSplit[0]["showBoot"] 
     }
+    
     if(this.hbmark !== ''){
       this.fullJsonSplit[0]["hbmark"] = this.hbmark;
+    }else{
+      delete this.fullJsonSplit[0]["hbmark"] 
     }
+
     if(this.showDjinn !== false){
       this.fullJsonSplit[0]["showDjinn"] = this.showDjinn;
+    }else{
+      delete this.fullJsonSplit[0]["showDjinn"] 
     }
+
     if(this.showNpcNames !== true){
       this.fullJsonSplit[0]["showNpcNames"] = this.showNpcNames;
+    }else{
+      delete this.fullJsonSplit[0]["showNpcNames"] 
     }
+
     if(this.invertOther !== false){
       this.fullJsonSplit[0]["invertOther"] = this.invertOther;
+    }else{
+      delete this.fullJsonSplit[0]["invertOther"] 
     }
+    
     if(this.showPlayerCount !== true){  
       this.fullJsonSplit[0]["showPlayerCount"] = this.showPlayerCount;
+    }else{
+      delete this.fullJsonSplit[0]["showPlayerCount"] 
     }
+
     if(this.showCharBottom !== true){
       this.fullJsonSplit[0]["showCharBottom"] = this.showCharBottom;
+    }else{
+      delete this.fullJsonSplit[0]["showCharBottom"]
     }
+
     if(this.iconsAbove !== true){
       this.fullJsonSplit[0]["iconsAbove"] = this.iconsAbove;
+    }else{
+      delete this.fullJsonSplit[0]["iconsAbove"] 
     }
     
     if(this.scriptNameColor !== '#800000'){
       this.fullJsonSplit[0]["scriptNameColor"] = this.scriptNameColor;
+    }else{
+      delete this.fullJsonSplit[0]["scriptNameColor"] 
     }
+
     if(this.divTopColor !== '#000000'){
       this.fullJsonSplit[0]["divTopColor"] = this.divTopColor;
+    }else{
+      delete this.fullJsonSplit[0]["divTopColor"] 
     }
+
     if(this.divBottomColor !== '#000000'){
       this.fullJsonSplit[0]["divBottomColor"] = this.divBottomColor;
+    }else{
+      delete this.fullJsonSplit[0]["divBottomColor"] 
     }
+
     if(this.goodCharColor !== '#0b6aaf'){
       this.fullJsonSplit[0]["goodCharColor"] = this.goodCharColor;
+    }else{
+      delete this.fullJsonSplit[0]["goodCharColor"] 
     }
+    
     if(this.evilCharColor !== '#760A0D'){
       this.fullJsonSplit[0]["evilCharColor"] = this.evilCharColor;
+    }else{
+            delete this.fullJsonSplit[0]["evilCharColor"] 
     }
+    
     if(this.goodAbilityColor !== '#000000'){
       this.fullJsonSplit[0]["goodAbilityColor"] = this.goodAbilityColor;
+    }else{
+            delete this.fullJsonSplit[0]["goodAbilityColor"] 
     }
+
     if(this.evilAbilityColor !== '#000000'){
       this.fullJsonSplit[0]["evilAbilityColor"] = this.evilAbilityColor;
+    }else{
+            delete this.fullJsonSplit[0]["evilAbilityColor"] 
     }
+    
     if(this.fabledColor !== '#7a6550'){
       this.fullJsonSplit[0]["fabledColor"] = this.fabledColor;
+    }else{
+            delete this.fullJsonSplit[0]["fabledColor"] 
     }
+
     if(this.loricColor !== '#6f854d'){
       this.fullJsonSplit[0]["loricColor"] = this.loricColor;
+    }else{
+            delete this.fullJsonSplit[0]["loricColor"] 
     }
+
     if(this.travColor !== '#500050'){
       this.fullJsonSplit[0]["travColor"] = this.travColor;
+    }else{
+            delete this.fullJsonSplit[0]["travColor"] 
     }
 
     if(this.addBootRule !== true){
       this.fullJsonSplit[0]["addBootRule"] = this.addBootRule;
+    }else{
+            delete this.fullJsonSplit[0]["addBootRule"] 
     }
+
     if(this.dontShowJinxes.length > 0 ){
       this.fullJsonSplit[0]["dontShowJinxes"] = this.dontShowJinxes
+    }else{
+            delete this.fullJsonSplit[0]["dontShowJinxes"] 
     }
+    
     if(this.proxiesExist){
       this.fullJsonSplit[0]["proxies"] = this.proxies
+    }else{
+            delete this.fullJsonSplit[0]["proxies"] 
     }
 
   }

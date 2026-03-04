@@ -41,6 +41,8 @@ For any feedback or questions, contact @Thomas04 on the Unoffical BOTC discord.
 
 * Dynamically adjust for teensyville or 25+ character scripts
 
+* Save and load the current options selected with the script json. This will save all the options you have changed, except for the custom character image link. If you uploaded a custom font, the font name will be saved for reference. The json will still work the same if uploaded into the official script tool or online apps.  
+
 ## Screenshots 
 <img src="./public/screenshots/1.png" width="500">
 <img src="./public/screenshots/2.png" width="500">

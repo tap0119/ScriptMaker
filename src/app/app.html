@@ -1040,10 +1040,10 @@
             </div>
           </div>
           @if(proxies.length > 1){
-          <div class="proxyGrid" style="padding-bottom: 25px; padding-left:12px;">
+          <div class="proxyGrid w-100" style="padding-bottom: 25px;position: relative; left:35px;">
             @for(char of proxies; track char){
             
-            <div style="padding-left: 5px; position: relative; top:10px">
+            <div style="padding-left: -10px; position: relative; top:10px; margin: 0px -10px 0px -10px">
               <b style="padding-right: -5px; position: relative; bottom:25px;"></b>
               <p> </p>
               <div class="bootleggerRule" style="  display: flex; flex-direction:row;">
@@ -1053,7 +1053,7 @@
                     {{char.Name}}
                   </b>
                 </div>
-                <div style="padding-left:5px"> > </div>
+                <div style="padding-right:0px; padding-left:8px"> → </div>
                 <div>
                   <b>
                     <img src="{{getImageForID(char.Proxy)}}" (error)="onImageError($event,char.Proxy)" class="jinxIcon">

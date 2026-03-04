@@ -55,7 +55,7 @@ export class App implements OnInit, AfterViewInit {
   hbchar: any;
   hbimage: any;
   hbexists: boolean = false
-  hbmark:any;
+  hbmark: any;
   showBoot: string = 'none';
   showDjinn: boolean = false;
   rows: any;
@@ -66,6 +66,10 @@ export class App implements OnInit, AfterViewInit {
   invertOther: boolean = false;
   showPlayerCount: boolean = true;
   showCharBottom: boolean = true;
+  iconsAbove: boolean = true
+  offsetPlayerCount: string = ''
+  offsetCharBottom: string = ''
+
   showNpcNames: boolean = true;
   jsonError: boolean = false;
 
@@ -100,7 +104,7 @@ export class App implements OnInit, AfterViewInit {
 
   centerTitle: boolean = false
   lowAuthor: boolean = false
-  titleWidth: string ='auto'
+  titleWidth: string = 'auto'
 
   abilityLineHeight: string = '1.2';
   italicAuthor: boolean = false;
@@ -253,7 +257,7 @@ export class App implements OnInit, AfterViewInit {
       Image2: char.Image
     }));
 
-
+    this.toggleFun(this.expandJson, this, 'expandJsonToggle')
     this.toggleFun(this.expandImages, this, 'expandImagesToggle')
     this.toggleFun(this.expandFont, this, 'expandFontToggle')
     this.toggleFun(this.expandOptions, this, 'expandOptionsToggle')
@@ -314,6 +318,13 @@ export class App implements OnInit, AfterViewInit {
     obj[toggle] = bool ? '▵' : '▿';
   }
 
+  expandJson: boolean = false;
+  expandJsonToggle = ''
+  expandJsonFun() {
+    this.expandJson = !this.expandJson
+    this.toggleFun(this.expandJson, this, 'expandJsonToggle')
+  }
+
   expandImages: boolean = false;
   expandImagesToggle = ''
   expandImagesFun() {
@@ -362,28 +373,20 @@ export class App implements OnInit, AfterViewInit {
   //File input
   //-------------------------
   async paste() {
-    try {
-      const clipboard = await navigator.clipboard.readText();
-      this.jsonInput = clipboard;
-      this.cd.detectChanges();
+    const clipboard = await navigator.clipboard.readText();
+    this.jsonInput = clipboard;
+    this.cd.detectChanges();
 
 
 
-      this.dontShowJinxes = []
-      this.stormcaught = 'none'
-      this.stormcaughtName = 'none'
-      this.hbexists = false
-      //this.hbmark = ''
+    this.dontShowJinxes = []
+    this.stormcaught = 'none'
+    this.stormcaughtName = 'none'
+    this.hbexists = false
+    //this.hbmark = ''
 
-      this.create();
-      
+    this.create();
 
-    
-
-
-    } catch (err) {
-      console.error('Failed to read clipboard:', err);
-    }
   }
 
 
@@ -399,11 +402,11 @@ export class App implements OnInit, AfterViewInit {
     const reader = new FileReader();
 
     reader.onload = () => {
-          this.dontShowJinxes = []
-    this.stormcaught = 'none'
-    this.stormcaughtName = 'none'
-    this.hbexists = false
-    //this.hbmark = ''
+      this.dontShowJinxes = []
+      this.stormcaught = 'none'
+      this.stormcaughtName = 'none'
+      this.hbexists = false
+      //this.hbmark = ''
 
       this.jsonInput = ''
       this.jsonInput = reader.result as string;
@@ -533,51 +536,51 @@ export class App implements OnInit, AfterViewInit {
 
   onImageError(event: Event, ID: string | undefined) {
     const img = event.target as HTMLImageElement;
-    if(ID){
-      
-    fetch(this.getImage2ForID(ID), { method: 'GET' })
-      .then(res => {
-        img.src = this.getImage2ForID(ID)
-      })
-      .catch(() => {
-        //fallback images
-        if (this.imageSelection == 'PNG') {
+    if (ID) {
 
-          if (this.getTeamForID(ID) == 'townsfolk' || this.getTeamForID(ID) == 'outsider') {
-            img.src = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/PNG/townsfolk.png'
-          
-          } else if (this.getTeamForID(ID) == 'minion' || this.getTeamForID(ID) == 'demon') {
-            img.src = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/PNG/demon.png'
+      fetch(this.getImage2ForID(ID), { method: 'GET' })
+        .then(res => {
+          img.src = this.getImage2ForID(ID)
+        })
+        .catch(() => {
+          //fallback images
+          if (this.imageSelection == 'PNG') {
 
-          } else if (this.getTeamForID(ID) == 'fabled') {
-            img.src = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/PNG/fabled.png'
-          
-          } else if (this.getTeamForID(ID) == 'loric') {
-            img.src = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/PNG/loric.png'
-          
+            if (this.getTeamForID(ID) == 'townsfolk' || this.getTeamForID(ID) == 'outsider') {
+              img.src = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/PNG/townsfolk.png'
+
+            } else if (this.getTeamForID(ID) == 'minion' || this.getTeamForID(ID) == 'demon') {
+              img.src = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/PNG/demon.png'
+
+            } else if (this.getTeamForID(ID) == 'fabled') {
+              img.src = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/PNG/fabled.png'
+
+            } else if (this.getTeamForID(ID) == 'loric') {
+              img.src = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/PNG/loric.png'
+
+            } else {
+              img.src = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/PNG/traveller.png'
+            }
           } else {
-            img.src = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/PNG/traveller.png'
-          }
-        } else {
-          if (this.getTeamForID(ID) == 'townsfolk' || this.getTeamForID(ID) == 'outsider') {
-            img.src = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/SVG/townsfolk.svg'
+            if (this.getTeamForID(ID) == 'townsfolk' || this.getTeamForID(ID) == 'outsider') {
+              img.src = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/SVG/townsfolk.svg'
 
-          } else if (this.getTeamForID(ID) == 'minion' || this.getTeamForID(ID) == 'demon') {
-            img.src = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/SVG/demon.svg'
+            } else if (this.getTeamForID(ID) == 'minion' || this.getTeamForID(ID) == 'demon') {
+              img.src = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/SVG/demon.svg'
 
-          } else if (this.getTeamForID(ID) == 'fabled') {
-            img.src = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/SVG/fabled.svg'
+            } else if (this.getTeamForID(ID) == 'fabled') {
+              img.src = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/SVG/fabled.svg'
 
-          } else if (this.getTeamForID(ID) == 'loric') {
-            img.src = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/SVG/loric.svg'
-          
-          } else {
-            img.src = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/SVG/traveller.svg'
-          }
-        }//end of else
-      }//end of catch output
-    )//end of catch
-  }
+            } else if (this.getTeamForID(ID) == 'loric') {
+              img.src = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/SVG/loric.svg'
+
+            } else {
+              img.src = 'https://raw.githubusercontent.com/tomozbot/botc-icons/refs/heads/main/SVG/traveller.svg'
+            }
+          }//end of else
+        }//end of catch output
+        )//end of catch
+    }
   }
 
 
@@ -687,6 +690,8 @@ export class App implements OnInit, AfterViewInit {
 
     } catch (error) {
       this.jsonError = true
+      this.cd.detectChanges();
+      return
     }
 
     //Set fonts
@@ -738,7 +743,7 @@ export class App implements OnInit, AfterViewInit {
     //-----------------------------
     //Characters
     this.characters = []
-    
+
 
     for (let i = 1; i < this.fullJsonSplit.length; i++) {
 
@@ -752,17 +757,17 @@ export class App implements OnInit, AfterViewInit {
 
           this.characters.push(this.fullJsonSplit[i].id)
 
-          if(this.fullJsonSplit[i].name){
+          if (this.fullJsonSplit[i].name) {
             let char = this.charData.find(inner =>
               inner.ID === this.fullJsonSplit[i].id
             )
-            if(char){
+            if (char) {
               char.Name = this.fullJsonSplit[i].name + " " + this.hbmark
 
               this.hbexists = true
 
             }
-            
+
 
           }
 
@@ -774,22 +779,22 @@ export class App implements OnInit, AfterViewInit {
           this.characters.push(this.hbchar.id)
 
           // if HB char, json split has id and ability
-          if(this.hbchar.ability){
+          if (this.hbchar.ability) {
 
             //fix if team is misspelled
             if (this.hbchar.team == 'traveler') {
               this.hbchar.team = 'traveller'
             }
-      
+
             //set image, if more than one choose the first
-            if(this.hbchar.image instanceof Array){
+            if (this.hbchar.image instanceof Array) {
               this.hbimage = this.hbchar.image[0]
-            }else{
+            } else {
               this.hbimage = this.hbchar.image
             }
 
             //if hbmark is already set
-            if(this.hbmark != ''){
+            if (this.hbmark != '') {
               this.hbchar.name = this.hbchar.name + " " + this.hbmark
             }
 
@@ -803,7 +808,7 @@ export class App implements OnInit, AfterViewInit {
               Image2: this.hbimage,
             });
 
-            
+
 
             //add hb jinxes to jinxData
             if (this.hbchar.jinxes) {
@@ -839,7 +844,7 @@ export class App implements OnInit, AfterViewInit {
 
             this.hbexists = true;
           }
-      }
+        }
 
         //if split does not have id add to characters
       } else if (this.fullJsonSplit[i]) {
@@ -849,7 +854,7 @@ export class App implements OnInit, AfterViewInit {
         this.characters.push(char)
       }
     }
-    if(this.hbmark != '' && this.hbexists){
+    if (this.hbmark != '' && this.hbexists) {
       this.bootlegger.push("This script features homebrew characters marked with " + this.hbmark)
     }
     this.stormcaughtUpdate()
@@ -1207,6 +1212,14 @@ export class App implements OnInit, AfterViewInit {
       this.titleOffset = '0px'
       this.authorLowOffset = '10px'
       this.titleWidth = 'auto'
+    }
+
+    if (this.iconsAbove && this.showPlayerCount) {
+      this.offsetPlayerCount = '-28px'
+      this.offsetCharBottom = '162px'
+    } else {
+      this.offsetPlayerCount = '5px'
+      this.offsetCharBottom = '-28px'
     }
 
 

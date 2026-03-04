@@ -16,13 +16,8 @@
               </h1>
             </div>
           </div>
-          <div class="row">
-            <div class="col-12 mb-3">
-              <h5 class="card-title fs-3">Input JSON</h5>
-            </div>
-          </div>
 
-          <div class="row">
+          <div class="row mt-3">
             <div class="d-flex flex-row">
 
               <div class="col-4">
@@ -41,13 +36,21 @@
               </div>
 
             </div>
+            <div class="row mb-2">
+              
+            <div class="col-12">
+              <h5 class="card-title fs-3" (click)="expandJsonFun()">{{expandJsonToggle}} JSON</h5>
+            </div>
+          </div>
+            @if(expandJson){
             <div class="flex-row">
               <div class="col">
-                <textarea type="text" class="form-control fs-6" [(ngModel)]="jsonInput" (ngModelChange)="create()"
-                  rows="4" cols="100" placeholder=""></textarea>
+                <textarea type="text" class="form-control fs-5" [(ngModel)]="jsonInput" (ngModelChange)="create()"
+                  rows="5" cols="100" placeholder=""></textarea>
               </div>
-
+            
             </div>
+          }
           </div>
 
 
@@ -61,12 +64,12 @@
 
 
           <!-------------------->
-          <img src="divider.png" style="height:1px; width:100%" class="mt-3">
+          <img src="divider.png" style="height:1px; width:100%">
 
 
-          <div class="row mt-4">
+          <div class="row mt-2 mb-2">
             <div class="col">
-              <h5 class="card-title fs-3 mb-3" (click)="expandImagesFun()">{{expandImagesToggle}} Images </h5>
+              <h5 class="card-title fs-3" (click)="expandImagesFun()">{{expandImagesToggle}} Images </h5>
             </div>
           </div>
           @if(expandImages){
@@ -101,12 +104,12 @@
           </div>
           }
           }
-          <img src="divider.png" style="height:1px; width:100%" class="mt-3">
+          <img src="divider.png" style="height:1px; width:100%">
 
 
-          <div class="row mt-4">
+          <div class="row mt-2 mb-2">
             <div class="col">
-              <h5 class="card-title fs-3 mb-3" (click)="expandFontFun()">{{expandFontToggle}} Font</h5>
+              <h5 class="card-title fs-3" (click)="expandFontFun()">{{expandFontToggle}} Font</h5>
             </div>
           </div>
           @if(expandFont){
@@ -237,7 +240,7 @@
           <!--------------Options-->
           <img src="divider.png" style="height:1px; width:100%">
 
-          <div class="row mt-4 mb-3">
+          <div class="row mt-2 mb-2">
             <div class="col">
               <h5 class="card-title fs-3" (click)="expandOptionsFun()">{{expandOptionsToggle}} Options</h5>
             </div>
@@ -319,23 +322,30 @@
             <div class="form-check form-switch ps-5 mt-3">
               <input class="form-check-input fs-5" type="checkbox" id="invertOtherNight" [(ngModel)]="showPlayerCount"
                 (ngModelChange)="create()">
-              <label class="form-check-label fs-4" for="showPlayerCount">Show player count</label>
+              <label class="form-check-label fs-4" for="showPlayerCount">Show player count on 2nd page</label>
             </div>
           </div>
 
           <div class="col">
             <div class="form-check form-switch ps-5 mt-3">
-              <input class="form-check-input fs-5" type="checkbox" id="invertOtherNight" [(ngModel)]="showCharBottom"
+              <input class="form-check-input fs-5" type="checkbox" id="showPlayerCount" [(ngModel)]="showCharBottom"
                 (ngModelChange)="create()">
-              <label class="form-check-label fs-4" for="showPlayerCount">Show character icons on bottom of 2nd
-                page</label>
+              <label class="form-check-label fs-4" for="showPlayerCount">Show icon row on 2nd page</label>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="form-check form-switch ps-5 mt-3">
+              <input class="form-check-input fs-5" type="checkbox" id="iconsAbove" [(ngModel)]="iconsAbove"
+                (ngModelChange)="create()">
+              <label class="form-check-label fs-4" for="iconsAbove">Icon row above player count</label>
             </div>
           </div>
           }
 
           <!------------------------------->
-          <img src="divider.png" style="height:1px; width:100%" class="mt-3">
-          <div class="row mt-4 mb-3">
+          <img src="divider.png" style="height:1px; width:100%">
+          <div class="row mt-2 mb-2">
             <div class="col">
               <h5 class="card-title fs-3" (click)="expandColorsFun()">{{expandColorsToggle}} Colors</h5>
             </div>
@@ -495,8 +505,8 @@
 
 
           @if(allJinxes.length >= 1){
-          <img src="divider.png" style="height:1px; width:100%" class="mt-3 mb-3">
-          <div class="row mt-3 mb-2">
+          <img src="divider.png" style="height:1px; width:100%">
+          <div class="row mb-2 mt-2">
 
             <div class="col">
               <h5 class="card-title fs-3" (click)="expandJinxFun()">{{expandJinxToggle}} Hide Jinxes</h5>
@@ -528,8 +538,8 @@
           }
           }
 
-                    <img src="divider.png" style="height:1px; width:100%" class="mt-3 mb-3">
-          <div class="row mt-3 mb-2">
+                    <img src="divider.png" style="height:1px; width:100%">
+          <div class="row mb-2 mt-2">
 
             <div class="col">
               <h5 class="card-title fs-3" (click)="expandProxyFun()">{{expandProxyToggle}} Set Proxy Tokens</h5>
@@ -548,15 +558,15 @@
           }
         }
 
-          <img src="divider.png" style="height:1px; width:100%" class="mt-4 mb-4">
-          <div class="row mt-3">
+          <img src="divider.png" style="height:1px; width:100%">
+          <div class="row mt-4 mb-2">
             <div class="col">
               <button class="btn btn-lg btn-dark w-100" (click)="reset()">Reset Options</button>
             </div>
 
           </div>
 
-          <div class="col-12 mt-5">
+          <div class="col-12 mt-4">
             <div class="alert alert-secondary" role="alert">
               PDF Preview may not be fully accurate, click the Save & Print Button to view the final version. Print
               with
@@ -595,14 +605,14 @@
         </div>
 
         }
-
+        
         <!----------Print--------------------------------------------------------->
 
         <div id="print-section">
 
           <!---- Page 1 --->
           <div class="print-page">
-            @if(jsonInput){
+            @if(jsonInput && !jsonError){
             <div class="page1">
 
               <div class="page1header">
@@ -984,7 +994,7 @@
       <!----Page 2 -->
       <div class="print-page">
 
-        @if(jsonInput){
+        @if(jsonInput && !jsonError){
 
         <!---- First Night -->
         <div class="nightOrderFirst" style="float:left">
@@ -1214,10 +1224,12 @@
 
 
             @if(showPlayerCount){
-            <img class="playerCountImage" src=playercount.png>
+            <img class="playerCountImage" 
+            [style.bottom] = 'offsetPlayerCount'
+            src=playercount.png>
             }
             @if(showCharBottom){
-            <div class="footer2">
+            <div class="footer2" [style.bottom]="offsetCharBottom">
               <div class="charImageContainerBottom">
                 @for(char of townsfolk; track char){
                 <img src={{char.Image}} class="charImageBottom" (error)="onImageError($event,char.ID)">

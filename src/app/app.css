@@ -662,7 +662,6 @@ input[type=number]::-webkit-outer-spin-button {
 .playerCountImage {
   width: 620px;
   position: absolute;
-  bottom: 5px;
   left: 0px;
 }
 

@@ -800,6 +800,9 @@
     (load)="updateCSS()">
 </div>
   }
+  @if(!(showLogo && logo !== "")){
+    <img #LogoElement>
+  }
 
   <div
     class="d-flex"

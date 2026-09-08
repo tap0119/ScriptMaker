@@ -128,6 +128,8 @@ export class App implements OnInit, AfterViewInit, AfterViewChecked {
 
   logo: string = ""
   showLogo: boolean = true;
+  logoHeight: string = ""
+
 
 
 
@@ -174,6 +176,10 @@ export class App implements OnInit, AfterViewInit, AfterViewChecked {
   // Index = position within the shorter column (0-based).
   townsfolkShortColumnOffsets: number[] = []
   private townsfolkSpacingDirty = false
+  // Tracks the townsfolk composition + column arrangement that the
+  // current townsfolkShortColumnOffsets were computed for, so create()
+  // can skip re-clearing/recomputing them when neither has changed.
+  private townsfolkSpacingKey = ''
 
   @ViewChildren('townsfolkRow') townsfolkRowRefs!: QueryList<ElementRef>
 
@@ -208,11 +214,11 @@ export class App implements OnInit, AfterViewInit, AfterViewChecked {
 
   private recomputeTownsfolkSpacing() {
     const n = this.townsfolk.length
-    const uneven = n % 2 === 1 && n > 5
+    const uneven = n % 2 === 1
 
     if (!uneven || !this.townsfolkRowRefs || this.townsfolkRowRefs.length !== n) {
       if (this.townsfolkShortColumnOffsets.length) {
-        this.townsfolkShortColumnOffsets = []
+        //this.townsfolkShortColumnOffsets = []
         this.cd.detectChanges()
       }
       return
@@ -923,6 +929,9 @@ loadJson(){
   create() {
     this.loadJson()
 
+    //size logo
+    this.logoHeight = (this.lowAuthor ? (this.scriptFontSizeInput * 1.6) + (this.authorFontSizeInput * 1.6): (this.scriptFontSizeInput * 1.6) ) + 'px'
+
     if(this.fullJsonSplit[0].logo){
       this.logo = this.fullJsonSplit[0].logo
     }else{
@@ -1115,8 +1124,21 @@ loadJson(){
     this.townsfolk = this.setcharacters(this.townsfolk, "townsfolk")
 
     this.townsfolkPage1 = this.reorderTownsfolkForColumns(this.townsfolk)
-    this.townsfolkShortColumnOffsets = []
-    this.townsfolkSpacingDirty = true
+
+    // Only wipe/recompute the short-column offsets when the townsfolk
+    // set (or the column arrangement) actually changed. create() runs
+    // on almost every settings update (e.g. title height), so
+    // unconditionally clearing the offsets here caused the shorter
+    // column to visibly snap back to 0 and then jitter into place a
+    // tick later even when townsfolk hadn't changed at all.
+    const townsfolkSpacingKey =
+      this.townsfolk.map(c => c.ID).join(',') + '|' + this.townsfolkLastOnRight
+
+    if (townsfolkSpacingKey !== this.townsfolkSpacingKey) {
+      this.townsfolkSpacingKey = townsfolkSpacingKey
+      this.townsfolkShortColumnOffsets = []
+      this.townsfolkSpacingDirty = true
+    }
 
 
     //get list of outsiders
@@ -1509,6 +1531,7 @@ loadJson(){
       this.invertOtherDeg = "rotate(180deg)"
     }
 
+    
     //if title is centered
 if (this.centerTitle && this.TitleElement) {
 
@@ -1526,14 +1549,14 @@ if (this.centerTitle && this.TitleElement) {
 } else {
 
   this.titleOffset =
-    (this.showLogo
-      ? this.LogoElement.nativeElement.offsetWidth + 15
-      : 0) + 'px';
+   (this.showLogo
+     ? this.LogoElement.nativeElement.offsetWidth + 5
+     : 0) + 'px';
 
-  this.authorLowOffset =    
-    (this.showLogo
-        ? this.LogoElement.nativeElement.offsetWidth + 25
-        : 10) + 'px';
+  this.authorLowOffset =  
+   (this.showLogo
+       ? this.LogoElement.nativeElement.offsetWidth + 15
+       : 10) + 'px';
   this.titleWidth = 'auto';
 }
 
@@ -1556,6 +1579,7 @@ if (this.centerTitle && this.TitleElement) {
     //set icon row to bottom
       this.offsetCharBottom = '-28px'
     }
+
 
 
     this.scriptFontSize = this.scriptFontSizeInput + 'px'
